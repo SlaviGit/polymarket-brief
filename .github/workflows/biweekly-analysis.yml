@@ -1,0 +1,33 @@
+name: Biweekly Sharp-Wallet Analysis
+
+on:
+  schedule:
+    # Cron kennt kein natives "alle 14 Tage" — läuft am 1. und 15. jedes
+    # Monats um 03:00 UTC, das entspricht ungefähr alle 2 Wochen.
+    - cron: '0 3 1,15 * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run biweekly analysis
+        run: python3 analyze_biweekly.py
+
+      - name: Commit and push results
+        run: |
+          git config user.name "polymarket-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/analysis_biweekly.json
+          git diff --cached --quiet || git commit -m "Biweekly sharp-wallet analysis $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          git push
