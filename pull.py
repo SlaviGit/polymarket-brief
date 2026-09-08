@@ -17,7 +17,7 @@ WALLETS = {
     "RememberAmalek": "0x6139c42e48cf190e67a0a85d492413b499336b7a",
     "DirkDiggler67": "0xaab9f5e600a5dd88fe3a6f93313b180f6220a08d",
     "tetrose": "0x74471a007ddcc488f6d57b5e86dfb35a8d48a16d",
-    "BobInvestments": "0x41816fc1ebdfeb33f6356f2655ab499253b3de86",
+    "Netrol": "0x23c8a4c266d10ba5846837eac391fea89ed6f293",
     "Slavi": "0x0FD4d56894D6e81CB9b8348C772C5Eaa4dd2E72f",
 }
 
