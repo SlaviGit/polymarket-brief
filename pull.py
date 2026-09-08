@@ -1,8 +1,16 @@
 #!/usr/bin/env python3
 """Daily Polymarket data pull for polymarket-brief.
+
 Runs on GitHub Actions (normal internet, no restrictions). Writes plain
 JSON into data/ which the daily tip task then reads via
 raw.githubusercontent.com instead of calling the live APIs itself.
+
+No wallet addresses are hardcoded here. The set of wallets tracked is
+read entirely from data/watchlist.json, which the biweekly analysis
+workflow (analyze_biweekly.py) regenerates automatically. If that file
+is missing or empty, this run simply fetches nothing but Slavi's own
+wallet -- a quiet, honest degradation instead of falling back to a
+stale hardcoded list.
 """
 import json
 import os
@@ -10,21 +18,12 @@ import time
 import urllib.request
 from datetime import datetime, timezone
 
-WALLETS = {
-    "Somali-Nationalist": "0x1f9e15f39bbd5d163b0eacf0fbef647ced9e4f1a",
-    "eCash": "0x62cf46cd4c3af254dccfc37a7f93de265b4b5826",
-    "coali10": "0x7bc14171ccb0d3e6bac219ec6a76211826e28db4",
-    "RememberAmalek": "0x6139c42e48cf190e67a0a85d492413b499336b7a",
-    "DirkDiggler67": "0xaab9f5e600a5dd88fe3a6f93313b180f6220a08d",
-    "tetrose": "0x74471a007ddcc488f6d57b5e86dfb35a8d48a16d",
-    "Netrol": "0x23c8a4c266d10ba5846837eac391fea89ed6f293",
-    "Slavi": "0x0FD4d56894D6e81CB9b8348C772C5Eaa4dd2E72f",
-}
+SLAVI_WALLET = "0x0FD4d56894D6e81CB9b8348C772C5Eaa4dd2E72f"
 
 DATA_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
 HEADERS = {"User-Agent": "polymarket-brief-bot/1.0"}
 RETRIES = 3
-SLEEP = 0.4
+SLEEP = 0.15
 
 
 def fetch(url):
@@ -48,6 +47,27 @@ def save(path, obj):
         json.dump(obj, f)
 
 
+def load_watchlist_wallets():
+    """Build {name: address} from data/watchlist.json (active + watch
+    tiers), which the biweekly analysis run maintains automatically.
+    No hardcoded wallets anywhere -- an unreadable/missing file just
+    means today's pull covers Slavi's own wallet only."""
+    path = os.path.join(DATA_DIR, "watchlist.json")
+    wallets = {}
+    try:
+        with open(path) as f:
+            wl = json.load(f)
+        for tier in ("active", "watch"):
+            for entry in wl.get(tier, []):
+                name = entry.get("name")
+                addr = entry.get("address")
+                if name and addr:
+                    wallets[name] = addr
+    except Exception as e:
+        print(f"watchlist.json nicht lesbar oder fehlt ({e}) -- heute keine Watchlist-Wallets, nur Slavis eigenes Wallet")
+    return wallets
+
+
 def main():
     errors = []
 
@@ -68,8 +88,11 @@ def main():
         errors.append("markets")
     time.sleep(SLEEP)
 
+    wallets = load_watchlist_wallets()
+    wallets["Slavi"] = SLAVI_WALLET
+
     wallets_out = {}
-    for name, addr in WALLETS.items():
+    for name, addr in wallets.items():
         entry = {}
         for key, tpl in (
             ("positions", "https://data-api.polymarket.com/positions?user={}&limit=500"),
@@ -84,13 +107,13 @@ def main():
                 errors.append(f"{name}:{key}")
             time.sleep(SLEEP)
         wallets_out[name] = {"address": addr, **entry}
-        save(f"wallets/{addr}.json", wallets_out[name])
+        save(f"wallets/{addr.lower()}.json", wallets_out[name])
 
-    save("wallets_index.json", {n: a for n, a in WALLETS.items()})
+    save("wallets_index.json", {n: a for n, a in wallets.items()})
 
     meta = {
         "fetched_at_utc": datetime.now(timezone.utc).isoformat(),
-        "wallets": list(WALLETS.keys()),
+        "wallets": list(wallets.keys()),
         "errors": errors,
     }
     save("meta.json", meta)
