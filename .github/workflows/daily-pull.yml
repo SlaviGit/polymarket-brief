@@ -2,7 +2,8 @@ name: Daily Polymarket Pull
 
 on:
   schedule:
-    - cron: '30 4 * * *'
+    - cron: '20 10 * * *'
+    - cron: '20 17 * * *'
   workflow_dispatch: {}
 
 permissions:
