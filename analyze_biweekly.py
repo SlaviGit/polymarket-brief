@@ -4,10 +4,13 @@
 Runs on GitHub Actions (unrestricted internet). No wallet addresses are
 hardcoded: candidates come entirely from (a) the previous watchlist.json
 (for continuity) and (b) a fresh leaderboard scan (for discovery) --
-now covering both the overall PNL leaderboard and the four category
-leaderboards (Politics/Economics/Culture/Tech), so a specialist sharp
-isn't drowned out by sports/esports whales in the overall ranking
-(2026-09-09 change). Writes:
+19 separate (period x category x orderBy) slices of the leaderboard
+(MONTH/WEEK/ALL x Politics/Economics/Culture/Tech, plus overall PNL and
+per-category VOL), each capped by the API itself at 50 rows regardless
+of the limit= requested. This is deliberately much wider than a single
+overall-PNL scan so a specialist sharp isn't drowned out by sports/
+esports whales (2026-09-09 change, widened further same day per
+request). Writes:
 
   data/analysis_biweekly.json  -- full raw results, for audit/reference
   data/watchlist.json          -- the roster the daily task and the daily
@@ -47,12 +50,12 @@ AUSSORTIERT = {
     "truthteller", "Trump2028", "BigRabbit",
 }
 
-MAX_CANDIDATES = 90
-MAX_TOKENS = 3000
+MAX_CANDIDATES = 400
+MAX_TOKENS = 10000
 MIN_TRADES_FOR_SIGNAL = 5
 ACTIVE_EDGE_MIN = 1.0
-MAX_ACTIVE = 10
-MAX_WATCH = 12
+MAX_ACTIVE = 40
+MAX_WATCH = 50
 
 session_token_budget = {"used": 0}
 
@@ -96,27 +99,31 @@ def load_candidates(prev_watchlist):
                 if addr:
                     candidates.setdefault(addr, {"name": entry.get("name"), "pnl": None, "vol": None})
 
-    # Scan order matters once MAX_CANDIDATES is hit: category leaderboards
-    # go first because they are the ones actually likely to surface a sharp
-    # who specializes in geopolitics/US-politics/econ -- traders the daily
-    # brief can use. The overall PNL leaderboard is scanned last as a
-    # broader (but sports/esports-whale-dominated) backstop; most of what
-    # it turns up ends up HFT-flagged anyway (see analysis_biweekly.json).
-    scans = [
-        ("MONTH", "POLITICS", 25),
-        ("MONTH", "ECONOMICS", 25),
-        ("MONTH", "CULTURE", 25),
-        ("MONTH", "TECH", 25),
-        ("ALL", "POLITICS", 25),
-        ("ALL", "ECONOMICS", 25),
-        ("ALL", "CULTURE", 25),
-        ("ALL", "TECH", 25),
-        ("MONTH", None, 100),
-        ("ALL", None, 100),
-    ]
+    # The leaderboard endpoint silently hard-caps at 50 rows per call no
+    # matter what `limit` says (tested: limit=25/50/100/300 all return at
+    # most 50) -- so more data means more distinct (period, category,
+    # orderBy) slices, not a bigger limit= value. Category scans go first
+    # since they're the ones likely to surface a sharp who specializes in
+    # geopolitics/US-politics/econ rather than a generic top-PNL whale.
+    # WEEK is included even though it's empty on some days (e.g. Mondays,
+    # per manual observation) -- fetch() + the isinstance check below just
+    # skip it harmlessly when that happens. orderBy=VOL surfaces a mostly
+    # different population (very high-volume, often low-PNL accounts) --
+    # most fail the pnl/roi filter below and the rest get HFT-flagged
+    # downstream anyway, but it costs little to check.
+    CATEGORIES = ("POLITICS", "ECONOMICS", "CULTURE", "TECH")
+    PERIODS = ("MONTH", "WEEK", "ALL")
+    scans = []
+    for cat in CATEGORIES:
+        for period in PERIODS:
+            scans.append((period, cat, 50, "PNL"))
+    for cat in CATEGORIES:
+        scans.append(("ALL", cat, 50, "VOL"))
+    for period in PERIODS:
+        scans.append((period, None, 50, "PNL"))
 
-    for period, category, limit in scans:
-        url = f"https://data-api.polymarket.com/v1/leaderboard?timePeriod={period}&orderBy=PNL&limit={limit}"
+    for period, category, limit, order_by in scans:
+        url = f"https://data-api.polymarket.com/v1/leaderboard?timePeriod={period}&orderBy={order_by}&limit={limit}"
         if category:
             url += f"&category={category}"
         data = fetch(url)
@@ -290,12 +297,21 @@ def build_watchlist(results, prev_watchlist):
                 watch.append({**entry_fields(r), "reason": "negative_edge_first_time"})
 
     active.sort(key=lambda w: -w["base_edge"])
-    active = active[:MAX_ACTIVE]
+    # Wallets that clear the active bar (edge >= ACTIVE_EDGE_MIN, unflagged)
+    # but don't fit in MAX_ACTIVE slots must NOT just vanish -- demote them
+    # to watch (confirmation-only) instead of dropping them.
+    if len(active) > MAX_ACTIVE:
+        overflow = active[MAX_ACTIVE:]
+        active = active[:MAX_ACTIVE]
+        for w in overflow:
+            watch.append({**w, "reason": "active_overflow"})
 
     def watch_priority(w):
         was_tracked = w["address"].lower() in prev_status
         return (0 if was_tracked else 1, -(w["base_edge"] or 0))
     watch.sort(key=watch_priority)
+    if len(watch) > MAX_WATCH:
+        print(f"WARNUNG: {len(watch) - MAX_WATCH} watch-taugliche Wallets ueber MAX_WATCH={MAX_WATCH} hinaus verworfen")
     watch = watch[:MAX_WATCH]
 
     return {"active": active, "watch": watch, "excluded_this_run": excluded}
