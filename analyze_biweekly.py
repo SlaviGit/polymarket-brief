@@ -3,7 +3,11 @@
 
 Runs on GitHub Actions (unrestricted internet). No wallet addresses are
 hardcoded: candidates come entirely from (a) the previous watchlist.json
-(for continuity) and (b) a fresh leaderboard scan (for discovery). Writes:
+(for continuity) and (b) a fresh leaderboard scan (for discovery) --
+now covering both the overall PNL leaderboard and the four category
+leaderboards (Politics/Economics/Culture/Tech), so a specialist sharp
+isn't drowned out by sports/esports whales in the overall ranking
+(2026-09-09 change). Writes:
 
   data/analysis_biweekly.json  -- full raw results, for audit/reference
   data/watchlist.json          -- the roster the daily task and the daily
@@ -43,8 +47,8 @@ AUSSORTIERT = {
     "truthteller", "Trump2028", "BigRabbit",
 }
 
-MAX_CANDIDATES = 70
-MAX_TOKENS = 1500
+MAX_CANDIDATES = 90
+MAX_TOKENS = 3000
 MIN_TRADES_FOR_SIGNAL = 5
 ACTIVE_EDGE_MIN = 1.0
 MAX_ACTIVE = 10
@@ -92,8 +96,29 @@ def load_candidates(prev_watchlist):
                 if addr:
                     candidates.setdefault(addr, {"name": entry.get("name"), "pnl": None, "vol": None})
 
-    for period in ("MONTH", "ALL"):
-        url = f"https://data-api.polymarket.com/v1/leaderboard?timePeriod={period}&orderBy=PNL&limit=100"
+    # Scan order matters once MAX_CANDIDATES is hit: category leaderboards
+    # go first because they are the ones actually likely to surface a sharp
+    # who specializes in geopolitics/US-politics/econ -- traders the daily
+    # brief can use. The overall PNL leaderboard is scanned last as a
+    # broader (but sports/esports-whale-dominated) backstop; most of what
+    # it turns up ends up HFT-flagged anyway (see analysis_biweekly.json).
+    scans = [
+        ("MONTH", "POLITICS", 25),
+        ("MONTH", "ECONOMICS", 25),
+        ("MONTH", "CULTURE", 25),
+        ("MONTH", "TECH", 25),
+        ("ALL", "POLITICS", 25),
+        ("ALL", "ECONOMICS", 25),
+        ("ALL", "CULTURE", 25),
+        ("ALL", "TECH", 25),
+        ("MONTH", None, 100),
+        ("ALL", None, 100),
+    ]
+
+    for period, category, limit in scans:
+        url = f"https://data-api.polymarket.com/v1/leaderboard?timePeriod={period}&orderBy=PNL&limit={limit}"
+        if category:
+            url += f"&category={category}"
         data = fetch(url)
         time.sleep(SLEEP)
         if not isinstance(data, list):
