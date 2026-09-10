@@ -55,6 +55,13 @@ MAX_TOKENS = 10000
 MIN_TRADES_FOR_SIGNAL = 5
 ACTIVE_EDGE_MIN = 1.0
 MAX_ACTIVE = 40
+# --- Liveness ---------------------------------------------------------------
+# Eine gemessene Edge zaehlt nur, wenn das Wallet noch handelt. Ohne diese
+# beiden Schranken landen Wallets, die vor Monaten aufgehoert haben, mit ihrer
+# historischen CLV in "active" und blockieren dort Plaetze (Stand 10.09.2026:
+# 8 von 13 aktiven Wallets ohne einen einzigen Trade in 30 Tagen).
+CLV_LOOKBACK_DAYS = 120        # aeltere Trades zaehlen nicht mehr zur CLV
+ACTIVE_MIN_TRADES_30D = 10     # darunter: dormant -> watch, nie active
 MAX_WATCH = 50
 
 session_token_budget = {"used": 0}
@@ -190,6 +197,11 @@ def get_price_history(token_id, cache):
 
 def analyze_wallet(addr, meta, price_cache):
     activity = get_activity(addr)
+    now_ts = int(time.time())
+    ts_all = [int(tr["timestamp"]) for tr in activity if tr.get("timestamp")]
+    last_trade_age_days = ((now_ts - max(ts_all)) / 86400.0) if ts_all else None
+    trades_30d = sum(1 for t in ts_all if now_ts - t <= 30 * 86400)
+    clv_cutoff_ts = now_ts - CLV_LOOKBACK_DAYS * 86400
     entries = []
     for tr in activity:
         try:
@@ -203,6 +215,8 @@ def analyze_wallet(addr, meta, price_cache):
             size = float(tr.get("size", 0)) or 1.0
             if not asset or ts is None:
                 continue
+            if int(ts) < clv_cutoff_ts:
+                continue
             entries.append({"asset": asset, "price": price, "ts": int(ts), "size": size})
         except Exception:
             continue
@@ -210,6 +224,8 @@ def analyze_wallet(addr, meta, price_cache):
     base = {
         "address": addr, "name": meta["name"], "pnl": meta["pnl"], "vol": meta["vol"],
         "n_trades_total": len(activity), "n_entries_used": len(entries),
+        "trades_30d": trades_30d,
+        "last_trade_age_days": round(last_trade_age_days, 1) if last_trade_age_days is not None else None,
     }
 
     if len(entries) < MIN_TRADES_FOR_SIGNAL:
@@ -257,6 +273,8 @@ def entry_fields(r):
         "base_edge": r.get("base_edge") or 0.0,
         "clv7_cents": r.get("clv7_cents"),
         "n_entries_used": r.get("n_entries_used"),
+        "trades_30d": r.get("trades_30d"),
+        "last_trade_age_days": r.get("last_trade_age_days"),
     }
 
 
@@ -283,9 +301,12 @@ def build_watchlist(results, prev_watchlist):
 
         edge = r.get("base_edge") or 0.0
         flagged = bool(r.get("flags"))
+        dormant = (r.get("trades_30d") or 0) < ACTIVE_MIN_TRADES_30D
 
         if flagged:
             watch.append({**entry_fields(r), "reason": "hft_flag"})
+        elif dormant:
+            watch.append({**entry_fields(r), "reason": "dormant"})
         elif edge >= ACTIVE_EDGE_MIN:
             active.append({**entry_fields(r), "reason": "active"})
         elif edge > 0:
