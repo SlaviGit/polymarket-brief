@@ -1,512 +1,449 @@
 #!/usr/bin/env python3
-"""Two-weekly full Sharp-Wallet re-measurement for polymarket-brief.
+"""Biweekly wallet measurement. Drop-in command: python3 analyze_biweekly.py.
 
-Runs on GitHub Actions (unrestricted internet). No wallet addresses are
-hardcoded: candidates come entirely from (a) the previous watchlist.json
-(for continuity) and (b) a fresh leaderboard scan (for discovery) --
-19 separate (period x category x orderBy) slices of the leaderboard
-(MONTH/WEEK/ALL x Politics/Economics/Culture/Tech, plus overall PNL and
-per-category VOL), each capped by the API itself at 50 rows regardless
-of the limit= requested. This is deliberately much wider than a single
-overall-PNL scan so a specialist sharp isn't drowned out by sports/
-esports whales (2026-09-09 change, widened further same day per
-request). Writes:
-
-  data/analysis_biweekly.json  -- full raw results, for audit/reference
-  data/watchlist.json          -- the roster the daily task and the daily
-                                   pull actually use (active / watch tiers)
-
-watchlist.json is regenerated automatically every run, using the PREVIOUS
-watchlist.json (read from the checked-out repo) to decide when a wallet
-that turned negative should finally be dropped. Nobody needs to hand-edit
-wallet lists anywhere -- promoting/demoting a wallet is fully automatic.
+Uses only the Python standard library; retains data paths and legacy JSON keys.
+Legacy base_edge/clv7_cents always describe the core seven-day measurement.
+Sports closing-price measurements are never substituted for seven-day CLV.
+The companion Tagesbrief instructions consume active_scopes and metrics.
+Sports-only active wallets intentionally have legacy base_edge 0. No orders are placed.
+Fixed shrinkage parameters are assumptions, not fitted empirical Bayes.
 """
-import json
-import os
-import time
-import urllib.request
+import argparse
+from collections import Counter, defaultdict
 from datetime import datetime, timezone
+import json
+import math
+from pathlib import Path
+import re
+import random
+import statistics
+import tempfile
+import time
+from urllib.parse import urlencode
+from urllib.request import Request, urlopen
 
-DATA_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
-HEADERS = {"User-Agent": "polymarket-brief-bot/1.0"}
-RETRIES = 3
-SLEEP = 0.25
-
-# Usernames already investigated and permanently rejected (fraud/quality
-# patterns that don't show up in the automatic flags below).
-AUSSORTIERT = {
-    "pleaseplease123", "sainttroplay", "wr0ngw4yb3tt0r", "Flaznorp",
-    "ferrariChampions2026", "balthazar", "totoro3miyazaki", "BillyGating",
-    "Talvez10", "11vsldfdsgfkjgos", "WTSA", "Jsram", "matanovik",
-    "gambamaster", "theowalcott", "ColomboHex", "ExplosiveNinja",
-    "zofgkt1111", "e46m3", "Railcool", "Mysaria", "SASGOLD", "donthackme",
-    "suhail-frenz-account187", "northdrawer", "hansama231", "robban888",
-    "b324u", "CongoleseBorat", "Elenes", "JnStrtPrdctnMrkts", "cigarettes",
-    "merod", "korda77", "mustbethewater", "fishalive", "mintblade",
-    "frostrizz", "Len9311238", "sparklingwater123", "GRIMDRIP", "RepTrump",
-    "endlessFate", "Anjun", "gaven-willwin", "CryptoVagabond", "Hourglass",
-    "Corlys", "alwayslatetotheparty", "godblessme2026", "quietparcel",
-    "smallreceipt", "dddtrips", "Mustafa0101", "VictorLudorum", "TwoEyes",
-    "truthteller", "Trump2028", "BigRabbit",
-}
-
+AUSSORTIERT = ['11vsldfdsgfkjgos', 'Anjun', 'BigRabbit', 'BillyGating', 'ColomboHex', 'CongoleseBorat', 'Corlys', 'CryptoVagabond', 'Elenes', 'ExplosiveNinja', 'Flaznorp', 'GRIMDRIP', 'Hourglass', 'JnStrtPrdctnMrkts', 'Jsram', 'Len9311238', 'Mustafa0101', 'Mysaria', 'Railcool', 'RepTrump', 'SASGOLD', 'Talvez10', 'Trump2028', 'TwoEyes', 'VictorLudorum', 'WTSA', 'alwayslatetotheparty', 'b324u', 'balthazar', 'cigarettes', 'dddtrips', 'donthackme', 'e46m3', 'endlessFate', 'ferrariChampions2026', 'fishalive', 'frostrizz', 'gambamaster', 'gaven-willwin', 'godblessme2026', 'hansama231', 'korda77', 'matanovik', 'merod', 'mintblade', 'mustbethewater', 'northdrawer', 'pleaseplease123', 'quietparcel', 'robban888', 'sainttroplay', 'smallreceipt', 'sparklingwater123', 'suhail-frenz-account187', 'theowalcott', 'totoro3miyazaki', 'truthteller', 'wr0ngw4yb3tt0r', 'zofgkt1111']
+DAY = 86400
+MIN_EVENTS = 5
 MAX_CANDIDATES = 800
 MAX_TOKENS = 18000
-MAX_ENTRIES_PER_WALLET = 150   # je Wallet reichen 150 Messpunkte; alles darueber
-                               # kostet Token-Abrufe ohne den Standardfehler noch
-                               # nennenswert zu senken (SE faellt mit 1/sqrt(n))
-DEADLINE_MIN = 300             # harte Wanduhr-Grenze; GitHub bricht bei 360 ab.
-                               # Ohne diese Schranke lief der Job mit 1200/30000
-                               # rechnerisch 364 Min und waere mitten in der
-                               # Messung abgebrochen -- ohne brauchbare Ausgabe.
-MIN_TRADES_FOR_SIGNAL = 5
-# Vorfilter auf der Leaderboard-Zeile, VOR jeder Messung. Stand 14.09.2026 warf
-# er 21 von 50 Zeilen weg, alle am ROI -- also 42 % der Kandidaten, bevor auch
-# nur eine CLV berechnet wurde. Das war der eigentliche Engpass, nicht
-# MAX_CANDIDATES. Ein Wallet mit hohem Umsatz und 8 % ROI ist genau das Profil,
-# das die VOL-Schnitte finden sollen; der alte Wert 0.10 hat sie sofort wieder
-# aussortiert und die Verbreiterung des Scans damit weitgehend wirkungslos
-# gemacht. Die CLV-Messung weiter unten ist der ehrliche Filter -- dieser hier
-# soll nur offensichtlichen Unsinn fernhalten.
-MIN_PNL = 25000
-MIN_ROI = 0.05
+MAX_ENTRIES_PER_WALLET = 150
+DEADLINE_MIN = 300
+DATA_DIR = Path(__file__).resolve().parent / "data"
 ACTIVE_EDGE_MIN = 1.5
-MAX_ACTIVE = 60
-
-# --- Schrumpfung (2026-09-14 neu gefasst) ----------------------------------
-# Vorher: base_edge = clv7 * used/(used+800) -- eine einzige globale Konstante,
-# die zwei voellig verschiedene Korrekturen vermischte und beide falsch traf.
-#
-# (a) MESSRAUSCHEN. Ein Wallet, das Tagesmaerkte handelt (Fussball, Esports),
-#     wird 7 Tage nach Einstieg gegen einen Preis von 0 oder 1 gemessen -- der
-#     Markt ist laengst aufgeloest. Seine "CLV" ist realisierter Gewinn je
-#     Anteil mit einer Streuung von rund 50c je Trade. Ein Wallet in langsamen
-#     Maerkten wird gegen einen echten Zwischenpreis gemessen, Streuung rund
-#     12c. Eine globale Konstante bestraft beide gleich und ist damit fuer das
-#     eine zu lasch und fuer das andere zu hart. Neu wird je Wallet aus den
-#     eigenen Einzel-CLVs der Standardfehler berechnet und damit geschrumpft
-#     (Empirical Bayes): faktor = V_TRUE / (V_TRUE + se^2).
-# (b) SELEKTIONSVERZERRUNG. Die Kandidaten kommen aus dem Leaderboard, sind
-#     also danach ausgewaehlt, dass sie bereits gewonnen haben. Ein Teil jeder
-#     gemessenen Edge ist Rueckschau. Das ist ein EIGENER Abschlag und gehoert
-#     nicht in dieselbe Zahl wie das Messrauschen.
-# Empirisch aus data/analysis_biweekly.json (70 gemessene Wallets, 14.09.2026):
-# Streuung der wahren Edge zwischen Wallets rund 5-8c, Messrauschen je Trade
-# 12-50c je nach Markttyp. Die alten 800 entsprachen einem Rauschen/Skill-
-# Verhaeltnis von etwa 800 -- die Daten stuetzen 4 bis 50.
-V_TRUE = 25.0          # angenommene Varianz der ECHTEN Edge zwischen Wallets, in c^2 (SD 5c)
-SELECTION_HAIRCUT = 0.6  # Abschlag fuer Leaderboard-Selektion; 1.0 = kein Abschlag
-EDGE_CAP = 10.0        # vorher 6.0 -- sonst laufen die starken Wallets alle am Deckel zusammen
-# --- Liveness ---------------------------------------------------------------
-# Eine gemessene Edge zaehlt nur, wenn das Wallet noch handelt. Ohne diese
-# beiden Schranken landen Wallets, die vor Monaten aufgehoert haben, mit ihrer
-# historischen CLV in "active" und blockieren dort Plaetze (Stand 10.09.2026:
-# 8 von 13 aktiven Wallets ohne einen einzigen Trade in 30 Tagen).
-CLV_LOOKBACK_DAYS = 180        # war 120; mehr Einstiege je Wallet -> kleinerer Standardfehler
-                               # -> weniger Schrumpfung -> mehr Wallets ueber der Gebuehrengrenze
-ACTIVE_MIN_TRADES_30D = 10     # darunter: dormant -> watch, nie active
-MAX_WATCH = 80
-
-session_token_budget = {"used": 0}
-run_start_ts = time.time()
+MAX_ACTIVE, MAX_WATCH = 60, 80
+PRIOR_VARIANCE, SELECTION_HAIRCUT, EDGE_CAP = 25.0, 0.6, 10.0
 
 
-def out_of_time():
-    return (time.time() - run_start_ts) > DEADLINE_MIN * 60
-
-
-def fetch(url):
-    last_err = None
-    for attempt in range(RETRIES):
-        try:
-            req = urllib.request.Request(url, headers=HEADERS)
-            with urllib.request.urlopen(req, timeout=30) as resp:
-                return json.loads(resp.read().decode("utf-8"))
-        except Exception as e:
-            last_err = e
-            time.sleep(1 + attempt)
-    print(f"FEHLER bei {url}: {last_err}")
-    return None
-
-
-def save(path, obj):
-    full = os.path.join(DATA_DIR, path)
-    os.makedirs(os.path.dirname(full), exist_ok=True)
-    with open(full, "w") as f:
-        json.dump(obj, f)
-
-
-def load_previous_watchlist():
-    path = os.path.join(DATA_DIR, "watchlist.json")
+def number(x):
     try:
-        with open(path) as f:
-            return json.load(f)
-    except Exception:
+        x = float(x)
+        return x if math.isfinite(x) else None
+    except (TypeError, ValueError):
         return None
 
 
-def load_candidates(prev_watchlist):
-    candidates = {}
-    if prev_watchlist:
-        for tier in ("active", "watch"):
-            for entry in prev_watchlist.get(tier, []):
-                addr = str(entry.get("address", "")).lower()
-                if addr:
-                    candidates.setdefault(addr, {"name": entry.get("name"), "pnl": None, "vol": None})
-
-    # The leaderboard endpoint silently hard-caps at 50 rows per call no
-    # matter what `limit` says (tested: limit=25/50/100/300 all return at
-    # most 50) -- so more data means more distinct (period, category,
-    # orderBy) slices, not a bigger limit= value. Category scans go first
-    # since they're the ones likely to surface a sharp who specializes in
-    # geopolitics/US-politics/econ rather than a generic top-PNL whale.
-    # WEEK is included even though it's empty on some days (e.g. Mondays,
-    # per manual observation) -- fetch() + the isinstance check below just
-    # skip it harmlessly when that happens. orderBy=VOL surfaces a mostly
-    # different population (very high-volume, often low-PNL accounts) --
-    # most fail the pnl/roi filter below and the rest get HFT-flagged
-    # downstream anyway, but it costs little to check.
-    CATEGORIES = ("POLITICS", "ECONOMICS", "CULTURE", "TECH")
-    PERIODS = ("MONTH", "WEEK", "ALL")
-    # 2026-09-14: Trichter verbreitert. Der Endpoint deckelt jede Antwort bei 50
-    # Zeilen, mehr Kandidaten gibt es also nur ueber mehr SCHNITTE, nicht ueber
-    # ein groesseres limit=. Neu wird jede Kategorie auch nach VOL und in jeder
-    # Periode gescannt, nicht nur nach PNL -- ein Sharp mit hohem Umsatz und
-    # mittlerem Gewinn taucht in der PNL-Rangliste nie auf, hat aber oft die
-    # sauberere CLV als ein einmaliger Grosstreffer.
-    scans = []
-    for cat in CATEGORIES:
-        for period in PERIODS:
-            scans.append((period, cat, 50, "PNL"))
-            scans.append((period, cat, 50, "VOL"))
-    for period in PERIODS:
-        scans.append((period, None, 50, "PNL"))
-        scans.append((period, None, 50, "VOL"))
-
-    for period, category, limit, order_by in scans:
-        url = f"https://data-api.polymarket.com/v1/leaderboard?timePeriod={period}&orderBy={order_by}&limit={limit}"
-        if category:
-            url += f"&category={category}"
-        data = fetch(url)
-        time.sleep(SLEEP)
-        if not isinstance(data, list):
-            continue
-        for row in data:
-            addr = str(row.get("proxyWallet", "")).lower()
-            uname = row.get("userName", "")
-            if not addr or uname in AUSSORTIERT or addr in candidates:
-                continue
-            pnl = row.get("pnl")
-            vol = row.get("vol")
-            if pnl is None or vol is None or vol <= 0:
-                continue
-            roi = pnl / vol
-            if pnl < MIN_PNL or roi < MIN_ROI:
-                continue
-            candidates[addr] = {"name": uname, "pnl": pnl, "vol": vol}
-        # Frueher wurde hier bei Erreichen von MAX_CANDIDATES die GESAMTE
-        # Scan-Schleife abgebrochen. Damit liefen die spaeteren, spezifischeren
-        # Schnitte nie -- ausgerechnet die, die Fach-Sharps finden sollen.
-        # Jetzt wird nur noch dieser Schnitt beendet.
-        if len(candidates) >= MAX_CANDIDATES or out_of_time():
-            break
-
-    return candidates
-
-
-def get_activity(addr):
-    url = f"https://data-api.polymarket.com/activity?user={addr}&limit=500&type=TRADE"
-    data = fetch(url)
-    time.sleep(SLEEP)
-    return data if isinstance(data, list) else []
-
-
-def price_at_or_after(history, target_ts):
-    if not history:
+def timestamp(x):
+    n = number(x)
+    if n is not None:
+        return n
+    try:
+        dt = datetime.fromisoformat(str(x).replace('Z', '+00:00'))
+        return dt.timestamp() if dt.tzinfo else None
+    except ValueError:
         return None
-    for point in history:
-        t = point.get("t")
-        if t is not None and t >= target_ts:
-            return point.get("p")
-    return history[-1].get("p")
 
 
-def get_price_history(token_id, cache):
-    if token_id in cache:
-        return cache[token_id]
-    if session_token_budget["used"] >= MAX_TOKENS or out_of_time():
-        cache[token_id] = None
-        return None
-    url = f"https://clob.polymarket.com/prices-history?market={token_id}&interval=max&fidelity=1440"
-    data = fetch(url)
-    time.sleep(SLEEP)
-    session_token_budget["used"] += 1
-    hist = None
-    if isinstance(data, dict) and isinstance(data.get("history"), list):
-        hist = sorted(
-            (p for p in data["history"] if isinstance(p.get("t"), (int, float))),
-            key=lambda p: p["t"],
-        )
-    cache[token_id] = hist
-    return hist
-
-
-def analyze_wallet(addr, meta, price_cache):
-    activity = get_activity(addr)
-    now_ts = int(time.time())
-    ts_all = [int(tr["timestamp"]) for tr in activity if tr.get("timestamp")]
-    last_trade_age_days = ((now_ts - max(ts_all)) / 86400.0) if ts_all else None
-    trades_30d = sum(1 for t in ts_all if now_ts - t <= 30 * 86400)
-    clv_cutoff_ts = now_ts - CLV_LOOKBACK_DAYS * 86400
-    entries = []
-    for tr in activity:
+def atomic_save(path, value):
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.NamedTemporaryFile(mode='w', dir=path.parent, delete=False) as f:
+        tmp = Path(f.name)
         try:
-            if tr.get("side") != "BUY" or tr.get("type") != "TRADE":
-                continue
-            price = float(tr.get("price", 0))
-            if not (0.03 <= price <= 0.97):   # war 0.05-0.92; enger Band warf Einstiege weg
-                continue
-            asset = tr.get("asset")
-            ts = tr.get("timestamp")
-            size = float(tr.get("size", 0)) or 1.0
-            if not asset or ts is None:
-                continue
-            if int(ts) < clv_cutoff_ts:
-                continue
-            entries.append({"asset": asset, "price": price, "ts": int(ts), "size": size})
+            json.dump(value, f, indent=2, allow_nan=False)
+            f.write('\n')
         except Exception:
+            tmp.unlink(missing_ok=True)
+            raise
+    tmp.replace(path)
+
+
+class BudgetExceeded(RuntimeError):
+    pass
+
+
+class Client:
+    def __init__(self, budget=MAX_TOKENS, deadline_min=DEADLINE_MIN):
+        self.started = time.monotonic()
+        self.deadline = self.started + deadline_min*60
+        self.budget = budget
+        self.history_calls = 0
+        self.markets = {}
+        self.histories = {}
+        self.errors = []
+
+    def check_deadline(self):
+        if time.monotonic() >= self.deadline:
+            raise BudgetExceeded('Wall-clock budget exhausted')
+
+    def get(self, base, **params):
+        url = base + '?' + urlencode(params)
+        for attempt in range(3):
+            self.check_deadline()
+            try:
+                time.sleep(0.25)
+                with urlopen(Request(url, headers={'User-Agent': 'polymarket-brief/2.0'}), timeout=30) as r:
+                    return json.load(r)
+            except (OSError, ValueError) as exc:
+                if attempt == 2:
+                    self.errors.append({'url': url, 'error': str(exc)})
+                    raise RuntimeError(f'API request failed: {url}') from exc
+                time.sleep(2 ** attempt)
+
+    def market(self, condition):
+        if condition not in self.markets:
+            rows = self.get('https://gamma-api.polymarket.com/markets', condition_ids=condition)
+            if not isinstance(rows, list):
+                raise ValueError('Invalid market response')
+            self.markets[condition] = next((r for r in rows if r.get('conditionId') == condition), None)
+        return self.markets[condition]
+
+    def history(self, token, target, gap, scope):
+        # Keep the benchmark inside a bounded window; never use a later quote.
+        key = (token, int(target), scope)
+        if key not in self.histories:
+            if self.history_calls >= self.budget:
+                raise BudgetExceeded('History request budget exhausted')
+            self.history_calls += 1
+            response = self.get('https://clob.polymarket.com/prices-history', market=token,
+                                startTs=int(target-max(gap, 3600)), endTs=int(target+60),
+                                fidelity=1 if scope == 'sports' else 60)
+            if not isinstance(response, dict) or not isinstance(response.get('history'), list):
+                raise ValueError('Invalid history response')
+            self.histories[key] = response['history']
+        return self.histories[key]
+
+
+def candidates(client, previous, limit, pages=2):
+    found = {}
+    rejected = {n.casefold() for n in AUSSORTIERT}
+    def add(address, name, **meta):
+        address = str(address).lower()
+        if re.fullmatch(r'0x[0-9a-f]{40}', address) and str(name).casefold() not in rejected:
+            found.setdefault(address, {'name': name, 'pnl': None, 'vol': None, **meta})
+    for tier in ('active', 'watch', 'overflow'):
+        for row in previous.get(tier, []):
+            add(row.get('address'), row.get('name'))
+    if len(found) > limit:
+        raise ValueError('Candidate budget smaller than existing roster')
+    # Scan every slice first, then allocate discovery slots across slices.
+    # Thus SPORTS and later categories both get a chance under a small budget.
+    pools = []
+    # Round-robin categories before deeper pages: do not fill the budget with one category.
+    for page in range(pages):
+        for period in ('MONTH', 'WEEK', 'ALL'):
+            for order in ('PNL', 'VOL'):
+                for category in ('SPORTS', 'POLITICS', 'ECONOMICS', 'CULTURE', 'TECH', 'OVERALL'):
+                    rows = client.get('https://data-api.polymarket.com/v1/leaderboard',
+                                      timePeriod=period, orderBy=order, category=category,
+                                      limit=50, offset=50*page)
+                    if not isinstance(rows, list):
+                        raise ValueError('Invalid leaderboard response')
+                    pool = []
+                    for row in rows:
+                        pnl, vol = number(row.get('pnl')), number(row.get('vol'))
+                        # Discovery only. Profit/turnover is not a skill estimate.
+                        if pnl is not None and vol is not None and pnl > 0 and vol >= 10000:
+                            pool.append((row.get('proxyWallet'), row.get('userName'), pnl, vol))
+                    pools.append(pool)
+    for rank in range(50):
+        for pool in pools:
+            if len(found) >= limit:
+                return found
+            if rank < len(pool):
+                addr, name, pnl, vol = pool[rank]
+                add(addr, name, pnl=pnl, vol=vol)
+    return found
+
+
+def activity(client, address, now, pages=10):
+    seen, result = set(), []
+    cutoff = now - 180*DAY
+    for page in range(pages):
+        rows = client.get('https://data-api.polymarket.com/activity', user=address,
+                          type='TRADE', limit=500, offset=500*page,
+                          sortBy='TIMESTAMP', sortDirection='DESC', end=int(now))
+        if not isinstance(rows, list):
+            raise ValueError('Invalid activity response')
+        times = []
+        for row in rows:
+            ts = timestamp(row.get('timestamp'))
+            if ts is None:
+                continue
+            times.append(ts)
+            key = tuple(str(row.get(k)) for k in ('transactionHash', 'asset', 'side', 'timestamp', 'size', 'price'))
+            if cutoff <= ts <= now and key not in seen and row.get('type') == 'TRADE':
+                seen.add(key)
+                result.append(row)
+        if len(rows) < 500 or (times and min(times) < cutoff):
+            return result, False
+    return result, True
+
+
+def price_before(history, target, max_gap):
+    valid = [(number(p.get('t')), number(p.get('p'))) for p in history]
+    valid = [(t, p) for t, p in valid if t is not None and p is not None
+             and target-max_gap <= t <= target and 0 < p < 1]
+    return max(valid, key=lambda x: x[0])[1] if valid else None
+
+
+def benchmark(trade, market, now):
+    ts = timestamp(trade.get('timestamp'))
+    start = timestamp(market.get('gameStartTime'))
+    tags = market.get('tags') or []
+    sports = bool(start or market.get('sportsMarketType') or any(
+        str(t.get('slug', '')).lower() == 'sports' for t in tags))
+    if sports:
+        if start is None:
+            return None, 'sports_missing_start'
+        target, gap, scope = start-60, 15*60, 'sports'
+        closed = timestamp(market.get('closedTime'))
+        if closed is not None and closed <= target:
+            return None, 'closed_before_sports_benchmark'
+        if start > now:
+            return None, 'immature'
+    else:
+        target, gap, scope = ts+7*DAY, 2*3600, 'core'
+        # Fail closed for historical closed markets with no timestamped closure.
+        end = timestamp(market.get('endDate'))
+        closed = timestamp(market.get('closedTime'))
+        if market.get('closed') and closed is None:
+            return None, 'unknown_closure_time'
+        if any(t is not None and target >= t for t in (end, closed)):
+            return None, 'ended_before_benchmark'
+    if target > now or ts >= target:
+        return None, 'immature_or_inplay'
+    return (scope, target, gap), None
+
+
+def summarize(events):
+    # Within event: share-weighted. Across events: equal weight, including SE.
+    values = [sum(c*s for c, s in fills)/sum(s for _, s in fills) for fills in events.values()]
+    n = len(values)
+    result = {'n_independent_events': n, 'n_entries_used': sum(map(len, events.values())), 'sample': 'insufficient'}
+    if n < MIN_EVENTS:
+        return result
+    mean = statistics.mean(values)
+    # Explicit modelling floor avoids certainty from identical repeated values.
+    se2 = max(statistics.variance(values)/n, 1.0)
+    factor = PRIOR_VARIANCE/(PRIOR_VARIANCE+se2)
+    signed = mean*factor*SELECTION_HAIRCUT
+    return {**result, 'sample': 'ok', 'mean_clv_cents': mean, 'clv_se': se2**0.5,
+            'clv_sd_per_entry': statistics.stdev(values),
+            'shrink_factor': factor, 'signed_edge': signed,
+            'base_edge': round(min(EDGE_CAP, max(0, signed)), 2)}
+
+
+def analyze_wallet(client, address, meta, now, pages=10):
+    rows, truncated = activity(client, address, now, pages)
+    all_rows = rows
+    eligible = [r for r in rows if r.get('side') == 'BUY' and not r.get('isCombo')
+                and number(r.get('size')) is not None and number(r['size']) > 0
+                and number(r.get('price')) is not None and .03 <= number(r['price']) <= .97]
+    available = len(eligible)
+    # Reproducible fill sampling, not falsely described as uniform over time.
+    eligible.sort(key=lambda r: (timestamp(r['timestamp']), str(r.get('transactionHash')), str(r.get('asset'))))
+    sampled = available > MAX_ENTRIES_PER_WALLET
+    rows = random.Random(address).sample(eligible, MAX_ENTRIES_PER_WALLET) if sampled else eligible
+    groups = {'sports': defaultdict(list), 'core': defaultdict(list)}
+    skipped = Counter()
+    for row in rows:
+        p, size = number(row.get('price')), number(row.get('size'))
+        if row.get('isCombo') or row.get('side') != 'BUY' or p is None or not 0.03 <= p <= 0.97 or size is None or size <= 0:
+            skipped['invalid_or_ineligible_entry'] += 1
             continue
-
-    base = {
-        "address": addr, "name": meta["name"], "pnl": meta["pnl"], "vol": meta["vol"],
-        "n_trades_total": len(activity), "n_entries_used": len(entries),
-        "trades_30d": trades_30d,
-        "last_trade_age_days": round(last_trade_age_days, 1) if last_trade_age_days is not None else None,
-    }
-
-    if len(entries) < MIN_TRADES_FOR_SIGNAL:
-        return {**base, "sample": "insufficient", "clv7_cents": None, "base_edge": None, "flags": []}
-
-    # Nicht alle Einstiege messen. Der Standardfehler faellt mit 1/sqrt(n) --
-    # von 150 auf 500 Messpunkte gewinnt man rund 40 % SE, kostet aber das
-    # Dreifache an Token-Abrufen. Gleichmaessig ueber den Zeitraum ausduennen
-    # (nicht die juengsten nehmen), damit die Stichprobe unverzerrt bleibt.
-    if len(entries) > MAX_ENTRIES_PER_WALLET:
-        step = len(entries) / MAX_ENTRIES_PER_WALLET
-        entries = [entries[int(i * step)] for i in range(MAX_ENTRIES_PER_WALLET)]
-
-    weighted_sum = 0.0
-    weight_total = 0.0
-    used = 0
-    weight_sq_total = 0.0
-    clv_values = []      # (CLV, Groesse) je Einstieg, fuer den Standardfehler
-    resolved_hits = 0    # Einstiege, deren Markt nach 7 Tagen schon aufgeloest war
-    for e in entries:
-        hist = get_price_history(e["asset"], price_cache)
-        if not hist:
+        if not row.get('conditionId') or not row.get('asset'):
+            skipped['missing_identifiers'] += 1
             continue
-        p7 = price_at_or_after(hist, e["ts"] + 7 * 86400)
-        if p7 is None:
+        market = client.market(row['conditionId'])
+        if not market:
+            skipped['missing_market'] += 1
             continue
-        p7f = float(p7)
-        clv = (p7f - e["price"]) * 100.0
-        if p7f >= 0.99 or p7f <= 0.01:
-            resolved_hits += 1
-        weighted_sum += clv * e["size"]
-        weight_total += e["size"]
-        weight_sq_total += e["size"] ** 2
-        clv_values.append((clv, e["size"]))
-        used += 1
-
-    flags = []
-    if len(activity) >= 5000:
-        flags.append("very_high_frequency")
-    ts_list = [tr.get("timestamp") for tr in activity if tr.get("timestamp")]
-    if len(ts_list) >= 2:
-        span_days = (max(ts_list) - min(ts_list)) / 86400
-        if span_days and (len(activity) / span_days) > 50:
-            flags.append("possible_hft_or_market_maker")
-
-    base["n_entries_used"] = used
-    base["n_entries_available"] = len(entries)
-
-    if weight_total <= 0 or used < MIN_TRADES_FOR_SIGNAL:
-        return {**base, "sample": "insufficient", "clv7_cents": None, "base_edge": None, "flags": flags}
-
-    clv7 = weighted_sum / weight_total
-
-    # Standardfehler des Wallet-Mittels aus seinen EIGENEN Einzel-CLVs.
-    # WICHTIG: clv7 ist ein GROESSENGEWICHTETES Mittel. Eine ungewichtete
-    # Varianz durch n zu teilen waere falsch -- ein Wallet mit einem Trade zu
-    # 100'000 $ und 400 Trades zu 10 $ haette rechnerisch n = 401, effektiv
-    # aber knapp 1. Der Standardfehler waere dann um Groessenordnungen zu
-    # klein, die Schrumpfung entsprechend zu schwach und die Edge frei
-    # erfunden. Korrekt ist die effektive Stichprobengroesse nach Kish:
-    #     n_eff = (Summe w)^2 / Summe w^2
-    # zusammen mit der ebenfalls gewichteten Varianz.
-    var_entry = sum(w * (c - clv7) ** 2 for c, w in clv_values) / weight_total
-    n_eff = (weight_total ** 2 / weight_sq_total) if weight_sq_total > 0 else 1.0
-    se2 = var_entry / max(n_eff, 1.0)
-
-    shrink_factor = V_TRUE / (V_TRUE + se2)      # Empirical Bayes
-    shrunk = clv7 * shrink_factor * SELECTION_HAIRCUT
-    base_edge = round(min(EDGE_CAP, max(0.0, shrunk)), 1)
-    legacy_edge = round(min(6.0, max(0.0, clv7 * (used / (used + 800)))), 1)
-
-    return {**base, "sample": "ok", "clv7_cents": round(clv7, 2),
-            "clv_sd_per_entry": round(var_entry ** 0.5, 1),
-            "clv_se": round(se2 ** 0.5, 2),
-            "n_eff": round(n_eff, 1),
-            "shrink_factor": round(shrink_factor, 3),
-            "resolved_share": round(resolved_hits / used, 2),
-            "base_edge": base_edge, "base_edge_legacy_k800": legacy_edge,
-            "flags": flags}
+        spec, reason = benchmark(row, market, now)
+        if not spec:
+            skipped[reason] += 1
+            continue
+        scope, target, gap = spec
+        # Do not use pre-entry quotes as a post-entry measurement.
+        quote = price_before(client.history(row['asset'], target, gap, scope), target,
+                             min(gap, target-timestamp(row['timestamp'])))
+        if quote is None or quote <= 0.01 or quote >= 0.99:
+            skipped['missing_or_extreme_quote'] += 1
+            continue
+        events = market.get('events') or []
+        event = (events[0].get('id') or events[0].get('slug')) if events else None
+        event = event or row.get('eventSlug') or row['conditionId']
+        groups[scope][event].append(((quote-p)*100, size))
+    metrics = {scope: summarize(events) for scope, events in groups.items()}
+    # Legacy consumers do not know market scopes. Preserve their seven-day
+    # contract; never feed sports closing CLV into the old probability formula.
+    scope = 'core' if metrics['core']['sample'] == 'ok' else None
+    chosen = metrics.get(scope, {})
+    sports_only = not scope and metrics['sports']['sample'] == 'ok'
+    times = [timestamp(r['timestamp']) for r in all_rows]
+    return {'address': address, **meta, 'sample': 'ok' if scope or sports_only else 'insufficient',
+            'sports_only': sports_only, 'sports_metrics': metrics['sports'],
+            'n_entries_available': available, 'entries_sampled': sampled,
+            'n_trades_total': len(all_rows),
+            'last_trade_age_days': round((now-max(times))/DAY, 1) if times else None,
+            'clv_sd_per_entry': chosen.get('clv_sd_per_entry'),
+            'clv_se': chosen.get('clv_se'), 'n_eff': chosen.get('n_independent_events', 0),
+            'shrink_factor': chosen.get('shrink_factor'), 'resolved_share': 0.0,
+            'base_edge_legacy_k800': round(min(6, max(0, chosen.get('mean_clv_cents', 0)*
+                chosen.get('n_entries_used', 0)/(chosen.get('n_entries_used', 0)+800))), 1),
+            'measured_at_utc': datetime.fromtimestamp(now, timezone.utc).isoformat(),
+            'metrics': metrics, 'signal_scope': scope, 'base_edge': chosen.get('base_edge', 0.0),
+            'signed_edge': chosen.get('signed_edge'),
+            'clv7_cents': metrics['core'].get('mean_clv_cents'),
+            'n_entries_used': metrics['core']['n_entries_used'],
+            'n_entries_used_all_scopes': sum(m['n_entries_used'] for m in metrics.values()),
+            'trades_30d': sum(timestamp(r['timestamp']) >= now-30*DAY for r in all_rows),
+            'activity_truncated': truncated, 'skipped': dict(skipped),
+            'flags': ['activity_truncated'] if truncated else []}
 
 
-def entry_fields(r):
-    return {
-        "name": r["name"], "address": r["address"],
-        "base_edge": r.get("base_edge") or 0.0,
-        "clv7_cents": r.get("clv7_cents"),
-        "clv_sd_per_entry": r.get("clv_sd_per_entry"),
-        "shrink_factor": r.get("shrink_factor"),
-        "resolved_share": r.get("resolved_share"),
-        "n_entries_used": r.get("n_entries_used"),
-        "trades_30d": r.get("trades_30d"),
-        "last_trade_age_days": r.get("last_trade_age_days"),
-    }
-
-
-def build_watchlist(results, prev_watchlist):
-    prev_status = {}
-    if prev_watchlist:
-        for tier in ("active", "watch"):
-            for w in prev_watchlist.get(tier, []):
-                prev_status[w["address"].lower()] = {"tier": tier, "base_edge": w.get("base_edge") or 0.0}
-
-    by_addr = {r["address"].lower(): r for r in results}
-
+def build_watchlist(results, previous):
+    prior = {r['address'].lower(): r for tier in ('active', 'watch', 'overflow')
+             for r in previous.get(tier, [])}
     active, watch, excluded = [], [], []
-
-    for addr, r in by_addr.items():
-        prev = prev_status.get(addr)
-
-        if r.get("sample") != "ok":
-            if prev and prev["tier"] in ("active", "watch"):
-                watch.append({"name": r["name"], "address": r["address"],
-                              "base_edge": prev["base_edge"], "clv7_cents": None,
-                              "n_entries_used": r.get("n_entries_used"), "reason": "stale_no_new_sample"})
+    seen = {r['address'].lower() for r in results}
+    results = list(results) + [dict(address=addr, name=old.get('name'), sample='not_measured')
+                              for addr, old in prior.items() if addr not in seen]
+    for r in results:
+        old = prior.get(r['address'].lower(), {})
+        if r.get('sample') != 'ok':
+            if old:
+                watch.append({**old, **r, 'base_edge': 0.0,
+                              'previous_base_edge': old.get('base_edge'),
+                              'clv7_cents': None, 'clv_sd_per_entry': None,
+                              'shrink_factor': None, 'resolved_share': None,
+                              'trades_30d': r.get('trades_30d'),
+                              'last_trade_age_days': r.get('last_trade_age_days'),
+                              'n_entries_used': r.get('n_entries_used', 0),
+                              'metrics': r.get('metrics', {}), 'sports_metrics': {},
+                              'signal_scope': None, 'signed_edge': None,
+                              'active_scopes': [], 'negative_streak': 0,
+                              'negative_streaks': {}, 'reason': 'stale_no_new_sample'})
             continue
-
-        edge = r.get("base_edge") or 0.0
-        flagged = bool(r.get("flags"))
-        dormant = (r.get("trades_30d") or 0) < ACTIVE_MIN_TRADES_30D
-
-        if flagged:
-            watch.append({**entry_fields(r), "reason": "hft_flag"})
-        elif dormant:
-            watch.append({**entry_fields(r), "reason": "dormant"})
-        elif edge >= ACTIVE_EDGE_MIN:
-            active.append({**entry_fields(r), "reason": "active"})
-        elif edge > 0:
-            watch.append({**entry_fields(r), "reason": "low_edge"})
+        metrics = r.get('metrics', {})
+        # Legacy direct callers can still provide a single explicitly scoped metric.
+        if not metrics and r.get('signal_scope'):
+            metrics = {r['signal_scope']: dict(sample='ok', base_edge=r['base_edge'],
+                                             signed_edge=r['signed_edge'])}
+        streaks = {}
+        for scope in ('core', 'sports'):
+            metric = metrics.get(scope, {})
+            old_streak = old.get('negative_streaks', {}).get(scope, 0)
+            if not old.get('negative_streaks') and old.get('signal_scope') == scope:
+                old_streak = old.get('negative_streak', 0)
+            streaks[scope] = old_streak+1 if metric.get('sample') == 'ok' and metric['signed_edge'] < 0 else 0
+        eligible = [scope for scope, metric in metrics.items()
+                    if metric.get('sample') == 'ok' and metric['base_edge'] >= ACTIVE_EDGE_MIN]
+        live = (r.get('trades_30d') or 0) >= 10
+        reliable = not r.get('activity_truncated')
+        active_scopes = eligible if live and reliable else []
+        entry = {**r, 'metrics': metrics, 'active_scopes': active_scopes,
+                 'negative_streaks': streaks, 'negative_streak': streaks['core']}
+        valid = [scope for scope, metric in metrics.items() if metric.get('sample') == 'ok']
+        if valid and all(streaks.get(scope, 0) >= 2 for scope in valid):
+            excluded.append({**entry, 'reason': 'negative_twice_in_a_row'})
+        elif active_scopes:
+            active.append({**entry, 'reason': 'active'})
         else:
-            if prev and prev["tier"] in ("active", "watch") and (prev["base_edge"] or 0) <= 0:
-                excluded.append({"name": r["name"], "address": r["address"], "reason": "negative_twice_in_a_row"})
-            else:
-                watch.append({**entry_fields(r), "reason": "negative_edge_first_time"})
+            reason = 'dormant' if not live else 'incomplete_activity' if not reliable else 'low_edge'
+            watch.append({**entry, 'reason': reason})
+    def score(r):
+        return max([float(r.get('base_edge') or 0)] +
+                   [float(v.get('base_edge') or 0) for v in r.get('metrics', {}).values()])
+    active.sort(key=lambda r: (-score(r), r['address']))
+    watch.extend({**r, 'active_scopes': [], 'reason': 'active_overflow'} for r in active[MAX_ACTIVE:])
+    watch.sort(key=lambda r: (-score(r), r['address']))
+    return {'schema_version': 1, 'measurement_version': 4, 'active': active[:MAX_ACTIVE],
+            'watch': watch[:MAX_WATCH], 'overflow': watch[MAX_WATCH:], 'excluded_this_run': excluded}
 
-    active.sort(key=lambda w: -w["base_edge"])
-    # Wallets that clear the active bar (edge >= ACTIVE_EDGE_MIN, unflagged)
-    # but don't fit in MAX_ACTIVE slots must NOT just vanish -- demote them
-    # to watch (confirmation-only) instead of dropping them.
-    if len(active) > MAX_ACTIVE:
-        overflow = active[MAX_ACTIVE:]
-        active = active[:MAX_ACTIVE]
-        for w in overflow:
-            watch.append({**w, "reason": "active_overflow"})
 
-    def watch_priority(w):
-        was_tracked = w["address"].lower() in prev_status
-        return (0 if was_tracked else 1, -(w["base_edge"] or 0))
-    watch.sort(key=watch_priority)
-    if len(watch) > MAX_WATCH:
-        print(f"WARNUNG: {len(watch) - MAX_WATCH} watch-taugliche Wallets ueber MAX_WATCH={MAX_WATCH} hinaus verworfen")
-    watch = watch[:MAX_WATCH]
-
-    return {"active": active, "watch": watch, "excluded_this_run": excluded}
+def run(args, client=None):
+    client = client or Client(args.max_history_requests, args.deadline_min)
+    data = Path(args.data_dir)
+    path = data/'watchlist.json'
+    previous = json.loads(path.read_text()) if path.exists() else {}
+    if not isinstance(previous, dict):
+        raise ValueError('Invalid previous watchlist')
+    for tier in ('active', 'watch', 'overflow'):
+        if not isinstance(previous.get(tier, []), list):
+            raise ValueError('Invalid previous watchlist tier')
+        for row in previous.get(tier, []):
+            if not isinstance(row, dict) or not re.fullmatch(r'0x[0-9a-fA-F]{40}', str(row.get('address', ''))):
+                raise ValueError('Invalid previous wallet address')
+    now = time.time()
+    results, found, run_error = [], {}, None
+    try:
+        found = candidates(client, previous, args.max_candidates)
+        for address, meta in found.items():
+            client.check_deadline()
+            try:
+                results.append(analyze_wallet(client, address, meta, now, args.max_activity_pages))
+            except BudgetExceeded:
+                raise
+            except (RuntimeError, ValueError, TypeError, KeyError) as exc:
+                results.append({'address': address, **meta, 'sample': 'error', 'error': str(exc)})
+    except (RuntimeError, ValueError, TypeError, KeyError) as exc:
+        run_error = str(exc)
+    completed = {r['address'] for r in results}
+    results.extend({'address': addr, **meta, 'sample': 'not_measured', 'error': run_error}
+                   for addr, meta in found.items() if addr not in completed)
+    failures = sum(r['sample'] in ('error', 'not_measured') for r in results)
+    publish = bool(results) and not run_error and not failures and any(
+        r['sample'] == 'ok' or r.get('sports_only') for r in results)
+    stamp = datetime.now(timezone.utc).isoformat()
+    proposed = build_watchlist(results, previous)
+    report = {'schema_version': 1, 'measurement_version': 4,
+              'generated_at_utc': stamp, 'n_candidates': len(found), 'results': results,
+              'tokens_fetched': client.history_calls, 'history_requests': client.history_calls,
+              'runtime_min': round((time.monotonic()-client.started)/60, 2),
+              'hit_deadline': time.monotonic() >= client.deadline,
+              'errors': client.errors, 'run_error': run_error,
+              'watchlist_updated': publish and not args.dry_run,
+              'warning': 'Legacy edges are core seven-day CLV only. Sports metrics are separate. '
+                         'Neither is a calibrated probability or direct Kelly input.'}
+    atomic_save(data/'analysis_biweekly.json', report)
+    if publish and not args.dry_run:
+        atomic_save(path, {**proposed, 'generated_at_utc': stamp})
+    print(json.dumps({'n_candidates': len(found), 'tokens_fetched': client.history_calls,
+                      'active': len(proposed['active']), 'watch': len(proposed['watch']),
+                      'excluded_this_run': len(proposed['excluded_this_run']),
+                      'errors': failures, 'run_error': run_error,
+                      'watchlist_updated': report['watchlist_updated']}))
+    return 0 if publish else 1
 
 
 def main():
-    prev_watchlist = load_previous_watchlist()
-    candidates = load_candidates(prev_watchlist)
-    price_cache = {}
-    results = []
-    # Reihenfolge zaehlt: Laeuft das Zeit- oder Token-Budget aus, sollen die
-    # bereits verfolgten Wallets gemessen sein, nicht ein zufaelliger Rest.
-    tracked = set()
-    if prev_watchlist:
-        for tier in ("active", "watch"):
-            for w in prev_watchlist.get(tier, []):
-                tracked.add(str(w.get("address", "")).lower())
-    ordered = sorted(candidates.items(),
-                     key=lambda kv: (0 if kv[0] in tracked else 1, -(kv[1].get("pnl") or 0)))
-    for addr, meta in ordered:
-        if out_of_time():
-            print(f"ZEITBUDGET erreicht - {len(ordered) - len(results)} Wallets nicht gemessen")
-            break
-        try:
-            results.append(analyze_wallet(addr, meta, price_cache))
-        except Exception as e:
-            results.append({"address": addr, "name": meta.get("name"), "sample": "error", "error": str(e)})
-
-    results.sort(key=lambda r: (r.get("base_edge") is None, -(r.get("base_edge") or 0)))
-
-    analysis_out = {
-        "generated_at_utc": datetime.now(timezone.utc).isoformat(),
-        "n_candidates": len(candidates),
-        "tokens_fetched": session_token_budget["used"],
-        "runtime_min": round((time.time() - run_start_ts) / 60, 1),
-        "hit_deadline": out_of_time(),
-        "results": results,
-    }
-    save("analysis_biweekly.json", analysis_out)
-
-    watchlist = build_watchlist(results, prev_watchlist)
-    watchlist["generated_at_utc"] = analysis_out["generated_at_utc"]
-    save("watchlist.json", watchlist)
-
-    print(json.dumps({
-        "n_candidates": len(candidates),
-        "tokens_fetched": session_token_budget["used"],
-        "active": len(watchlist["active"]),
-        "watch": len(watchlist["watch"]),
-        "excluded_this_run": len(watchlist["excluded_this_run"]),
-    }))
-
-    # Wirkung der neuen Schrumpfung sichtbar machen: alt gegen neu, je Wallet.
-    measured = [r for r in results if r.get("sample") == "ok"]
-    if measured:
-        print("\n--- Schrumpfung alt (k=800) gegen neu (Empirical Bayes x Selektionsabschlag) ---")
-        print(f"{'Wallet':<24} {'CLV roh':>8} {'SD/Trade':>9} {'n_eff':>7} {'Faktor':>7} {'aufgel.':>8} {'alt':>5} {'neu':>5}")
-        for r in sorted(measured, key=lambda x: -(x.get("base_edge") or 0))[:25]:
-            print(f"{(r.get('name') or '')[:24]:<24} "
-                  f"{r.get('clv7_cents', 0):>7.2f}c "
-                  f"{r.get('clv_sd_per_entry', 0):>8.1f}c "
-                  f"{r.get('n_eff', 0):>7.1f} "
-                  f"{r.get('shrink_factor', 0):>7.3f} "
-                  f"{r.get('resolved_share', 0):>7.0%} "
-                  f"{r.get('base_edge_legacy_k800', 0):>5.1f} "
-                  f"{r.get('base_edge', 0):>5.1f}")
-        n_old = sum(1 for r in measured if (r.get("base_edge_legacy_k800") or 0) >= ACTIVE_EDGE_MIN
-                    and (r.get("trades_30d") or 0) >= ACTIVE_MIN_TRADES_30D and not r.get("flags"))
-        n_new = sum(1 for r in measured if (r.get("base_edge") or 0) >= ACTIVE_EDGE_MIN
-                    and (r.get("trades_30d") or 0) >= ACTIVE_MIN_TRADES_30D and not r.get("flags"))
-        print(f"\ntragfaehige Wallets (Edge >= {ACTIVE_EDGE_MIN}, aktiv, ungeflaggt): alt {n_old} -> neu {n_new}")
-        print("ACHTUNG: Die Edges liegen jetzt auf einer anderen Skala. Die Schwellen im")
-        print("Tagesbrief (Netto-Edge >= 2) muessen im selben Zug mitskaliert werden,")
-        print("sonst wird p_hat = Kurs + Edge systematisch zu hoch und Kelly setzt zu gross.")
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--data-dir', default=str(DATA_DIR))
+    parser.add_argument('--max-candidates', type=int, default=MAX_CANDIDATES)
+    parser.add_argument('--max-history-requests', type=int, default=MAX_TOKENS)
+    parser.add_argument('--max-activity-pages', type=int, default=10)
+    parser.add_argument('--deadline-min', type=float, default=DEADLINE_MIN)
+    parser.add_argument('--dry-run', action='store_true')
+    args = parser.parse_args()
+    if min(args.max_candidates, args.max_history_requests, args.max_activity_pages, args.deadline_min) < 1 or args.max_activity_pages > 20:
+        parser.error('Budgets must be positive; activity pages must be <= 20')
+    try:
+        return run(args)
+    except (RuntimeError, ValueError, OSError) as exc:
+        print(f'Run aborted; existing watchlist preserved: {exc}')
+        return 1
 
 
-if __name__ == "__main__":
-    main()
+if __name__ == '__main__':
+    raise SystemExit(main())
