@@ -50,21 +50,69 @@ AUSSORTIERT = {
     "truthteller", "Trump2028", "BigRabbit",
 }
 
-MAX_CANDIDATES = 400
-MAX_TOKENS = 10000
+MAX_CANDIDATES = 800
+MAX_TOKENS = 18000
+MAX_ENTRIES_PER_WALLET = 150   # je Wallet reichen 150 Messpunkte; alles darueber
+                               # kostet Token-Abrufe ohne den Standardfehler noch
+                               # nennenswert zu senken (SE faellt mit 1/sqrt(n))
+DEADLINE_MIN = 300             # harte Wanduhr-Grenze; GitHub bricht bei 360 ab.
+                               # Ohne diese Schranke lief der Job mit 1200/30000
+                               # rechnerisch 364 Min und waere mitten in der
+                               # Messung abgebrochen -- ohne brauchbare Ausgabe.
 MIN_TRADES_FOR_SIGNAL = 5
-ACTIVE_EDGE_MIN = 1.0
-MAX_ACTIVE = 40
+# Vorfilter auf der Leaderboard-Zeile, VOR jeder Messung. Stand 14.09.2026 warf
+# er 21 von 50 Zeilen weg, alle am ROI -- also 42 % der Kandidaten, bevor auch
+# nur eine CLV berechnet wurde. Das war der eigentliche Engpass, nicht
+# MAX_CANDIDATES. Ein Wallet mit hohem Umsatz und 8 % ROI ist genau das Profil,
+# das die VOL-Schnitte finden sollen; der alte Wert 0.10 hat sie sofort wieder
+# aussortiert und die Verbreiterung des Scans damit weitgehend wirkungslos
+# gemacht. Die CLV-Messung weiter unten ist der ehrliche Filter -- dieser hier
+# soll nur offensichtlichen Unsinn fernhalten.
+MIN_PNL = 25000
+MIN_ROI = 0.05
+ACTIVE_EDGE_MIN = 1.5
+MAX_ACTIVE = 60
+
+# --- Schrumpfung (2026-09-14 neu gefasst) ----------------------------------
+# Vorher: base_edge = clv7 * used/(used+800) -- eine einzige globale Konstante,
+# die zwei voellig verschiedene Korrekturen vermischte und beide falsch traf.
+#
+# (a) MESSRAUSCHEN. Ein Wallet, das Tagesmaerkte handelt (Fussball, Esports),
+#     wird 7 Tage nach Einstieg gegen einen Preis von 0 oder 1 gemessen -- der
+#     Markt ist laengst aufgeloest. Seine "CLV" ist realisierter Gewinn je
+#     Anteil mit einer Streuung von rund 50c je Trade. Ein Wallet in langsamen
+#     Maerkten wird gegen einen echten Zwischenpreis gemessen, Streuung rund
+#     12c. Eine globale Konstante bestraft beide gleich und ist damit fuer das
+#     eine zu lasch und fuer das andere zu hart. Neu wird je Wallet aus den
+#     eigenen Einzel-CLVs der Standardfehler berechnet und damit geschrumpft
+#     (Empirical Bayes): faktor = V_TRUE / (V_TRUE + se^2).
+# (b) SELEKTIONSVERZERRUNG. Die Kandidaten kommen aus dem Leaderboard, sind
+#     also danach ausgewaehlt, dass sie bereits gewonnen haben. Ein Teil jeder
+#     gemessenen Edge ist Rueckschau. Das ist ein EIGENER Abschlag und gehoert
+#     nicht in dieselbe Zahl wie das Messrauschen.
+# Empirisch aus data/analysis_biweekly.json (70 gemessene Wallets, 14.09.2026):
+# Streuung der wahren Edge zwischen Wallets rund 5-8c, Messrauschen je Trade
+# 12-50c je nach Markttyp. Die alten 800 entsprachen einem Rauschen/Skill-
+# Verhaeltnis von etwa 800 -- die Daten stuetzen 4 bis 50.
+V_TRUE = 25.0          # angenommene Varianz der ECHTEN Edge zwischen Wallets, in c^2 (SD 5c)
+SELECTION_HAIRCUT = 0.6  # Abschlag fuer Leaderboard-Selektion; 1.0 = kein Abschlag
+EDGE_CAP = 10.0        # vorher 6.0 -- sonst laufen die starken Wallets alle am Deckel zusammen
 # --- Liveness ---------------------------------------------------------------
 # Eine gemessene Edge zaehlt nur, wenn das Wallet noch handelt. Ohne diese
 # beiden Schranken landen Wallets, die vor Monaten aufgehoert haben, mit ihrer
 # historischen CLV in "active" und blockieren dort Plaetze (Stand 10.09.2026:
 # 8 von 13 aktiven Wallets ohne einen einzigen Trade in 30 Tagen).
-CLV_LOOKBACK_DAYS = 120        # aeltere Trades zaehlen nicht mehr zur CLV
+CLV_LOOKBACK_DAYS = 180        # war 120; mehr Einstiege je Wallet -> kleinerer Standardfehler
+                               # -> weniger Schrumpfung -> mehr Wallets ueber der Gebuehrengrenze
 ACTIVE_MIN_TRADES_30D = 10     # darunter: dormant -> watch, nie active
-MAX_WATCH = 50
+MAX_WATCH = 80
 
 session_token_budget = {"used": 0}
+run_start_ts = time.time()
+
+
+def out_of_time():
+    return (time.time() - run_start_ts) > DEADLINE_MIN * 60
 
 
 def fetch(url):
@@ -120,14 +168,20 @@ def load_candidates(prev_watchlist):
     # downstream anyway, but it costs little to check.
     CATEGORIES = ("POLITICS", "ECONOMICS", "CULTURE", "TECH")
     PERIODS = ("MONTH", "WEEK", "ALL")
+    # 2026-09-14: Trichter verbreitert. Der Endpoint deckelt jede Antwort bei 50
+    # Zeilen, mehr Kandidaten gibt es also nur ueber mehr SCHNITTE, nicht ueber
+    # ein groesseres limit=. Neu wird jede Kategorie auch nach VOL und in jeder
+    # Periode gescannt, nicht nur nach PNL -- ein Sharp mit hohem Umsatz und
+    # mittlerem Gewinn taucht in der PNL-Rangliste nie auf, hat aber oft die
+    # sauberere CLV als ein einmaliger Grosstreffer.
     scans = []
     for cat in CATEGORIES:
         for period in PERIODS:
             scans.append((period, cat, 50, "PNL"))
-    for cat in CATEGORIES:
-        scans.append(("ALL", cat, 50, "VOL"))
+            scans.append((period, cat, 50, "VOL"))
     for period in PERIODS:
         scans.append((period, None, 50, "PNL"))
+        scans.append((period, None, 50, "VOL"))
 
     for period, category, limit, order_by in scans:
         url = f"https://data-api.polymarket.com/v1/leaderboard?timePeriod={period}&orderBy={order_by}&limit={limit}"
@@ -147,12 +201,14 @@ def load_candidates(prev_watchlist):
             if pnl is None or vol is None or vol <= 0:
                 continue
             roi = pnl / vol
-            if pnl < 50000 or roi < 0.10:
+            if pnl < MIN_PNL or roi < MIN_ROI:
                 continue
             candidates[addr] = {"name": uname, "pnl": pnl, "vol": vol}
-            if len(candidates) >= MAX_CANDIDATES:
-                break
-        if len(candidates) >= MAX_CANDIDATES:
+        # Frueher wurde hier bei Erreichen von MAX_CANDIDATES die GESAMTE
+        # Scan-Schleife abgebrochen. Damit liefen die spaeteren, spezifischeren
+        # Schnitte nie -- ausgerechnet die, die Fach-Sharps finden sollen.
+        # Jetzt wird nur noch dieser Schnitt beendet.
+        if len(candidates) >= MAX_CANDIDATES or out_of_time():
             break
 
     return candidates
@@ -178,7 +234,7 @@ def price_at_or_after(history, target_ts):
 def get_price_history(token_id, cache):
     if token_id in cache:
         return cache[token_id]
-    if session_token_budget["used"] >= MAX_TOKENS:
+    if session_token_budget["used"] >= MAX_TOKENS or out_of_time():
         cache[token_id] = None
         return None
     url = f"https://clob.polymarket.com/prices-history?market={token_id}&interval=max&fidelity=1440"
@@ -208,7 +264,7 @@ def analyze_wallet(addr, meta, price_cache):
             if tr.get("side") != "BUY" or tr.get("type") != "TRADE":
                 continue
             price = float(tr.get("price", 0))
-            if not (0.05 <= price <= 0.92):
+            if not (0.03 <= price <= 0.97):   # war 0.05-0.92; enger Band warf Einstiege weg
                 continue
             asset = tr.get("asset")
             ts = tr.get("timestamp")
@@ -231,9 +287,20 @@ def analyze_wallet(addr, meta, price_cache):
     if len(entries) < MIN_TRADES_FOR_SIGNAL:
         return {**base, "sample": "insufficient", "clv7_cents": None, "base_edge": None, "flags": []}
 
+    # Nicht alle Einstiege messen. Der Standardfehler faellt mit 1/sqrt(n) --
+    # von 150 auf 500 Messpunkte gewinnt man rund 40 % SE, kostet aber das
+    # Dreifache an Token-Abrufen. Gleichmaessig ueber den Zeitraum ausduennen
+    # (nicht die juengsten nehmen), damit die Stichprobe unverzerrt bleibt.
+    if len(entries) > MAX_ENTRIES_PER_WALLET:
+        step = len(entries) / MAX_ENTRIES_PER_WALLET
+        entries = [entries[int(i * step)] for i in range(MAX_ENTRIES_PER_WALLET)]
+
     weighted_sum = 0.0
     weight_total = 0.0
     used = 0
+    weight_sq_total = 0.0
+    clv_values = []      # (CLV, Groesse) je Einstieg, fuer den Standardfehler
+    resolved_hits = 0    # Einstiege, deren Markt nach 7 Tagen schon aufgeloest war
     for e in entries:
         hist = get_price_history(e["asset"], price_cache)
         if not hist:
@@ -241,9 +308,14 @@ def analyze_wallet(addr, meta, price_cache):
         p7 = price_at_or_after(hist, e["ts"] + 7 * 86400)
         if p7 is None:
             continue
-        clv = (float(p7) - e["price"]) * 100.0
+        p7f = float(p7)
+        clv = (p7f - e["price"]) * 100.0
+        if p7f >= 0.99 or p7f <= 0.01:
+            resolved_hits += 1
         weighted_sum += clv * e["size"]
         weight_total += e["size"]
+        weight_sq_total += e["size"] ** 2
+        clv_values.append((clv, e["size"]))
         used += 1
 
     flags = []
@@ -255,16 +327,40 @@ def analyze_wallet(addr, meta, price_cache):
         if span_days and (len(activity) / span_days) > 50:
             flags.append("possible_hft_or_market_maker")
 
-    base["n_entries_used"] = used if used else len(entries)
+    base["n_entries_used"] = used
+    base["n_entries_available"] = len(entries)
 
     if weight_total <= 0 or used < MIN_TRADES_FOR_SIGNAL:
         return {**base, "sample": "insufficient", "clv7_cents": None, "base_edge": None, "flags": flags}
 
     clv7 = weighted_sum / weight_total
-    shrunk = clv7 * (used / (used + 800))
-    base_edge = round(min(6.0, max(0.0, shrunk)), 1)
 
-    return {**base, "sample": "ok", "clv7_cents": round(clv7, 2), "base_edge": base_edge, "flags": flags}
+    # Standardfehler des Wallet-Mittels aus seinen EIGENEN Einzel-CLVs.
+    # WICHTIG: clv7 ist ein GROESSENGEWICHTETES Mittel. Eine ungewichtete
+    # Varianz durch n zu teilen waere falsch -- ein Wallet mit einem Trade zu
+    # 100'000 $ und 400 Trades zu 10 $ haette rechnerisch n = 401, effektiv
+    # aber knapp 1. Der Standardfehler waere dann um Groessenordnungen zu
+    # klein, die Schrumpfung entsprechend zu schwach und die Edge frei
+    # erfunden. Korrekt ist die effektive Stichprobengroesse nach Kish:
+    #     n_eff = (Summe w)^2 / Summe w^2
+    # zusammen mit der ebenfalls gewichteten Varianz.
+    var_entry = sum(w * (c - clv7) ** 2 for c, w in clv_values) / weight_total
+    n_eff = (weight_total ** 2 / weight_sq_total) if weight_sq_total > 0 else 1.0
+    se2 = var_entry / max(n_eff, 1.0)
+
+    shrink_factor = V_TRUE / (V_TRUE + se2)      # Empirical Bayes
+    shrunk = clv7 * shrink_factor * SELECTION_HAIRCUT
+    base_edge = round(min(EDGE_CAP, max(0.0, shrunk)), 1)
+    legacy_edge = round(min(6.0, max(0.0, clv7 * (used / (used + 800)))), 1)
+
+    return {**base, "sample": "ok", "clv7_cents": round(clv7, 2),
+            "clv_sd_per_entry": round(var_entry ** 0.5, 1),
+            "clv_se": round(se2 ** 0.5, 2),
+            "n_eff": round(n_eff, 1),
+            "shrink_factor": round(shrink_factor, 3),
+            "resolved_share": round(resolved_hits / used, 2),
+            "base_edge": base_edge, "base_edge_legacy_k800": legacy_edge,
+            "flags": flags}
 
 
 def entry_fields(r):
@@ -272,6 +368,9 @@ def entry_fields(r):
         "name": r["name"], "address": r["address"],
         "base_edge": r.get("base_edge") or 0.0,
         "clv7_cents": r.get("clv7_cents"),
+        "clv_sd_per_entry": r.get("clv_sd_per_entry"),
+        "shrink_factor": r.get("shrink_factor"),
+        "resolved_share": r.get("resolved_share"),
         "n_entries_used": r.get("n_entries_used"),
         "trades_30d": r.get("trades_30d"),
         "last_trade_age_days": r.get("last_trade_age_days"),
@@ -343,7 +442,19 @@ def main():
     candidates = load_candidates(prev_watchlist)
     price_cache = {}
     results = []
-    for addr, meta in candidates.items():
+    # Reihenfolge zaehlt: Laeuft das Zeit- oder Token-Budget aus, sollen die
+    # bereits verfolgten Wallets gemessen sein, nicht ein zufaelliger Rest.
+    tracked = set()
+    if prev_watchlist:
+        for tier in ("active", "watch"):
+            for w in prev_watchlist.get(tier, []):
+                tracked.add(str(w.get("address", "")).lower())
+    ordered = sorted(candidates.items(),
+                     key=lambda kv: (0 if kv[0] in tracked else 1, -(kv[1].get("pnl") or 0)))
+    for addr, meta in ordered:
+        if out_of_time():
+            print(f"ZEITBUDGET erreicht - {len(ordered) - len(results)} Wallets nicht gemessen")
+            break
         try:
             results.append(analyze_wallet(addr, meta, price_cache))
         except Exception as e:
@@ -355,6 +466,8 @@ def main():
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "n_candidates": len(candidates),
         "tokens_fetched": session_token_budget["used"],
+        "runtime_min": round((time.time() - run_start_ts) / 60, 1),
+        "hit_deadline": out_of_time(),
         "results": results,
     }
     save("analysis_biweekly.json", analysis_out)
@@ -370,6 +483,29 @@ def main():
         "watch": len(watchlist["watch"]),
         "excluded_this_run": len(watchlist["excluded_this_run"]),
     }))
+
+    # Wirkung der neuen Schrumpfung sichtbar machen: alt gegen neu, je Wallet.
+    measured = [r for r in results if r.get("sample") == "ok"]
+    if measured:
+        print("\n--- Schrumpfung alt (k=800) gegen neu (Empirical Bayes x Selektionsabschlag) ---")
+        print(f"{'Wallet':<24} {'CLV roh':>8} {'SD/Trade':>9} {'n_eff':>7} {'Faktor':>7} {'aufgel.':>8} {'alt':>5} {'neu':>5}")
+        for r in sorted(measured, key=lambda x: -(x.get("base_edge") or 0))[:25]:
+            print(f"{(r.get('name') or '')[:24]:<24} "
+                  f"{r.get('clv7_cents', 0):>7.2f}c "
+                  f"{r.get('clv_sd_per_entry', 0):>8.1f}c "
+                  f"{r.get('n_eff', 0):>7.1f} "
+                  f"{r.get('shrink_factor', 0):>7.3f} "
+                  f"{r.get('resolved_share', 0):>7.0%} "
+                  f"{r.get('base_edge_legacy_k800', 0):>5.1f} "
+                  f"{r.get('base_edge', 0):>5.1f}")
+        n_old = sum(1 for r in measured if (r.get("base_edge_legacy_k800") or 0) >= ACTIVE_EDGE_MIN
+                    and (r.get("trades_30d") or 0) >= ACTIVE_MIN_TRADES_30D and not r.get("flags"))
+        n_new = sum(1 for r in measured if (r.get("base_edge") or 0) >= ACTIVE_EDGE_MIN
+                    and (r.get("trades_30d") or 0) >= ACTIVE_MIN_TRADES_30D and not r.get("flags"))
+        print(f"\ntragfaehige Wallets (Edge >= {ACTIVE_EDGE_MIN}, aktiv, ungeflaggt): alt {n_old} -> neu {n_new}")
+        print("ACHTUNG: Die Edges liegen jetzt auf einer anderen Skala. Die Schwellen im")
+        print("Tagesbrief (Netto-Edge >= 2) muessen im selben Zug mitskaliert werden,")
+        print("sonst wird p_hat = Kurs + Edge systematisch zu hoch und Kelly setzt zu gross.")
 
 
 if __name__ == "__main__":
