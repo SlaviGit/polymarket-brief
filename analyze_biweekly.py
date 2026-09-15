@@ -7,6 +7,23 @@ Sports closing-price measurements are never substituted for seven-day CLV.
 The companion Tagesbrief instructions consume active_scopes and metrics.
 Sports-only active wallets intentionally have legacy base_edge 0. No orders are placed.
 Fixed shrinkage parameters are assumptions, not fitted empirical Bayes.
+
+Betriebsaenderungen 2026-09-15 gegenueber der eingereichten Fassung (drei
+Stellen, alles andere unveraendert -- die Messlogik ist uebernommen):
+
+  1. market()-Aufrufe waren UNBUDGETIERT. Nur prices-history zaehlte gegen
+     MAX_TOKENS. Bei 800 Wallets x 150 Einstiegen sind das 36'000 bis 72'000
+     gamma-Aufrufe = 420 bis 840 Minuten allein dafuer, bei einer Deadline von
+     300. Der Lauf haette sie zuverlaessig gerissen. Jetzt eigenes Budget
+     (MAX_MARKET_REQUESTS) und Budgets auf die Deadline dimensioniert.
+  2. Das Publish-Tor verlangte NULL Fehler. Bei 800 Wallets genuegt ein
+     Timeout, damit watchlist.json nie geschrieben wird. Jetzt: Fehlerquote
+     unter MAX_FAILURE_RATE UND Abdeckung des bisherigen Bestands ueber
+     MIN_ROSTER_COVERAGE.
+  3. BudgetExceeded ist eine RuntimeError-Unterklasse und lief in denselben
+     except-Zweig wie echte Fehler -- ein Deadline-Treffer setzte run_error und
+     verhinderte jedes Update. Jetzt getrennt: ein Teillauf darf publizieren,
+     wenn er den bisherigen Bestand ausreichend abgedeckt hat.
 """
 import argparse
 from collections import Counter, defaultdict
@@ -25,10 +42,23 @@ from urllib.request import Request, urlopen
 AUSSORTIERT = ['11vsldfdsgfkjgos', 'Anjun', 'BigRabbit', 'BillyGating', 'ColomboHex', 'CongoleseBorat', 'Corlys', 'CryptoVagabond', 'Elenes', 'ExplosiveNinja', 'Flaznorp', 'GRIMDRIP', 'Hourglass', 'JnStrtPrdctnMrkts', 'Jsram', 'Len9311238', 'Mustafa0101', 'Mysaria', 'Railcool', 'RepTrump', 'SASGOLD', 'Talvez10', 'Trump2028', 'TwoEyes', 'VictorLudorum', 'WTSA', 'alwayslatetotheparty', 'b324u', 'balthazar', 'cigarettes', 'dddtrips', 'donthackme', 'e46m3', 'endlessFate', 'ferrariChampions2026', 'fishalive', 'frostrizz', 'gambamaster', 'gaven-willwin', 'godblessme2026', 'hansama231', 'korda77', 'matanovik', 'merod', 'mintblade', 'mustbethewater', 'northdrawer', 'pleaseplease123', 'quietparcel', 'robban888', 'sainttroplay', 'smallreceipt', 'sparklingwater123', 'suhail-frenz-account187', 'theowalcott', 'totoro3miyazaki', 'truthteller', 'wr0ngw4yb3tt0r', 'zofgkt1111']
 DAY = 86400
 MIN_EVENTS = 5
-MAX_CANDIDATES = 800
-MAX_TOKENS = 18000
-MAX_ENTRIES_PER_WALLET = 150
+
+# Budgets. Jeder Aufruf kostet rund 0.7 s (0.25 s Sleep + Latenz). Die Summe
+# aus Aktivitaets-, Markt- und History-Aufrufen muss unter DEADLINE_MIN passen,
+# sonst bricht der Lauf ab und schreibt nichts:
+#   250 Wallets x 3 Aktivitaetsseiten +  7000 market +  7000 history ~ 173 Min
+#   800 Wallets x 3                   + 36000 market + 18000 history ~ 659 Min
+MAX_CANDIDATES = 250
+MAX_ENTRIES_PER_WALLET = 50
+MAX_MARKET_REQUESTS = 7000
+MAX_TOKENS = 7000
 DEADLINE_MIN = 300
+
+# Publish-Tor. Ein einzelnes fehlerhaftes Wallet darf ein Update nicht
+# verhindern; ein Lauf, der den bisherigen Bestand nicht abgedeckt hat, schon.
+MAX_FAILURE_RATE = 0.05
+MIN_ROSTER_COVERAGE = 0.80
+
 DATA_DIR = Path(__file__).resolve().parent / "data"
 ACTIVE_EDGE_MIN = 1.5
 MAX_ACTIVE, MAX_WATCH = 60, 80
@@ -69,15 +99,20 @@ def atomic_save(path, value):
 
 
 class BudgetExceeded(RuntimeError):
-    pass
+    """Zeit- oder Aufrufbudget erschoepft. KEIN inhaltlicher Fehler --
+
+    wird in run() getrennt behandelt, damit ein Teillauf noch publizieren darf."""
 
 
 class Client:
-    def __init__(self, budget=MAX_TOKENS, deadline_min=DEADLINE_MIN):
+    def __init__(self, budget=MAX_TOKENS, deadline_min=DEADLINE_MIN,
+                 market_budget=MAX_MARKET_REQUESTS):
         self.started = time.monotonic()
         self.deadline = self.started + deadline_min*60
         self.budget = budget
+        self.market_budget = market_budget
         self.history_calls = 0
+        self.market_calls = 0
         self.markets = {}
         self.histories = {}
         self.errors = []
@@ -102,6 +137,12 @@ class Client:
 
     def market(self, condition):
         if condition not in self.markets:
+            # Frueher unbudgetiert. Ein Markt-Lookup kostet genauso viel Zeit
+            # wie ein History-Abruf und faellt bei 150 Einstiegen je Wallet weit
+            # staerker ins Gewicht -- ohne Deckel reisst der Lauf die Deadline.
+            if self.market_calls >= self.market_budget:
+                raise BudgetExceeded('Market request budget exhausted')
+            self.market_calls += 1
             rows = self.get('https://gamma-api.polymarket.com/markets', condition_ids=condition)
             if not isinstance(rows, list):
                 raise ValueError('Invalid market response')
@@ -372,8 +413,19 @@ def build_watchlist(results, previous):
             'watch': watch[:MAX_WATCH], 'overflow': watch[MAX_WATCH:], 'excluded_this_run': excluded}
 
 
+def roster_coverage(results, previous):
+    """Anteil des bisherigen Bestands, der in diesem Lauf frisch gemessen wurde."""
+    prior = {r['address'].lower() for tier in ('active', 'watch', 'overflow')
+             for r in previous.get(tier, [])}
+    if not prior:
+        return 1.0
+    measured = {r['address'].lower() for r in results if r.get('sample') == 'ok'}
+    return len(prior & measured) / len(prior)
+
+
 def run(args, client=None):
-    client = client or Client(args.max_history_requests, args.deadline_min)
+    client = client or Client(args.max_history_requests, args.deadline_min,
+                              args.max_market_requests)
     data = Path(args.data_dir)
     path = data/'watchlist.json'
     previous = json.loads(path.read_text()) if path.exists() else {}
@@ -386,7 +438,7 @@ def run(args, client=None):
             if not isinstance(row, dict) or not re.fullmatch(r'0x[0-9a-fA-F]{40}', str(row.get('address', ''))):
                 raise ValueError('Invalid previous wallet address')
     now = time.time()
-    results, found, run_error = [], {}, None
+    results, found, run_error, partial = [], {}, None, False
     try:
         found = candidates(client, previous, args.max_candidates)
         for address, meta in found.items():
@@ -397,21 +449,36 @@ def run(args, client=None):
                 raise
             except (RuntimeError, ValueError, TypeError, KeyError) as exc:
                 results.append({'address': address, **meta, 'sample': 'error', 'error': str(exc)})
+    except BudgetExceeded as exc:
+        # Budgetgrenze ist kein inhaltlicher Fehler. Der Lauf ist unvollstaendig,
+        # darf aber publizieren, wenn er den bisherigen Bestand abgedeckt hat --
+        # sonst friert ein einziger langsamer Tag die Watchlist dauerhaft ein.
+        partial = str(exc)
     except (RuntimeError, ValueError, TypeError, KeyError) as exc:
         run_error = str(exc)
     completed = {r['address'] for r in results}
-    results.extend({'address': addr, **meta, 'sample': 'not_measured', 'error': run_error}
+    results.extend({'address': addr, **meta, 'sample': 'not_measured', 'error': run_error or partial}
                    for addr, meta in found.items() if addr not in completed)
     failures = sum(r['sample'] in ('error', 'not_measured') for r in results)
-    publish = bool(results) and not run_error and not failures and any(
-        r['sample'] == 'ok' or r.get('sports_only') for r in results)
+    failure_rate = failures/len(results) if results else 1.0
+    coverage = roster_coverage(results, previous)
+    # Frueher: publish nur bei NULL Fehlern. Bei 250 bis 800 Wallets blockiert
+    # dann ein einzelner Timeout jedes Update. Jetzt zaehlt die Quote, und der
+    # bisherige Bestand muss abgedeckt sein.
+    publish = (bool(results) and not run_error
+               and failure_rate <= MAX_FAILURE_RATE
+               and coverage >= MIN_ROSTER_COVERAGE
+               and any(r['sample'] == 'ok' or r.get('sports_only') for r in results))
     stamp = datetime.now(timezone.utc).isoformat()
     proposed = build_watchlist(results, previous)
     report = {'schema_version': 1, 'measurement_version': 4,
               'generated_at_utc': stamp, 'n_candidates': len(found), 'results': results,
               'tokens_fetched': client.history_calls, 'history_requests': client.history_calls,
+              'market_requests': client.market_calls,
               'runtime_min': round((time.monotonic()-client.started)/60, 2),
               'hit_deadline': time.monotonic() >= client.deadline,
+              'partial_run': partial, 'failure_rate': round(failure_rate, 4),
+              'roster_coverage': round(coverage, 4),
               'errors': client.errors, 'run_error': run_error,
               'watchlist_updated': publish and not args.dry_run,
               'warning': 'Legacy edges are core seven-day CLV only. Sports metrics are separate. '
@@ -419,10 +486,17 @@ def run(args, client=None):
     atomic_save(data/'analysis_biweekly.json', report)
     if publish and not args.dry_run:
         atomic_save(path, {**proposed, 'generated_at_utc': stamp})
+    elif not publish:
+        atomic_save(data/'watchlist_proposed.json', {**proposed, 'generated_at_utc': stamp})
+        print(f'Watchlist NICHT ersetzt (Fehlerquote {failure_rate:.1%}, Abdeckung {coverage:.0%}, '
+              f'run_error={run_error}, partial={partial}). Vorschlag in data/watchlist_proposed.json.')
     print(json.dumps({'n_candidates': len(found), 'tokens_fetched': client.history_calls,
+                      'market_requests': client.market_calls,
                       'active': len(proposed['active']), 'watch': len(proposed['watch']),
                       'excluded_this_run': len(proposed['excluded_this_run']),
-                      'errors': failures, 'run_error': run_error,
+                      'errors': failures, 'failure_rate': round(failure_rate, 4),
+                      'roster_coverage': round(coverage, 4),
+                      'run_error': run_error, 'partial_run': partial,
                       'watchlist_updated': report['watchlist_updated']}))
     return 0 if publish else 1
 
@@ -432,11 +506,13 @@ def main():
     parser.add_argument('--data-dir', default=str(DATA_DIR))
     parser.add_argument('--max-candidates', type=int, default=MAX_CANDIDATES)
     parser.add_argument('--max-history-requests', type=int, default=MAX_TOKENS)
+    parser.add_argument('--max-market-requests', type=int, default=MAX_MARKET_REQUESTS)
     parser.add_argument('--max-activity-pages', type=int, default=10)
     parser.add_argument('--deadline-min', type=float, default=DEADLINE_MIN)
     parser.add_argument('--dry-run', action='store_true')
     args = parser.parse_args()
-    if min(args.max_candidates, args.max_history_requests, args.max_activity_pages, args.deadline_min) < 1 or args.max_activity_pages > 20:
+    if min(args.max_candidates, args.max_history_requests, args.max_market_requests,
+           args.max_activity_pages, args.deadline_min) < 1 or args.max_activity_pages > 20:
         parser.error('Budgets must be positive; activity pages must be <= 20')
     try:
         return run(args)
