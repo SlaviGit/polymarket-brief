@@ -27,10 +27,22 @@ jobs:
         with:
           python-version: '3.12'
 
+      # Exit 1 heisst "Watchlist nicht ersetzt, Vorschlag liegt vor" -- ein
+      # Befund, keine Fehlfunktion. Der Schritt darf daran nicht sterben, sonst
+      # geht genau die Diagnose verloren, fuer die das Tor gebaut wurde.
+      # Bewertet wird der Code erst nach dem Commit.
       - name: Run biweekly analysis
-        run: python3 analyze_biweekly.py
+        id: analyze
+        run: |
+          set +e
+          python3 analyze_biweekly.py
+          code=$?
+          set -e
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          echo "Analyse beendet mit Exit-Code $code."
 
       - name: Commit and push results
+        if: always()
         run: |
           git config user.name "polymarket-bot"
           git config user.email "actions@users.noreply.github.com"
@@ -43,3 +55,18 @@ jobs:
           git fetch origin main
           git rebase origin/main
           git push origin HEAD:main
+
+      # Erst jetzt urteilen: 0 gruen, 1 gruen mit Warnung, alles andere rot.
+      - name: Bewertung
+        if: always()
+        run: |
+          code='${{ steps.analyze.outputs.code }}'
+          case "$code" in
+            0)
+              echo "Watchlist ersetzt." ;;
+            1)
+              echo "::warning title=Watchlist nicht ersetzt::Das Publish-Tor hat gegriffen. Vorschlag in data/watchlist_proposed.json, Begruendung in data/analysis_biweekly.json (no_collapse, active_floor, baseline_comparable, skipped_histogram). Beides ist committet." ;;
+            *)
+              echo "::error title=Analyse fehlgeschlagen::Exit-Code ${code:-kein}. Lauf abgebrochen oder Bestand nicht sauber gemessen -- siehe run_error, failure_rate und roster_coverage in data/analysis_biweekly.json."
+              exit 1 ;;
+          esac
