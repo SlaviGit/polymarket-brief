@@ -395,6 +395,11 @@ def analyze_wallet(client, address, meta, now, pages=10):
     n_core = min(len(core_pool), MAX_ENTRIES_PER_WALLET)
     sampled = n_sports < len(sports_pool) or n_core < len(core_pool)
     rows = rng.sample(sports_pool, n_sports) + rng.sample(core_pool, n_core)
+    # Reihenfolge mischen: client.market()/history() koennen an MAX_MARKET_REQUESTS
+    # bzw. der Deadline auslaufen. Blockweise erst Sport, dann Kern haette bei
+    # knappem Budget systematisch den Kern der zuletzt bearbeiteten Wallets
+    # ausgehungert. Gemischt trifft eine Budgetgrenze beide Bereiche gleich.
+    rng.shuffle(rows)
     groups = {'sports': defaultdict(list), 'core': defaultdict(list)}
     skipped = Counter()
     for row in rows:
