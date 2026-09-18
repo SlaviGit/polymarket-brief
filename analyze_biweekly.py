@@ -92,6 +92,11 @@ MIN_EVENTS = 5
 # Erwartung: rund 4800 Markt- und 5000 bis 8000 History-Aufrufe, etwa 150 Min.
 MAX_CANDIDATES = 250
 MAX_ENTRIES_PER_WALLET = 50
+# FIX 2 -- Sport bekommt ein EIGENES Budget. Vorher teilten sich beide Bereiche
+# die 50 Eintraege; bei einem ueberwiegend im Kern handelnden Wallet blieben fuer
+# Sport oft weniger als MIN_EVENTS=5 unabhaengige Ereignisse uebrig. Genau das
+# beschreibt der Modulkopf als "offen und bewusst nicht geaendert".
+MAX_SPORTS_ENTRIES_PER_WALLET = 30
 MAX_MARKET_REQUESTS = 12000
 MAX_TOKENS = 12000
 DEADLINE_MIN = 300
@@ -295,6 +300,23 @@ def activity(client, address, now, pages=10):
     return result, True
 
 
+# FIX 2 -- billiger Vorklassifikator auf der Aktivitaetszeile. Er steuert
+# AUSSCHLIESSLICH die Stichprobenziehung und klassifiziert niemals eine Messung;
+# das macht weiterhin benchmark() auf echten Marktdaten. Ein Fehlgriff kostet
+# etwas Budget, nie eine falsche Kennzahl.
+_SPORTS_SLUG = re.compile(
+    r'^(nfl|nba|mlb|nhl|ncaa[bf]|cfb|cbb|epl|bun|sea|lal|liga|ligue|ucl|uel|mls|'
+    r'atp|wta|itf|ufc|mma|box|f1|nascar|cs2|csgo|lol|dota|val|ow2|rl)[-_]',
+    re.I)
+
+
+def likely_sports(row):
+    for key in ('slug', 'eventSlug'):
+        if _SPORTS_SLUG.match(str(row.get(key) or '')):
+            return True
+    return False
+
+
 def price_before(history, target, max_gap):
     valid = [(number(p.get('t')), number(p.get('p'))) for p in history]
     valid = [(t, p) for t, p in valid if t is not None and p is not None
@@ -326,8 +348,16 @@ def benchmark(trade, market, now):
             return None, 'unknown_closure_time'
         if any(t is not None and target >= t for t in (end, closed)):
             return None, 'ended_before_benchmark'
-    if target > now or ts >= target:
-        return None, 'immature_or_inplay'
+    # FIX 3 -- bereichsscharfe Zaehler. 'immature_or_inplay' war mit 3170 der
+    # groesste Skip-Eimer und vermischte zwei voellig verschiedene Ursachen:
+    # bei Sport eine Inplay-Wette, bei Kern ein noch nicht sieben Tage alter
+    # Einstieg. Getrennt gezaehlt ist im naechsten Lauf ohne Nachforschung
+    # sichtbar, was die Sportstichprobe wirklich klein haelt.
+    if scope == 'sports':
+        if ts >= target:
+            return None, 'sports_inplay'
+    elif target > now:
+        return None, 'core_entry_too_recent'
     return (scope, target, gap), None
 
 
@@ -358,8 +388,13 @@ def analyze_wallet(client, address, meta, now, pages=10):
     available = len(eligible)
     # Reproducible fill sampling, not falsely described as uniform over time.
     eligible.sort(key=lambda r: (timestamp(r['timestamp']), str(r.get('transactionHash')), str(r.get('asset'))))
-    sampled = available > MAX_ENTRIES_PER_WALLET
-    rows = random.Random(address).sample(eligible, MAX_ENTRIES_PER_WALLET) if sampled else eligible
+    rng = random.Random(address)
+    sports_pool = [r for r in eligible if likely_sports(r)]
+    core_pool = [r for r in eligible if not likely_sports(r)]
+    n_sports = min(len(sports_pool), MAX_SPORTS_ENTRIES_PER_WALLET)
+    n_core = min(len(core_pool), MAX_ENTRIES_PER_WALLET)
+    sampled = n_sports < len(sports_pool) or n_core < len(core_pool)
+    rows = rng.sample(sports_pool, n_sports) + rng.sample(core_pool, n_core)
     groups = {'sports': defaultdict(list), 'core': defaultdict(list)}
     skipped = Counter()
     for row in rows:
@@ -455,8 +490,19 @@ def build_watchlist(results, previous):
         eligible = [scope for scope, metric in metrics.items()
                     if metric.get('sample') == 'ok' and metric['base_edge'] >= ACTIVE_EDGE_MIN]
         live = (r.get('trades_30d') or 0) >= 10
-        reliable = not r.get('activity_truncated')
-        active_scopes = eligible if live and reliable else []
+        # FIX 1 -- Vollstaendigkeit ist bereichsabhaengig.
+        # activity() paginiert NEWEST-FIRST und bricht nach 5000 Zeilen ab.
+        # Abgeschnitten wird also immer die AELTESTE Historie, nie die neueste.
+        # Kern misst eine Sieben-Tage-CLV ueber ein 180-Tage-Fenster -- dort ist
+        # ein abgeschnittenes Wallet tatsaechlich unvollstaendig gemessen.
+        # Sport misst gegen einen Anpfiff, der hoechstens Tage zurueckliegt; die
+        # neuesten 5000 Fills eines derart aktiven Wallets decken diesen Zeitraum
+        # vollstaendig ab. Die alte gemeinsame Sperre disqualifizierte damit genau
+        # die hochfrequenten Wallets, aus denen ein Sportsignal ueberhaupt kommen
+        # koennte -- am 18.09.2026 waren das 33 von 53 mit auswertbarer Stichprobe.
+        truncated = bool(r.get('activity_truncated'))
+        complete = {'core': not truncated, 'sports': True}
+        active_scopes = [s for s in eligible if complete.get(s, not truncated)] if live else []
         entry = {**r, 'metrics': metrics, 'active_scopes': active_scopes,
                  'negative_streaks': streaks, 'negative_streak': streaks['core']}
         valid = [scope for scope, metric in metrics.items() if metric.get('sample') == 'ok']
@@ -465,7 +511,12 @@ def build_watchlist(results, previous):
         elif active_scopes:
             active.append({**entry, 'reason': 'active'})
         else:
-            reason = 'dormant' if not live else 'incomplete_activity' if not reliable else 'low_edge'
+            if not live:
+                reason = 'dormant'
+            elif truncated and 'core' in eligible:
+                reason = 'incomplete_activity'
+            else:
+                reason = 'low_edge'
             watch.append({**entry, 'reason': reason})
     def score(r):
         return max([float(r.get('base_edge') or 0)] +
