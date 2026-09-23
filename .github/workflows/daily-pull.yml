@@ -23,6 +23,16 @@ jobs:
           python-version: '3.12'
       - name: Run pull script
         run: python3 pull.py
+
+      # Zusatz-Snapshot fuer den Tagesbrief: Kontostand, Orderbuecher, Sport.
+      # Die Cowork-Cloud erreicht die Polymarket-API nicht, der Runner schon.
+      # Das Script beendet sich immer mit 0 -- ein Teilausfall dort darf den
+      # Daily Pull nicht rot faerben; Fehler stehen in den erzeugten Dateien.
+      - name: Run snapshot extra
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        run: python3 snapshot_extra.py --repo .
+
       - name: Commit and push data
         run: |
           git config user.name "polymarket-bot"
