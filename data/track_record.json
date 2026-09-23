@@ -1,0 +1,197 @@
+{
+  "schema_version": 1,
+  "owner_wallet": "0x0fd4d56894d6e81cb9b8348c772c5eaa4dd2e72f",
+  "reconstructed": true,
+  "reconstruction_note": "Arbeitsordner war zu Laufbeginn leer (fluechtiger Cloud-Container, kein lokaler Vorlauf). Track Record am 2026-09-23 vollstaendig aus belegten Kontodaten (GH-Snapshot data/wallets/<wallet>.json, fetched_at 2026-09-23T06:03:26Z) rekonstruiert. Keine aelteren Summen uebernommen oder geschaetzt.",
+  "last_update_utc": "2026-09-23T19:20:00Z",
+  "bankroll": {
+    "confirmed_net_deposits_usdc": 600.0,
+    "deposit_evidence": "Auftragsvorgabe (historischer Ausgangspunkt). Keine On-Chain-Einzahlungstransaktion verifiziert - data-api.polymarket.com ist aus dieser Umgebung per curl gesperrt.",
+    "announced_additional_deposit_usdc": 1000.0,
+    "announced_deposit_status": "angekuendigt fuer Oktober 2026, NICHT bestaetigt, nicht in Deckeln beruecksichtigt",
+    "realized_pnl_usdc": 9.0898,
+    "einsatzbasis_usdc": 609.0898,
+    "open_positions_value_usdc": 76.9077,
+    "open_positions_cost_usdc": 74.6296,
+    "unrealized_pnl_usdc": 2.2781,
+    "cash_usdc_estimated": 534.4528,
+    "cash_estimate_basis": "ANNAHME: 600 Einzahlung - 110.4956 Kaeufe + 44.9484 (Verkauf BTC 2.9484 + Redemption Fed-Sept 37.00 + Redemption Ukraine-No 5.00). Kein direkter Kontostand auslesbar.",
+    "total_equity_usdc_estimated": 611.3605,
+    "equity_vs_deposits_pct": 101.9,
+    "drawdown_stage": "normal",
+    "phase": 1,
+    "phase_note": "3 aufgeloeste Wetten; Phase 2 erst ab 30 aufgeloesten Wetten."
+  },
+  "utilisation": {
+    "kern": {
+      "einstand_usdc": 62.5104,
+      "deckel_usdc": 152.2725,
+      "pct": 41.1
+    },
+    "tail": {
+      "einstand_usdc": 12.1192,
+      "deckel_usdc": 91.3635,
+      "pct": 13.3
+    },
+    "sport": {
+      "einstand_usdc": 0.0,
+      "deckel_usdc": 121.818,
+      "pct": 0.0
+    },
+    "gesamt": {
+      "einstand_usdc": 74.6296,
+      "deckel_usdc": 365.4539,
+      "pct": 20.4
+    }
+  },
+  "open": [
+    {
+      "sleeve": "Kern",
+      "title": "Will the Fed increase interest rates by 25 bps after the October 2026 meeting?",
+      "outcome": "Yes",
+      "shares": 23.99,
+      "avg_price": 0.3699,
+      "cost_usdc": 9.1559,
+      "cur_price_snapshot": 0.535,
+      "live_bid_1104utc": 0.49,
+      "end_date": "2026-10-29",
+      "conditionId": "0x12aa13b3da17ceae1b0a59b5d5b77121e91bb79b4bb0b52bf6543ed3f8d0953b",
+      "status": "offen",
+      "documented_p_hat": null
+    },
+    {
+      "sleeve": "Kern",
+      "title": "Israel x Iran ceasefire continues through September 30?",
+      "outcome": "Yes",
+      "shares": 21,
+      "avg_price": 0.87,
+      "cost_usdc": 18.27,
+      "cur_price_snapshot": 0.9555,
+      "end_date": "2026-09-30",
+      "conditionId": "0x524ce344b80a160c237d91a33efdd8b82468b0dc0d33f60d500f8bf69b80b8bb",
+      "status": "offen",
+      "documented_p_hat": null
+    },
+    {
+      "sleeve": "Kern",
+      "title": "Will the Republican Party control the House after the 2026 Midterm elections?",
+      "outcome": "No",
+      "shares": 20,
+      "avg_price": 0.88,
+      "cost_usdc": 17.68448,
+      "cur_price_snapshot": 0.925,
+      "end_date": "2027-01-05",
+      "conditionId": "0x4e4f77e7dbf4cab666e9a1943674d7ae66348e862df03ea6f44b11eb95731928",
+      "status": "offen",
+      "documented_p_hat": null
+    },
+    {
+      "sleeve": "Kern",
+      "title": "US announces end of Iranian blockade by September 30, 2026?",
+      "outcome": "No",
+      "shares": 20,
+      "avg_price": 0.87,
+      "cost_usdc": 17.4,
+      "cur_price_snapshot": 0.925,
+      "end_date": "2026-10-01",
+      "conditionId": "0x30174f3f46398e37c96a07b45916e01eab9a8a854ecb624ac73a91a8490fd074",
+      "status": "offen",
+      "documented_p_hat": null
+    },
+    {
+      "sleeve": "Tail",
+      "title": "Will Rodri win the 2026 Ballon d'Or?",
+      "outcome": "Yes",
+      "shares": 100,
+      "avg_price": 0.06,
+      "cost_usdc": 6.1692,
+      "cur_price_snapshot": 0.045,
+      "end_date": "2027-01-01",
+      "conditionId": "0x30f729ef18553d8956bfd7ae7a1e96dbad07e2476160239b23ec10e6cdc5f01b",
+      "status": "offen",
+      "documented_p_hat": null
+    },
+    {
+      "sleeve": "Tail",
+      "title": "Iran full airspace closure by September 30?",
+      "outcome": "Yes",
+      "shares": 85,
+      "avg_price": 0.07,
+      "cost_usdc": 5.95,
+      "cur_price_snapshot": 0.0295,
+      "end_date": "2027-01-26",
+      "conditionId": "0x951088c48f392379dc9b8a3becaad7a939b5fd3124ec98dd167d859350f049fc",
+      "status": "offen",
+      "documented_p_hat": null
+    }
+  ],
+  "closed": [
+    {
+      "sleeve": "Kern",
+      "title": "Will the Fed increase interest rates by 25 bps after the September 2026 meeting?",
+      "outcome": "Yes",
+      "avg_price": 0.808,
+      "result_price": 1.0,
+      "realized_pnl_usdc": 7.104,
+      "end_date": "2026-09-16",
+      "documented_p_hat": null
+    },
+    {
+      "sleeve": "Kern",
+      "title": "Trump ends Ukraine war in first 90 days?",
+      "outcome": "No",
+      "avg_price": 0.59,
+      "result_price": 1.0,
+      "realized_pnl_usdc": 2.05,
+      "end_date": "2025-04-20",
+      "documented_p_hat": null
+    },
+    {
+      "sleeve": "Kern",
+      "title": "Will Bitcoin hit $100k in 2024?",
+      "outcome": "Yes",
+      "avg_price": 0.93,
+      "result_price": 0.91,
+      "realized_pnl_usdc": -0.0642,
+      "end_date": "2024-12-31",
+      "note": "vorzeitig verkauft",
+      "documented_p_hat": null
+    }
+  ],
+  "recommended": [
+    {
+      "date": "2026-09-23",
+      "sleeve": "Kern",
+      "path": "Weg A (Wallet + eigene Herleitung)",
+      "title": "U.S. enacts AI safety bill before 2027?",
+      "slug": "us-enacts-ai-safety-bill-before-2027",
+      "side": "NO",
+      "limit_price": 0.88,
+      "order_shares": 20,
+      "gross_cost_usdc": 17.68,
+      "p_hat": 0.92,
+      "p_hat_range": [
+        0.9,
+        0.94
+      ],
+      "break_even": 0.8842,
+      "status": "empfohlen",
+      "conditionId": "0xcdbf64cb434d132ae3eba2c6d4aa8123dde9f90bd8641a5cd31ceddee6d935b8",
+      "asset": "57161571923524742438826831882300088590109837158862295301896910708589123238498",
+      "user_reported_executed": true,
+      "user_reported_at_utc": "2026-09-23T11:40:00Z",
+      "verification_note": "Slavi hat die Ausfuehrung im Chat bestaetigt. Status bleibt \"empfohlen\", bis Anteile und Einstand aus data/account_state.json belegt sind - dann auf \"offen\" setzen mit den tatsaechlichen Werten."
+    }
+  ],
+  "metrics": {
+    "resolved_bets_total": 3,
+    "resolved_with_documented_p_hat": 0,
+    "hit_rate_note": "Trefferquote nicht aussagekraeftig (n=3, kein dokumentiertes p-Dach fuer diese Altfaelle).",
+    "realized_total_usdc": 9.0898
+  },
+  "data_gaps": [
+    "data-api / gamma-api / clob.polymarket.com per curl aus dieser Umgebung durch Egress-Policy gesperrt (CONNECT 403). Live-Daten nur ueber das WebFetch-Werkzeug erreichbar.",
+    "USDC-Cash-Stand nicht direkt auslesbar; Cash ist eine nachvollziehbare Rechnung, kein Kontoauszug.",
+    "Kein persistenter lokaler Arbeitsordner: Container ist fluechtig, Track Record muss jeden Lauf aus Kontodaten rekonstruiert werden."
+  ]
+}
