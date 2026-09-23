@@ -41,9 +41,10 @@ MIN_SHARP_USDC = 150.0      # breiterer Trichter (Entscheid 23.09.2026)
 SHARP_LOOKBACK_H = 48       # so weit zurueck zaehlen Sharp-Kaeufe
 SPORTS_LOOKAHEAD_H = 96     # so weit voraus werden Sportmaerkte gesammelt
 MAX_BOOK_TOKENS = 140       # Deckel, damit der stuendliche Lauf kurz bleibt
-# Quoten nur zu diesen UTC-Stunden. 10 liegt vor dem Tagesbrief (11:00 UTC),
-# 04 vor dem Morgenlauf. Schuetzt das Gratis-Kontingent.
-ODDS_HOURS = {4, 10}
+# Quoten nur zu diesen UTC-Stunden: 10 liegt vor dem Tagesbrief (11:00 UTC),
+# 16 vor dem Abend-Check (18:00 UTC). Zwei Laeufe statt mehr, damit das
+# Gratis-Kontingent reicht.
+ODDS_HOURS = {10, 16}
 
 
 def now_utc():
@@ -54,8 +55,15 @@ def iso(dt):
     return dt.replace(microsecond=0).isoformat().replace("+00:00", "Z")
 
 
+LAST_HEADERS = {}
+
+
 def get(url, params=None, tries=3):
-    """GET mit Backoff. Gibt (daten, fehlertext) zurueck und wirft nie."""
+    """GET mit Backoff. Gibt (daten, fehlertext) zurueck und wirft nie.
+
+    Antwort-Header landen in LAST_HEADERS -- the-odds-api meldet dort das
+    verbleibende Kontingent, und das gehoert in den Bericht.
+    """
     if params:
         url = url + "?" + urllib.parse.urlencode(params)
     last = None
@@ -65,6 +73,11 @@ def get(url, params=None, tries=3):
                 url, headers={"User-Agent": "polymarket-brief-snapshot/3.0",
                               "Accept": "application/json"})
             with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
+                try:
+                    LAST_HEADERS.clear()
+                    LAST_HEADERS.update({k.lower(): v for k, v in r.headers.items()})
+                except Exception:
+                    pass
                 return json.loads(r.read().decode("utf-8")), None
         except urllib.error.HTTPError as e:
             last = "HTTP %s" % e.code
@@ -287,7 +300,14 @@ SLUG_TO_ODDS_KEY = {
     "boxing-": "boxing_boxing",
 }
 
-MAX_ODDS_SPORTS = 9        # Deckel je Lauf, schuetzt das Gratis-Kontingent
+# Kontingent-Rechnung (the-odds-api, Gratis-Stufe 500 Credits/Monat):
+# cost = [Anzahl markets] x [Anzahl regions] je Abruf. Mit einer Region und
+# einem Markt kostet jede Sportart 1 Credit. 6 Sportarten x 2 Laeufe/Tag
+# = 12/Tag = rund 360/Monat, also Puffer bis 500. Die Sportliste /v4/sports
+# kostet nichts. Ein Abruf ohne Events wird ebenfalls nicht verrechnet.
+MAX_ODDS_SPORTS = 6
+ODDS_REGIONS = "eu"        # jede weitere Region verdoppelt/verdreifacht die Kosten
+ODDS_MARKETS = "h2h"       # jeder weitere Markt ebenso
 
 
 def wanted_odds_keys(markets, key):
@@ -393,8 +413,13 @@ def build_odds(force_odds=False):
 
     for sport in sports:
         odds, e = get("https://api.the-odds-api.com/v4/sports/%s/odds" % sport,
-                      {"apiKey": key, "regions": "eu,uk", "markets": "h2h",
-                       "oddsFormat": "decimal"}, tries=2)
+                      {"apiKey": key, "regions": ODDS_REGIONS,
+                       "markets": ODDS_MARKETS, "oddsFormat": "decimal"},
+                      tries=2)
+        rem = LAST_HEADERS.get("x-requests-remaining")
+        if rem is not None:
+            out["quota_remaining"] = rem
+            out["quota_used"] = LAST_HEADERS.get("x-requests-used")
         if e:
             out["errors"].append({"source": sport, "error": e})
             continue
@@ -416,6 +441,22 @@ def build_odds(force_odds=False):
                     "away_team": ev.get("away_team"), "bookmakers": books})
         time.sleep(0.3)
 
+    if out.get("quota_remaining") is not None:
+        try:
+            if float(out["quota_remaining"]) < 60:
+                out["notes"].append(
+                    "ACHTUNG: nur noch %s Credits im Monatskontingent. Der Brief "
+                    "soll das melden -- faellt es auf 0, gibt es bis zum "
+                    "Monatswechsel keine Quoten und damit keine Sporttipps."
+                    % out["quota_remaining"])
+        except (TypeError, ValueError):
+            pass
+    out["notes"].append(
+        "Kontingent: %s Sportarten x %s Region(en) x %s Markt/Maerkte = %d Credits "
+        "je Lauf, zwei Laeufe taeglich." % (len(sports), len(ODDS_REGIONS.split(",")),
+                                            len(ODDS_MARKETS.split(",")),
+                                            len(sports) * len(ODDS_REGIONS.split(",")) *
+                                            len(ODDS_MARKETS.split(","))))
     out["notes"].append(
         "Quoten sind Rohwerte. Die Normalisierung (q_i = 1/Quote_i, "
         "p_i = q_i/Summe q) macht der Brief -- und muss pruefen, ob die Buecher "
