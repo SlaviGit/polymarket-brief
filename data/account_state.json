@@ -1,6 +1,6 @@
 {
  "wallet": "0x0fd4d56894d6e81cb9b8348c772c5eaa4dd2e72f",
- "fetched_at_utc": "2026-09-25T01:35:57Z",
+ "fetched_at_utc": "2026-09-25T07:56:09Z",
  "errors": [],
  "positions": [
   {
@@ -65,36 +65,6 @@
   },
   {
    "proxyWallet": "0x0fd4d56894d6e81cb9b8348c772c5eaa4dd2e72f",
-   "asset": "7583604937528188043686582841806980229394497250148331609050993849037712106022",
-   "conditionId": "0x2010cd76ac0d429f5a085dd0d357ea01f9fe8f8343d399e022cd404208e251db",
-   "size": 25,
-   "avgPrice": 0.48,
-   "initialValue": 12,
-   "grossInitialValue": 12,
-   "entryFeesUsdc": 0,
-   "currentValue": 15.75,
-   "cashPnl": 3.75,
-   "percentPnl": 31.25,
-   "totalBought": 25,
-   "realizedPnl": 0,
-   "percentRealizedPnl": 31.25,
-   "curPrice": 0.63,
-   "redeemable": false,
-   "mergeable": false,
-   "title": "Falcons vs. Packers: O/U 43.5",
-   "slug": "nfl-atl-gb-2026-09-25-total-43pt5",
-   "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/nfl.png",
-   "eventId": "848221",
-   "eventSlug": "nfl-atl-gb-2026-09-25",
-   "outcome": "Over",
-   "outcomeIndex": 0,
-   "oppositeOutcome": "Under",
-   "oppositeAsset": "56567632189430145524308028597750861688002020176342070294911060524259785909744",
-   "endDate": "2026-09-25",
-   "negativeRisk": false
-  },
-  {
-   "proxyWallet": "0x0fd4d56894d6e81cb9b8348c772c5eaa4dd2e72f",
    "asset": "55159722761418013044126414276680602270318000841690689684819994448621694923050",
    "conditionId": "0x12aa13b3da17ceae1b0a59b5d5b77121e91bb79b4bb0b52bf6543ed3f8d0953b",
    "size": 23.99,
@@ -132,13 +102,13 @@
    "initialValue": 18.27,
    "grossInitialValue": 18.27,
    "entryFeesUsdc": 0,
-   "currentValue": 20.1285,
-   "cashPnl": 1.8585,
-   "percentPnl": 10.1724,
+   "currentValue": 20.034,
+   "cashPnl": 1.764,
+   "percentPnl": 9.6551,
    "totalBought": 21,
    "realizedPnl": 0,
-   "percentRealizedPnl": 10.1724,
-   "curPrice": 0.9585,
+   "percentRealizedPnl": 9.6551,
+   "curPrice": 0.954,
    "redeemable": false,
    "mergeable": false,
    "title": "Israel x Iran ceasefire continues through September 30?",
@@ -192,13 +162,13 @@
    "initialValue": 17.4,
    "grossInitialValue": 17.4,
    "entryFeesUsdc": 0,
-   "currentValue": 18.3,
-   "cashPnl": 0.9,
-   "percentPnl": 5.1724,
+   "currentValue": 18.1,
+   "cashPnl": 0.7,
+   "percentPnl": 4.0229,
    "totalBought": 20,
    "realizedPnl": 0,
-   "percentRealizedPnl": 5.1724,
-   "curPrice": 0.915,
+   "percentRealizedPnl": 4.0229,
+   "curPrice": 0.905,
    "redeemable": false,
    "mergeable": false,
    "title": "US announces end of Iranian blockade by September 30, 2026?",
@@ -245,6 +215,25 @@
   }
  ],
  "closed_positions": [
+  {
+   "proxyWallet": "0x0fd4d56894d6e81cb9b8348c772c5eaa4dd2e72f",
+   "asset": "7583604937528188043686582841806980229394497250148331609050993849037712106022",
+   "conditionId": "0x2010cd76ac0d429f5a085dd0d357ea01f9fe8f8343d399e022cd404208e251db",
+   "avgPrice": 0.48,
+   "totalBought": 25,
+   "realizedPnl": 13,
+   "curPrice": 1,
+   "title": "Falcons vs. Packers: O/U 43.5",
+   "slug": "nfl-atl-gb-2026-09-25-total-43pt5",
+   "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/nfl.png",
+   "eventSlug": "nfl-atl-gb-2026-09-25",
+   "outcome": "Over",
+   "outcomeIndex": 0,
+   "oppositeOutcome": "Under",
+   "oppositeAsset": "56567632189430145524308028597750861688002020176342070294911060524259785909744",
+   "endDate": "2026-09-25",
+   "timestamp": 1790312667
+  },
   {
    "proxyWallet": "0x0fd4d56894d6e81cb9b8348c772c5eaa4dd2e72f",
    "asset": "63842529068710005716169325380315470359047749786610778647370693404952498013178",
@@ -306,7 +295,7 @@
  "value": [
   {
    "user": "0x0fd4d56894d6e81cb9b8348c772c5eaa4dd2e72f",
-   "value": 113.6369
+   "value": 97.5924
   }
  ],
  "activity": [
