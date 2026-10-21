@@ -1,6 +1,6 @@
 {
- "fetched_at_utc": "2026-10-21T15:22:42Z",
- "n_tokens": 108,
+ "fetched_at_utc": "2026-10-21T19:25:44Z",
+ "n_tokens": 105,
  "capped_at": null,
  "min_sharp_usdc": 150.0,
  "lookback_hours": 48,
@@ -8,22 +8,18 @@
   {
    "token_id": "78803948342995070838836736012795017072053448960983345349841661545681081452350",
    "conditionId": "0x30f729ef18553d8956bfd7ae7a1e96dbad07e2476160239b23ec10e6cdc5f01b",
-   "book_timestamp_ms": "1792596117588",
-   "best_bid": 0.004,
-   "best_ask": 0.005,
+   "book_timestamp_ms": "1792610741165",
+   "best_bid": 0.003,
+   "best_ask": 0.004,
    "spread": 0.001,
    "bids": [
     {
-     "price": 0.004,
-     "size": 67491.7
-    },
-    {
      "price": 0.003,
-     "size": 80821.55
+     "size": 80467.18
     },
     {
      "price": 0.002,
-     "size": 133400.44
+     "size": 112600.44
     },
     {
      "price": 0.001,
@@ -32,8 +28,12 @@
    ],
    "asks": [
     {
+     "price": 0.004,
+     "size": 846.1
+    },
+    {
      "price": 0.005,
-     "size": 14704.12
+     "size": 14929.46
     },
     {
      "price": 0.006,
@@ -46,10 +46,6 @@
     {
      "price": 0.008,
      "size": 14153.43
-    },
-    {
-     "price": 0.009,
-     "size": 9640.46
     }
    ],
    "reason": [
@@ -59,52 +55,52 @@
   {
    "token_id": "55159722761418013044126414276680602270318000841690689684819994448621694923050",
    "conditionId": "0x12aa13b3da17ceae1b0a59b5d5b77121e91bb79b4bb0b52bf6543ed3f8d0953b",
-   "book_timestamp_ms": "1792596160100",
-   "best_bid": 0.13,
-   "best_ask": 0.14,
+   "book_timestamp_ms": "1792610734229",
+   "best_bid": 0.12,
+   "best_ask": 0.13,
    "spread": 0.01,
    "bids": [
     {
-     "price": 0.13,
-     "size": 90707.35
-    },
-    {
      "price": 0.12,
-     "size": 164835.75
+     "size": 16567.1
     },
     {
      "price": 0.11,
-     "size": 7442.28
+     "size": 47987.54
     },
     {
      "price": 0.1,
-     "size": 11763.35
+     "size": 15225.36
     },
     {
      "price": 0.09,
-     "size": 5975.04
+     "size": 5794.09
+    },
+    {
+     "price": 0.08,
+     "size": 3709.08
     }
    ],
    "asks": [
     {
+     "price": 0.13,
+     "size": 178135.49
+    },
+    {
      "price": 0.14,
-     "size": 301456.03
+     "size": 381410.57
     },
     {
      "price": 0.15,
-     "size": 185821.48
+     "size": 12983.31
     },
     {
      "price": 0.16,
-     "size": 9106.12
+     "size": 4281.12
     },
     {
      "price": 0.17,
-     "size": 8224.34
-    },
-    {
-     "price": 0.18,
-     "size": 6625.0
+     "size": 6184.34
     }
    ],
    "reason": [
@@ -115,52 +111,52 @@
   {
    "token_id": "17371217118862125782438074585166210555214661810823929795910191856905580975576",
    "conditionId": "0x4e4f77e7dbf4cab666e9a1943674d7ae66348e862df03ea6f44b11eb95731928",
-   "book_timestamp_ms": "1792596162469",
+   "book_timestamp_ms": "1792610741107",
    "best_bid": 0.91,
    "best_ask": 0.92,
    "spread": 0.01,
    "bids": [
     {
      "price": 0.91,
-     "size": 630815.54
+     "size": 440878.27
     },
     {
      "price": 0.9,
-     "size": 843371.67
+     "size": 892057.13
     },
     {
      "price": 0.89,
-     "size": 366429.03
+     "size": 365755.03
     },
     {
      "price": 0.88,
-     "size": 460612.59
+     "size": 460103.59
     },
     {
      "price": 0.87,
-     "size": 358465.99
+     "size": 358153.99
     }
    ],
    "asks": [
     {
      "price": 0.92,
-     "size": 1058568.97
+     "size": 127206.22
     },
     {
      "price": 0.93,
-     "size": 1805519.39
+     "size": 1634094.05
     },
     {
      "price": 0.94,
-     "size": 1902884.99
+     "size": 2798213.63
     },
     {
      "price": 0.95,
-     "size": 506450.99
+     "size": 506225.99
     },
     {
      "price": 0.96,
-     "size": 503073.85
+     "size": 503323.85
     }
    ],
    "reason": [
@@ -170,7 +166,7 @@
   {
    "token_id": "57161571923524742438826831882300088590109837158862295301896910708589123238498",
    "conditionId": "0xcdbf64cb434d132ae3eba2c6d4aa8123dde9f90bd8641a5cd31ceddee6d935b8",
-   "book_timestamp_ms": "1792596106002",
+   "book_timestamp_ms": "1792610483222",
    "best_bid": 0.93,
    "best_ask": 0.94,
    "spread": 0.01,
@@ -199,7 +195,7 @@
    "asks": [
     {
      "price": 0.94,
-     "size": 1188.66
+     "size": 1158.66
     },
     {
      "price": 0.95,
@@ -215,7 +211,7 @@
     },
     {
      "price": 0.98,
-     "size": 6343.58
+     "size": 5543.58
     }
    ],
    "reason": [
@@ -225,52 +221,52 @@
   {
    "token_id": "101271212793920184996758167829455880497774505474088458501052361751709863536129",
    "conditionId": "0xe38ab46c26cff272c66e5593c5711870110837755e375420db1f614a1a6843b5",
-   "book_timestamp_ms": "1792596163422",
-   "best_bid": 0.4,
-   "best_ask": 0.42,
+   "book_timestamp_ms": "1792610745669",
+   "best_bid": 0.42,
+   "best_ask": 0.44,
    "spread": 0.02,
    "bids": [
     {
+     "price": 0.42,
+     "size": 321.99
+    },
+    {
+     "price": 0.41,
+     "size": 1752.48
+    },
+    {
      "price": 0.4,
-     "size": 3049.91
+     "size": 13246.22
     },
     {
      "price": 0.39,
-     "size": 4926.49
+     "size": 3204.96
     },
     {
      "price": 0.38,
-     "size": 1700.0
-    },
-    {
-     "price": 0.28,
-     "size": 20.0
-    },
-    {
-     "price": 0.27,
-     "size": 60.0
+     "size": 3000.0
     }
    ],
    "asks": [
     {
-     "price": 0.42,
-     "size": 530.84
-    },
-    {
-     "price": 0.43,
-     "size": 3434.09
-    },
-    {
      "price": 0.44,
-     "size": 2574.75
+     "size": 206.28
     },
     {
      "price": 0.45,
-     "size": 1290.99
+     "size": 976.18
     },
     {
      "price": 0.46,
-     "size": 119.57
+     "size": 3429.92
+    },
+    {
+     "price": 0.47,
+     "size": 3946.21
+    },
+    {
+     "price": 0.48,
+     "size": 375.85
     }
    ],
    "reason": [
@@ -282,7 +278,7 @@
   {
    "token_id": "89057183513512098731798436490734977412847393182489653448672480882433310150196",
    "conditionId": "0x9e5e04b5e089cb7cf9fff90972b84b9a7688a6aa90e6d1a294d6e4a09329114a",
-   "book_timestamp_ms": "1792596151045",
+   "book_timestamp_ms": "1792610743623",
    "best_bid": 0.952,
    "best_ask": 0.999,
    "spread": 0.047,
@@ -305,7 +301,7 @@
     },
     {
      "price": 0.919,
-     "size": 242.0
+     "size": 64.0
     }
    ],
    "asks": [
@@ -321,18 +317,22 @@
   {
    "token_id": "41264579633102577153707699888683994402957590780549389392353903248915821118811",
    "conditionId": "0x5805f24078d25bd5f3da7c4f49e9d306d2d29389e95c2a9668c245ac2ab4fcb6",
-   "book_timestamp_ms": "1792596164000",
-   "best_bid": 0.972,
-   "best_ask": 0.973,
-   "spread": 0.001,
+   "book_timestamp_ms": "1792610743514",
+   "best_bid": 0.973,
+   "best_ask": 0.985,
+   "spread": 0.012,
    "bids": [
     {
+     "price": 0.973,
+     "size": 121.19
+    },
+    {
      "price": 0.972,
-     "size": 100.0
+     "size": 9408.59
     },
     {
      "price": 0.971,
-     "size": 548.77
+     "size": 497.58
     },
     {
      "price": 0.969,
@@ -341,20 +341,16 @@
     {
      "price": 0.964,
      "size": 8.42
-    },
-    {
-     "price": 0.962,
-     "size": 1204.0
     }
    ],
    "asks": [
     {
-     "price": 0.973,
-     "size": 10.0
+     "price": 0.985,
+     "size": 30.0
     },
     {
-     "price": 0.974,
-     "size": 3147.59
+     "price": 0.986,
+     "size": 20.0
     },
     {
      "price": 0.987,
@@ -362,11 +358,11 @@
     },
     {
      "price": 0.988,
-     "size": 666.6
+     "size": 2200.0
     },
     {
      "price": 0.989,
-     "size": 3533.71
+     "size": 2624.71
     }
    ],
    "reason": [
@@ -376,52 +372,52 @@
   {
    "token_id": "33248445071287475784020539078449011387420179680117931563779651328806644373237",
    "conditionId": "0x704e1af6fadba2ba429fa208f48591cfc3f812202589c11076a0baaab8588ca9",
-   "book_timestamp_ms": "1792596165375",
-   "best_bid": 0.38,
+   "book_timestamp_ms": "1792610744455",
+   "best_bid": 0.39,
    "best_ask": 0.4,
-   "spread": 0.02,
+   "spread": 0.01,
    "bids": [
     {
+     "price": 0.39,
+     "size": 8363.65
+    },
+    {
      "price": 0.38,
-     "size": 3660.25
+     "size": 5450.0
     },
     {
      "price": 0.37,
-     "size": 47779.22
+     "size": 36670.74
     },
     {
      "price": 0.36,
-     "size": 21511.4
+     "size": 22497.47
     },
     {
      "price": 0.35,
-     "size": 26288.68
-    },
-    {
-     "price": 0.34,
-     "size": 57636.99
+     "size": 20606.19
     }
    ],
    "asks": [
     {
      "price": 0.4,
-     "size": 371.0
+     "size": 2225.14
     },
     {
      "price": 0.41,
-     "size": 1602.79
+     "size": 6090.55
     },
     {
      "price": 0.42,
-     "size": 5361.13
+     "size": 9299.88
     },
     {
      "price": 0.43,
-     "size": 4951.24
+     "size": 7885.61
     },
     {
      "price": 0.44,
-     "size": 7632.0
+     "size": 20217.39
     }
    ],
    "reason": [
@@ -431,55 +427,56 @@
   {
    "token_id": "89020681176050617823296168376568556502386203259805949593794738497604947491908",
    "conditionId": "0xdcfa868674180e82060bac7d46286a04046220a4187b80d8111a2c1036aeb565",
-   "book_timestamp_ms": "1792596161878",
-   "best_bid": 0.84,
-   "best_ask": 0.85,
+   "book_timestamp_ms": "1792610744812",
+   "best_bid": 0.82,
+   "best_ask": 0.83,
    "spread": 0.01,
    "bids": [
     {
-     "price": 0.84,
-     "size": 100.0
-    },
-    {
-     "price": 0.83,
-     "size": 1636.34
-    },
-    {
      "price": 0.82,
-     "size": 640.87
+     "size": 230.79
     },
     {
      "price": 0.81,
-     "size": 1434.37
+     "size": 448.68
     },
     {
      "price": 0.8,
-     "size": 200.0
+     "size": 400.0
+    },
+    {
+     "price": 0.77,
+     "size": 40.0
+    },
+    {
+     "price": 0.57,
+     "size": 8.77
     }
    ],
    "asks": [
     {
+     "price": 0.83,
+     "size": 545.43
+    },
+    {
+     "price": 0.84,
+     "size": 658.56
+    },
+    {
      "price": 0.85,
-     "size": 406.59
+     "size": 250.69
     },
     {
      "price": 0.86,
-     "size": 1084.36
+     "size": 2098.46
     },
     {
      "price": 0.87,
-     "size": 6662.99
-    },
-    {
-     "price": 0.88,
-     "size": 2410.25
-    },
-    {
-     "price": 0.89,
-     "size": 10581.71
+     "size": 4734.07
     }
    ],
    "reason": [
+    "[active] h038596027355 No @0.8200000004 273 USDC",
     "[active] h038596027355 No @0.86 368 USDC",
     "[active] h038596027355 No @0.88 264 USDC"
    ]
@@ -487,52 +484,52 @@
   {
    "token_id": "65820308257189656513804747529011240704128921887172967203628961054255370624173",
    "conditionId": "0x500dd9aab670637dee0fee91d96f4d3770700093be2272586bd423453675b062",
-   "book_timestamp_ms": "1792596159616",
-   "best_bid": 0.56,
-   "best_ask": 0.61,
-   "spread": 0.05,
+   "book_timestamp_ms": "1792610746851",
+   "best_bid": 0.6,
+   "best_ask": 0.63,
+   "spread": 0.03,
    "bids": [
     {
+     "price": 0.6,
+     "size": 30.0
+    },
+    {
+     "price": 0.59,
+     "size": 155.4
+    },
+    {
+     "price": 0.58,
+     "size": 998.6
+    },
+    {
+     "price": 0.57,
+     "size": 118.0
+    },
+    {
      "price": 0.56,
-     "size": 5.0
-    },
-    {
-     "price": 0.55,
-     "size": 1073.82
-    },
-    {
-     "price": 0.54,
-     "size": 184.0
-    },
-    {
-     "price": 0.53,
-     "size": 300.0
-    },
-    {
-     "price": 0.48,
-     "size": 21.1
+     "size": 140.4
     }
    ],
    "asks": [
     {
-     "price": 0.61,
-     "size": 10.0
-    },
-    {
-     "price": 0.62,
-     "size": 5571.0
-    },
-    {
      "price": 0.63,
-     "size": 653.0
+     "size": 949.0
     },
     {
      "price": 0.64,
-     "size": 1099.7
+     "size": 1317.7
     },
     {
-     "price": 0.74,
-     "size": 80.0
+     "price": 0.65,
+     "size": 937.49
+    },
+    {
+     "price": 0.66,
+     "size": 132.0
+    },
+    {
+     "price": 0.67,
+     "size": 250.0
     }
    ],
    "reason": [
@@ -543,52 +540,52 @@
   {
    "token_id": "49179626323744581929644494169891661533632485652774477888051528768583009370807",
    "conditionId": "0x13f5c06545b93357de46e704a3f0ca309e9e1506d7f120b1f326237d5ea65f3c",
-   "book_timestamp_ms": "1792596165629",
-   "best_bid": 0.723,
-   "best_ask": 0.727,
-   "spread": 0.004,
+   "book_timestamp_ms": "1792610740629",
+   "best_bid": 0.894,
+   "best_ask": 0.919,
+   "spread": 0.025,
    "bids": [
     {
-     "price": 0.723,
-     "size": 11.0
+     "price": 0.894,
+     "size": 172.98
     },
     {
-     "price": 0.722,
-     "size": 305.0
+     "price": 0.892,
+     "size": 50.0
     },
     {
-     "price": 0.72,
-     "size": 5.02
+     "price": 0.89,
+     "size": 25.0
     },
     {
-     "price": 0.719,
-     "size": 17.75
+     "price": 0.888,
+     "size": 49.0
     },
     {
-     "price": 0.717,
-     "size": 154.0
+     "price": 0.887,
+     "size": 130.0
     }
    ],
    "asks": [
     {
-     "price": 0.727,
-     "size": 5325.1
+     "price": 0.919,
+     "size": 10.0
     },
     {
-     "price": 0.728,
-     "size": 350.0
+     "price": 0.92,
+     "size": 1328.51
     },
     {
-     "price": 0.73,
-     "size": 60.0
+     "price": 0.927,
+     "size": 95.0
     },
     {
-     "price": 0.731,
-     "size": 680.0
+     "price": 0.93,
+     "size": 1218.51
     },
     {
-     "price": 0.732,
-     "size": 958.79
+     "price": 0.932,
+     "size": 80.0
     }
    ],
    "reason": [
@@ -598,52 +595,52 @@
   {
    "token_id": "20709109032245341219796036781437500675609769308849791852341195403369410462976",
    "conditionId": "0xcb7a1f14ecafc99a69ebc7914929d7ca8b395194f8d8b45ef23f33610f811218",
-   "book_timestamp_ms": "1792596164714",
-   "best_bid": 0.27,
-   "best_ask": 0.274,
-   "spread": 0.004,
+   "book_timestamp_ms": "1792610744011",
+   "best_bid": 0.07,
+   "best_ask": 0.09,
+   "spread": 0.02,
    "bids": [
     {
-     "price": 0.27,
-     "size": 753.79
+     "price": 0.07,
+     "size": 27.0
     },
     {
-     "price": 0.269,
-     "size": 200.0
+     "price": 0.069,
+     "size": 300.0
     },
     {
-     "price": 0.268,
-     "size": 166.0
-    },
-    {
-     "price": 0.267,
+     "price": 0.068,
      "size": 50.0
     },
     {
-     "price": 0.266,
-     "size": 250.0
+     "price": 0.067,
+     "size": 300.0
+    },
+    {
+     "price": 0.066,
+     "size": 50.0
     }
    ],
    "asks": [
     {
-     "price": 0.274,
-     "size": 412.1
+     "price": 0.09,
+     "size": 40.0
     },
     {
-     "price": 0.275,
-     "size": 200.0
+     "price": 0.091,
+     "size": 25.0
     },
     {
-     "price": 0.276,
-     "size": 166.0
-    },
-    {
-     "price": 0.277,
+     "price": 0.092,
      "size": 99.0
     },
     {
-     "price": 0.278,
-     "size": 89.26
+     "price": 0.097,
+     "size": 12.31
+    },
+    {
+     "price": 0.1,
+     "size": 50.0
     }
    ],
    "reason": [
@@ -652,220 +649,110 @@
    ]
   },
   {
-   "token_id": "104266918293222855521793046357307821515714886346545207316467665058118412274070",
-   "conditionId": "0xc55e2bb43b89ecbdb1a9bcb0cde684e3f2108faf1d7502ca6032b260c9aed81f",
-   "book_timestamp_ms": "1792596161586",
-   "best_bid": 0.466,
-   "best_ask": 0.482,
-   "spread": 0.016,
-   "bids": [
-    {
-     "price": 0.466,
-     "size": 30.0
-    },
-    {
-     "price": 0.465,
-     "size": 110.0
-    },
-    {
-     "price": 0.464,
-     "size": 59.0
-    },
-    {
-     "price": 0.463,
-     "size": 48.0
-    },
-    {
-     "price": 0.461,
-     "size": 5.0
-    }
-   ],
-   "asks": [
-    {
-     "price": 0.482,
-     "size": 29.61
-    },
-    {
-     "price": 0.483,
-     "size": 90.0
-    },
-    {
-     "price": 0.484,
-     "size": 10.0
-    },
-    {
-     "price": 0.485,
-     "size": 30.6
-    },
-    {
-     "price": 0.486,
-     "size": 64.0
-    }
-   ],
-   "reason": [
-    "[active] aghy Yes @0.1777363122 286 USDC"
-   ]
-  },
-  {
    "token_id": "58421987972100586826330616250690474504359298033602990223828098109695719571344",
    "conditionId": "0x50642b28be893e8752649e9ae6d687558fc5dcfeeecd10713cf59ef6ea0edce4",
-   "book_timestamp_ms": "1792596164968",
-   "best_bid": 0.37,
-   "best_ask": 0.38,
-   "spread": 0.01,
+   "book_timestamp_ms": "1792610737683",
+   "best_bid": 0.39,
+   "best_ask": 0.41,
+   "spread": 0.02,
    "bids": [
     {
+     "price": 0.39,
+     "size": 144.68
+    },
+    {
+     "price": 0.38,
+     "size": 1368.12
+    },
+    {
      "price": 0.37,
-     "size": 539.63
+     "size": 2333.71
     },
     {
      "price": 0.36,
-     "size": 7085.58
+     "size": 12838.37
     },
     {
      "price": 0.35,
-     "size": 6038.64
-    },
-    {
-     "price": 0.34,
-     "size": 23020.23
-    },
-    {
-     "price": 0.33,
-     "size": 3500.0
+     "size": 115.71
     }
    ],
    "asks": [
     {
-     "price": 0.38,
-     "size": 8662.92
-    },
-    {
-     "price": 0.39,
-     "size": 4370.76
-    },
-    {
-     "price": 0.4,
-     "size": 13630.51
-    },
-    {
      "price": 0.41,
-     "size": 23022.0
+     "size": 100.77
     },
     {
      "price": 0.42,
-     "size": 4685.0
+     "size": 1957.78
+    },
+    {
+     "price": 0.43,
+     "size": 1722.68
+    },
+    {
+     "price": 0.44,
+     "size": 21163.02
+    },
+    {
+     "price": 0.45,
+     "size": 549.99
     }
    ],
    "reason": [
-    "[active] CDAP1 Yes @0.37 1315 USDC",
-    "[active] CDAP1 Yes @0.3399446725 3174 USDC"
-   ]
-  },
-  {
-   "token_id": "111662129652828266889360374468657435151479595863413519836161861837506140152890",
-   "conditionId": "0x8a4196617dcb703e49d9bb36d3847bf6a75fd364dbd19f8d408ac944bf1a03d8",
-   "book_timestamp_ms": "1792596158999",
-   "best_bid": 0.77,
-   "best_ask": 0.78,
-   "spread": 0.01,
-   "bids": [
-    {
-     "price": 0.77,
-     "size": 4623.82
-    },
-    {
-     "price": 0.76,
-     "size": 56608.07
-    },
-    {
-     "price": 0.75,
-     "size": 37869.94
-    },
-    {
-     "price": 0.74,
-     "size": 15843.77
-    },
-    {
-     "price": 0.73,
-     "size": 88.0
-    }
-   ],
-   "asks": [
-    {
-     "price": 0.78,
-     "size": 12857.43
-    },
-    {
-     "price": 0.79,
-     "size": 19657.6
-    },
-    {
-     "price": 0.8,
-     "size": 149746.7
-    },
-    {
-     "price": 0.81,
-     "size": 115869.68
-    },
-    {
-     "price": 0.82,
-     "size": 5000.0
-    }
-   ],
-   "reason": [
-    "[active] CDAP1 Yes @0.77 7484 USDC"
+    "[active] CDAP1 Yes @0.38 3792 USDC",
+    "[active] CDAP1 Yes @0.37 1315 USDC"
    ]
   },
   {
    "token_id": "53610167052119594539943260017737712674154626353449223102231029322515421519907",
    "conditionId": "0xa3063379039cd2ceefc207e740ed9474469a2d84559184c48258528d3e672e17",
-   "book_timestamp_ms": "1792596160487",
-   "best_bid": 0.83,
-   "best_ask": 0.86,
-   "spread": 0.03,
+   "book_timestamp_ms": "1792610746882",
+   "best_bid": 0.82,
+   "best_ask": 0.84,
+   "spread": 0.02,
    "bids": [
     {
-     "price": 0.83,
-     "size": 105.0
-    },
-    {
      "price": 0.82,
-     "size": 1533.37
+     "size": 1068.0
     },
     {
      "price": 0.81,
-     "size": 190.0
+     "size": 1015.02
     },
     {
      "price": 0.8,
-     "size": 150.0
+     "size": 250.0
     },
     {
      "price": 0.79,
      "size": 100.0
+    },
+    {
+     "price": 0.6,
+     "size": 20.0
     }
    ],
    "asks": [
     {
-     "price": 0.86,
+     "price": 0.84,
      "size": 83.28
     },
     {
+     "price": 0.85,
+     "size": 1996.43
+    },
+    {
+     "price": 0.86,
+     "size": 1243.29
+    },
+    {
      "price": 0.87,
-     "size": 3746.48
+     "size": 1275.74
     },
     {
      "price": 0.88,
-     "size": 446.91
-    },
-    {
-     "price": 0.89,
-     "size": 1928.79
-    },
-    {
-     "price": 0.91,
-     "size": 40.0
+     "size": 34.91
     }
    ],
    "reason": [
@@ -875,10 +762,10 @@
   {
    "token_id": "66407120440322285232593044892100906752420372076832874946639641619108675964858",
    "conditionId": "0x93e8902bf20d0c1097f232a20d4c63b3ace27f624c4f198c0eb48d148b6cfff5",
-   "book_timestamp_ms": "1792596133089",
+   "book_timestamp_ms": "1792610744766",
    "best_bid": 0.811,
-   "best_ask": 0.823,
-   "spread": 0.012,
+   "best_ask": 0.825,
+   "spread": 0.014,
    "bids": [
     {
      "price": 0.811,
@@ -886,41 +773,41 @@
     },
     {
      "price": 0.81,
-     "size": 680.0
+     "size": 100.05
     },
     {
-     "price": 0.809,
-     "size": 177.88
+     "price": 0.794,
+     "size": 109.45
     },
     {
-     "price": 0.803,
-     "size": 100.0
+     "price": 0.779,
+     "size": 125.0
     },
     {
-     "price": 0.802,
-     "size": 139.0
+     "price": 0.778,
+     "size": 40.0
     }
    ],
    "asks": [
     {
-     "price": 0.823,
-     "size": 130.09
-    },
-    {
-     "price": 0.824,
-     "size": 59.9
-    },
-    {
      "price": 0.825,
-     "size": 4.24
+     "size": 150.0
+    },
+    {
+     "price": 0.826,
+     "size": 161.15
     },
     {
      "price": 0.828,
-     "size": 1000.0
+     "size": 681.84
     },
     {
      "price": 0.829,
      "size": 300.0
+    },
+    {
+     "price": 0.83,
+     "size": 1149.99
     }
    ],
    "reason": [
@@ -928,163 +815,59 @@
    ]
   },
   {
-   "token_id": "14562744066835145603158595821199529560356591686256947065587061730360823199779",
-   "conditionId": "0x7c6dc7e5679f6589db9bb86f80b44b2475e94c260b0b14bb508c97c32cc0eb8d",
-   "book_timestamp_ms": "1792596147514",
-   "best_bid": 0.35,
-   "best_ask": 0.45,
-   "spread": 0.1,
-   "bids": [
-    {
-     "price": 0.35,
-     "size": 314.07
-    },
-    {
-     "price": 0.34,
-     "size": 15.31
-    },
-    {
-     "price": 0.33,
-     "size": 50.99
-    },
-    {
-     "price": 0.3,
-     "size": 500.0
-    },
-    {
-     "price": 0.05,
-     "size": 5.0
-    }
-   ],
-   "asks": [
-    {
-     "price": 0.45,
-     "size": 111.0
-    },
-    {
-     "price": 0.47,
-     "size": 50.0
-    },
-    {
-     "price": 0.73,
-     "size": 5.0
-    },
-    {
-     "price": 0.88,
-     "size": 300.0
-    },
-    {
-     "price": 0.96,
-     "size": 100.0
-    }
-   ],
-   "reason": [
-    "[active] jimmer-fredette Yes @0.3581897794 203 USDC"
-   ]
-  },
-  {
-   "token_id": "99620145731449771010068098934380127049186619068025290395297671307430416377182",
-   "conditionId": "0x13a0ab4e81fc630023a467c1ccc3c51174895081963bf2deed4183c84b7b3b1c",
-   "book_timestamp_ms": "1792596152589",
-   "best_bid": 0.91,
-   "best_ask": 0.97,
-   "spread": 0.06,
-   "bids": [
-    {
-     "price": 0.91,
-     "size": 64.65
-    },
-    {
-     "price": 0.9,
-     "size": 200.0
-    },
-    {
-     "price": 0.84,
-     "size": 30.0
-    },
-    {
-     "price": 0.79,
-     "size": 119.0
-    },
-    {
-     "price": 0.76,
-     "size": 25.74
-    }
-   ],
-   "asks": [
-    {
-     "price": 0.97,
-     "size": 64.92
-    },
-    {
-     "price": 0.98,
-     "size": 804.01
-    },
-    {
-     "price": 0.99,
-     "size": 233.99
-    }
-   ],
-   "reason": [
-    "[active] jimmer-fredette No @0.5933045594 341 USDC"
-   ]
-  },
-  {
    "token_id": "43681720319477188597878188429504394796986333625436226983885469009299707562545",
    "conditionId": "0x87091dc5932f015d80c40e71e47cb043c3f8b6098484eb5bc3943cf35ee9afc1",
-   "book_timestamp_ms": "1792596155308",
-   "best_bid": 0.954,
-   "best_ask": 0.956,
-   "spread": 0.002,
+   "book_timestamp_ms": "1792610747524",
+   "best_bid": 0.956,
+   "best_ask": 0.957,
+   "spread": 0.001,
    "bids": [
     {
-     "price": 0.954,
+     "price": 0.956,
+     "size": 300.01
+    },
+    {
+     "price": 0.955,
      "size": 10.0
     },
     {
-     "price": 0.95,
+     "price": 0.953,
      "size": 20.0
     },
     {
-     "price": 0.948,
-     "size": 984.15
+     "price": 0.952,
+     "size": 2112.49
     },
     {
-     "price": 0.947,
-     "size": 1000.0
-    },
-    {
-     "price": 0.945,
-     "size": 3146.97
+     "price": 0.951,
+     "size": 1786.11
     }
    ],
    "asks": [
     {
-     "price": 0.956,
-     "size": 1419.13
-    },
-    {
      "price": 0.957,
-     "size": 9654.95
+     "size": 2785.25
     },
     {
      "price": 0.958,
-     "size": 2198.99
+     "size": 1519.81
     },
     {
      "price": 0.959,
-     "size": 4150.0
+     "size": 4905.0
     },
     {
      "price": 0.96,
-     "size": 24926.96
+     "size": 25276.96
+    },
+    {
+     "price": 0.961,
+     "size": 5794.0
     }
    ],
    "reason": [
     "[active] tsekinming01 No @0.92 2126 USDC",
     "[active] tsekinming01 No @0.92 634 USDC",
-    "[active] tsekinming01 No @0.96 3268 USDC",
-    "[active] tsekinming01 No @0.96 1532 USDC",
     "[watch] HerrieDavis No @0.923 208 USDC",
     "[watch] HerrieDavis No @0.902 3044 USDC",
     "[watch] HerrieDavis No @0.902 2030 USDC",
@@ -1094,52 +877,52 @@
   {
    "token_id": "40613434179692166793278109226224812051377342363313158411201704091775622526849",
    "conditionId": "0x5e18ff95a169f8c44dc63dcd6eb0c2e83f1000646a76f51c12d9974daca1c0d6",
-   "book_timestamp_ms": "1792596169697",
-   "best_bid": 0.944,
-   "best_ask": 0.969,
-   "spread": 0.025,
+   "book_timestamp_ms": "1792610748478",
+   "best_bid": 0.946,
+   "best_ask": 0.962,
+   "spread": 0.016,
    "bids": [
     {
-     "price": 0.944,
-     "size": 29.99
+     "price": 0.946,
+     "size": 40.01
     },
     {
-     "price": 0.943,
-     "size": 29.9
+     "price": 0.945,
+     "size": 24.8
+    },
+    {
+     "price": 0.944,
+     "size": 43.0
     },
     {
      "price": 0.942,
      "size": 125.0
     },
     {
-     "price": 0.936,
-     "size": 50.0
-    },
-    {
-     "price": 0.935,
-     "size": 30.0
+     "price": 0.941,
+     "size": 406.87
     }
    ],
    "asks": [
     {
-     "price": 0.969,
-     "size": 40.0
+     "price": 0.962,
+     "size": 9523.62
     },
     {
-     "price": 0.97,
-     "size": 608.27
+     "price": 0.967,
+     "size": 14.62
     },
     {
-     "price": 0.972,
+     "price": 0.976,
+     "size": 288.2
+    },
+    {
+     "price": 0.977,
      "size": 10.0
     },
     {
-     "price": 0.973,
-     "size": 11313.0
-    },
-    {
-     "price": 0.987,
-     "size": 66.87
+     "price": 0.981,
+     "size": 17.34
     }
    ],
    "reason": [
@@ -1149,52 +932,52 @@
   {
    "token_id": "44283750433616468198031892983591012070460688920686843774741002647050323088338",
    "conditionId": "0x18cab2052cdf8e762aa8164f3e2b2d86bf8830d2a376c83299ec97426b47ab16",
-   "book_timestamp_ms": "1792596159641",
-   "best_bid": 0.806,
-   "best_ask": 0.812,
-   "spread": 0.006,
+   "book_timestamp_ms": "1792610744277",
+   "best_bid": 0.805,
+   "best_ask": 0.813,
+   "spread": 0.008,
    "bids": [
     {
-     "price": 0.806,
-     "size": 247.5
-    },
-    {
      "price": 0.805,
-     "size": 604.89
+     "size": 144.89
     },
     {
      "price": 0.804,
-     "size": 62.18
+     "size": 470.0
+    },
+    {
+     "price": 0.803,
+     "size": 118.34
     },
     {
      "price": 0.802,
-     "size": 148.42
+     "size": 50.0
     },
     {
      "price": 0.8,
-     "size": 132.0
+     "size": 63.0
     }
    ],
    "asks": [
     {
-     "price": 0.812,
-     "size": 35.99
-    },
-    {
      "price": 0.813,
-     "size": 230.0
+     "size": 85.99
     },
     {
      "price": 0.814,
-     "size": 420.0
+     "size": 520.0
     },
     {
      "price": 0.815,
-     "size": 62.18
+     "size": 118.34
     },
     {
-     "price": 0.816,
-     "size": 88.22
+     "price": 0.817,
+     "size": 63.86
+    },
+    {
+     "price": 0.82,
+     "size": 70.0
     }
    ],
    "reason": [
@@ -1204,52 +987,52 @@
   {
    "token_id": "9025448570994866714151390167666974197623007132973626623412960268955048642964",
    "conditionId": "0xd05da9807740aa0f5bc9e9232daabe87a21e5012c19e283abf414f1c1651118b",
-   "book_timestamp_ms": "1792596163657",
-   "best_bid": 0.71,
-   "best_ask": 0.72,
+   "book_timestamp_ms": "1792610748674",
+   "best_bid": 0.69,
+   "best_ask": 0.7,
    "spread": 0.01,
    "bids": [
     {
-     "price": 0.71,
-     "size": 9167.58
-    },
-    {
-     "price": 0.7,
-     "size": 21003.18
-    },
-    {
      "price": 0.69,
-     "size": 36793.75
+     "size": 2282.62
     },
     {
      "price": 0.68,
-     "size": 14793.29
+     "size": 28499.32
     },
     {
      "price": 0.67,
-     "size": 75789.16
+     "size": 104584.61
+    },
+    {
+     "price": 0.66,
+     "size": 16320.46
+    },
+    {
+     "price": 0.65,
+     "size": 14561.01
     }
    ],
    "asks": [
     {
+     "price": 0.7,
+     "size": 15607.15
+    },
+    {
+     "price": 0.71,
+     "size": 12208.36
+    },
+    {
      "price": 0.72,
-     "size": 15993.99
+     "size": 46756.66
     },
     {
      "price": 0.73,
-     "size": 16260.74
+     "size": 68554.94
     },
     {
      "price": 0.74,
-     "size": 59927.04
-    },
-    {
-     "price": 0.75,
-     "size": 329237.34
-    },
-    {
-     "price": 0.76,
-     "size": 67796.41
+     "size": 45027.66
     }
    ],
    "reason": [
@@ -1263,52 +1046,52 @@
   {
    "token_id": "54533569528927082430133047556849600511985191158927477533124630301934489498530",
    "conditionId": "0x7586a96520578acaaaa4ea84a2582f197f84255da1f3392a7aa300386c187b37",
-   "book_timestamp_ms": "1792596170565",
-   "best_bid": 0.72,
-   "best_ask": 0.73,
+   "book_timestamp_ms": "1792610750422",
+   "best_bid": 0.73,
+   "best_ask": 0.74,
    "spread": 0.01,
    "bids": [
     {
+     "price": 0.73,
+     "size": 26953.6
+    },
+    {
      "price": 0.72,
-     "size": 33124.36
+     "size": 50849.33
     },
     {
      "price": 0.71,
-     "size": 281716.53
+     "size": 427984.12
     },
     {
      "price": 0.7,
-     "size": 176754.14
+     "size": 28927.44
     },
     {
      "price": 0.69,
-     "size": 14107.86
-    },
-    {
-     "price": 0.68,
-     "size": 66668.63
+     "size": 38811.3
     }
    ],
    "asks": [
     {
-     "price": 0.73,
-     "size": 6867.2
-    },
-    {
      "price": 0.74,
-     "size": 20797.54
+     "size": 58321.48
     },
     {
      "price": 0.75,
-     "size": 74839.73
+     "size": 36545.85
     },
     {
      "price": 0.76,
-     "size": 62577.61
+     "size": 50572.59
     },
     {
      "price": 0.77,
-     "size": 1660.65
+     "size": 27755.12
+    },
+    {
+     "price": 0.78,
+     "size": 10.0
     }
    ],
    "reason": [
@@ -1319,111 +1102,109 @@
   {
    "token_id": "111061902544814266207267295505639408607400625795891618462682726460921782993748",
    "conditionId": "0xdf9bf27ee5757c55b44b8b9826ddc9ec3a8809aa3278634c45edbb7fc8f1a3e3",
-   "book_timestamp_ms": "1792596170962",
-   "best_bid": 0.86,
-   "best_ask": 0.87,
+   "book_timestamp_ms": "1792610750769",
+   "best_bid": 0.87,
+   "best_ask": 0.88,
    "spread": 0.01,
    "bids": [
     {
+     "price": 0.87,
+     "size": 5027.42
+    },
+    {
      "price": 0.86,
-     "size": 107608.91
+     "size": 358902.26
     },
     {
      "price": 0.85,
-     "size": 260361.31
+     "size": 147208.8
     },
     {
      "price": 0.84,
-     "size": 10291.84
+     "size": 14542.84
     },
     {
      "price": 0.83,
-     "size": 11570.11
-    },
-    {
-     "price": 0.82,
-     "size": 2945.65
+     "size": 5420.11
     }
    ],
    "asks": [
     {
-     "price": 0.87,
-     "size": 197204.18
-    },
-    {
      "price": 0.88,
-     "size": 759934.62
+     "size": 180235.33
     },
     {
      "price": 0.89,
-     "size": 56045.1
+     "size": 224209.93
     },
     {
      "price": 0.9,
-     "size": 205093.07
+     "size": 209896.07
     },
     {
      "price": 0.91,
-     "size": 6256.02
+     "size": 5634.12
+    },
+    {
+     "price": 0.92,
+     "size": 6226.57
     }
    ],
    "reason": [
     "[active] Aeglos Yes @0.87 157 USDC",
     "[active] Aeglos Yes @0.87 438 USDC",
-    "[active] Aeglos Yes @0.87 525 USDC",
-    "[active] Aeglos Yes @0.85 1559 USDC",
-    "[active] Aeglos Yes @0.85 332 USDC"
+    "[active] Aeglos Yes @0.87 525 USDC"
    ]
   },
   {
    "token_id": "18117841823203873232646249021574299170990526619949260357148239622621345565858",
    "conditionId": "0x2224d99ac0c342754f0d9b1f3cf0e1d0e0cc40cadc65ba80c5e5728e284b0c2f",
-   "book_timestamp_ms": "1792596170638",
-   "best_bid": 0.939,
-   "best_ask": 0.957,
+   "book_timestamp_ms": "1792610735711",
+   "best_bid": 0.936,
+   "best_ask": 0.954,
    "spread": 0.018,
    "bids": [
     {
-     "price": 0.939,
-     "size": 30.0
-    },
-    {
-     "price": 0.938,
-     "size": 160.0
-    },
-    {
-     "price": 0.937,
-     "size": 46.05
-    },
-    {
      "price": 0.936,
-     "size": 367.05
+     "size": 232.1
     },
     {
-     "price": 0.935,
-     "size": 352.7
+     "price": 0.934,
+     "size": 507.76
+    },
+    {
+     "price": 0.932,
+     "size": 259.94
+    },
+    {
+     "price": 0.931,
+     "size": 192.0
+    },
+    {
+     "price": 0.929,
+     "size": 430.56
     }
    ],
    "asks": [
     {
-     "price": 0.957,
+     "price": 0.954,
      "size": 5.0
     },
     {
+     "price": 0.955,
+     "size": 30.0
+    },
+    {
+     "price": 0.956,
+     "size": 22.72
+    },
+    {
      "price": 0.958,
-     "size": 392.94
+     "size": 508.24
     },
     {
      "price": 0.959,
-     "size": 50.0
-    },
-    {
-     "price": 0.96,
-     "size": 350.0
-    },
-    {
-     "price": 0.961,
-     "size": 82.23
+     "size": 542.0
     }
    ],
    "reason": [
@@ -1435,52 +1216,52 @@
   {
    "token_id": "93702187511389211844335709832236031234340221989919051688104168063127699700056",
    "conditionId": "0x5d3143945da3dc365e94e0e162d8b93210d0ac1546b1b5b138702cbf627a7ad0",
-   "book_timestamp_ms": "1792596165110",
-   "best_bid": 0.879,
-   "best_ask": 0.897,
-   "spread": 0.018,
+   "book_timestamp_ms": "1792610747739",
+   "best_bid": 0.905,
+   "best_ask": 0.934,
+   "spread": 0.029,
    "bids": [
     {
-     "price": 0.879,
-     "size": 3283.82
+     "price": 0.905,
+     "size": 66.18
     },
     {
-     "price": 0.874,
-     "size": 373.3
+     "price": 0.904,
+     "size": 663.0
     },
     {
-     "price": 0.864,
-     "size": 26.0
+     "price": 0.898,
+     "size": 10.0
     },
     {
-     "price": 0.862,
-     "size": 110.0
+     "price": 0.897,
+     "size": 10.0
     },
     {
-     "price": 0.861,
-     "size": 215.0
+     "price": 0.886,
+     "size": 10.0
     }
    ],
    "asks": [
     {
-     "price": 0.897,
-     "size": 131.67
+     "price": 0.934,
+     "size": 5.0
     },
     {
-     "price": 0.898,
-     "size": 30.6
+     "price": 0.935,
+     "size": 27.2
     },
     {
-     "price": 0.899,
-     "size": 102.89
+     "price": 0.94,
+     "size": 20.0
     },
     {
-     "price": 0.9,
+     "price": 0.941,
      "size": 10.0
     },
     {
-     "price": 0.904,
-     "size": 373.3
+     "price": 0.944,
+     "size": 13.81
     }
    ],
    "reason": [
@@ -1494,48 +1275,52 @@
   {
    "token_id": "59128666465466181494492805464008816698886290734111856914602330967491309741010",
    "conditionId": "0x557f39f1e6ce61ed34e803e48629a59183c5e00d1cc580f3acbc617edb3949b0",
-   "book_timestamp_ms": "1792596132876",
-   "best_bid": 0.81,
-   "best_ask": 0.95,
-   "spread": 0.14,
+   "book_timestamp_ms": "1792610751737",
+   "best_bid": 0.7,
+   "best_ask": 0.81,
+   "spread": 0.11,
    "bids": [
     {
-     "price": 0.81,
-     "size": 49.98
-    },
-    {
-     "price": 0.8,
-     "size": 15.11
-    },
-    {
      "price": 0.7,
-     "size": 100.0
-    },
-    {
-     "price": 0.69,
-     "size": 250.0
+     "size": 106.06
     },
     {
      "price": 0.44,
      "size": 10.0
+    },
+    {
+     "price": 0.39,
+     "size": 20.0
+    },
+    {
+     "price": 0.37,
+     "size": 20.0
+    },
+    {
+     "price": 0.07,
+     "size": 20.0
     }
    ],
    "asks": [
     {
-     "price": 0.95,
-     "size": 124.03
+     "price": 0.81,
+     "size": 38.42
     },
     {
-     "price": 0.96,
-     "size": 206.82
+     "price": 0.84,
+     "size": 7.0
     },
     {
-     "price": 0.98,
-     "size": 45.56
+     "price": 0.85,
+     "size": 450.0
     },
     {
-     "price": 0.99,
-     "size": 229.62
+     "price": 0.88,
+     "size": 1009.2
+    },
+    {
+     "price": 0.92,
+     "size": 11.79
     }
    ],
    "reason": [
@@ -1546,52 +1331,52 @@
   {
    "token_id": "101986068862266105558334989280621725726624773570017878778003967896393718184061",
    "conditionId": "0x88e6f267ec73cc310cfdad25d6ff81e8cfa55ca31b156baab4e0830be17ae3b4",
-   "book_timestamp_ms": "1792596133448",
-   "best_bid": 0.961,
-   "best_ask": 0.982,
-   "spread": 0.021,
+   "book_timestamp_ms": "1792610694342",
+   "best_bid": 0.972,
+   "best_ask": 0.991,
+   "spread": 0.019,
    "bids": [
     {
-     "price": 0.961,
-     "size": 20.0
+     "price": 0.972,
+     "size": 532.7
     },
     {
-     "price": 0.94,
+     "price": 0.971,
      "size": 20.0
     },
     {
      "price": 0.936,
-     "size": 354.7
+     "size": 100.0
     },
     {
      "price": 0.935,
      "size": 100.0
     },
     {
-     "price": 0.903,
+     "price": 0.79,
      "size": 20.0
     }
    ],
    "asks": [
     {
-     "price": 0.982,
-     "size": 5.0
-    },
-    {
-     "price": 0.99,
-     "size": 40.0
-    },
-    {
      "price": 0.991,
-     "size": 174.52
+     "size": 60.0
     },
     {
      "price": 0.992,
      "size": 100.0
     },
     {
-     "price": 0.994,
-     "size": 77.97
+     "price": 0.995,
+     "size": 110.0
+    },
+    {
+     "price": 0.998,
+     "size": 128.0
+    },
+    {
+     "price": 0.999,
+     "size": 368.21
     }
    ],
    "reason": [
@@ -1601,52 +1386,52 @@
   {
    "token_id": "11282928429133129350621166529070259674876991270714664334992590515664210639379",
    "conditionId": "0xb99c1d1b4ae36c50f667778bd888ec2a97bc0315634644f6f4c0e4e31d4dade4",
-   "book_timestamp_ms": "1792596164519",
-   "best_bid": 0.51,
-   "best_ask": 0.67,
-   "spread": 0.16,
+   "book_timestamp_ms": "1792610752653",
+   "best_bid": 0.59,
+   "best_ask": 0.6,
+   "spread": 0.01,
    "bids": [
     {
-     "price": 0.51,
-     "size": 71.75
+     "price": 0.59,
+     "size": 141.75
     },
     {
-     "price": 0.46,
-     "size": 13.0
+     "price": 0.58,
+     "size": 91.0
     },
     {
-     "price": 0.45,
+     "price": 0.56,
+     "size": 41.0
+    },
+    {
+     "price": 0.47,
      "size": 50.0
     },
     {
      "price": 0.37,
      "size": 148.88
-    },
-    {
-     "price": 0.03,
-     "size": 15.0
     }
    ],
    "asks": [
     {
-     "price": 0.67,
-     "size": 78.61
+     "price": 0.6,
+     "size": 287.31
     },
     {
-     "price": 0.72,
-     "size": 5.0
+     "price": 0.61,
+     "size": 189.7
     },
     {
-     "price": 0.75,
-     "size": 12.8
+     "price": 0.63,
+     "size": 10.0
     },
     {
-     "price": 0.79,
-     "size": 12.8
+     "price": 0.64,
+     "size": 116.2
     },
     {
-     "price": 0.85,
-     "size": 45.34
+     "price": 0.65,
+     "size": 145.0
     }
    ],
    "reason": [
@@ -1656,52 +1441,52 @@
   {
    "token_id": "109876868437950584369987384406356259939519193117253465815665152916226511121427",
    "conditionId": "0x1a01bf78f56a507fcb666d564d8c8b91b0750679163ed6e96746102c9b7d285d",
-   "book_timestamp_ms": "1792596173738",
-   "best_bid": 0.775,
-   "best_ask": 0.776,
-   "spread": 0.001,
+   "book_timestamp_ms": "1792610748020",
+   "best_bid": 0.785,
+   "best_ask": 0.787,
+   "spread": 0.002,
    "bids": [
     {
-     "price": 0.775,
-     "size": 5769.17
+     "price": 0.785,
+     "size": 2075.42
     },
     {
-     "price": 0.774,
-     "size": 174.0
+     "price": 0.783,
+     "size": 4197.64
     },
     {
-     "price": 0.773,
-     "size": 10782.3
+     "price": 0.781,
+     "size": 3780.0
     },
     {
-     "price": 0.772,
-     "size": 1106.0
+     "price": 0.78,
+     "size": 912.37
     },
     {
-     "price": 0.771,
-     "size": 300.0
+     "price": 0.777,
+     "size": 4500.0
     }
    ],
    "asks": [
     {
-     "price": 0.776,
-     "size": 99.95
+     "price": 0.787,
+     "size": 84.38
     },
     {
-     "price": 0.777,
-     "size": 90.06
+     "price": 0.788,
+     "size": 28.26
     },
     {
-     "price": 0.778,
-     "size": 891.0
+     "price": 0.789,
+     "size": 1472.04
     },
     {
-     "price": 0.781,
-     "size": 1154.57
+     "price": 0.79,
+     "size": 2992.65
     },
     {
-     "price": 0.782,
-     "size": 1215.15
+     "price": 0.791,
+     "size": 672.68
     }
    ],
    "reason": [
@@ -1720,52 +1505,52 @@
   {
    "token_id": "57331141709128205464695905724609920958218700419378952313780888351677006980908",
    "conditionId": "0x5566abcbf820d8a989db0e215c87853aba3a1effd657c7f6e318e075a45fb8f2",
-   "book_timestamp_ms": "1792596172305",
+   "book_timestamp_ms": "1792610753177",
    "best_bid": 0.85,
-   "best_ask": 0.86,
-   "spread": 0.01,
+   "best_ask": 0.87,
+   "spread": 0.02,
    "bids": [
     {
      "price": 0.85,
-     "size": 2531.09
+     "size": 1965.26
     },
     {
      "price": 0.84,
-     "size": 5649.89
+     "size": 2104.0
     },
     {
      "price": 0.83,
-     "size": 916.0
+     "size": 448.5
     },
     {
      "price": 0.82,
-     "size": 6409.44
+     "size": 5095.99
     },
     {
-     "price": 0.81,
-     "size": 825.0
+     "price": 0.8,
+     "size": 215.28
     }
    ],
    "asks": [
     {
-     "price": 0.86,
-     "size": 10.0
-    },
-    {
      "price": 0.87,
-     "size": 8018.73
+     "size": 501.04
     },
     {
      "price": 0.88,
-     "size": 5686.0
+     "size": 1695.08
     },
     {
      "price": 0.89,
-     "size": 16342.6
+     "size": 2968.1
     },
     {
      "price": 0.9,
-     "size": 10656.0
+     "size": 6462.46
+    },
+    {
+     "price": 0.91,
+     "size": 2726.18
     }
    ],
    "reason": [
@@ -1775,52 +1560,52 @@
   {
    "token_id": "106065276045357806320609774556329031079474847295342526506532891782476703273135",
    "conditionId": "0xa0c4607a7d7c5ffe77cae5ffe47ccdc2207c8faceaaa225cf5a7de4ec93e543a",
-   "book_timestamp_ms": "1792596169126",
-   "best_bid": 0.71,
-   "best_ask": 0.72,
+   "book_timestamp_ms": "1792610753459",
+   "best_bid": 0.7,
+   "best_ask": 0.71,
    "spread": 0.01,
    "bids": [
     {
-     "price": 0.71,
-     "size": 1969.0
-    },
-    {
      "price": 0.7,
-     "size": 5338.1
+     "size": 3375.12
     },
     {
      "price": 0.69,
-     "size": 1429.0
+     "size": 2207.98
     },
     {
      "price": 0.68,
-     "size": 12305.0
+     "size": 11230.0
+    },
+    {
+     "price": 0.67,
+     "size": 120.0
     },
     {
      "price": 0.66,
-     "size": 320.0
+     "size": 305.0
     }
    ],
    "asks": [
     {
+     "price": 0.71,
+     "size": 250.78
+    },
+    {
      "price": 0.72,
-     "size": 603.75
+     "size": 67510.81
     },
     {
      "price": 0.73,
-     "size": 22820.08
+     "size": 63003.07
     },
     {
      "price": 0.74,
-     "size": 60951.3
+     "size": 57648.26
     },
     {
      "price": 0.75,
-     "size": 132082.0
-    },
-    {
-     "price": 0.76,
-     "size": 7691.27
+     "size": 103783.0
     }
    ],
    "reason": [
@@ -1830,52 +1615,52 @@
   {
    "token_id": "42193949231872364561414238314280169204528716623993861204940922387595336787823",
    "conditionId": "0x08dd5d9bc059ea0d76acbe09826829d1a9184a4e4bd48f3279fcbcaa708fc97c",
-   "book_timestamp_ms": "1792596162340",
-   "best_bid": 0.14,
-   "best_ask": 0.15,
-   "spread": 0.01,
+   "book_timestamp_ms": "1792610742951",
+   "best_bid": 0.2,
+   "best_ask": 0.22,
+   "spread": 0.02,
    "bids": [
     {
-     "price": 0.14,
-     "size": 7.79
+     "price": 0.2,
+     "size": 2.5
     },
     {
-     "price": 0.13,
-     "size": 560.0
+     "price": 0.19,
+     "size": 264.66
     },
     {
-     "price": 0.12,
-     "size": 490.67
+     "price": 0.18,
+     "size": 37.0
     },
     {
-     "price": 0.11,
-     "size": 3242.44
+     "price": 0.17,
+     "size": 56.0
     },
     {
-     "price": 0.1,
-     "size": 10783.21
+     "price": 0.15,
+     "size": 14.0
     }
    ],
    "asks": [
     {
-     "price": 0.15,
-     "size": 39.99
+     "price": 0.22,
+     "size": 101.69
     },
     {
-     "price": 0.16,
-     "size": 895.69
+     "price": 0.23,
+     "size": 329.82
     },
     {
-     "price": 0.17,
-     "size": 786.52
+     "price": 0.24,
+     "size": 112.24
     },
     {
-     "price": 0.18,
-     "size": 572.04
+     "price": 0.25,
+     "size": 63.0
     },
     {
-     "price": 0.19,
-     "size": 149.66
+     "price": 0.26,
+     "size": 113.0
     }
    ],
    "reason": [
@@ -1885,52 +1670,52 @@
   {
    "token_id": "66045621969460247333652541456058912291599253475302313369078156461474650074175",
    "conditionId": "0x08dd5d9bc059ea0d76acbe09826829d1a9184a4e4bd48f3279fcbcaa708fc97c",
-   "book_timestamp_ms": "1792596162340",
-   "best_bid": 0.85,
-   "best_ask": 0.86,
-   "spread": 0.01,
+   "book_timestamp_ms": "1792610742951",
+   "best_bid": 0.78,
+   "best_ask": 0.8,
+   "spread": 0.02,
    "bids": [
     {
-     "price": 0.85,
-     "size": 39.99
+     "price": 0.78,
+     "size": 101.69
     },
     {
-     "price": 0.84,
-     "size": 895.69
+     "price": 0.77,
+     "size": 329.82
     },
     {
-     "price": 0.83,
-     "size": 786.52
+     "price": 0.76,
+     "size": 112.24
     },
     {
-     "price": 0.82,
-     "size": 572.04
+     "price": 0.75,
+     "size": 63.0
     },
     {
-     "price": 0.81,
-     "size": 149.66
+     "price": 0.74,
+     "size": 113.0
     }
    ],
    "asks": [
     {
-     "price": 0.86,
-     "size": 7.79
+     "price": 0.8,
+     "size": 2.5
     },
     {
-     "price": 0.87,
-     "size": 560.0
+     "price": 0.81,
+     "size": 264.66
     },
     {
-     "price": 0.88,
-     "size": 490.67
+     "price": 0.82,
+     "size": 37.0
     },
     {
-     "price": 0.89,
-     "size": 3242.44
+     "price": 0.83,
+     "size": 56.0
     },
     {
-     "price": 0.9,
-     "size": 10783.21
+     "price": 0.85,
+     "size": 14.0
     }
    ],
    "reason": [
@@ -1941,52 +1726,52 @@
   {
    "token_id": "76243092539612860474822911310670175691482349531909049940711971235505739238194",
    "conditionId": "0x6df00a4b5a728a102802a3c125a9d5f4db1baf1bb7b3918d0dfb70b6f92baa05",
-   "book_timestamp_ms": "1792596164066",
-   "best_bid": 0.88,
+   "book_timestamp_ms": "1792610737782",
+   "best_bid": 0.91,
    "best_ask": 0.92,
-   "spread": 0.04,
+   "spread": 0.01,
    "bids": [
     {
-     "price": 0.88,
+     "price": 0.91,
      "size": 6.68
     },
     {
+     "price": 0.9,
+     "size": 133.0
+    },
+    {
+     "price": 0.89,
+     "size": 180.0
+    },
+    {
      "price": 0.87,
-     "size": 59.9
+     "size": 346.88
     },
     {
      "price": 0.86,
-     "size": 631.53
-    },
-    {
-     "price": 0.85,
-     "size": 406.55
-    },
-    {
-     "price": 0.83,
-     "size": 106.55
+     "size": 155.98
     }
    ],
    "asks": [
     {
      "price": 0.92,
-     "size": 43.0
+     "size": 50.0
     },
     {
      "price": 0.93,
-     "size": 112.88
+     "size": 396.0
     },
     {
      "price": 0.94,
-     "size": 1692.18
+     "size": 285.0
     },
     {
      "price": 0.95,
-     "size": 614.99
+     "size": 261.88
     },
     {
      "price": 0.96,
-     "size": 6.27
+     "size": 12.69
     }
    ],
    "reason": [
@@ -1996,51 +1781,51 @@
   {
    "token_id": "51939581489281144970797814278179743173401238178672834688182896772553286742037",
    "conditionId": "0x210770db758f5a5cf469e35cc4ebc9822d943d183496075bc1675839bae90187",
-   "book_timestamp_ms": "1792596159792",
-   "best_bid": 0.913,
-   "best_ask": 0.924,
-   "spread": 0.011,
+   "book_timestamp_ms": "1792610751445",
+   "best_bid": 0.931,
+   "best_ask": 0.939,
+   "spread": 0.008,
    "bids": [
     {
-     "price": 0.913,
-     "size": 95.28
+     "price": 0.931,
+     "size": 75.28
     },
     {
-     "price": 0.912,
-     "size": 160.0
+     "price": 0.93,
+     "size": 186.0
     },
     {
-     "price": 0.911,
-     "size": 60.0
+     "price": 0.928,
+     "size": 80.0
     },
     {
-     "price": 0.91,
-     "size": 176.0
+     "price": 0.927,
+     "size": 140.0
     },
     {
-     "price": 0.903,
-     "size": 300.0
+     "price": 0.921,
+     "size": 100.0
     }
    ],
    "asks": [
     {
-     "price": 0.924,
-     "size": 62.41
+     "price": 0.939,
+     "size": 15.0
     },
     {
-     "price": 0.925,
-     "size": 160.0
+     "price": 0.94,
+     "size": 36.47
     },
     {
-     "price": 0.926,
-     "size": 272.47
+     "price": 0.941,
+     "size": 6.0
     },
     {
-     "price": 0.927,
-     "size": 20.0
+     "price": 0.947,
+     "size": 265.0
     },
     {
-     "price": 0.928,
+     "price": 0.948,
      "size": 20.0
     }
    ],
@@ -2051,52 +1836,52 @@
   {
    "token_id": "4343151124134593809535137787947108568937118622358694937812018643541235938800",
    "conditionId": "0x6c6923d87ffeb9e948fbc71444614455be12439c15b2037b06a8b783e4346b44",
-   "book_timestamp_ms": "1792596174981",
-   "best_bid": 0.54,
-   "best_ask": 0.57,
+   "book_timestamp_ms": "1792610740536",
+   "best_bid": 0.55,
+   "best_ask": 0.58,
    "spread": 0.03,
    "bids": [
     {
-     "price": 0.54,
-     "size": 84.0
+     "price": 0.55,
+     "size": 151.12
     },
     {
-     "price": 0.53,
-     "size": 100.0
+     "price": 0.54,
+     "size": 40.0
+    },
+    {
+     "price": 0.52,
+     "size": 50.0
     },
     {
      "price": 0.51,
-     "size": 70.0
-    },
-    {
-     "price": 0.46,
      "size": 20.0
     },
     {
-     "price": 0.33,
+     "price": 0.46,
      "size": 20.0
     }
    ],
    "asks": [
     {
-     "price": 0.57,
+     "price": 0.58,
      "size": 40.0
     },
     {
-     "price": 0.58,
-     "size": 185.0
-    },
-    {
      "price": 0.59,
-     "size": 100.0
-    },
-    {
-     "price": 0.61,
      "size": 20.0
     },
     {
-     "price": 0.66,
+     "price": 0.62,
+     "size": 20.0
+    },
+    {
+     "price": 0.68,
      "size": 10.0
+    },
+    {
+     "price": 0.69,
+     "size": 82.03
     }
    ],
    "reason": [
@@ -2106,22 +1891,18 @@
   {
    "token_id": "53563976136780454786556287659028620736363149885051450743106382742298438197041",
    "conditionId": "0x1b6239b8f53f4f6db615c730582b33c0fb9563cc8229871e47286bbde7f3e57c",
-   "book_timestamp_ms": "1792596163353",
-   "best_bid": 0.65,
+   "book_timestamp_ms": "1792610733665",
+   "best_bid": 0.66,
    "best_ask": 0.7,
-   "spread": 0.05,
+   "spread": 0.04,
    "bids": [
     {
-     "price": 0.65,
-     "size": 144.0
-    },
-    {
-     "price": 0.64,
+     "price": 0.66,
      "size": 40.0
     },
     {
      "price": 0.63,
-     "size": 40.0
+     "size": 20.0
     },
     {
      "price": 0.6,
@@ -2130,28 +1911,32 @@
     {
      "price": 0.57,
      "size": 50.0
+    },
+    {
+     "price": 0.2,
+     "size": 100.0
     }
    ],
    "asks": [
     {
      "price": 0.7,
-     "size": 164.0
+     "size": 124.0
     },
     {
      "price": 0.71,
-     "size": 40.0
-    },
-    {
-     "price": 0.72,
-     "size": 20.0
+     "size": 400.0
     },
     {
      "price": 0.76,
-     "size": 18.0
+     "size": 15.0
     },
     {
      "price": 0.77,
-     "size": 375.0
+     "size": 290.0
+    },
+    {
+     "price": 0.8,
+     "size": 45.0
     }
    ],
    "reason": [
@@ -2159,54 +1944,440 @@
    ]
   },
   {
-   "token_id": "13274969701074786593458491024179777953579994335319473707625563805797711139412",
-   "conditionId": "0x346543618b5077cedcabb9da57cf643922dbc752a7f332fc26e0256a38bb74c7",
-   "book_timestamp_ms": "1792596176415",
-   "best_bid": 0.86,
-   "best_ask": 0.88,
-   "spread": 0.02,
+   "token_id": "38920824596940566520627325808924938453425845390003657036912369412019539683738",
+   "conditionId": "0x506a2f7a1aae43e74f04d412afdc5982f669c7274c26463da72c23b28b2a6004",
+   "book_timestamp_ms": "1792610741576",
+   "best_bid": 0.62,
+   "best_ask": 0.65,
+   "spread": 0.03,
    "bids": [
     {
-     "price": 0.86,
-     "size": 142.01
+     "price": 0.62,
+     "size": 50.0
     },
     {
+     "price": 0.61,
+     "size": 50.0
+    },
+    {
+     "price": 0.59,
+     "size": 20.0
+    },
+    {
+     "price": 0.58,
+     "size": 50.0
+    },
+    {
+     "price": 0.57,
+     "size": 141.0
+    }
+   ],
+   "asks": [
+    {
+     "price": 0.65,
+     "size": 60.0
+    },
+    {
+     "price": 0.66,
+     "size": 834.28
+    },
+    {
+     "price": 0.67,
+     "size": 50.0
+    },
+    {
+     "price": 0.69,
+     "size": 139.0
+    },
+    {
+     "price": 0.7,
+     "size": 41.65
+    }
+   ],
+   "reason": [
+    "[watch] HerrieDavis No @0.65 449 USDC"
+   ]
+  },
+  {
+   "token_id": "76726319337566318835132399515758192316852774481956593564388934640363007258831",
+   "conditionId": "0xe5b8e3984b02d404637550684b88ff786c54cd9081938ad9f3bc42f54c88b5d0",
+   "book_timestamp_ms": "1792610753136",
+   "best_bid": 0.85,
+   "best_ask": 0.88,
+   "spread": 0.03,
+   "bids": [
+    {
      "price": 0.85,
-     "size": 25.56
+     "size": 62.73
     },
     {
      "price": 0.84,
-     "size": 1583.73
+     "size": 6152.76
     },
     {
      "price": 0.83,
-     "size": 14.0
+     "size": 4679.25
     },
     {
      "price": 0.82,
-     "size": 33.36
+     "size": 8651.0
+    },
+    {
+     "price": 0.81,
+     "size": 2710.99
     }
    ],
    "asks": [
     {
      "price": 0.88,
-     "size": 27.11
+     "size": 249.97
     },
     {
      "price": 0.89,
-     "size": 1221.67
+     "size": 1172.99
     },
     {
      "price": 0.9,
-     "size": 1826.3
+     "size": 1262.86
     },
     {
      "price": 0.91,
-     "size": 1046.19
+     "size": 169.0
     },
     {
      "price": 0.92,
-     "size": 8124.25
+     "size": 605.27
+    }
+   ],
+   "reason": [
+    "[watch] HerrieDavis No @0.87 486 USDC"
+   ]
+  },
+  {
+   "token_id": "59838288288458809448405089801806485870309105325255232123458269975283939712397",
+   "conditionId": "0x613613192c69d90cee89758c260a019368fc1f4a596b4d300c39b6235d2b643f",
+   "book_timestamp_ms": "1792610756588",
+   "best_bid": 0.77,
+   "best_ask": 0.79,
+   "spread": 0.02,
+   "bids": [
+    {
+     "price": 0.77,
+     "size": 10.0
+    },
+    {
+     "price": 0.76,
+     "size": 184.0
+    },
+    {
+     "price": 0.75,
+     "size": 30.55
+    },
+    {
+     "price": 0.74,
+     "size": 616.5
+    },
+    {
+     "price": 0.73,
+     "size": 650.0
+    }
+   ],
+   "asks": [
+    {
+     "price": 0.79,
+     "size": 3607.89
+    },
+    {
+     "price": 0.8,
+     "size": 6213.0
+    },
+    {
+     "price": 0.81,
+     "size": 21498.0
+    },
+    {
+     "price": 0.82,
+     "size": 4516.0
+    },
+    {
+     "price": 0.83,
+     "size": 756.73
+    }
+   ],
+   "reason": [
+    "[watch] HerrieDavis Yes @0.72 162 USDC"
+   ]
+  },
+  {
+   "token_id": "38238853415091862898962255269265024438691527563819771109347513864527055230130",
+   "conditionId": "0x7eb5fde072782612d015d882bd99c396168f96c21c6c7260e2f24d9832a82a9b",
+   "book_timestamp_ms": "1792610750998",
+   "best_bid": 0.87,
+   "best_ask": 0.899,
+   "spread": 0.029,
+   "bids": [
+    {
+     "price": 0.87,
+     "size": 30.0
+    },
+    {
+     "price": 0.815,
+     "size": 40.0
+    },
+    {
+     "price": 0.807,
+     "size": 40.0
+    },
+    {
+     "price": 0.806,
+     "size": 120.0
+    },
+    {
+     "price": 0.801,
+     "size": 20.03
+    }
+   ],
+   "asks": [
+    {
+     "price": 0.899,
+     "size": 37.41
+    },
+    {
+     "price": 0.9,
+     "size": 51.0
+    },
+    {
+     "price": 0.905,
+     "size": 75.0
+    },
+    {
+     "price": 0.919,
+     "size": 5.0
+    },
+    {
+     "price": 0.92,
+     "size": 51.0
+    }
+   ],
+   "reason": [
+    "[watch] HerrieDavis No @0.826 289 USDC"
+   ]
+  },
+  {
+   "token_id": "91395054405631728735057709930464244853540308822512243976139222351922549098533",
+   "conditionId": "0x27181038a8cf9e075296846162b8f0dc247344162613407e3f0f9a313485d839",
+   "book_timestamp_ms": "1792610755868",
+   "best_bid": 0.75,
+   "best_ask": 0.78,
+   "spread": 0.03,
+   "bids": [
+    {
+     "price": 0.75,
+     "size": 40.0
+    },
+    {
+     "price": 0.74,
+     "size": 144.54
+    },
+    {
+     "price": 0.73,
+     "size": 295.95
+    },
+    {
+     "price": 0.72,
+     "size": 16.11
+    },
+    {
+     "price": 0.7,
+     "size": 100.0
+    }
+   ],
+   "asks": [
+    {
+     "price": 0.78,
+     "size": 131.92
+    },
+    {
+     "price": 0.79,
+     "size": 45.0
+    },
+    {
+     "price": 0.8,
+     "size": 120.0
+    },
+    {
+     "price": 0.81,
+     "size": 35.0
+    },
+    {
+     "price": 0.82,
+     "size": 83.75
+    }
+   ],
+   "reason": [
+    "[watch] HerrieDavis No @0.82 159 USDC"
+   ]
+  },
+  {
+   "token_id": "74076568846866714142503847026760702713555643778038790220454009063912340064073",
+   "conditionId": "0x84c625fdccf5c5246a15e476361e4563033906ee225800e1136c0d737596a72f",
+   "book_timestamp_ms": "1792610756838",
+   "best_bid": 0.84,
+   "best_ask": 0.85,
+   "spread": 0.01,
+   "bids": [
+    {
+     "price": 0.84,
+     "size": 19846.52
+    },
+    {
+     "price": 0.83,
+     "size": 5780.13
+    },
+    {
+     "price": 0.82,
+     "size": 4098.2
+    },
+    {
+     "price": 0.81,
+     "size": 381.84
+    },
+    {
+     "price": 0.79,
+     "size": 200.0
+    }
+   ],
+   "asks": [
+    {
+     "price": 0.85,
+     "size": 3083.28
+    },
+    {
+     "price": 0.86,
+     "size": 13269.93
+    },
+    {
+     "price": 0.87,
+     "size": 31300.53
+    },
+    {
+     "price": 0.88,
+     "size": 22569.47
+    },
+    {
+     "price": 0.89,
+     "size": 18094.46
+    }
+   ],
+   "reason": [
+    "[watch] HerrieDavis No @0.81 2818 USDC"
+   ]
+  },
+  {
+   "token_id": "71659760023836608828189051368262623172491813904827045019785561054238970210854",
+   "conditionId": "0x258ff19b4baff0ed24bc28f58e83c8be6f2f91d9134700703e0aa51810c51a63",
+   "book_timestamp_ms": "1792610754307",
+   "best_bid": 0.67,
+   "best_ask": 0.68,
+   "spread": 0.01,
+   "bids": [
+    {
+     "price": 0.67,
+     "size": 1144.96
+    },
+    {
+     "price": 0.66,
+     "size": 87119.12
+    },
+    {
+     "price": 0.65,
+     "size": 81618.0
+    },
+    {
+     "price": 0.64,
+     "size": 36804.34
+    },
+    {
+     "price": 0.63,
+     "size": 25950.0
+    }
+   ],
+   "asks": [
+    {
+     "price": 0.68,
+     "size": 456.0
+    },
+    {
+     "price": 0.69,
+     "size": 120.0
+    },
+    {
+     "price": 0.7,
+     "size": 26759.94
+    },
+    {
+     "price": 0.71,
+     "size": 99412.85
+    },
+    {
+     "price": 0.72,
+     "size": 258224.39
+    }
+   ],
+   "reason": [
+    "[watch] HerrieDavis No @0.65 1175 USDC",
+    "[watch] HerrieDavis No @0.6600000001 898 USDC"
+   ]
+  },
+  {
+   "token_id": "13274969701074786593458491024179777953579994335319473707625563805797711139412",
+   "conditionId": "0x346543618b5077cedcabb9da57cf643922dbc752a7f332fc26e0256a38bb74c7",
+   "book_timestamp_ms": "1792610757561",
+   "best_bid": 0.86,
+   "best_ask": 0.87,
+   "spread": 0.01,
+   "bids": [
+    {
+     "price": 0.86,
+     "size": 54.22
+    },
+    {
+     "price": 0.85,
+     "size": 385.33
+    },
+    {
+     "price": 0.84,
+     "size": 134.96
+    },
+    {
+     "price": 0.83,
+     "size": 50.47
+    },
+    {
+     "price": 0.82,
+     "size": 825.93
+    }
+   ],
+   "asks": [
+    {
+     "price": 0.87,
+     "size": 120.0
+    },
+    {
+     "price": 0.88,
+     "size": 241.49
+    },
+    {
+     "price": 0.89,
+     "size": 1997.91
+    },
+    {
+     "price": 0.9,
+     "size": 1286.75
+    },
+    {
+     "price": 0.91,
+     "size": 2122.31
     }
    ],
    "reason": [
@@ -2217,52 +2388,52 @@
   {
    "token_id": "80211035567256136541434068940014074662132124884850253422656485169046995406815",
    "conditionId": "0x1d78389ca8fbb953ab8ed8d1fecb5160ac4c3a2b0185fed3c248f4d2e5cf5192",
-   "book_timestamp_ms": "1792596176437",
-   "best_bid": 0.928,
-   "best_ask": 0.94,
-   "spread": 0.012,
+   "book_timestamp_ms": "1792610758320",
+   "best_bid": 0.96,
+   "best_ask": 0.965,
+   "spread": 0.005,
    "bids": [
     {
-     "price": 0.928,
-     "size": 21.0
+     "price": 0.96,
+     "size": 0.81
     },
     {
-     "price": 0.927,
-     "size": 35.0
+     "price": 0.95,
+     "size": 76.39
     },
     {
-     "price": 0.926,
-     "size": 40.0
+     "price": 0.94,
+     "size": 24.16
     },
     {
-     "price": 0.924,
-     "size": 119.0
+     "price": 0.939,
+     "size": 20.36
     },
     {
-     "price": 0.923,
-     "size": 500.0
+     "price": 0.936,
+     "size": 20.0
     }
    ],
    "asks": [
     {
-     "price": 0.94,
-     "size": 141.06
-    },
-    {
-     "price": 0.952,
-     "size": 45.0
-    },
-    {
-     "price": 0.953,
-     "size": 191.0
-    },
-    {
-     "price": 0.954,
-     "size": 1000.0
+     "price": 0.965,
+     "size": 40.1
     },
     {
      "price": 0.966,
-     "size": 25.0
+     "size": 687.0
+    },
+    {
+     "price": 0.967,
+     "size": 1236.37
+    },
+    {
+     "price": 0.968,
+     "size": 1500.0
+    },
+    {
+     "price": 0.97,
+     "size": 537.99
     }
    ],
    "reason": [
@@ -2272,52 +2443,52 @@
   {
    "token_id": "101458160507154147154727006163441637566778820887727496450606618587552915402475",
    "conditionId": "0xd764d495ca5c66b64226ad960cb9e692952eefff00907c90ff1370a178f9ba5a",
-   "book_timestamp_ms": "1792596164758",
-   "best_bid": 0.691,
-   "best_ask": 0.715,
-   "spread": 0.024,
+   "book_timestamp_ms": "1792610753446",
+   "best_bid": 0.71,
+   "best_ask": 0.752,
+   "spread": 0.042,
    "bids": [
     {
-     "price": 0.691,
-     "size": 30.0
+     "price": 0.71,
+     "size": 60.4
     },
     {
-     "price": 0.69,
-     "size": 3200.0
+     "price": 0.693,
+     "size": 50.0
+    },
+    {
+     "price": 0.692,
+     "size": 655.01
     },
     {
      "price": 0.689,
-     "size": 1000.0
+     "size": 530.0
     },
     {
-     "price": 0.688,
-     "size": 1251.0
-    },
-    {
-     "price": 0.687,
-     "size": 1700.0
+     "price": 0.684,
+     "size": 62.0
     }
    ],
    "asks": [
     {
-     "price": 0.715,
-     "size": 30.0
+     "price": 0.752,
+     "size": 30.5
     },
     {
-     "price": 0.716,
-     "size": 289.17
+     "price": 0.753,
+     "size": 5182.5
     },
     {
-     "price": 0.717,
-     "size": 220.0
+     "price": 0.756,
+     "size": 300.0
     },
     {
-     "price": 0.72,
-     "size": 220.0
+     "price": 0.757,
+     "size": 138.0
     },
     {
-     "price": 0.724,
-     "size": 350.0
+     "price": 0.758,
+     "size": 138.0
     }
    ],
    "reason": [
@@ -2327,52 +2498,52 @@
   {
    "token_id": "98961942092312242488092499568359433586418736677157512843097593070222397872380",
    "conditionId": "0xadebf2aec917971a733f74c66387529b3347ebf0f3019410427921d28e921beb",
-   "book_timestamp_ms": "1792596177609",
+   "book_timestamp_ms": "1792610757765",
    "best_bid": 0.6,
    "best_ask": 0.62,
    "spread": 0.02,
    "bids": [
     {
      "price": 0.6,
-     "size": 5.0
+     "size": 333.0
     },
     {
      "price": 0.59,
-     "size": 746.51
+     "size": 1338.0
     },
     {
      "price": 0.58,
-     "size": 762.0
+     "size": 50.0
     },
     {
      "price": 0.56,
      "size": 10.0
     },
     {
-     "price": 0.55,
-     "size": 10.0
+     "price": 0.54,
+     "size": 130.63
     }
    ],
    "asks": [
     {
      "price": 0.62,
-     "size": 155.0
+     "size": 256.0
     },
     {
      "price": 0.63,
-     "size": 1871.31
+     "size": 1840.02
     },
     {
      "price": 0.64,
-     "size": 371.0
-    },
-    {
-     "price": 0.65,
-     "size": 176.04
+     "size": 762.44
     },
     {
      "price": 0.66,
-     "size": 787.43
+     "size": 407.0
+    },
+    {
+     "price": 0.68,
+     "size": 210.0
     }
    ],
    "reason": [
@@ -2382,18 +2553,14 @@
   {
    "token_id": "61985441927610171772743969550754816504049021296499826749548085469379085390156",
    "conditionId": "0x1976c8f59abd1819cf56d9fb7d5c90fd3fc2cfc2044056266e6aae72df8d5334",
-   "book_timestamp_ms": "1792596177429",
-   "best_bid": 0.98,
+   "book_timestamp_ms": "1792610758545",
+   "best_bid": 0.979,
    "best_ask": 0.992,
-   "spread": 0.012,
+   "spread": 0.013,
    "bids": [
     {
-     "price": 0.98,
-     "size": 60.0
-    },
-    {
      "price": 0.979,
-     "size": 28.36
+     "size": 88.36
     },
     {
      "price": 0.978,
@@ -2406,20 +2573,24 @@
     {
      "price": 0.931,
      "size": 20.26
+    },
+    {
+     "price": 0.93,
+     "size": 306.23
     }
    ],
    "asks": [
     {
      "price": 0.992,
-     "size": 388.04
+     "size": 101.61
     },
     {
      "price": 0.993,
-     "size": 1152.03
+     "size": 483.03
     },
     {
      "price": 0.994,
-     "size": 1249.0
+     "size": 783.19
     },
     {
      "price": 0.995,
@@ -2427,7 +2598,7 @@
     },
     {
      "price": 0.997,
-     "size": 1566.56
+     "size": 2200.0
     }
    ],
    "reason": [
@@ -2437,52 +2608,52 @@
   {
    "token_id": "115364229170068359509280114761107502298430910856477421813089992309112580316620",
    "conditionId": "0xa34edb6c898232378a9cc08744842df2cd89d278ba45b012bed3ac10c7241c4d",
-   "book_timestamp_ms": "1792596176129",
-   "best_bid": 0.81,
-   "best_ask": 0.819,
-   "spread": 0.009,
+   "book_timestamp_ms": "1792610751214",
+   "best_bid": 0.813,
+   "best_ask": 0.814,
+   "spread": 0.001,
    "bids": [
     {
-     "price": 0.81,
-     "size": 285.25
+     "price": 0.813,
+     "size": 382.5
     },
     {
-     "price": 0.809,
-     "size": 71.0
+     "price": 0.808,
+     "size": 162.0
+    },
+    {
+     "price": 0.807,
+     "size": 1210.0
     },
     {
      "price": 0.806,
-     "size": 32.0
+     "size": 30.0
     },
     {
      "price": 0.805,
-     "size": 508.79
-    },
-    {
-     "price": 0.804,
-     "size": 2684.02
+     "size": 286.33
     }
    ],
    "asks": [
     {
-     "price": 0.819,
+     "price": 0.814,
+     "size": 38.1
+    },
+    {
+     "price": 0.815,
      "size": 10.0
+    },
+    {
+     "price": 0.819,
+     "size": 22.0
     },
     {
      "price": 0.82,
-     "size": 416.51
+     "size": 338.0
     },
     {
-     "price": 0.822,
-     "size": 1000.0
-    },
-    {
-     "price": 0.823,
-     "size": 10.0
-    },
-    {
-     "price": 0.824,
-     "size": 1204.0
+     "price": 0.821,
+     "size": 43.25
     }
    ],
    "reason": [
@@ -2495,52 +2666,52 @@
   {
    "token_id": "57534930121630546188194373967723261222542191087652518415524529485985871867497",
    "conditionId": "0xff32948bb1a667c8934c638f43e60c81d6b4796e7ff06c9b9fc587813524ba57",
-   "book_timestamp_ms": "1792596178408",
-   "best_bid": 0.944,
-   "best_ask": 0.975,
-   "spread": 0.031,
+   "book_timestamp_ms": "1792610757873",
+   "best_bid": 0.946,
+   "best_ask": 0.952,
+   "spread": 0.006,
    "bids": [
     {
-     "price": 0.944,
-     "size": 60.0
+     "price": 0.946,
+     "size": 20.0
+    },
+    {
+     "price": 0.945,
+     "size": 25.0
     },
     {
      "price": 0.943,
-     "size": 185.58
+     "size": 101.73
     },
     {
      "price": 0.942,
-     "size": 120.1
+     "size": 837.0
     },
     {
      "price": 0.941,
-     "size": 21.0
-    },
-    {
-     "price": 0.94,
-     "size": 46.0
+     "size": 3249.0
     }
    ],
    "asks": [
     {
-     "price": 0.975,
-     "size": 40.0
+     "price": 0.952,
+     "size": 369.87
     },
     {
-     "price": 0.976,
-     "size": 31.93
+     "price": 0.972,
+     "size": 220.0
+    },
+    {
+     "price": 0.973,
+     "size": 337.5
+    },
+    {
+     "price": 0.974,
+     "size": 1500.0
     },
     {
      "price": 0.977,
-     "size": 626.0
-    },
-    {
-     "price": 0.978,
-     "size": 1100.0
-    },
-    {
-     "price": 0.98,
-     "size": 226.01
+     "size": 247.5
     }
    ],
    "reason": [
@@ -2548,448 +2719,54 @@
    ]
   },
   {
-   "token_id": "59350961360345977237495309734862360032649347834826334279255400397300223023885",
-   "conditionId": "0xff019ccfa1337dc7d12968183949ff5877a8b66ab19903e42331a7b94f97cfd7",
-   "book_timestamp_ms": "1792596178587",
-   "best_bid": 0.85,
-   "best_ask": 0.87,
-   "spread": 0.02,
+   "token_id": "70564068037396038931048215823819008711018944066465490119826090661690016673625",
+   "conditionId": "0xd037ab2714cf47f4c909fdf876174372e142a29ff9e86ad91f740115b696b256",
+   "book_timestamp_ms": "1792610740100",
+   "best_bid": 0.87,
+   "best_ask": 0.9,
+   "spread": 0.03,
    "bids": [
-    {
-     "price": 0.85,
-     "size": 29455.03
-    },
-    {
-     "price": 0.84,
-     "size": 11960.62
-    },
-    {
-     "price": 0.83,
-     "size": 266.75
-    },
-    {
-     "price": 0.82,
-     "size": 214.19
-    },
-    {
-     "price": 0.81,
-     "size": 523.59
-    }
-   ],
-   "asks": [
     {
      "price": 0.87,
-     "size": 32214.86
-    },
-    {
-     "price": 0.88,
-     "size": 668931.5
-    },
-    {
-     "price": 0.89,
-     "size": 1752012.22
-    },
-    {
-     "price": 0.9,
-     "size": 17.51
-    },
-    {
-     "price": 0.91,
-     "size": 319.15
-    }
-   ],
-   "reason": [
-    "[watch] HerrieDavis Yes @0.77 173 USDC"
-   ]
-  },
-  {
-   "token_id": "1759128163540908136861900527987306673081148337830189221001436012323578054934",
-   "conditionId": "0xb70b8da7839ecb8b166e0f3a8553e079b38e139ee164f5d8bfd99183d535fc33",
-   "book_timestamp_ms": "1792596170257",
-   "best_bid": 0.46,
-   "best_ask": 0.47,
-   "spread": 0.01,
-   "bids": [
-    {
-     "price": 0.46,
-     "size": 12612.1
-    },
-    {
-     "price": 0.45,
-     "size": 8751.36
-    },
-    {
-     "price": 0.44,
-     "size": 31967.86
-    },
-    {
-     "price": 0.43,
-     "size": 11053.14
-    },
-    {
-     "price": 0.42,
-     "size": 16.13
-    }
-   ],
-   "asks": [
-    {
-     "price": 0.47,
-     "size": 2965.09
-    },
-    {
-     "price": 0.48,
-     "size": 11166.5
-    },
-    {
-     "price": 0.49,
-     "size": 7030.28
-    },
-    {
-     "price": 0.5,
-     "size": 2837.49
-    },
-    {
-     "price": 0.51,
-     "size": 40.88
-    }
-   ],
-   "reason": [
-    "[watch] HerrieDavis Yes @0.3600000007 162 USDC"
-   ]
-  },
-  {
-   "token_id": "11703355753646866721510451780813586747644200170798817311988936815535980370261",
-   "conditionId": "0x04fb634139d4654febf4b62c425b209806e06d9eff93ac2e7c5301ecdaf5e4ca",
-   "book_timestamp_ms": "1792596179104",
-   "best_bid": 0.971,
-   "best_ask": 0.974,
-   "spread": 0.003,
-   "bids": [
-    {
-     "price": 0.971,
-     "size": 7.51
-    },
-    {
-     "price": 0.97,
-     "size": 261.55
-    },
-    {
-     "price": 0.969,
-     "size": 3227.37
-    },
-    {
-     "price": 0.967,
-     "size": 2027.45
-    },
-    {
-     "price": 0.966,
-     "size": 53167.68
-    }
-   ],
-   "asks": [
-    {
-     "price": 0.974,
-     "size": 30236.04
-    },
-    {
-     "price": 0.975,
-     "size": 33851.01
-    },
-    {
-     "price": 0.977,
-     "size": 1191.27
-    },
-    {
-     "price": 0.978,
-     "size": 831.42
-    },
-    {
-     "price": 0.979,
-     "size": 26000.0
-    }
-   ],
-   "reason": [
-    "[watch] HerrieDavis Yes @0.761 622 USDC",
-    "[watch] HerrieDavis Yes @0.652 370 USDC",
-    "[watch] HerrieDavis Yes @0.651 456 USDC",
-    "[watch] HerrieDavis Yes @0.651 228 USDC",
-    "[watch] HerrieDavis Yes @0.722 339 USDC",
-    "[watch] HerrieDavis Yes @0.722 541 USDC"
-   ]
-  },
-  {
-   "token_id": "50694333438023128063964723257649207845981489669258212023054783490365328463580",
-   "conditionId": "0xb70b8da7839ecb8b166e0f3a8553e079b38e139ee164f5d8bfd99183d535fc33",
-   "book_timestamp_ms": "1792596170257",
-   "best_bid": 0.53,
-   "best_ask": 0.54,
-   "spread": 0.01,
-   "bids": [
-    {
-     "price": 0.53,
-     "size": 2965.09
-    },
-    {
-     "price": 0.52,
-     "size": 11166.5
-    },
-    {
-     "price": 0.51,
-     "size": 7030.28
-    },
-    {
-     "price": 0.5,
-     "size": 2837.49
-    },
-    {
-     "price": 0.49,
-     "size": 40.88
-    }
-   ],
-   "asks": [
-    {
-     "price": 0.54,
-     "size": 12612.1
-    },
-    {
-     "price": 0.55,
-     "size": 8751.36
-    },
-    {
-     "price": 0.56,
-     "size": 31967.86
-    },
-    {
-     "price": 0.57,
-     "size": 11053.14
-    },
-    {
-     "price": 0.58,
-     "size": 16.13
-    }
-   ],
-   "reason": [
-    "[watch] HerrieDavis No @0.58 727 USDC"
-   ]
-  },
-  {
-   "token_id": "67102598924726349989742049657609063097299442010642912942032681022413402597017",
-   "conditionId": "0x3738ad9665480991affe3ba286cd035516e17d1f8b7703e05088ec19c70c21a4",
-   "book_timestamp_ms": "1792596179806",
-   "best_bid": 0.81,
-   "best_ask": 0.82,
-   "spread": 0.01,
-   "bids": [
-    {
-     "price": 0.81,
-     "size": 310.53
-    },
-    {
-     "price": 0.8,
-     "size": 14180.0
-    },
-    {
-     "price": 0.79,
-     "size": 1282.35
-    },
-    {
-     "price": 0.78,
-     "size": 7782.05
-    },
-    {
-     "price": 0.77,
-     "size": 296.49
-    }
-   ],
-   "asks": [
-    {
-     "price": 0.82,
-     "size": 36105.51
-    },
-    {
-     "price": 0.83,
-     "size": 1325026.8
-    },
-    {
-     "price": 0.84,
-     "size": 105125.05
-    },
-    {
-     "price": 0.85,
-     "size": 25665.65
-    },
-    {
-     "price": 0.86,
-     "size": 1479.69
-    }
-   ],
-   "reason": [
-    "[watch] HerrieDavis Yes @0.41 551 USDC",
-    "[watch] HerrieDavis Yes @0.42 294 USDC",
-    "[watch] HerrieDavis Yes @0.61 211 USDC"
-   ]
-  },
-  {
-   "token_id": "24399767988117113521472412724678339180207513110495231843644050348352296275787",
-   "conditionId": "0x1175651306e9ae39991642dcff3fd96778ae0301fc44c7f5565251fc2bb68d31",
-   "book_timestamp_ms": "1792596178630",
-   "best_bid": 0.989,
-   "best_ask": 0.992,
-   "spread": 0.003,
-   "bids": [
-    {
-     "price": 0.989,
-     "size": 1494.1
-    },
-    {
-     "price": 0.988,
-     "size": 2627.77
-    },
-    {
-     "price": 0.987,
-     "size": 2100.0
-    },
-    {
-     "price": 0.985,
-     "size": 5.02
-    },
-    {
-     "price": 0.982,
-     "size": 2500.0
-    }
-   ],
-   "asks": [
-    {
-     "price": 0.992,
-     "size": 360.7
-    },
-    {
-     "price": 0.993,
-     "size": 10012.75
-    },
-    {
-     "price": 0.995,
-     "size": 2207.04
-    },
-    {
-     "price": 0.996,
-     "size": 6505.01
-    },
-    {
-     "price": 0.997,
-     "size": 10189.76
-    }
-   ],
-   "reason": [
-    "[watch] HerrieDavis Yes @0.707 159 USDC",
-    "[watch] HerrieDavis Yes @0.762 171 USDC"
-   ]
-  },
-  {
-   "token_id": "18133951910060862973815063219592116443999980905426095440645906273952867879514",
-   "conditionId": "0xfd908b03dd866c16e17cb004c88963b92f264cc112d77b253ae2de761c6984a6",
-   "book_timestamp_ms": "1792596119041",
-   "best_bid": 0.8,
-   "best_ask": 0.85,
-   "spread": 0.05,
-   "bids": [
-    {
-     "price": 0.8,
      "size": 30.0
     },
     {
-     "price": 0.79,
-     "size": 100.0
+     "price": 0.86,
+     "size": 78.3
     },
-    {
-     "price": 0.78,
-     "size": 2400.56
-    },
-    {
-     "price": 0.77,
-     "size": 5849.47
-    },
-    {
-     "price": 0.75,
-     "size": 50.0
-    }
-   ],
-   "asks": [
     {
      "price": 0.85,
-     "size": 73.33
+     "size": 21.0
     },
     {
-     "price": 0.88,
-     "size": 100.0
+     "price": 0.84,
+     "size": 25.0
     },
     {
-     "price": 0.89,
-     "size": 100.0
-    },
-    {
-     "price": 0.9,
-     "size": 551.0
-    },
-    {
-     "price": 0.92,
-     "size": 5.94
-    }
-   ],
-   "reason": [
-    "[watch] HerrieDavis No @0.7800000002 405 USDC",
-    "[watch] HerrieDavis No @0.79 598 USDC"
-   ]
-  },
-  {
-   "token_id": "70564068037396038931048215823819008711018944066465490119826090661690016673625",
-   "conditionId": "0xd037ab2714cf47f4c909fdf876174372e142a29ff9e86ad91f740115b696b256",
-   "book_timestamp_ms": "1792596179769",
-   "best_bid": 0.77,
-   "best_ask": 0.88,
-   "spread": 0.11,
-   "bids": [
-    {
-     "price": 0.77,
-     "size": 20.0
-    },
-    {
-     "price": 0.71,
-     "size": 9.21
-    },
-    {
-     "price": 0.62,
-     "size": 12.8
-    },
-    {
-     "price": 0.56,
-     "size": 40.0
-    },
-    {
-     "price": 0.55,
-     "size": 10.0
+     "price": 0.83,
+     "size": 103.03
     }
    ],
    "asks": [
     {
-     "price": 0.88,
-     "size": 256.57
-    },
-    {
-     "price": 0.89,
-     "size": 15.37
-    },
-    {
      "price": 0.9,
-     "size": 2.98
+     "size": 63.8
     },
     {
-     "price": 0.93,
-     "size": 427.07
+     "price": 0.91,
+     "size": 35.0
     },
     {
      "price": 0.94,
-     "size": 83.3
+     "size": 35.86
+    },
+    {
+     "price": 0.95,
+     "size": 61.39
+    },
+    {
+     "price": 0.96,
+     "size": 55.0
     }
    ],
    "reason": [
@@ -2999,52 +2776,52 @@
   {
    "token_id": "109873509697486301659883255099395676993329632218294153442489038769075414236210",
    "conditionId": "0xf238b36a00aab84bb97736cfe6ecdea37f9d39ce6824c2bc70cc550ac04782af",
-   "book_timestamp_ms": "1792596157975",
-   "best_bid": 0.876,
-   "best_ask": 0.893,
-   "spread": 0.017,
+   "book_timestamp_ms": "1792610747686",
+   "best_bid": 0.882,
+   "best_ask": 0.894,
+   "spread": 0.012,
    "bids": [
     {
-     "price": 0.876,
-     "size": 49.9
+     "price": 0.882,
+     "size": 149.81
     },
     {
-     "price": 0.875,
-     "size": 610.81
+     "price": 0.881,
+     "size": 130.0
     },
     {
-     "price": 0.874,
-     "size": 95.0
+     "price": 0.88,
+     "size": 120.0
     },
     {
-     "price": 0.873,
+     "price": 0.879,
      "size": 20.0
     },
     {
-     "price": 0.872,
-     "size": 135.26
+     "price": 0.878,
+     "size": 118.33
     }
    ],
    "asks": [
     {
-     "price": 0.893,
-     "size": 140.0
-    },
-    {
      "price": 0.894,
-     "size": 380.0
+     "size": 110.0
     },
     {
      "price": 0.895,
-     "size": 216.0
-    },
-    {
-     "price": 0.896,
-     "size": 20.0
+     "size": 110.0
     },
     {
      "price": 0.897,
-     "size": 122.46
+     "size": 140.0
+    },
+    {
+     "price": 0.898,
+     "size": 206.0
+    },
+    {
+     "price": 0.901,
+     "size": 34.7
     }
    ],
    "reason": [
@@ -3054,7 +2831,7 @@
   {
    "token_id": "109273184012091912919022025366464262125230984035341943410014927074422166929331",
    "conditionId": "0xbb220d710c25b427cbd5de61811285d5c5cf36ed9e71bc7390b71980d78563fb",
-   "book_timestamp_ms": "1792596145425",
+   "book_timestamp_ms": "1792610755345",
    "best_bid": 0.9,
    "best_ask": 0.91,
    "spread": 0.01,
@@ -3073,17 +2850,17 @@
     },
     {
      "price": 0.87,
-     "size": 43.0
+     "size": 2043.0
     },
     {
-     "price": 0.83,
-     "size": 100.0
+     "price": 0.86,
+     "size": 20.0
     }
    ],
    "asks": [
     {
      "price": 0.91,
-     "size": 456.74
+     "size": 448.69
     },
     {
      "price": 0.92,
@@ -3091,15 +2868,15 @@
     },
     {
      "price": 0.93,
-     "size": 67.0
+     "size": 47.0
     },
     {
      "price": 0.94,
-     "size": 54.0
+     "size": 2054.0
     },
     {
      "price": 0.95,
-     "size": 445.21
+     "size": 957.81
     }
    ],
    "reason": [
@@ -3109,52 +2886,52 @@
   {
    "token_id": "28180211928751497001089299585759671048640034896170781512763556742241255349798",
    "conditionId": "0x0cfed414ed0ac1fe470d57f4e4dc7c30d3c0ce5fa4878647e9307b32c979f4f4",
-   "book_timestamp_ms": "1792596174621",
-   "best_bid": 0.91,
-   "best_ask": 0.915,
-   "spread": 0.005,
+   "book_timestamp_ms": "1792610760412",
+   "best_bid": 0.936,
+   "best_ask": 0.952,
+   "spread": 0.016,
    "bids": [
     {
-     "price": 0.91,
-     "size": 134.74
+     "price": 0.936,
+     "size": 30.0
     },
     {
-     "price": 0.909,
-     "size": 950.0
+     "price": 0.935,
+     "size": 139.74
     },
     {
-     "price": 0.907,
+     "price": 0.934,
+     "size": 750.0
+    },
+    {
+     "price": 0.933,
+     "size": 93.12
+    },
+    {
+     "price": 0.932,
      "size": 50.0
-    },
-    {
-     "price": 0.892,
-     "size": 50.0
-    },
-    {
-     "price": 0.83,
-     "size": 16.0
     }
    ],
    "asks": [
     {
-     "price": 0.915,
-     "size": 100.0
+     "price": 0.952,
+     "size": 30.0
     },
     {
-     "price": 0.919,
+     "price": 0.953,
      "size": 50.0
     },
     {
-     "price": 0.94,
-     "size": 550.0
+     "price": 0.954,
+     "size": 50.0
     },
     {
-     "price": 0.941,
-     "size": 2250.0
+     "price": 0.956,
+     "size": 928.28
     },
     {
-     "price": 0.943,
-     "size": 147.0
+     "price": 0.959,
+     "size": 465.51
     }
    ],
    "reason": [
@@ -3164,18 +2941,22 @@
   {
    "token_id": "113712800623864386529539388709327143295488671482918028241021500896956224011972",
    "conditionId": "0x825071d9143e2a3cfbd4dfe8abb3aac77df288345b48c58402b5918056841ffd",
-   "book_timestamp_ms": "1792596147738",
-   "best_bid": 0.87,
+   "book_timestamp_ms": "1792610733974",
+   "best_bid": 0.86,
    "best_ask": 0.88,
-   "spread": 0.01,
+   "spread": 0.02,
    "bids": [
     {
-     "price": 0.87,
-     "size": 14.98
+     "price": 0.86,
+     "size": 352.0
     },
     {
-     "price": 0.86,
-     "size": 133.0
+     "price": 0.85,
+     "size": 198.74
+    },
+    {
+     "price": 0.84,
+     "size": 20.0
     },
     {
      "price": 0.81,
@@ -3184,28 +2965,24 @@
     {
      "price": 0.41,
      "size": 73.0
-    },
-    {
-     "price": 0.13,
-     "size": 65.27
     }
    ],
    "asks": [
     {
      "price": 0.88,
-     "size": 327.81
+     "size": 459.81
     },
     {
      "price": 0.89,
-     "size": 294.0
+     "size": 491.0
     },
     {
      "price": 0.9,
-     "size": 518.0
+     "size": 220.0
     },
     {
      "price": 0.91,
-     "size": 708.44
+     "size": 534.31
     },
     {
      "price": 0.92,
@@ -3219,52 +2996,52 @@
   {
    "token_id": "108326585714531091792044207707705346106929953887785476262320686248251365658506",
    "conditionId": "0x96d3aba7996299eabca2e2489d56c435ea1aec130ae8b2deb3577b443c5249fe",
-   "book_timestamp_ms": "1792596109127",
-   "best_bid": 0.907,
-   "best_ask": 0.926,
-   "spread": 0.019,
+   "book_timestamp_ms": "1792610750752",
+   "best_bid": 0.911,
+   "best_ask": 0.931,
+   "spread": 0.02,
    "bids": [
     {
+     "price": 0.911,
+     "size": 110.0
+    },
+    {
+     "price": 0.91,
+     "size": 100.0
+    },
+    {
+     "price": 0.908,
+     "size": 400.0
+    },
+    {
      "price": 0.907,
-     "size": 60.0
+     "size": 217.88
     },
     {
      "price": 0.906,
-     "size": 310.0
-    },
-    {
-     "price": 0.903,
-     "size": 172.82
-    },
-    {
-     "price": 0.898,
-     "size": 300.0
-    },
-    {
-     "price": 0.897,
      "size": 50.0
     }
    ],
    "asks": [
     {
-     "price": 0.926,
-     "size": 221.0
+     "price": 0.931,
+     "size": 100.0
     },
     {
-     "price": 0.927,
-     "size": 610.0
+     "price": 0.932,
+     "size": 500.0
     },
     {
-     "price": 0.93,
-     "size": 120.18
+     "price": 0.935,
+     "size": 191.02
     },
     {
      "price": 0.936,
      "size": 50.0
     },
     {
-     "price": 0.937,
-     "size": 92.0
+     "price": 0.938,
+     "size": 450.0
     }
    ],
    "reason": [
@@ -3274,52 +3051,52 @@
   {
    "token_id": "60541923263551988758473407316432289363355441828111674388029180664798317331257",
    "conditionId": "0x2ecf1db725ab2a832edf803179ed9c260ec1ee19fbdbb4eb9cbc2ca6223cfced",
-   "book_timestamp_ms": "1792596160063",
-   "best_bid": 0.928,
+   "book_timestamp_ms": "1792610750146",
+   "best_bid": 0.929,
    "best_ask": 0.93,
-   "spread": 0.002,
+   "spread": 0.001,
    "bids": [
     {
-     "price": 0.928,
-     "size": 558.18
-    },
-    {
-     "price": 0.927,
-     "size": 510.0
+     "price": 0.929,
+     "size": 608.18
     },
     {
      "price": 0.926,
-     "size": 224.15
+     "size": 274.15
     },
     {
      "price": 0.925,
-     "size": 50.0
+     "size": 545.22
     },
     {
-     "price": 0.924,
-     "size": 189.9
+     "price": 0.919,
+     "size": 350.0
+    },
+    {
+     "price": 0.918,
+     "size": 50.0
     }
    ],
    "asks": [
     {
      "price": 0.93,
-     "size": 51.0
-    },
-    {
-     "price": 0.931,
-     "size": 560.0
-    },
-    {
-     "price": 0.933,
-     "size": 50.0
+     "size": 102.0
     },
     {
      "price": 0.934,
-     "size": 250.38
+     "size": 350.0
     },
     {
-     "price": 0.935,
-     "size": 58.83
+     "price": 0.94,
+     "size": 350.0
+    },
+    {
+     "price": 0.959,
+     "size": 46.53
+    },
+    {
+     "price": 0.96,
+     "size": 256.81
     }
    ],
    "reason": [
@@ -3329,52 +3106,52 @@
   {
    "token_id": "61060929473587698886507723429525282043819247980868795947533161094682370852891",
    "conditionId": "0x46dbf9fc26adc396ad63908867124200b051ce144679b59011bc5a2aa9c30594",
-   "book_timestamp_ms": "1792596175039",
-   "best_bid": 0.88,
+   "book_timestamp_ms": "1792610680731",
+   "best_bid": 0.886,
    "best_ask": 0.9,
-   "spread": 0.02,
+   "spread": 0.014,
    "bids": [
     {
+     "price": 0.886,
+     "size": 212.63
+    },
+    {
+     "price": 0.885,
+     "size": 120.0
+    },
+    {
+     "price": 0.883,
+     "size": 20.0
+    },
+    {
+     "price": 0.882,
+     "size": 33.55
+    },
+    {
      "price": 0.88,
-     "size": 112.63
-    },
-    {
-     "price": 0.879,
-     "size": 60.0
-    },
-    {
-     "price": 0.87,
-     "size": 720.0
-    },
-    {
-     "price": 0.86,
-     "size": 40.0
-    },
-    {
-     "price": 0.842,
-     "size": 200.0
+     "size": 39.0
     }
    ],
    "asks": [
     {
      "price": 0.9,
-     "size": 111.0
+     "size": 42.0
     },
     {
-     "price": 0.901,
-     "size": 60.0
+     "price": 0.994,
+     "size": 17.21
     },
     {
-     "price": 0.904,
-     "size": 20.0
+     "price": 0.995,
+     "size": 107.32
     },
     {
-     "price": 0.91,
-     "size": 139.0
+     "price": 0.996,
+     "size": 108.26
     },
     {
-     "price": 0.916,
-     "size": 20.0
+     "price": 0.997,
+     "size": 81.67
     }
    ],
    "reason": [
@@ -3384,52 +3161,52 @@
   {
    "token_id": "12861234728357305765453419771675999566493375909707104083040085492907752234325",
    "conditionId": "0x4ef63404471f4c6bd1d9f12a723f136afcc2030aa05fecd538cdd3a8f456beb1",
-   "book_timestamp_ms": "1792596171720",
-   "best_bid": 0.873,
-   "best_ask": 0.899,
-   "spread": 0.026,
+   "book_timestamp_ms": "1792610759683",
+   "best_bid": 0.881,
+   "best_ask": 0.893,
+   "spread": 0.012,
    "bids": [
     {
-     "price": 0.873,
-     "size": 30.0
+     "price": 0.881,
+     "size": 207.0
     },
     {
-     "price": 0.872,
-     "size": 50.0
+     "price": 0.88,
+     "size": 40.0
+    },
+    {
+     "price": 0.877,
+     "size": 95.81
+    },
+    {
+     "price": 0.871,
+     "size": 110.0
     },
     {
      "price": 0.87,
-     "size": 112.0
-    },
-    {
-     "price": 0.866,
-     "size": 38.0
-    },
-    {
-     "price": 0.86,
-     "size": 43.0
+     "size": 20.0
     }
    ],
    "asks": [
     {
-     "price": 0.899,
-     "size": 42.0
+     "price": 0.893,
+     "size": 434.0
+    },
+    {
+     "price": 0.897,
+     "size": 1100.37
     },
     {
      "price": 0.9,
-     "size": 123.0
+     "size": 41.0
     },
     {
-     "price": 0.901,
-     "size": 26.0
+     "price": 0.902,
+     "size": 47.0
     },
     {
      "price": 0.903,
-     "size": 30.07
-    },
-    {
-     "price": 0.906,
-     "size": 38.0
+     "size": 110.0
     }
    ],
    "reason": [
@@ -3439,55 +3216,59 @@
   {
    "token_id": "15290572385458522370285732869432740297199321382471116558439914335588167718663",
    "conditionId": "0x34918035a590555ba1fb1d6a019d766ab6e557d63e7f3140b63b4550eee7f417",
-   "book_timestamp_ms": "1792596181975",
-   "best_bid": 0.64,
-   "best_ask": 0.65,
+   "book_timestamp_ms": "1792610759159",
+   "best_bid": 0.66,
+   "best_ask": 0.67,
    "spread": 0.01,
    "bids": [
     {
+     "price": 0.66,
+     "size": 48131.28
+    },
+    {
+     "price": 0.65,
+     "size": 50858.68
+    },
+    {
      "price": 0.64,
-     "size": 17317.34
+     "size": 179162.1
     },
     {
      "price": 0.63,
-     "size": 65163.34
+     "size": 37606.33
     },
     {
      "price": 0.62,
-     "size": 183013.34
-    },
-    {
-     "price": 0.61,
-     "size": 51844.0
-    },
-    {
-     "price": 0.6,
-     "size": 61746.0
+     "size": 13996.05
     }
    ],
    "asks": [
     {
-     "price": 0.65,
-     "size": 11074.72
-    },
-    {
-     "price": 0.66,
-     "size": 55486.4
-    },
-    {
      "price": 0.67,
-     "size": 39767.07
+     "size": 2543.93
     },
     {
      "price": 0.68,
-     "size": 72535.0
+     "size": 27310.58
     },
     {
      "price": 0.69,
-     "size": 71676.0
+     "size": 62133.7
+    },
+    {
+     "price": 0.7,
+     "size": 78296.66
+    },
+    {
+     "price": 0.71,
+     "size": 5080.55
     }
    ],
    "reason": [
+    "[watch] WongKimArk Yes @0.64 987 USDC",
+    "[watch] WongKimArk Yes @0.6400000003 178 USDC",
+    "[watch] WongKimArk Yes @0.64 320 USDC",
+    "[watch] WongKimArk Yes @0.64 204 USDC",
     "[watch] WongKimArk Yes @0.64 518 USDC",
     "[watch] WongKimArk Yes @0.64 299 USDC",
     "[watch] WongKimArk Yes @0.64 640 USDC",
@@ -3504,52 +3285,52 @@
   {
    "token_id": "112833774316104951988690985316609270957261648365641646812446420693891587882096",
    "conditionId": "0xf77fa3e63014f1f76ea4433dac66b3860493ed7f1a9fee3dfbef9104d7f1eee3",
-   "book_timestamp_ms": "1792596183460",
-   "best_bid": 0.72,
-   "best_ask": 0.73,
+   "book_timestamp_ms": "1792610761898",
+   "best_bid": 0.7,
+   "best_ask": 0.71,
    "spread": 0.01,
    "bids": [
     {
-     "price": 0.72,
-     "size": 208.29
-    },
-    {
-     "price": 0.71,
-     "size": 11294.85
-    },
-    {
      "price": 0.7,
-     "size": 21576.08
+     "size": 407.23
     },
     {
      "price": 0.69,
-     "size": 11712.67
+     "size": 5301.73
     },
     {
      "price": 0.68,
-     "size": 17735.97
+     "size": 35175.0
+    },
+    {
+     "price": 0.67,
+     "size": 12038.09
+    },
+    {
+     "price": 0.66,
+     "size": 19881.82
     }
    ],
    "asks": [
     {
+     "price": 0.71,
+     "size": 3843.21
+    },
+    {
+     "price": 0.72,
+     "size": 5893.0
+    },
+    {
      "price": 0.73,
-     "size": 2848.23
+     "size": 43301.56
     },
     {
      "price": 0.74,
-     "size": 11699.99
+     "size": 53897.33
     },
     {
      "price": 0.75,
-     "size": 30638.83
-    },
-    {
-     "price": 0.76,
-     "size": 119206.47
-    },
-    {
-     "price": 0.77,
-     "size": 376571.02
+     "size": 334986.07
     }
    ],
    "reason": [
@@ -3559,52 +3340,52 @@
   {
    "token_id": "54354873998826259054526425416928957657351494173277941862882815520348432840549",
    "conditionId": "0xd840a4faf46b63d0be3f7918e8014fd848e396fdd76f2554f1497fb3553f8010",
-   "book_timestamp_ms": "1792596181398",
-   "best_bid": 0.75,
-   "best_ask": 0.76,
+   "book_timestamp_ms": "1792610760249",
+   "best_bid": 0.77,
+   "best_ask": 0.78,
    "spread": 0.01,
    "bids": [
     {
+     "price": 0.77,
+     "size": 15.0
+    },
+    {
+     "price": 0.76,
+     "size": 5619.0
+    },
+    {
      "price": 0.75,
-     "size": 3017.0
+     "size": 5612.33
     },
     {
      "price": 0.74,
-     "size": 9421.77
+     "size": 3399.24
     },
     {
      "price": 0.73,
-     "size": 5792.46
-    },
-    {
-     "price": 0.72,
-     "size": 4644.87
-    },
-    {
-     "price": 0.71,
-     "size": 98.0
+     "size": 5.0
     }
    ],
    "asks": [
     {
-     "price": 0.76,
-     "size": 597.36
-    },
-    {
-     "price": 0.77,
-     "size": 5881.56
-    },
-    {
      "price": 0.78,
-     "size": 4008.99
+     "size": 205.0
     },
     {
      "price": 0.79,
-     "size": 2347.56
+     "size": 2970.99
     },
     {
      "price": 0.8,
-     "size": 429.67
+     "size": 1356.48
+    },
+    {
+     "price": 0.82,
+     "size": 10.0
+    },
+    {
+     "price": 0.83,
+     "size": 47.05
     }
    ],
    "reason": [
@@ -3612,164 +3393,109 @@
    ]
   },
   {
-   "token_id": "98137835855811286850828110230129950462244923030659190466074351347549876714849",
-   "conditionId": "0xba4705b095d8296e81a9d1fb14016c3906e0536c21256b04a3a67daba850eb56",
-   "book_timestamp_ms": "1792596150074",
-   "best_bid": 0.91,
-   "best_ask": 0.95,
-   "spread": 0.04,
-   "bids": [
-    {
-     "price": 0.91,
-     "size": 220.0
-    },
-    {
-     "price": 0.9,
-     "size": 66.66
-    },
-    {
-     "price": 0.85,
-     "size": 221.0
-    },
-    {
-     "price": 0.84,
-     "size": 659.13
-    },
-    {
-     "price": 0.83,
-     "size": 310.0
-    }
-   ],
-   "asks": [
-    {
-     "price": 0.95,
-     "size": 79.99
-    },
-    {
-     "price": 0.96,
-     "size": 144.0
-    },
-    {
-     "price": 0.97,
-     "size": 14.24
-    },
-    {
-     "price": 0.98,
-     "size": 343.0
-    },
-    {
-     "price": 0.99,
-     "size": 47.26
-    }
-   ],
-   "reason": [
-    "[watch] Rumpelstiltskin No @0.5156037657 164 USDC"
-   ]
-  },
-  {
-   "token_id": "85377241479106312434941600365981690112200050573592763839850833219429995374007",
-   "conditionId": "0x8091d617a6b1a70847d357f59b7d1d303b7599d376ba92729705e233b3716940",
-   "book_timestamp_ms": "1792596183051",
-   "best_bid": 0.82,
-   "best_ask": 0.83,
+   "token_id": "39409206330527880169507414405291721950884951005340760541937649898052386499519",
+   "conditionId": "0x9ed0ecc8b8589e67967d44c4420944a41b6a6806419019a1581d514174eee9b1",
+   "book_timestamp_ms": "1792610756108",
+   "best_bid": 0.85,
+   "best_ask": 0.86,
    "spread": 0.01,
    "bids": [
     {
+     "price": 0.85,
+     "size": 7978.06
+    },
+    {
+     "price": 0.84,
+     "size": 4274.89
+    },
+    {
+     "price": 0.83,
+     "size": 2219.0
+    },
+    {
      "price": 0.82,
-     "size": 182.94
+     "size": 1998.19
     },
     {
      "price": 0.81,
-     "size": 2901.9
-    },
-    {
-     "price": 0.8,
-     "size": 4024.58
-    },
-    {
-     "price": 0.79,
-     "size": 2903.77
-    },
-    {
-     "price": 0.78,
-     "size": 2337.65
+     "size": 2136.05
     }
    ],
    "asks": [
     {
-     "price": 0.83,
-     "size": 173.84
-    },
-    {
-     "price": 0.84,
-     "size": 378.34
-    },
-    {
-     "price": 0.85,
-     "size": 146.72
-    },
-    {
      "price": 0.86,
-     "size": 740.7
+     "size": 510.36
     },
     {
      "price": 0.87,
-     "size": 8.03
+     "size": 12392.18
+    },
+    {
+     "price": 0.88,
+     "size": 5283.99
+    },
+    {
+     "price": 0.89,
+     "size": 48290.03
+    },
+    {
+     "price": 0.9,
+     "size": 52181.94
     }
    ],
    "reason": [
-    "[watch] Rumpelstiltskin No @0.7100000005 342 USDC"
+    "[watch] Seutervoinen No @0.86 860 USDC"
    ]
   },
   {
    "token_id": "52613249174138921046514494349977996622384507292069626635741741376456794792618",
    "conditionId": "0x13a3e12dd8cbecd31882d2a0841e3ab3670e5162841c4076d22288491654a4de",
-   "book_timestamp_ms": "1792596165034",
-   "best_bid": 0.929,
+   "book_timestamp_ms": "1792610759233",
+   "best_bid": 0.93,
    "best_ask": 0.939,
-   "spread": 0.01,
+   "spread": 0.009,
    "bids": [
     {
-     "price": 0.929,
-     "size": 268.0
+     "price": 0.93,
+     "size": 429.0
     },
     {
-     "price": 0.928,
-     "size": 267.0
+     "price": 0.929,
+     "size": 208.0
     },
     {
      "price": 0.926,
-     "size": 78.66
+     "size": 339.92
     },
     {
      "price": 0.925,
      "size": 3533.0
     },
     {
-     "price": 0.922,
-     "size": 216.91
+     "price": 0.923,
+     "size": 433.36
     }
    ],
    "asks": [
     {
      "price": 0.939,
-     "size": 26.0
+     "size": 236.17
     },
     {
      "price": 0.94,
-     "size": 615.36
+     "size": 606.19
+    },
+    {
+     "price": 0.943,
+     "size": 291.63
+    },
+    {
+     "price": 0.945,
+     "size": 154.0
     },
     {
      "price": 0.946,
-     "size": 346.34
-    },
-    {
-     "price": 0.947,
-     "size": 59.66
-    },
-    {
-     "price": 0.949,
-     "size": 135.47
+     "size": 436.68
     }
    ],
    "reason": [
@@ -3780,52 +3506,52 @@
   {
    "token_id": "37755135088405799849800190027343457715121200916302661996402931566317384140291",
    "conditionId": "0x0465cd005a54781e052b679e2c42c7ae5b772490fdda54316f157bf537536456",
-   "book_timestamp_ms": "1792596182004",
+   "book_timestamp_ms": "1792610762463",
    "best_bid": 0.9,
-   "best_ask": 0.92,
-   "spread": 0.02,
+   "best_ask": 0.91,
+   "spread": 0.01,
    "bids": [
     {
      "price": 0.9,
-     "size": 337.0
+     "size": 10.0
     },
     {
      "price": 0.89,
-     "size": 12357.75
+     "size": 10531.43
     },
     {
      "price": 0.88,
-     "size": 3835.07
+     "size": 6154.07
     },
     {
      "price": 0.87,
-     "size": 9351.15
+     "size": 3490.0
     },
     {
      "price": 0.86,
-     "size": 3571.42
+     "size": 2000.0
     }
    ],
    "asks": [
     {
+     "price": 0.91,
+     "size": 1116.36
+    },
+    {
      "price": 0.92,
-     "size": 6065.94
+     "size": 7717.89
     },
     {
      "price": 0.93,
-     "size": 7557.04
+     "size": 17958.6
     },
     {
      "price": 0.94,
-     "size": 17369.42
+     "size": 9578.82
     },
     {
      "price": 0.95,
-     "size": 8838.73
-    },
-    {
-     "price": 0.96,
-     "size": 1350.0
+     "size": 8844.97
     }
    ],
    "reason": [
@@ -3835,7 +3561,7 @@
   {
    "token_id": "41078603681242099703077005703784667030641279660159676153855091034229189893841",
    "conditionId": "0x8ec41042f49bdea4e3a1d42dbc63b12d4086471a0f4b7a59356bbc120add72d0",
-   "book_timestamp_ms": "1792596164587",
+   "book_timestamp_ms": "1792610762099",
    "best_bid": 0.933,
    "best_ask": 0.939,
    "spread": 0.006,
@@ -3846,15 +3572,15 @@
     },
     {
      "price": 0.932,
-     "size": 375.0
+     "size": 225.0
     },
     {
      "price": 0.93,
-     "size": 411.0
+     "size": 2290.26
     },
     {
      "price": 0.929,
-     "size": 2544.59
+     "size": 537.56
     },
     {
      "price": 0.926,
@@ -3868,19 +3594,19 @@
     },
     {
      "price": 0.94,
-     "size": 350.0
+     "size": 100.0
     },
     {
      "price": 0.941,
-     "size": 583.0
+     "size": 633.0
     },
     {
      "price": 0.942,
-     "size": 271.0
+     "size": 2150.0
     },
     {
      "price": 0.943,
-     "size": 279.94
+     "size": 271.0
     }
    ],
    "reason": [
@@ -3890,10 +3616,10 @@
   {
    "token_id": "59740562104912004688663966305057674504275197975384004127686943580816762197780",
    "conditionId": "0x6e6918aa3c30213fd266f59ded6f79fb2502e4f1346f0f37e92ded76506b930f",
-   "book_timestamp_ms": "1792596182566",
+   "book_timestamp_ms": "1792610531674",
    "best_bid": 0.99,
-   "best_ask": 0.992,
-   "spread": 0.002,
+   "best_ask": 0.991,
+   "spread": 0.001,
    "bids": [
     {
      "price": 0.99,
@@ -3901,7 +3627,7 @@
     },
     {
      "price": 0.989,
-     "size": 256.8
+     "size": 1256.8
     },
     {
      "price": 0.988,
@@ -3918,12 +3644,16 @@
    ],
    "asks": [
     {
+     "price": 0.991,
+     "size": 2000.0
+    },
+    {
      "price": 0.992,
-     "size": 380.01
+     "size": 499.98
     },
     {
      "price": 0.993,
-     "size": 987.92
+     "size": 416.52
     },
     {
      "price": 0.994,
@@ -3932,10 +3662,6 @@
     {
      "price": 0.995,
      "size": 1902.63
-    },
-    {
-     "price": 0.997,
-     "size": 2933.5
     }
    ],
    "reason": [
@@ -3944,54 +3670,164 @@
    ]
   },
   {
+   "token_id": "79825167762459488478206414509755176562349257846652439268369145558426777722770",
+   "conditionId": "0x968a1a79e001d49fa3ee1429e3b95eb01797587740f86d4e6becf3ab1b275bfb",
+   "book_timestamp_ms": "1792610751264",
+   "best_bid": 0.3,
+   "best_ask": 0.31,
+   "spread": 0.01,
+   "bids": [
+    {
+     "price": 0.3,
+     "size": 8733.9
+    },
+    {
+     "price": 0.29,
+     "size": 32834.67
+    },
+    {
+     "price": 0.28,
+     "size": 24447.76
+    },
+    {
+     "price": 0.27,
+     "size": 34358.0
+    },
+    {
+     "price": 0.26,
+     "size": 803.79
+    }
+   ],
+   "asks": [
+    {
+     "price": 0.31,
+     "size": 1516.09
+    },
+    {
+     "price": 0.32,
+     "size": 6925.48
+    },
+    {
+     "price": 0.33,
+     "size": 10640.76
+    },
+    {
+     "price": 0.34,
+     "size": 4423.02
+    },
+    {
+     "price": 0.35,
+     "size": 6069.12
+    }
+   ],
+   "reason": [
+    "[watch] lava-lava No @0.32 960 USDC"
+   ]
+  },
+  {
+   "token_id": "69908185249078099348466099388148864764525845923415294308139153388799352317616",
+   "conditionId": "0x771873c365f87bffd990644e4b688aebc1be7f18396d2eab64b996ff66e88669",
+   "book_timestamp_ms": "1792610765473",
+   "best_bid": 0.3,
+   "best_ask": 0.31,
+   "spread": 0.01,
+   "bids": [
+    {
+     "price": 0.3,
+     "size": 9711.17
+    },
+    {
+     "price": 0.29,
+     "size": 19006.29
+    },
+    {
+     "price": 0.28,
+     "size": 28890.73
+    },
+    {
+     "price": 0.27,
+     "size": 31661.0
+    },
+    {
+     "price": 0.26,
+     "size": 10.0
+    }
+   ],
+   "asks": [
+    {
+     "price": 0.31,
+     "size": 1251.05
+    },
+    {
+     "price": 0.32,
+     "size": 14438.22
+    },
+    {
+     "price": 0.33,
+     "size": 7480.8
+    },
+    {
+     "price": 0.34,
+     "size": 4196.25
+    },
+    {
+     "price": 0.35,
+     "size": 3782.14
+    }
+   ],
+   "reason": [
+    "[watch] lava-lava Yes @0.32 959 USDC"
+   ]
+  },
+  {
    "token_id": "79191939610100241429039499950443680906623179487184628479206155805558220344190",
    "conditionId": "0xdf8e2dc5860027decbe6164555c3c1c9645c3bd33e16b9dc57ca87125047d4a8",
-   "book_timestamp_ms": "1792596181002",
+   "book_timestamp_ms": "1792610760835",
    "best_bid": 0.78,
    "best_ask": 0.79,
    "spread": 0.01,
    "bids": [
     {
      "price": 0.78,
-     "size": 15671.76
+     "size": 31259.09
     },
     {
      "price": 0.77,
-     "size": 47746.84
+     "size": 45505.15
     },
     {
      "price": 0.76,
-     "size": 25248.15
+     "size": 39586.84
     },
     {
      "price": 0.75,
-     "size": 40397.65
+     "size": 64896.05
     },
     {
      "price": 0.74,
-     "size": 63184.74
+     "size": 44042.99
     }
    ],
    "asks": [
     {
      "price": 0.79,
-     "size": 10755.63
+     "size": 13292.48
     },
     {
      "price": 0.8,
-     "size": 32949.9
+     "size": 34904.91
     },
     {
      "price": 0.81,
-     "size": 57246.0
+     "size": 57559.89
     },
     {
      "price": 0.82,
-     "size": 64927.5
+     "size": 82396.44
     },
     {
      "price": 0.83,
-     "size": 119127.31
+     "size": 376355.31
     }
    ],
    "reason": [
@@ -4007,52 +3843,52 @@
   {
    "token_id": "28427187968184237484038820857745157273985047964211010508403776602582456466334",
    "conditionId": "0xa0c4607a7d7c5ffe77cae5ffe47ccdc2207c8faceaaa225cf5a7de4ec93e543a",
-   "book_timestamp_ms": "1792596182858",
-   "best_bid": 0.28,
-   "best_ask": 0.29,
+   "book_timestamp_ms": "1792610760799",
+   "best_bid": 0.29,
+   "best_ask": 0.3,
    "spread": 0.01,
    "bids": [
     {
+     "price": 0.29,
+     "size": 250.78
+    },
+    {
      "price": 0.28,
-     "size": 603.75
+     "size": 67510.81
     },
     {
      "price": 0.27,
-     "size": 22920.08
+     "size": 63003.07
     },
     {
      "price": 0.26,
-     "size": 61078.3
+     "size": 59848.26
     },
     {
      "price": 0.25,
-     "size": 132082.0
-    },
-    {
-     "price": 0.24,
-     "size": 7691.27
+     "size": 103783.0
     }
    ],
    "asks": [
     {
-     "price": 0.29,
-     "size": 1969.0
-    },
-    {
      "price": 0.3,
-     "size": 5338.1
+     "size": 3375.12
     },
     {
      "price": 0.31,
-     "size": 1429.0
+     "size": 2207.98
     },
     {
      "price": 0.32,
-     "size": 12305.0
+     "size": 11230.0
+    },
+    {
+     "price": 0.33,
+     "size": 2320.0
     },
     {
      "price": 0.34,
-     "size": 320.0
+     "size": 305.0
     }
    ],
    "reason": [
@@ -4065,52 +3901,52 @@
   {
    "token_id": "46951134448167755321316780937408153445367186831720984662606001886132426044625",
    "conditionId": "0xb64922cdb39b89d19b494ded7324f547e48b04f866bdbb71586acdc2982a4beb",
-   "book_timestamp_ms": "1792596181437",
-   "best_bid": 0.58,
-   "best_ask": 0.6,
-   "spread": 0.02,
+   "book_timestamp_ms": "1792610737792",
+   "best_bid": 0.59,
+   "best_ask": 0.64,
+   "spread": 0.05,
    "bids": [
     {
+     "price": 0.59,
+     "size": 53.51
+    },
+    {
      "price": 0.58,
-     "size": 1217.22
+     "size": 8253.63
     },
     {
      "price": 0.57,
-     "size": 8938.42
+     "size": 8839.12
     },
     {
      "price": 0.56,
-     "size": 5321.84
+     "size": 769.52
     },
     {
      "price": 0.55,
-     "size": 4137.0
-    },
-    {
-     "price": 0.54,
-     "size": 4370.9
+     "size": 702.0
     }
    ],
    "asks": [
     {
-     "price": 0.6,
-     "size": 1527.43
-    },
-    {
-     "price": 0.61,
-     "size": 5486.82
-    },
-    {
-     "price": 0.62,
-     "size": 2561.7
-    },
-    {
-     "price": 0.63,
-     "size": 147.0
-    },
-    {
      "price": 0.64,
-     "size": 367.0
+     "size": 358.19
+    },
+    {
+     "price": 0.65,
+     "size": 2659.99
+    },
+    {
+     "price": 0.66,
+     "size": 1360.0
+    },
+    {
+     "price": 0.67,
+     "size": 5.0
+    },
+    {
+     "price": 0.7,
+     "size": 6.2
     }
    ],
    "reason": [
@@ -4120,52 +3956,52 @@
   {
    "token_id": "87337331181593696890532631694613706065622017286351524632286603773202126910538",
    "conditionId": "0x0d9c9c308211e9008331e33be346c44c50da2d879ff6a739676ab553ea5b5297",
-   "book_timestamp_ms": "1792596180488",
+   "book_timestamp_ms": "1792610765469",
    "best_bid": 0.28,
    "best_ask": 0.29,
    "spread": 0.01,
    "bids": [
     {
      "price": 0.28,
-     "size": 5497.01
+     "size": 58863.84
     },
     {
      "price": 0.27,
-     "size": 9095.87
+     "size": 15392.12
     },
     {
      "price": 0.26,
-     "size": 48683.16
+     "size": 45936.84
     },
     {
      "price": 0.25,
-     "size": 75581.51
+     "size": 134067.93
     },
     {
      "price": 0.24,
-     "size": 82324.0
+     "size": 6244.0
     }
    ],
    "asks": [
     {
      "price": 0.29,
-     "size": 269.46
+     "size": 1058.63
     },
     {
      "price": 0.3,
-     "size": 18301.82
+     "size": 3387.82
     },
     {
      "price": 0.31,
-     "size": 13252.93
+     "size": 9319.51
     },
     {
      "price": 0.32,
-     "size": 16503.0
+     "size": 18037.29
     },
     {
      "price": 0.33,
-     "size": 4034.0
+     "size": 3988.0
     }
    ],
    "reason": [
@@ -4176,52 +4012,52 @@
   {
    "token_id": "94989240942321171035181144919679918530828890353752041741893721623522447140887",
    "conditionId": "0x0aeafd983d87efa8403ca903513950b4b1906f442219c28e5486b66b87545a69",
-   "book_timestamp_ms": "1792596185976",
-   "best_bid": 0.18,
-   "best_ask": 0.19,
+   "book_timestamp_ms": "1792610766975",
+   "best_bid": 0.17,
+   "best_ask": 0.18,
    "spread": 0.01,
    "bids": [
     {
-     "price": 0.18,
-     "size": 100.0
-    },
-    {
      "price": 0.17,
-     "size": 521.14
+     "size": 180.44
     },
     {
      "price": 0.16,
-     "size": 2948.43
+     "size": 3525.63
     },
     {
      "price": 0.15,
-     "size": 2483.94
+     "size": 1443.25
     },
     {
      "price": 0.14,
-     "size": 10410.86
+     "size": 11076.86
+    },
+    {
+     "price": 0.13,
+     "size": 94.49
     }
    ],
    "asks": [
     {
+     "price": 0.18,
+     "size": 1900.17
+    },
+    {
      "price": 0.19,
-     "size": 392.86
+     "size": 1290.1
     },
     {
      "price": 0.2,
-     "size": 744.43
+     "size": 301.22
     },
     {
      "price": 0.21,
-     "size": 934.58
+     "size": 330.0
     },
     {
      "price": 0.22,
-     "size": 1287.3
-    },
-    {
-     "price": 0.23,
-     "size": 36.48
+     "size": 10.0
     }
    ],
    "reason": [
@@ -4232,52 +4068,52 @@
   {
    "token_id": "40530616708770133196461535468385029946615148250396571867031554779644977064648",
    "conditionId": "0xf77fa3e63014f1f76ea4433dac66b3860493ed7f1a9fee3dfbef9104d7f1eee3",
-   "book_timestamp_ms": "1792596187067",
-   "best_bid": 0.27,
-   "best_ask": 0.28,
+   "book_timestamp_ms": "1792610767154",
+   "best_bid": 0.29,
+   "best_ask": 0.3,
    "spread": 0.01,
    "bids": [
     {
+     "price": 0.29,
+     "size": 3843.21
+    },
+    {
+     "price": 0.28,
+     "size": 5893.0
+    },
+    {
      "price": 0.27,
-     "size": 2848.23
+     "size": 43301.56
     },
     {
      "price": 0.26,
-     "size": 11699.99
+     "size": 53897.33
     },
     {
      "price": 0.25,
-     "size": 30638.83
-    },
-    {
-     "price": 0.24,
-     "size": 119206.47
-    },
-    {
-     "price": 0.23,
-     "size": 376571.02
+     "size": 296105.07
     }
    ],
    "asks": [
     {
-     "price": 0.28,
-     "size": 208.29
-    },
-    {
-     "price": 0.29,
-     "size": 11294.85
-    },
-    {
      "price": 0.3,
-     "size": 21576.08
+     "size": 407.23
     },
     {
      "price": 0.31,
-     "size": 11712.67
+     "size": 5301.73
     },
     {
      "price": 0.32,
-     "size": 17735.97
+     "size": 35175.0
+    },
+    {
+     "price": 0.33,
+     "size": 12038.09
+    },
+    {
+     "price": 0.34,
+     "size": 19881.82
     }
    ],
    "reason": [
@@ -4287,52 +4123,52 @@
   {
    "token_id": "34469274651136131348321516150438492438660307886630693950137200696755429925073",
    "conditionId": "0x0c9ada12c527451fbdd43c0397a8a006b8aaf2a01567ae069d37220b51937595",
-   "book_timestamp_ms": "1792596156512",
-   "best_bid": 0.43,
-   "best_ask": 0.44,
-   "spread": 0.01,
+   "book_timestamp_ms": "1792610766990",
+   "best_bid": 0.44,
+   "best_ask": 0.46,
+   "spread": 0.02,
    "bids": [
     {
+     "price": 0.44,
+     "size": 5097.9
+    },
+    {
      "price": 0.43,
-     "size": 1214.06
+     "size": 2046.89
     },
     {
      "price": 0.42,
-     "size": 4255.28
+     "size": 863.09
     },
     {
      "price": 0.41,
-     "size": 3539.53
+     "size": 2753.45
     },
     {
      "price": 0.4,
-     "size": 7998.11
-    },
-    {
-     "price": 0.37,
-     "size": 100.0
+     "size": 203.0
     }
    ],
    "asks": [
     {
-     "price": 0.44,
-     "size": 810.06
-    },
-    {
-     "price": 0.45,
-     "size": 429.36
-    },
-    {
      "price": 0.46,
-     "size": 374.04
+     "size": 4190.81
     },
     {
      "price": 0.47,
-     "size": 55.0
+     "size": 2514.35
     },
     {
      "price": 0.48,
-     "size": 2365.02
+     "size": 5719.0
+    },
+    {
+     "price": 0.49,
+     "size": 3200.99
+    },
+    {
+     "price": 0.5,
+     "size": 1138.01
     }
    ],
    "reason": [
@@ -4342,52 +4178,52 @@
   {
    "token_id": "50292933818751585369672690878774599873941191925538325333138798248932182222864",
    "conditionId": "0x694595d0a008f10e4701285d071e4b08407495f6f8a6bd8cbdd7de522fa9b463",
-   "book_timestamp_ms": "1792596161038",
-   "best_bid": 0.431,
-   "best_ask": 0.439,
-   "spread": 0.008,
+   "book_timestamp_ms": "1792610768000",
+   "best_bid": 0.443,
+   "best_ask": 0.455,
+   "spread": 0.012,
    "bids": [
     {
-     "price": 0.431,
-     "size": 159.0
+     "price": 0.443,
+     "size": 50.0
     },
     {
-     "price": 0.429,
-     "size": 800.0
+     "price": 0.441,
+     "size": 45.01
     },
     {
-     "price": 0.428,
-     "size": 10.0
-    },
-    {
-     "price": 0.427,
-     "size": 255.98
+     "price": 0.425,
+     "size": 19.0
     },
     {
      "price": 0.424,
-     "size": 61.0
+     "size": 50.0
+    },
+    {
+     "price": 0.423,
+     "size": 20.99
     }
    ],
    "asks": [
     {
-     "price": 0.439,
-     "size": 10.93
+     "price": 0.455,
+     "size": 109.1
     },
     {
-     "price": 0.44,
+     "price": 0.456,
+     "size": 76.0
+    },
+    {
+     "price": 0.458,
+     "size": 50.0
+    },
+    {
+     "price": 0.459,
+     "size": 99.0
+    },
+    {
+     "price": 0.46,
      "size": 100.0
-    },
-    {
-     "price": 0.441,
-     "size": 1680.09
-    },
-    {
-     "price": 0.442,
-     "size": 204.0
-    },
-    {
-     "price": 0.443,
-     "size": 330.81
     }
    ],
    "reason": [
@@ -4398,52 +4234,52 @@
   {
    "token_id": "13189761649035136014216228195645475511361901020555722779072382901094466765019",
    "conditionId": "0x9ae9e84c0d3b66ee416c0caa915777397b9c656939a0621ecd8c2572073c8893",
-   "book_timestamp_ms": "1792596188305",
+   "book_timestamp_ms": "1792610768281",
    "best_bid": 0.31,
    "best_ask": 0.32,
    "spread": 0.01,
    "bids": [
     {
      "price": 0.31,
-     "size": 771.87
+     "size": 546.87
     },
     {
      "price": 0.3,
-     "size": 5499.4
+     "size": 7189.33
     },
     {
      "price": 0.29,
-     "size": 5813.67
+     "size": 23690.46
     },
     {
      "price": 0.28,
-     "size": 37566.69
+     "size": 47794.54
     },
     {
      "price": 0.27,
-     "size": 22148.4
+     "size": 19445.0
     }
    ],
    "asks": [
     {
      "price": 0.32,
-     "size": 960.66
+     "size": 605.14
     },
     {
      "price": 0.33,
-     "size": 6925.5
+     "size": 7282.26
     },
     {
      "price": 0.34,
-     "size": 14015.63
+     "size": 24882.57
     },
     {
      "price": 0.35,
-     "size": 15302.32
+     "size": 26663.0
     },
     {
      "price": 0.36,
-     "size": 9387.19
+     "size": 11415.55
     }
    ],
    "reason": [
@@ -4453,48 +4289,48 @@
   {
    "token_id": "105896210412150332172576802914745590235885229895617849790568484198648827088432",
    "conditionId": "0x789e15c2a1581b37deaabb5fa555d0d8dbfba11b46424c65cd42e73cfe722eaa",
-   "book_timestamp_ms": "1792596186931",
+   "book_timestamp_ms": "1792610766624",
    "best_bid": 0.31,
    "best_ask": 0.32,
    "spread": 0.01,
    "bids": [
     {
      "price": 0.31,
-     "size": 26.0
+     "size": 33.0
     },
     {
      "price": 0.3,
-     "size": 3321.93
+     "size": 3480.2
     },
     {
      "price": 0.29,
-     "size": 25167.14
+     "size": 23175.9
     },
     {
      "price": 0.28,
-     "size": 9144.86
+     "size": 15712.5
     },
     {
      "price": 0.27,
-     "size": 21925.0
+     "size": 26750.0
     }
    ],
    "asks": [
     {
      "price": 0.32,
-     "size": 937.72
+     "size": 500.0
     },
     {
      "price": 0.33,
-     "size": 5803.57
+     "size": 7138.48
     },
     {
      "price": 0.34,
-     "size": 6882.87
+     "size": 5759.83
     },
     {
      "price": 0.35,
-     "size": 12453.51
+     "size": 12303.41
     },
     {
      "price": 0.36,
@@ -4508,52 +4344,52 @@
   {
    "token_id": "12567907108472709587108529204902868853816143411690726275739815904850602686650",
    "conditionId": "0x6ed9458b312e732d307cbaf992e153acea62ad98ebc9b5190c52416489bed72c",
-   "book_timestamp_ms": "1792596180585",
-   "best_bid": 0.43,
-   "best_ask": 0.44,
+   "book_timestamp_ms": "1792610768544",
+   "best_bid": 0.44,
+   "best_ask": 0.45,
    "spread": 0.01,
    "bids": [
     {
+     "price": 0.44,
+     "size": 755.23
+    },
+    {
      "price": 0.43,
-     "size": 417.99
+     "size": 5991.03
     },
     {
      "price": 0.42,
-     "size": 2142.91
+     "size": 26270.84
     },
     {
      "price": 0.41,
-     "size": 12866.47
+     "size": 23580.02
     },
     {
      "price": 0.4,
-     "size": 35006.84
-    },
-    {
-     "price": 0.39,
-     "size": 12791.47
+     "size": 7518.47
     }
    ],
    "asks": [
     {
-     "price": 0.44,
-     "size": 760.0
-    },
-    {
      "price": 0.45,
-     "size": 6005.73
+     "size": 951.35
     },
     {
      "price": 0.46,
-     "size": 11407.81
+     "size": 8973.56
     },
     {
      "price": 0.47,
-     "size": 10178.51
+     "size": 17229.41
     },
     {
      "price": 0.48,
-     "size": 112.0
+     "size": 238.0
+    },
+    {
+     "price": 0.49,
+     "size": 318.0
     }
    ],
    "reason": [
@@ -4564,14 +4400,14 @@
   {
    "token_id": "59886547286290465082829771960898265501606977087189205368136030866979003404144",
    "conditionId": "0x86c64c0b4af3b9d9d0509b56038c58e8a7c8a6d0be4b0ed2116c92f5591f8440",
-   "book_timestamp_ms": "1792596168120",
+   "book_timestamp_ms": "1792610744672",
    "best_bid": 0.16,
    "best_ask": 0.17,
    "spread": 0.01,
    "bids": [
     {
      "price": 0.16,
-     "size": 412.52
+     "size": 387.93
     },
     {
      "price": 0.15,
@@ -4579,37 +4415,37 @@
     },
     {
      "price": 0.14,
-     "size": 630.35
+     "size": 275.4
     },
     {
      "price": 0.13,
      "size": 100.0
     },
     {
-     "price": 0.12,
-     "size": 30.0
+     "price": 0.1,
+     "size": 172.86
     }
    ],
    "asks": [
     {
      "price": 0.17,
-     "size": 685.77
+     "size": 961.56
     },
     {
      "price": 0.18,
-     "size": 3937.79
+     "size": 4669.63
     },
     {
      "price": 0.19,
-     "size": 2374.43
+     "size": 2559.52
     },
     {
      "price": 0.2,
-     "size": 2490.0
+     "size": 2428.42
     },
     {
      "price": 0.21,
-     "size": 340.0
+     "size": 40.0
     }
    ],
    "reason": [
@@ -4619,52 +4455,52 @@
   {
    "token_id": "84186123693328180886038572283247634727858476742828509213303618698175729710465",
    "conditionId": "0x388344a7f4d93d5a7a85a53a4a17912b0fc541eaa84daebf3dac67d5ce44d565",
-   "book_timestamp_ms": "1792596175277",
+   "book_timestamp_ms": "1792610744689",
    "best_bid": 0.16,
    "best_ask": 0.17,
    "spread": 0.01,
    "bids": [
     {
      "price": 0.16,
-     "size": 40.0
+     "size": 20.0
     },
     {
      "price": 0.15,
-     "size": 2700.5
+     "size": 2229.76
     },
     {
      "price": 0.14,
-     "size": 1650.76
+     "size": 1703.86
     },
     {
      "price": 0.13,
-     "size": 6195.26
+     "size": 3636.88
     },
     {
      "price": 0.12,
-     "size": 2100.0
+     "size": 2410.0
     }
    ],
    "asks": [
     {
      "price": 0.17,
-     "size": 702.1
+     "size": 932.44
     },
     {
      "price": 0.18,
-     "size": 620.91
+     "size": 975.0
     },
     {
      "price": 0.19,
-     "size": 1833.49
+     "size": 1313.48
     },
     {
      "price": 0.2,
-     "size": 585.99
+     "size": 435.67
     },
     {
      "price": 0.21,
-     "size": 463.0
+     "size": 165.0
     }
    ],
    "reason": [
@@ -4674,52 +4510,52 @@
   {
    "token_id": "14642682607039369244277817434878478902698251399122597545654338578883729895178",
    "conditionId": "0x4f63b7dddfb9bec2d5185e732dd3eb8463d825bdf5efadf87eec600e96e08ab5",
-   "book_timestamp_ms": "1792596178132",
+   "book_timestamp_ms": "1792610764045",
    "best_bid": 0.25,
    "best_ask": 0.26,
    "spread": 0.01,
    "bids": [
     {
      "price": 0.25,
-     "size": 321.32
+     "size": 320.5
     },
     {
      "price": 0.24,
-     "size": 3232.03
+     "size": 3596.63
     },
     {
      "price": 0.23,
-     "size": 1392.95
+     "size": 1556.76
     },
     {
      "price": 0.22,
-     "size": 274.89
+     "size": 809.99
     },
     {
      "price": 0.21,
-     "size": 400.0
+     "size": 500.0
     }
    ],
    "asks": [
     {
      "price": 0.26,
-     "size": 532.84
+     "size": 573.29
     },
     {
      "price": 0.27,
-     "size": 241.28
+     "size": 46.84
     },
     {
      "price": 0.28,
-     "size": 288.0
+     "size": 48.0
     },
     {
      "price": 0.29,
-     "size": 2000.0
+     "size": 2477.56
     },
     {
-     "price": 0.64,
-     "size": 40.0
+     "price": 0.31,
+     "size": 200.0
     }
    ],
    "reason": [
@@ -4729,30 +4565,30 @@
   {
    "token_id": "88848058547666616739103287803590501509467481820772923821669512190352449566302",
    "conditionId": "0x5bdb02a9f816135f1a7f897291a0f9243eeb79c658a5589ba1205eb12dcfbb65",
-   "book_timestamp_ms": "1792596189538",
+   "book_timestamp_ms": "1792610764656",
    "best_bid": 0.25,
    "best_ask": 0.26,
    "spread": 0.01,
    "bids": [
     {
      "price": 0.25,
-     "size": 3520.72
+     "size": 3576.56
     },
     {
      "price": 0.24,
-     "size": 7119.91
+     "size": 8319.0
     },
     {
      "price": 0.23,
-     "size": 27853.82
+     "size": 55278.25
     },
     {
      "price": 0.22,
-     "size": 63522.81
+     "size": 65822.81
     },
     {
      "price": 0.21,
-     "size": 2350.0
+     "size": 2200.0
     }
    ],
    "asks": [
@@ -4762,19 +4598,19 @@
     },
     {
      "price": 0.27,
-     "size": 7477.18
+     "size": 7494.6
     },
     {
      "price": 0.28,
-     "size": 16408.06
+     "size": 15875.78
     },
     {
      "price": 0.29,
-     "size": 16576.68
+     "size": 16654.48
     },
     {
      "price": 0.3,
-     "size": 6764.0
+     "size": 6767.0
     }
    ],
    "reason": [
@@ -4784,52 +4620,52 @@
   {
    "token_id": "78192342236188386087763258420745804515190545117661254581766240746328946228230",
    "conditionId": "0xd1f23e2bc9c61979e1c9f53bd0b76de8ef9cf5bcbc92ecfbccfbf67bfd3c8801",
-   "book_timestamp_ms": "1792596166485",
+   "book_timestamp_ms": "1792610770415",
    "best_bid": 0.13,
-   "best_ask": 0.14,
-   "spread": 0.01,
+   "best_ask": 0.15,
+   "spread": 0.02,
    "bids": [
     {
      "price": 0.13,
-     "size": 10.0
+     "size": 1116.47
     },
     {
      "price": 0.12,
-     "size": 24816.56
+     "size": 24317.13
     },
     {
      "price": 0.11,
-     "size": 48902.13
+     "size": 29491.13
     },
     {
      "price": 0.1,
-     "size": 103890.0
+     "size": 44851.11
     },
     {
      "price": 0.09,
-     "size": 12410.34
+     "size": 15000.4
     }
    ],
    "asks": [
     {
-     "price": 0.14,
-     "size": 902.94
-    },
-    {
      "price": 0.15,
-     "size": 5817.42
+     "size": 4352.39
     },
     {
      "price": 0.16,
-     "size": 3678.04
+     "size": 3615.51
     },
     {
      "price": 0.17,
-     "size": 7600.0
+     "size": 7300.0
     },
     {
      "price": 0.18,
-     "size": 5092.51
+     "size": 250.0
+    },
+    {
+     "price": 0.19,
+     "size": 200.0
     }
    ],
    "reason": [
@@ -4839,52 +4675,52 @@
   {
    "token_id": "1689950543806317773337530280926430142670579667870391801780343754845480907767",
    "conditionId": "0x258ff19b4baff0ed24bc28f58e83c8be6f2f91d9134700703e0aa51810c51a63",
-   "book_timestamp_ms": "1792596191381",
-   "best_bid": 0.3,
-   "best_ask": 0.32,
-   "spread": 0.02,
+   "book_timestamp_ms": "1792610766736",
+   "best_bid": 0.32,
+   "best_ask": 0.33,
+   "spread": 0.01,
    "bids": [
     {
+     "price": 0.32,
+     "size": 456.0
+    },
+    {
+     "price": 0.31,
+     "size": 120.0
+    },
+    {
      "price": 0.3,
-     "size": 1428.89
+     "size": 26759.94
     },
     {
      "price": 0.29,
-     "size": 22876.74
+     "size": 99412.85
     },
     {
      "price": 0.28,
-     "size": 33202.11
-    },
-    {
-     "price": 0.27,
-     "size": 28077.42
-    },
-    {
-     "price": 0.26,
-     "size": 231326.51
+     "size": 258224.39
     }
    ],
    "asks": [
     {
-     "price": 0.32,
-     "size": 2143.92
-    },
-    {
      "price": 0.33,
-     "size": 5033.39
+     "size": 1144.96
     },
     {
      "price": 0.34,
-     "size": 2542.64
+     "size": 87119.12
     },
     {
      "price": 0.35,
-     "size": 50093.24
+     "size": 81618.0
     },
     {
      "price": 0.36,
-     "size": 23008.22
+     "size": 36804.34
+    },
+    {
+     "price": 0.37,
+     "size": 25950.0
     }
    ],
    "reason": [
@@ -4895,52 +4731,52 @@
   {
    "token_id": "2618138322856109565904469085316346602627882727483900432328802655317079880335",
    "conditionId": "0x741bb46008b72234857c5118c8365ab3c2f69dbf28b30b59de04f173b8a778de",
-   "book_timestamp_ms": "1792596189000",
+   "book_timestamp_ms": "1792610770884",
    "best_bid": 0.25,
    "best_ask": 0.26,
    "spread": 0.01,
    "bids": [
     {
      "price": 0.25,
-     "size": 89613.23
+     "size": 113737.47
     },
     {
      "price": 0.24,
-     "size": 103608.65
+     "size": 193195.32
     },
     {
      "price": 0.23,
-     "size": 332846.16
+     "size": 319525.16
     },
     {
      "price": 0.22,
-     "size": 115108.0
+     "size": 89124.5
     },
     {
      "price": 0.21,
-     "size": 328.0
+     "size": 300.0
     }
    ],
    "asks": [
     {
      "price": 0.26,
-     "size": 8678.96
+     "size": 11112.19
     },
     {
      "price": 0.27,
-     "size": 59177.42
+     "size": 53939.47
     },
     {
      "price": 0.28,
-     "size": 53714.8
+     "size": 18253.27
     },
     {
      "price": 0.29,
-     "size": 38410.0
+     "size": 3110.0
     },
     {
      "price": 0.3,
-     "size": 5916.86
+     "size": 966.86
     }
    ],
    "reason": [
@@ -4950,22 +4786,18 @@
   {
    "token_id": "85113565620407086275236152387844323358513792657959779883028365898621477507736",
    "conditionId": "0xea2e16bce4442849b21f037b5e593bb95743386dd5cbf955656e0e7bc2fd3869",
-   "book_timestamp_ms": "1792596163939",
-   "best_bid": 0.55,
-   "best_ask": 0.7,
-   "spread": 0.15,
+   "book_timestamp_ms": "1792610763015",
+   "best_bid": 0.52,
+   "best_ask": 0.71,
+   "spread": 0.19,
    "bids": [
     {
-     "price": 0.55,
-     "size": 10.0
-    },
-    {
-     "price": 0.54,
-     "size": 50.0
+     "price": 0.52,
+     "size": 11.0
     },
     {
      "price": 0.51,
-     "size": 320.0
+     "size": 320.1
     },
     {
      "price": 0.5,
@@ -4974,28 +4806,32 @@
     {
      "price": 0.4,
      "size": 1111.0
+    },
+    {
+     "price": 0.31,
+     "size": 10.0
     }
    ],
    "asks": [
     {
-     "price": 0.7,
-     "size": 61.67
-    },
-    {
-     "price": 0.83,
+     "price": 0.71,
      "size": 20.0
     },
     {
-     "price": 0.84,
-     "size": 20.0
+     "price": 0.72,
+     "size": 41.0
     },
     {
-     "price": 0.87,
-     "size": 7.55
+     "price": 0.73,
+     "size": 40.0
     },
     {
-     "price": 0.88,
-     "size": 50.0
+     "price": 0.74,
+     "size": 20.03
+    },
+    {
+     "price": 0.76,
+     "size": 12.8
     }
    ],
    "reason": [
@@ -5005,18 +4841,18 @@
   {
    "token_id": "97531408855841405410232789703119036119573635076996943730887685044477538494161",
    "conditionId": "0xcfc6e088b78e695e831e094f7aa1197c16b2436e5984b12fb9286361804b8e1b",
-   "book_timestamp_ms": "1792596188507",
+   "book_timestamp_ms": "1792610766538",
    "best_bid": 0.048,
    "best_ask": 0.049,
    "spread": 0.001,
    "bids": [
     {
      "price": 0.048,
-     "size": 2330.9
+     "size": 1168.76
     },
     {
      "price": 0.047,
-     "size": 459.22
+     "size": 714.52
     },
     {
      "price": 0.046,
@@ -5034,15 +4870,11 @@
    "asks": [
     {
      "price": 0.049,
-     "size": 6515.26
+     "size": 16662.55
     },
     {
      "price": 0.05,
-     "size": 289.15
-    },
-    {
-     "price": 0.051,
-     "size": 271.05
+     "size": 12789.15
     },
     {
      "price": 0.057,
@@ -5051,6 +4883,10 @@
     {
      "price": 0.058,
      "size": 16526.28
+    },
+    {
+     "price": 0.06,
+     "size": 1000.0
     }
    ],
    "reason": [
@@ -5060,52 +4896,52 @@
   {
    "token_id": "27580599101456904267590411630030264757609607532043711182842476051444173220871",
    "conditionId": "0xda4a7d85a3c1abaf52bb4dd561d45c1cb33e7f76f76a21069a0d10d4668aefa6",
-   "book_timestamp_ms": "1792596192468",
-   "best_bid": 0.3,
-   "best_ask": 0.32,
-   "spread": 0.02,
+   "book_timestamp_ms": "1792610766967",
+   "best_bid": 0.32,
+   "best_ask": 0.33,
+   "spread": 0.01,
    "bids": [
     {
+     "price": 0.32,
+     "size": 253.0
+    },
+    {
+     "price": 0.31,
+     "size": 12160.96
+    },
+    {
      "price": 0.3,
-     "size": 345.0
+     "size": 16203.24
     },
     {
      "price": 0.29,
-     "size": 48974.82
+     "size": 69794.29
     },
     {
      "price": 0.28,
-     "size": 52544.25
-    },
-    {
-     "price": 0.27,
-     "size": 34432.63
-    },
-    {
-     "price": 0.26,
-     "size": 286232.2
+     "size": 48406.39
     }
    ],
    "asks": [
     {
-     "price": 0.32,
-     "size": 140.0
-    },
-    {
      "price": 0.33,
-     "size": 1571.99
+     "size": 18908.54
     },
     {
      "price": 0.34,
-     "size": 7042.19
+     "size": 18845.27
     },
     {
      "price": 0.35,
-     "size": 6109.61
+     "size": 86429.37
     },
     {
      "price": 0.36,
-     "size": 12230.24
+     "size": 39375.64
+    },
+    {
+     "price": 0.37,
+     "size": 14900.0
     }
    ],
    "reason": [
@@ -5116,26 +4952,26 @@
   {
    "token_id": "30718966535311015751929217398361750334834655110246828806892843311659716192347",
    "conditionId": "0x4de72138204727d2821bff847d8158819ab5b591db1b5b263676126cbb3a0430",
-   "book_timestamp_ms": "1792596193021",
+   "book_timestamp_ms": "1792610770604",
    "best_bid": 0.18,
    "best_ask": 0.19,
    "spread": 0.01,
    "bids": [
     {
      "price": 0.18,
-     "size": 1410.7
+     "size": 703.2
     },
     {
      "price": 0.17,
-     "size": 28393.63
+     "size": 29200.24
     },
     {
      "price": 0.16,
-     "size": 77146.05
+     "size": 79275.59
     },
     {
      "price": 0.15,
-     "size": 46581.51
+     "size": 37829.97
     },
     {
      "price": 0.14,
@@ -5145,23 +4981,23 @@
    "asks": [
     {
      "price": 0.19,
-     "size": 27571.13
+     "size": 20101.47
     },
     {
      "price": 0.2,
-     "size": 8940.76
+     "size": 7951.16
     },
     {
      "price": 0.21,
-     "size": 4729.37
+     "size": 4686.36
     },
     {
      "price": 0.22,
-     "size": 19686.81
+     "size": 19313.81
     },
     {
      "price": 0.23,
-     "size": 4477.0
+     "size": 3854.0
     }
    ],
    "reason": [
@@ -5171,52 +5007,52 @@
   {
    "token_id": "39095530355581234000446052282283179144863901539714839879704884508728449739154",
    "conditionId": "0x9ed2a24391123c685db5c48ea043ee9bd714a144be4a9a0c48d146d521cf9f93",
-   "book_timestamp_ms": "1792596189245",
-   "best_bid": 0.95,
-   "best_ask": 0.951,
+   "book_timestamp_ms": "1792610766592",
+   "best_bid": 0.954,
+   "best_ask": 0.955,
    "spread": 0.001,
    "bids": [
     {
+     "price": 0.954,
+     "size": 1113.98
+    },
+    {
+     "price": 0.953,
+     "size": 165.75
+    },
+    {
+     "price": 0.952,
+     "size": 172.0
+    },
+    {
+     "price": 0.951,
+     "size": 3629.29
+    },
+    {
      "price": 0.95,
-     "size": 5496.52
-    },
-    {
-     "price": 0.949,
-     "size": 10703.24
-    },
-    {
-     "price": 0.948,
-     "size": 6548.95
-    },
-    {
-     "price": 0.947,
-     "size": 23166.54
-    },
-    {
-     "price": 0.946,
-     "size": 1490.12
+     "size": 350.0
     }
    ],
    "asks": [
     {
-     "price": 0.951,
-     "size": 76.0
-    },
-    {
-     "price": 0.952,
-     "size": 1416.73
-    },
-    {
-     "price": 0.953,
-     "size": 2690.27
-    },
-    {
-     "price": 0.954,
-     "size": 4196.7
-    },
-    {
      "price": 0.955,
-     "size": 4592.26
+     "size": 2393.82
+    },
+    {
+     "price": 0.956,
+     "size": 1159.45
+    },
+    {
+     "price": 0.958,
+     "size": 220.0
+    },
+    {
+     "price": 0.959,
+     "size": 1200.0
+    },
+    {
+     "price": 0.96,
+     "size": 2409.72
     }
    ],
    "reason": [
@@ -5227,40 +5063,40 @@
   {
    "token_id": "48363336280603988612943937623657599900834676634371552666346986109028055383864",
    "conditionId": "0xc855714184ac46005a7897c68f274147f0abf1fde791421541edb065fa65a1e4",
-   "book_timestamp_ms": "1792596193711",
-   "best_bid": 0.92,
+   "book_timestamp_ms": "1792610772237",
+   "best_bid": 0.93,
    "best_ask": 0.94,
-   "spread": 0.02,
+   "spread": 0.01,
    "bids": [
     {
+     "price": 0.93,
+     "size": 56.93
+    },
+    {
      "price": 0.92,
-     "size": 1935.2
+     "size": 2349.34
     },
     {
      "price": 0.91,
-     "size": 4114.76
+     "size": 3917.49
     },
     {
      "price": 0.9,
-     "size": 11762.23
+     "size": 15446.65
     },
     {
      "price": 0.89,
-     "size": 13602.23
-    },
-    {
-     "price": 0.88,
-     "size": 1060.15
+     "size": 13604.62
     }
    ],
    "asks": [
     {
      "price": 0.94,
-     "size": 8520.0
+     "size": 8270.98
     },
     {
      "price": 0.95,
-     "size": 2411.52
+     "size": 2141.85
     },
     {
      "price": 0.96,
@@ -5268,11 +5104,11 @@
     },
     {
      "price": 0.97,
-     "size": 11610.16
+     "size": 5995.44
     },
     {
      "price": 0.98,
-     "size": 22537.25
+     "size": 10569.29
     }
    ],
    "reason": [
@@ -5282,52 +5118,52 @@
   {
    "token_id": "62490091192205259690915325438820125180475348504237818020066100893119002471192",
    "conditionId": "0xb36c5fcf6cb92b2e666e9af24d85d9fde9956efbfe377452fea35466f72a1a2d",
-   "book_timestamp_ms": "1792596187905",
-   "best_bid": 0.39,
-   "best_ask": 0.4,
+   "book_timestamp_ms": "1792610771118",
+   "best_bid": 0.38,
+   "best_ask": 0.39,
    "spread": 0.01,
    "bids": [
     {
-     "price": 0.39,
-     "size": 6202.81
-    },
-    {
      "price": 0.38,
-     "size": 17331.23
+     "size": 17642.27
     },
     {
      "price": 0.37,
-     "size": 14582.66
+     "size": 11587.09
     },
     {
      "price": 0.36,
-     "size": 2586.1
+     "size": 47044.43
     },
     {
      "price": 0.35,
-     "size": 4018.14
+     "size": 9239.42
+    },
+    {
+     "price": 0.34,
+     "size": 7449.11
     }
    ],
    "asks": [
     {
+     "price": 0.39,
+     "size": 3263.84
+    },
+    {
      "price": 0.4,
-     "size": 54531.67
+     "size": 65606.55
     },
     {
      "price": 0.41,
-     "size": 37030.61
+     "size": 52476.11
     },
     {
      "price": 0.42,
-     "size": 5215.3
+     "size": 10183.14
     },
     {
      "price": 0.43,
-     "size": 8372.13
-    },
-    {
-     "price": 0.44,
-     "size": 15769.32
+     "size": 1757.71
     }
    ],
    "reason": [
@@ -5337,14 +5173,18 @@
   {
    "token_id": "110376580927643124644684358801877181519508876769623290282152621424700533862707",
    "conditionId": "0xc33a157fce12e54dde0f369e4ed7887810e1fd6e9e1e9f7db341bdcc37be1af4",
-   "book_timestamp_ms": "1792596189943",
-   "best_bid": 0.37,
+   "book_timestamp_ms": "1792610769883",
+   "best_bid": 0.38,
    "best_ask": 0.39,
-   "spread": 0.02,
+   "spread": 0.01,
    "bids": [
     {
+     "price": 0.38,
+     "size": 5767.09
+    },
+    {
      "price": 0.37,
-     "size": 155.0
+     "size": 6217.0
     },
     {
      "price": 0.36,
@@ -5352,37 +5192,33 @@
     },
     {
      "price": 0.35,
-     "size": 2025.0
+     "size": 2226.0
     },
     {
      "price": 0.34,
-     "size": 2050.0
-    },
-    {
-     "price": 0.33,
-     "size": 25.0
+     "size": 2000.0
     }
    ],
    "asks": [
     {
      "price": 0.39,
-     "size": 55.35
+     "size": 100.0
     },
     {
      "price": 0.4,
-     "size": 8280.0
+     "size": 11515.2
+    },
+    {
+     "price": 0.41,
+     "size": 5489.0
     },
     {
      "price": 0.44,
-     "size": 88.0
+     "size": 176.0
     },
     {
      "price": 0.45,
      "size": 32.0
-    },
-    {
-     "price": 0.53,
-     "size": 25.53
     }
    ],
    "reason": [
@@ -5392,30 +5228,30 @@
   {
    "token_id": "96931350562700850926636913202560868203888803956042527000963313508722452765620",
    "conditionId": "0x45d599b1d25f7c090ef0f40de0b728ec4cc91c9d6d6d17092d4c19e226100c24",
-   "book_timestamp_ms": "1792596193328",
+   "book_timestamp_ms": "1792610770470",
    "best_bid": 0.89,
    "best_ask": 0.9,
    "spread": 0.01,
    "bids": [
     {
      "price": 0.89,
-     "size": 239.63
+     "size": 10.0
     },
     {
      "price": 0.88,
-     "size": 468.9
+     "size": 736.64
     },
     {
      "price": 0.87,
-     "size": 1338.3
+     "size": 1252.18
     },
     {
      "price": 0.86,
-     "size": 3885.66
+     "size": 5433.22
     },
     {
      "price": 0.85,
-     "size": 1257.99
+     "size": 4055.06
     }
    ],
    "asks": [
@@ -5425,19 +5261,19 @@
     },
     {
      "price": 0.91,
-     "size": 1512.63
+     "size": 1964.45
     },
     {
      "price": 0.92,
-     "size": 1099.12
+     "size": 1179.09
     },
     {
      "price": 0.93,
-     "size": 2357.01
+     "size": 2262.91
     },
     {
      "price": 0.94,
-     "size": 2173.36
+     "size": 1173.36
     }
    ],
    "reason": [
@@ -5449,52 +5285,52 @@
   {
    "token_id": "84319454573662085210770106575059573110977726805918419997163222348941856635019",
    "conditionId": "0x9da6028526359f1b342620308e871f8479844fb06d7c699dc478a165e39c594d",
-   "book_timestamp_ms": "1792596192148",
-   "best_bid": 0.88,
+   "book_timestamp_ms": "1792610761294",
+   "best_bid": 0.89,
    "best_ask": 0.9,
-   "spread": 0.02,
+   "spread": 0.01,
    "bids": [
     {
+     "price": 0.89,
+     "size": 106.91
+    },
+    {
      "price": 0.88,
-     "size": 264.86
+     "size": 185.89
     },
     {
      "price": 0.87,
-     "size": 209.76
+     "size": 240.0
     },
     {
      "price": 0.86,
-     "size": 1029.55
+     "size": 2602.4
     },
     {
      "price": 0.85,
-     "size": 2077.0
-    },
-    {
-     "price": 0.84,
-     "size": 1379.14
+     "size": 1127.0
     }
    ],
    "asks": [
     {
      "price": 0.9,
-     "size": 90.0
+     "size": 45.0
     },
     {
      "price": 0.91,
-     "size": 2279.13
+     "size": 2402.08
     },
     {
      "price": 0.92,
-     "size": 4128.3
+     "size": 4973.78
     },
     {
      "price": 0.93,
-     "size": 4208.66
+     "size": 5163.34
     },
     {
      "price": 0.94,
-     "size": 4147.12
+     "size": 3933.3
     }
    ],
    "reason": [
@@ -5536,7 +5372,7 @@
    "error": "HTTP 404"
   },
   {
-   "token": "34767215645050247279179635677802776215709078037234086703701315748816860889727",
+   "token": "3539653509992832239325609444948671098702807521751111924584827646544696543846",
    "error": "HTTP 404"
   }
  ]
