@@ -1,23 +1,6 @@
 {
- "fetched_at_utc": "2026-10-31T17:52:53Z",
+ "fetched_at_utc": "2026-10-31T21:43:24Z",
  "markets": [
-  {
-   "question": "LoL: Karmine Corp vs Movistar KOI - Game 1 Winner",
-   "slug": "lol-kc-mkoi-2026-10-31-game1",
-   "is_esport": true,
-   "conditionId": "0x7ac7b5687df1935b637be333ac36bb3c3534808742469e694654de763a328651",
-   "clobTokenIds": "[\"111627997607794497832861960501688747420941897325745195061811262549726329240283\", \"31829480506772572785928708522915158239393306603342589490716407812498308653323\"]",
-   "outcomes": "[\"Karmine Corp\", \"Movistar KOI\"]",
-   "outcomePrices": "[\"0.9995\", \"0.0005\"]",
-   "bestBid": 0.999,
-   "bestAsk": 1,
-   "spread": 0.001,
-   "volume24hr": 2196486.271217999,
-   "liquidityNum": 1478518.24293,
-   "gameStartTime": "2026-10-31 17:05:00+00",
-   "endDate": "2026-10-31T23:05:00Z",
-   "updatedAt": "2026-10-31T17:52:16.030404Z"
-  },
   {
    "question": "Titans vs. Bengals",
    "slug": "nfl-ten-cin-2026-11-01",
@@ -29,11 +12,11 @@
    "bestBid": 0.13,
    "bestAsk": 0.14,
    "spread": 0.01,
-   "volume24hr": 2552.5342829999995,
-   "liquidityNum": 1181362.762,
+   "volume24hr": 1852.3027590000002,
+   "liquidityNum": 1744329.3718,
    "gameStartTime": "2026-11-01 18:00:00+00",
    "endDate": "2026-11-01T18:00:00Z",
-   "updatedAt": "2026-10-31T17:52:16.030404Z"
+   "updatedAt": "2026-10-31T21:42:14.182325Z"
   },
   {
    "question": "Vikings vs. Lions",
@@ -46,20 +29,20 @@
    "bestBid": 0.37,
    "bestAsk": 0.38,
    "spread": 0.01,
-   "volume24hr": 145.283303,
-   "liquidityNum": 711602.2642,
+   "volume24hr": 810.7306739999999,
+   "liquidityNum": 1201680.7418,
    "gameStartTime": "2026-11-01 18:00:00+00",
    "endDate": "2026-11-01T18:00:00Z",
-   "updatedAt": "2026-10-31T17:52:16.030404Z"
+   "updatedAt": "2026-10-31T21:42:14.182325Z"
   }
  ],
  "bookmaker_odds": [],
  "errors": [],
  "notes": [
   "Preise in dieser Datei stammen aus Gamma und koennen veraltet sein (updatedAt pruefen). Massgeblich ist das Orderbuch in books.json.",
-  "ESPORTS: the-odds-api deckt CS2, LoL, Dota2 und Valorant NICHT ab (geprueft 23.09.2026). Fuer die 1 Esports-Maerkte hier gibt es also keine unabhaengige Vergleichsquote. Ein p-Dach dafuer nur aus verbundenen Polymarket-Maerkten herleiten (Serie gegen einzelne Maps, Weg B1) -- sonst kein Tipp.",
+  "ESPORTS: the-odds-api deckt CS2, LoL, Dota2 und Valorant NICHT ab (geprueft 23.09.2026). Fuer die 0 Esports-Maerkte hier gibt es also keine unabhaengige Vergleichsquote. Ein p-Dach dafuer nur aus verbundenen Polymarket-Maerkten herleiten (Serie gegen einzelne Maps, Weg B1) -- sonst kein Tipp.",
   "Quotenabruf uebersprungen: laeuft nur zu den UTC-Stunden [10, 16], damit das Gratis-Kontingent reicht."
  ],
- "n_markets": 3,
- "n_esport_markets": 1
+ "n_markets": 2,
+ "n_esport_markets": 0
 }
