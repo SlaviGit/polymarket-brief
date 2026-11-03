@@ -1,5 +1,5 @@
 {
- "fetched_at_utc": "2026-11-02T16:05:52Z",
+ "fetched_at_utc": "2026-11-03T00:18:50Z",
  "markets": [
   {
    "question": "Bears vs. Seahawks",
@@ -8,15 +8,15 @@
    "conditionId": "0xc138f7ba5966e0ec354a50479099578139e6ad25ddd6c3101aea81a3916aa43b",
    "clobTokenIds": "[\"8944870674701118814978227503356799838117152732928321689754751616721517203594\", \"44521319203158591521031668143480241023486376025390679689039355329189495838630\"]",
    "outcomes": "[\"Bears\", \"Seahawks\"]",
-   "outcomePrices": "[\"0.375\", \"0.625\"]",
-   "bestBid": 0.37,
-   "bestAsk": 0.38,
+   "outcomePrices": "[\"0.385\", \"0.615\"]",
+   "bestBid": 0.38,
+   "bestAsk": 0.39,
    "spread": 0.01,
-   "volume24hr": 326262.00993400085,
-   "liquidityNum": 2770939.557,
+   "volume24hr": 849313.9064020008,
+   "liquidityNum": 3667706.7662,
    "gameStartTime": "2026-11-03 01:15:00+00",
    "endDate": "2026-11-03T01:15:00Z",
-   "updatedAt": "2026-11-02T16:05:17.529621Z"
+   "updatedAt": "2026-11-03T00:18:00.33847Z"
   },
   {
    "question": "Spread: Seahawks (-3.5)",
@@ -29,3949 +29,445 @@
    "bestBid": 0.47,
    "bestAsk": 0.48,
    "spread": 0.01,
-   "volume24hr": 46063.901427,
-   "liquidityNum": 1990252.8708,
+   "volume24hr": 99650.02672099997,
+   "liquidityNum": 1893012.7479,
    "gameStartTime": "2026-11-03 01:15:00+00",
    "endDate": "2026-11-03T01:15:00Z",
-   "updatedAt": "2026-11-02T16:05:17.529621Z"
+   "updatedAt": "2026-11-03T00:18:00.33847Z"
+  },
+  {
+   "question": "Hawks vs. Pacers",
+   "slug": "nba-atl-ind-2026-11-02",
+   "is_esport": false,
+   "conditionId": "0xc7b7e24f6e83d65a9a51eb1652730908414f942206cd33d37dd66731e5852189",
+   "clobTokenIds": "[\"15281969597610095359893206954304792856317480252853523139884787897484091630895\", \"74492652139966453166538871375791393215549648966705092808918944008558411423794\"]",
+   "outcomes": "[\"Hawks\", \"Pacers\"]",
+   "outcomePrices": "[\"0.785\", \"0.215\"]",
+   "bestBid": 0.78,
+   "bestAsk": 0.79,
+   "spread": 0.01,
+   "volume24hr": 907092.8207230002,
+   "liquidityNum": 1461587.9785,
+   "gameStartTime": "2026-11-03 00:30:00+00",
+   "endDate": "2026-11-03T00:30:00Z",
+   "updatedAt": "2026-11-03T00:18:00.33847Z"
+  },
+  {
+   "question": "Pelicans vs. Grizzlies",
+   "slug": "nba-nop-mem-2026-11-02",
+   "is_esport": false,
+   "conditionId": "0xa28d2edf93c1c5ec96ade903310e1afb5503590817579bf83818ae8bc96cf9f9",
+   "clobTokenIds": "[\"76996632011139890540586843013583624544306715124777314786202551181680880391684\", \"13662168343106471486756848826432863753248945821553253003029784414536234280017\"]",
+   "outcomes": "[\"Pelicans\", \"Grizzlies\"]",
+   "outcomePrices": "[\"0.335\", \"0.665\"]",
+   "bestBid": 0.33,
+   "bestAsk": 0.34,
+   "spread": 0.01,
+   "volume24hr": 299346.35562200006,
+   "liquidityNum": 1197193.7225,
+   "gameStartTime": "2026-11-03 01:00:00+00",
+   "endDate": "2026-11-03T01:00:00Z",
+   "updatedAt": "2026-11-03T00:18:00.33847Z"
+  },
+  {
+   "question": "Spread: Seahawks (-4.5)",
+   "slug": "nfl-chi-sea-2026-11-03-spread-home-4pt5",
+   "is_esport": false,
+   "conditionId": "0xdde925180b8ce52faf07c2ccb0d098a406f45ded0d5b73667c45bdaa354036b3",
+   "clobTokenIds": "[\"61556346058915992589843326038518525708354900041225298660126307228998465483218\", \"40437719033092841350308126206498414634045555453359979604108331017709980147674\"]",
+   "outcomes": "[\"Seahawks\", \"Bears\"]",
+   "outcomePrices": "[\"0.435\", \"0.565\"]",
+   "bestBid": 0.43,
+   "bestAsk": 0.44,
+   "spread": 0.01,
+   "volume24hr": 5270.227277,
+   "liquidityNum": 1148377.3648,
+   "gameStartTime": "2026-11-03 01:15:00+00",
+   "endDate": "2026-11-03T01:15:00Z",
+   "updatedAt": "2026-11-03T00:18:00.33847Z"
+  },
+  {
+   "question": "Spread: Hawks (-9.5)",
+   "slug": "nba-atl-ind-2026-11-02-spread-away-9pt5",
+   "is_esport": false,
+   "conditionId": "0xa23bfe12bd86179ec5e216b509642a1a734e49e577e073b5709a59bfff881462",
+   "clobTokenIds": "[\"51246254408058284816984731680213968704166115894307108804519928946184380880232\", \"102414887302742352627768608907665174673223125856080780359639123291510740127960\"]",
+   "outcomes": "[\"Hawks\", \"Pacers\"]",
+   "outcomePrices": "[\"0.535\", \"0.465\"]",
+   "bestBid": 0.53,
+   "bestAsk": 0.54,
+   "spread": 0.01,
+   "volume24hr": 111220.932001,
+   "liquidityNum": 980177.8053,
+   "gameStartTime": "2026-11-03 00:30:00+00",
+   "endDate": "2026-11-03T00:30:00Z",
+   "updatedAt": "2026-11-03T00:18:00.33847Z"
+  },
+  {
+   "question": "Spread: Hawks (-10.5)",
+   "slug": "nba-atl-ind-2026-11-02-spread-away-10pt5",
+   "is_esport": false,
+   "conditionId": "0x7469103a75e22e9b111ffdab4f269e9c25e63371ce73c15051e5a10759bb6c71",
+   "clobTokenIds": "[\"28807829016509733032589868466896813400867991339340456021520733874880542202645\", \"44660327816730339325280749602135536283915260396969212582116287371943968989\"]",
+   "outcomes": "[\"Hawks\", \"Pacers\"]",
+   "outcomePrices": "[\"0.495\", \"0.505\"]",
+   "bestBid": 0.49,
+   "bestAsk": 0.5,
+   "spread": 0.01,
+   "volume24hr": 93210.686655,
+   "liquidityNum": 878091.3194,
+   "gameStartTime": "2026-11-03 00:30:00+00",
+   "endDate": "2026-11-03T00:30:00Z",
+   "updatedAt": "2026-11-03T00:18:00.33847Z"
+  },
+  {
+   "question": "Wizards vs. Magic",
+   "slug": "nba-was-orl-2026-11-02",
+   "is_esport": true,
+   "conditionId": "0xf3a327ce7671b289896dd99c4aabd590e334c3b70389cfee17578c9c522253d5",
+   "clobTokenIds": "[\"8094573615971415809738601402862679795698374972879698946471407058286363393297\", \"77561656563366360146949364879090276464611994048073990781604399042648823409355\"]",
+   "outcomes": "[\"Wizards\", \"Magic\"]",
+   "outcomePrices": "[\"0.415\", \"0.585\"]",
+   "bestBid": 0.41,
+   "bestAsk": 0.42,
+   "spread": 0.01,
+   "volume24hr": 190606.27799499998,
+   "liquidityNum": 792057.1254,
+   "gameStartTime": "2026-11-03 00:30:00+00",
+   "endDate": "2026-11-03T00:30:00Z",
+   "updatedAt": "2026-11-03T00:18:00.33847Z"
+  },
+  {
+   "question": "Spread: Seahawks (-2.5)",
+   "slug": "nfl-chi-sea-2026-11-03-spread-home-2pt5",
+   "is_esport": false,
+   "conditionId": "0x1a49a0ec78182cf5ffd5c9d87aa6cf7de760d0891a6019202ae1f16d00a702c2",
+   "clobTokenIds": "[\"75968349355636516569107240627552783820968149005440993985291336116670921374832\", \"78273351512393974023490286422147639774810501414156883628638180550540852097603\"]",
+   "outcomes": "[\"Seahawks\", \"Bears\"]",
+   "outcomePrices": "[\"0.565\", \"0.435\"]",
+   "bestBid": 0.56,
+   "bestAsk": 0.57,
+   "spread": 0.01,
+   "volume24hr": 263921.180972,
+   "liquidityNum": 778335.349,
+   "gameStartTime": "2026-11-03 01:15:00+00",
+   "endDate": "2026-11-03T01:15:00Z",
+   "updatedAt": "2026-11-03T00:18:00.33847Z"
+  },
+  {
+   "question": "Spread: Hawks (-8.5)",
+   "slug": "nba-atl-ind-2026-11-02-spread-away-8pt5",
+   "is_esport": false,
+   "conditionId": "0x287870bec73fe44ae6d6d0e9a3e9a8918862f5236d9850c13604684036b870fc",
+   "clobTokenIds": "[\"36580606933184705262181137834895115106987219232449640138833531179252051910161\", \"60160982975449579241886947902430094553847016317216284493142503346564774520501\"]",
+   "outcomes": "[\"Hawks\", \"Pacers\"]",
+   "outcomePrices": "[\"0.565\", \"0.435\"]",
+   "bestBid": 0.56,
+   "bestAsk": 0.57,
+   "spread": 0.01,
+   "volume24hr": 136880.66589700003,
+   "liquidityNum": 775206.3519,
+   "gameStartTime": "2026-11-03 00:30:00+00",
+   "endDate": "2026-11-03T00:30:00Z",
+   "updatedAt": "2026-11-03T00:18:00.33847Z"
+  },
+  {
+   "question": "Spread: Seahawks (-1.5)",
+   "slug": "nfl-chi-sea-2026-11-03-spread-home-1pt5",
+   "is_esport": false,
+   "conditionId": "0x30b9c7398e0fc3dc890e7af99d59888fe0c9eac54abb41cafe7c053357a9152a",
+   "clobTokenIds": "[\"34245678707686754544177146810856997343723863822462474086261195452954034640562\", \"72826508749770964396572083868519996870806036558135863657111937332728956306313\"]",
+   "outcomes": "[\"Seahawks\", \"Bears\"]",
+   "outcomePrices": "[\"0.595\", \"0.405\"]",
+   "bestBid": 0.59,
+   "bestAsk": 0.6,
+   "spread": 0.01,
+   "volume24hr": 1648.067797,
+   "liquidityNum": 688807.6728,
+   "gameStartTime": "2026-11-03 01:15:00+00",
+   "endDate": "2026-11-03T01:15:00Z",
+   "updatedAt": "2026-11-03T00:18:00.33847Z"
+  },
+  {
+   "question": "Will Manchester United FC vs. AS Roma end in a draw?",
+   "slug": "ucl-mnu-rom-2026-11-03-draw",
+   "is_esport": false,
+   "conditionId": "0x999cfb279324a81e8e1b2f12eeb7672462896a866f824d0440463d4d069c8681",
+   "clobTokenIds": "[\"14636753976033988250288938467880873412523296528851958149050867810356760252182\", \"19704712208943714279048816246185397346894554418163387130607578206559981296189\"]",
+   "outcomes": "[\"Yes\", \"No\"]",
+   "outcomePrices": "[\"0.235\", \"0.765\"]",
+   "bestBid": 0.23,
+   "bestAsk": 0.24,
+   "spread": 0.01,
+   "volume24hr": 6316.365776000001,
+   "liquidityNum": 631974.2205,
+   "gameStartTime": "2026-11-03 20:00:00+00",
+   "endDate": "2026-11-03T20:00:00Z",
+   "updatedAt": "2026-11-03T00:18:00.33847Z"
+  },
+  {
+   "question": "Pistons vs. Hornets",
+   "slug": "nba-det-cha-2026-11-02",
+   "is_esport": false,
+   "conditionId": "0x9b73bb46e589f8f4a9cc7878e498610b481df3391fad7a48b1b42ca11b444830",
+   "clobTokenIds": "[\"94706464878268560168979844241695280095173082810995629095605716550992063064375\", \"73742736509097596089756464196049684133596742542941358818235860202288799939026\"]",
+   "outcomes": "[\"Pistons\", \"Hornets\"]",
+   "outcomePrices": "[\"0.675\", \"0.325\"]",
+   "bestBid": 0.67,
+   "bestAsk": 0.68,
+   "spread": 0.01,
+   "volume24hr": 96156.42686599997,
+   "liquidityNum": 591341.1991,
+   "gameStartTime": "2026-11-03 00:30:00+00",
+   "endDate": "2026-11-03T00:30:00Z",
+   "updatedAt": "2026-11-03T00:18:00.33847Z"
+  },
+  {
+   "question": "Nets vs. Knicks",
+   "slug": "nba-bkn-nyk-2026-11-02",
+   "is_esport": false,
+   "conditionId": "0xa32511795bd0ca88e6309012179798251529a8c2c08e0a71a37cfb0f098e3ee6",
+   "clobTokenIds": "[\"20700556506963563032144685314546342348457380639858366794867305281135973134641\", \"87128737771063926674339792721964179694430726811325029621843859381131889876185\"]",
+   "outcomes": "[\"Nets\", \"Knicks\"]",
+   "outcomePrices": "[\"0.125\", \"0.875\"]",
+   "bestBid": 0.12,
+   "bestAsk": 0.13,
+   "spread": 0.01,
+   "volume24hr": 148318.58151,
+   "liquidityNum": 554306.8946,
+   "gameStartTime": "2026-11-03 00:30:00+00",
+   "endDate": "2026-11-03T00:30:00Z",
+   "updatedAt": "2026-11-03T00:18:00.33847Z"
+  },
+  {
+   "question": "Spread: Hawks (-12.5)",
+   "slug": "nba-atl-ind-2026-11-02-spread-away-12pt5",
+   "is_esport": false,
+   "conditionId": "0xe6439c30e4e915c94641d7f9bbfcba5fdea703d57e37a136643c2dfb36c5eca3",
+   "clobTokenIds": "[\"69306262170948036896863028044134661346157575073477007173480839780573923742032\", \"44086573228511980624166173905647688985422749709295900743090546397898071735368\"]",
+   "outcomes": "[\"Hawks\", \"Pacers\"]",
+   "outcomePrices": "[\"0.425\", \"0.575\"]",
+   "bestBid": 0.42,
+   "bestAsk": 0.43,
+   "spread": 0.01,
+   "volume24hr": 36863.218853,
+   "liquidityNum": 476844.1315,
+   "gameStartTime": "2026-11-03 00:30:00+00",
+   "endDate": "2026-11-03T00:30:00Z",
+   "updatedAt": "2026-11-03T00:18:00.33847Z"
+  },
+  {
+   "question": "Spread: 76ers (-10.5)",
+   "slug": "nba-chi-phi-2026-11-02-spread-home-10pt5",
+   "is_esport": false,
+   "conditionId": "0x4a666b8f7b514bbf30f56f0fce4c9cea4ab0ee01b0b4d93eafb5040271834470",
+   "clobTokenIds": "[\"72604994744706767522934653237784126324726441331680064469646958124140018629821\", \"11309650703213245259158363377888525416909771173233453963372572689167359429491\"]",
+   "outcomes": "[\"76ers\", \"Bulls\"]",
+   "outcomePrices": "[\"0.505\", \"0.495\"]",
+   "bestBid": 0.5,
+   "bestAsk": 0.51,
+   "spread": 0.01,
+   "volume24hr": 53835.64847,
+   "liquidityNum": 452815.799,
+   "gameStartTime": "2026-11-03 00:30:00+00",
+   "endDate": "2026-11-03T00:30:00Z",
+   "updatedAt": "2026-11-03T00:18:00.33847Z"
+  },
+  {
+   "question": "Will Club Atlético de Madrid vs. FC Bayern München end in a draw?",
+   "slug": "ucl-atm-bay-2026-11-03-draw",
+   "is_esport": false,
+   "conditionId": "0xd109bfa808356184b8e89b203122c7979f680a65c4bcb9fcda92a2a153698820",
+   "clobTokenIds": "[\"98285806318676790642340739896540919439050165206314151744564033493779631245558\", \"15527668732332473728611266298143077309811604206208398746901785490476322753795\"]",
+   "outcomes": "[\"Yes\", \"No\"]",
+   "outcomePrices": "[\"0.245\", \"0.755\"]",
+   "bestBid": 0.24,
+   "bestAsk": 0.25,
+   "spread": 0.01,
+   "volume24hr": 292.6,
+   "liquidityNum": 442460.9445,
+   "gameStartTime": "2026-11-03 20:00:00+00",
+   "endDate": "2026-11-03T20:00:00Z",
+   "updatedAt": "2026-11-03T00:18:00.33847Z"
+  },
+  {
+   "question": "Spread: Seahawks (-5.5)",
+   "slug": "nfl-chi-sea-2026-11-03-spread-home-5pt5",
+   "is_esport": false,
+   "conditionId": "0x3d611a7ba28652c478754253464f664862960f17f1bb755e1ede850275104402",
+   "clobTokenIds": "[\"50384292693417440949895531615038151269592013496755581853870773374644145657046\", \"44096160935244667203254266617960161231029754030148193358643992476151268612630\"]",
+   "outcomes": "[\"Seahawks\", \"Bears\"]",
+   "outcomePrices": "[\"0.415\", \"0.585\"]",
+   "bestBid": 0.41,
+   "bestAsk": 0.42,
+   "spread": 0.01,
+   "volume24hr": 1608.135594,
+   "liquidityNum": 442427.1901,
+   "gameStartTime": "2026-11-03 01:15:00+00",
+   "endDate": "2026-11-03T01:15:00Z",
+   "updatedAt": "2026-11-03T00:18:00.33847Z"
+  },
+  {
+   "question": "Spread: Knicks (-14.5)",
+   "slug": "nba-bkn-nyk-2026-11-02-spread-home-14pt5",
+   "is_esport": false,
+   "conditionId": "0x08c8944a1e0118a0152a4f55d15f42ef875f28f4883016e5b3fb0b05b748f9ce",
+   "clobTokenIds": "[\"1691787553795086797639947527141978324574026881358409484832257551397762172453\", \"5469772284895908674150093671161299201696569246943063281241917400609649309539\"]",
+   "outcomes": "[\"Knicks\", \"Nets\"]",
+   "outcomePrices": "[\"0.505\", \"0.495\"]",
+   "bestBid": 0.5,
+   "bestAsk": 0.51,
+   "spread": 0.01,
+   "volume24hr": 4224.914492,
+   "liquidityNum": 442258.7976,
+   "gameStartTime": "2026-11-03 00:30:00+00",
+   "endDate": "2026-11-03T00:30:00Z",
+   "updatedAt": "2026-11-03T00:18:00.33847Z"
+  },
+  {
+   "question": "Bears vs. Seahawks: O/U 46.5",
+   "slug": "nfl-chi-sea-2026-11-03-total-46pt5",
+   "is_esport": false,
+   "conditionId": "0x14fe5ff21bae40c1000166ff389082309c3317efbbb227b405c4b4183f37c161",
+   "clobTokenIds": "[\"15104287455066892424881463099140841301121105418481910728667156407881666255644\", \"17455567594337833641118776756902961276516327035679554671626421266733378613527\"]",
+   "outcomes": "[\"Over\", \"Under\"]",
+   "outcomePrices": "[\"0.495\", \"0.505\"]",
+   "bestBid": 0.49,
+   "bestAsk": 0.5,
+   "spread": 0.01,
+   "volume24hr": 237241.10158000002,
+   "liquidityNum": 432123.6173,
+   "gameStartTime": "2026-11-03 01:15:00+00",
+   "endDate": "2026-11-03T01:15:00Z",
+   "updatedAt": "2026-11-03T00:18:00.33847Z"
+  },
+  {
+   "question": "Bulls vs. 76ers",
+   "slug": "nba-chi-phi-2026-11-02",
+   "is_esport": false,
+   "conditionId": "0x087cd258edf923859b8229711c89d194eae8e526c03783c926d99b1ee9662edc",
+   "clobTokenIds": "[\"89855041347820010793087419475538965909483309240078833349205553078290435858703\", \"51888613100431872807236509865090642482723297677339316568839373461418222323010\"]",
+   "outcomes": "[\"Bulls\", \"76ers\"]",
+   "outcomePrices": "[\"0.185\", \"0.815\"]",
+   "bestBid": 0.18,
+   "bestAsk": 0.19,
+   "spread": 0.01,
+   "volume24hr": 80696.715586,
+   "liquidityNum": 427842.9027,
+   "gameStartTime": "2026-11-03 00:30:00+00",
+   "endDate": "2026-11-03T00:30:00Z",
+   "updatedAt": "2026-11-03T00:18:00.33847Z"
+  },
+  {
+   "question": "Spread: Hawks (-7.5)",
+   "slug": "nba-atl-ind-2026-11-02-spread-away-7pt5",
+   "is_esport": false,
+   "conditionId": "0x809f4bee4aad670f3df1d5139ca6c3c95197c7b2825d0e14f0da2cff53ee3b9c",
+   "clobTokenIds": "[\"101107132071076991012341106382842623181857192863487106713097877006477934232320\", \"98623758947553163186091401781585571722208965102175575720030315748309272627225\"]",
+   "outcomes": "[\"Hawks\", \"Pacers\"]",
+   "outcomePrices": "[\"0.595\", \"0.405\"]",
+   "bestBid": 0.59,
+   "bestAsk": 0.6,
+   "spread": 0.01,
+   "volume24hr": 138721.82208699998,
+   "liquidityNum": 402899.0782,
+   "gameStartTime": "2026-11-03 00:30:00+00",
+   "endDate": "2026-11-03T00:30:00Z",
+   "updatedAt": "2026-11-03T00:18:00.33847Z"
+  },
+  {
+   "question": "Counter-Strike: Liquid vs PARIVISION (BO3) - IEM Beijing Group B",
+   "slug": "cs2-tl1-prv-2026-11-03",
+   "is_esport": true,
+   "conditionId": "0x69c219dff0d22c6300835f978ced88f96ec76ec98c61cac162d4a25d2d573e14",
+   "clobTokenIds": "[\"29242847301499725960651556813875668453658881671829714780784417942438223039987\", \"29890570691153017283784685948394726129684743256093554091993331795822158055634\"]",
+   "outcomes": "[\"Liquid\", \"PARIVISION\"]",
+   "outcomePrices": "[\"0.415\", \"0.585\"]",
+   "bestBid": 0.41,
+   "bestAsk": 0.42,
+   "spread": 0.01,
+   "volume24hr": 219109.52203299996,
+   "liquidityNum": 380441.669,
+   "gameStartTime": "2026-11-03 02:00:00+00",
+   "endDate": "2026-11-03T08:00:00Z",
+   "updatedAt": "2026-11-03T00:18:00.33847Z"
+  },
+  {
+   "question": "Spread: 76ers (-11.5)",
+   "slug": "nba-chi-phi-2026-11-02-spread-home-11pt5",
+   "is_esport": false,
+   "conditionId": "0xa7af0912188fff9d74b58c789167db21a6b2941765ee5184be3ac22687ddfe0c",
+   "clobTokenIds": "[\"92471536108148660842954152299058269784710308273049240271096222675069332500978\", \"46619852599989548263925230011011973323859321573920034832424360878176712207566\"]",
+   "outcomes": "[\"76ers\", \"Bulls\"]",
+   "outcomePrices": "[\"0.475\", \"0.525\"]",
+   "bestBid": 0.47,
+   "bestAsk": 0.48,
+   "spread": 0.01,
+   "volume24hr": 118501.77714900002,
+   "liquidityNum": 374858.3364,
+   "gameStartTime": "2026-11-03 00:30:00+00",
+   "endDate": "2026-11-03T00:30:00Z",
+   "updatedAt": "2026-11-03T00:18:00.33847Z"
+  },
+  {
+   "question": "Spread: Grizzlies (-5.5)",
+   "slug": "nba-nop-mem-2026-11-02-spread-home-5pt5",
+   "is_esport": false,
+   "conditionId": "0xd3b558c432643f96960c331d5cf9a83a316d980d9e8ba61c497854ac3f4ae4a8",
+   "clobTokenIds": "[\"114766512466206391088432764341376111177985455761934518946986431839965442604012\", \"80869947067898336695657776074742564805408739507061662982993108580007415711586\"]",
+   "outcomes": "[\"Grizzlies\", \"Pelicans\"]",
+   "outcomePrices": "[\"0.515\", \"0.485\"]",
+   "bestBid": 0.51,
+   "bestAsk": 0.52,
+   "spread": 0.01,
+   "volume24hr": 46490.207808,
+   "liquidityNum": 349475.2021,
+   "gameStartTime": "2026-11-03 01:00:00+00",
+   "endDate": "2026-11-03T01:00:00Z",
+   "updatedAt": "2026-11-03T00:18:00.33847Z"
+  },
+  {
+   "question": "Spread: Hawks (-6.5)",
+   "slug": "nba-atl-ind-2026-11-02-spread-away-6pt5",
+   "is_esport": false,
+   "conditionId": "0x443692a7db8a4c3fc85ee2736f79a871b6ab5a82c1885dea6d10306d0723e8f3",
+   "clobTokenIds": "[\"106989668942566852549894265204293663760336821109626188720644603273252125443108\", \"59819602864412540810651906376947858346025475484221762695171660084416344982005\"]",
+   "outcomes": "[\"Hawks\", \"Pacers\"]",
+   "outcomePrices": "[\"0.625\", \"0.375\"]",
+   "bestBid": 0.62,
+   "bestAsk": 0.63,
+   "spread": 0.01,
+   "volume24hr": 74245.77484,
+   "liquidityNum": 343734.633,
+   "gameStartTime": "2026-11-03 00:30:00+00",
+   "endDate": "2026-11-03T00:30:00Z",
+   "updatedAt": "2026-11-03T00:18:00.33847Z"
+  },
+  {
+   "question": "Celtics vs. Rockets",
+   "slug": "nba-bos-hou-2026-11-02",
+   "is_esport": false,
+   "conditionId": "0x25b252cc2010b6b75627644a58148bb73993e2b4c4b1be776942f8f0bc9f5b1a",
+   "clobTokenIds": "[\"78635750453856451125056453503076780308444599239660045856657243844528215073584\", \"21624324684209252265601131461983565573639473270180829111608098904518300573924\"]",
+   "outcomes": "[\"Celtics\", \"Rockets\"]",
+   "outcomePrices": "[\"0.375\", \"0.625\"]",
+   "bestBid": 0.37,
+   "bestAsk": 0.38,
+   "spread": 0.01,
+   "volume24hr": 114688.88479299999,
+   "liquidityNum": 341932.2966,
+   "gameStartTime": "2026-11-03 01:30:00+00",
+   "endDate": "2026-11-03T01:30:00Z",
+   "updatedAt": "2026-11-03T00:18:00.33847Z"
   }
  ],
- "bookmaker_odds": [
-  {
-   "sport": "americanfootball_nfl",
-   "commence_time": "2026-11-03T01:20:00Z",
-   "home_team": "Seattle Seahawks",
-   "away_team": "Chicago Bears",
-   "bookmakers": [
-    {
-     "bookmaker": "betclic_fr",
-     "last_update": "2026-11-02T16:05:20Z",
-     "outcomes": [
-      {
-       "name": "Chicago Bears",
-       "price": 2.4
-      },
-      {
-       "name": "Seattle Seahawks",
-       "price": 1.55
-      }
-     ]
-    },
-    {
-     "bookmaker": "unibet_nl",
-     "last_update": "2026-11-02T16:05:35Z",
-     "outcomes": [
-      {
-       "name": "Chicago Bears",
-       "price": 2.45
-      },
-      {
-       "name": "Seattle Seahawks",
-       "price": 1.6
-      }
-     ]
-    },
-    {
-     "bookmaker": "pmu_fr",
-     "last_update": "2026-11-02T16:04:41Z",
-     "outcomes": [
-      {
-       "name": "Chicago Bears",
-       "price": 2.17
-      },
-      {
-       "name": "Seattle Seahawks",
-       "price": 1.42
-      }
-     ]
-    },
-    {
-     "bookmaker": "unibet_se",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Chicago Bears",
-       "price": 2.45
-      },
-      {
-       "name": "Seattle Seahawks",
-       "price": 1.6
-      }
-     ]
-    },
-    {
-     "bookmaker": "leovegas_se",
-     "last_update": "2026-11-02T16:04:40Z",
-     "outcomes": [
-      {
-       "name": "Chicago Bears",
-       "price": 2.43
-      },
-      {
-       "name": "Seattle Seahawks",
-       "price": 1.57
-      }
-     ]
-    },
-    {
-     "bookmaker": "betonlineag",
-     "last_update": "2026-11-02T16:05:07Z",
-     "outcomes": [
-      {
-       "name": "Chicago Bears",
-       "price": 2.53
-      },
-      {
-       "name": "Seattle Seahawks",
-       "price": 1.57
-      }
-     ]
-    },
-    {
-     "bookmaker": "gtbets",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Chicago Bears",
-       "price": 2.5
-      },
-      {
-       "name": "Seattle Seahawks",
-       "price": 1.56
-      }
-     ]
-    },
-    {
-     "bookmaker": "sport888",
-     "last_update": "2026-11-02T16:05:07Z",
-     "outcomes": [
-      {
-       "name": "Chicago Bears",
-       "price": 2.5
-      },
-      {
-       "name": "Seattle Seahawks",
-       "price": 1.53
-      }
-     ]
-    },
-    {
-     "bookmaker": "mybookieag",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Chicago Bears",
-       "price": 2.48
-      },
-      {
-       "name": "Seattle Seahawks",
-       "price": 1.57
-      }
-     ]
-    },
-    {
-     "bookmaker": "nordicbet",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Chicago Bears",
-       "price": 2.45
-      },
-      {
-       "name": "Seattle Seahawks",
-       "price": 1.55
-      }
-     ]
-    },
-    {
-     "bookmaker": "coolbet",
-     "last_update": "2026-11-02T16:05:08Z",
-     "outcomes": [
-      {
-       "name": "Chicago Bears",
-       "price": 2.67
-      },
-      {
-       "name": "Seattle Seahawks",
-       "price": 1.55
-      }
-     ]
-    },
-    {
-     "bookmaker": "pinnacle",
-     "last_update": "2026-11-02T16:05:33Z",
-     "outcomes": [
-      {
-       "name": "Chicago Bears",
-       "price": 2.47
-      },
-      {
-       "name": "Seattle Seahawks",
-       "price": 1.6
-      }
-     ]
-    },
-    {
-     "bookmaker": "marathonbet",
-     "last_update": "2026-11-02T16:05:39Z",
-     "outcomes": [
-      {
-       "name": "Chicago Bears",
-       "price": 2.52
-      },
-      {
-       "name": "Seattle Seahawks",
-       "price": 1.51
-      }
-     ]
-    },
-    {
-     "bookmaker": "tipico_de",
-     "last_update": "2026-11-02T16:05:37Z",
-     "outcomes": [
-      {
-       "name": "Chicago Bears",
-       "price": 2.4
-      },
-      {
-       "name": "Seattle Seahawks",
-       "price": 1.55
-      }
-     ]
-    },
-    {
-     "bookmaker": "williamhill",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Chicago Bears",
-       "price": 2.5
-      },
-      {
-       "name": "Seattle Seahawks",
-       "price": 1.53
-      }
-     ]
-    },
-    {
-     "bookmaker": "betfair_ex_eu",
-     "last_update": "2026-11-02T16:05:36Z",
-     "outcomes": [
-      {
-       "name": "Chicago Bears",
-       "price": 2.62
-      },
-      {
-       "name": "Seattle Seahawks",
-       "price": 1.6
-      }
-     ]
-    },
-    {
-     "bookmaker": "codere_it",
-     "last_update": "2026-11-02T16:04:40Z",
-     "outcomes": [
-      {
-       "name": "Chicago Bears",
-       "price": 2.42
-      },
-      {
-       "name": "Seattle Seahawks",
-       "price": 1.55
-      }
-     ]
-    },
-    {
-     "bookmaker": "matchbook",
-     "last_update": "2026-11-02T16:05:36Z",
-     "outcomes": [
-      {
-       "name": "Chicago Bears",
-       "price": 2.62
-      },
-      {
-       "name": "Seattle Seahawks",
-       "price": 1.6
-      }
-     ]
-    },
-    {
-     "bookmaker": "betanysports",
-     "last_update": "2026-11-02T16:05:36Z",
-     "outcomes": [
-      {
-       "name": "Chicago Bears",
-       "price": 2.51
-      },
-      {
-       "name": "Seattle Seahawks",
-       "price": 1.57
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "sport": "americanfootball_nfl",
-   "commence_time": "2026-11-06T01:15:00Z",
-   "home_team": "Baltimore Ravens",
-   "away_team": "Jacksonville Jaguars",
-   "bookmakers": [
-    {
-     "bookmaker": "betclic_fr",
-     "last_update": "2026-11-02T16:05:20Z",
-     "outcomes": [
-      {
-       "name": "Baltimore Ravens",
-       "price": 4.0
-      },
-      {
-       "name": "Jacksonville Jaguars",
-       "price": 1.22
-      }
-     ]
-    },
-    {
-     "bookmaker": "gtbets",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Baltimore Ravens",
-       "price": 4.35
-      },
-      {
-       "name": "Jacksonville Jaguars",
-       "price": 1.23
-      }
-     ]
-    },
-    {
-     "bookmaker": "nordicbet",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Baltimore Ravens",
-       "price": 4.3
-      },
-      {
-       "name": "Jacksonville Jaguars",
-       "price": 1.22
-      }
-     ]
-    },
-    {
-     "bookmaker": "unibet_nl",
-     "last_update": "2026-11-02T16:05:35Z",
-     "outcomes": [
-      {
-       "name": "Baltimore Ravens",
-       "price": 4.5
-      },
-      {
-       "name": "Jacksonville Jaguars",
-       "price": 1.24
-      }
-     ]
-    },
-    {
-     "bookmaker": "leovegas_se",
-     "last_update": "2026-11-02T16:04:40Z",
-     "outcomes": [
-      {
-       "name": "Baltimore Ravens",
-       "price": 4.4
-      },
-      {
-       "name": "Jacksonville Jaguars",
-       "price": 1.23
-      }
-     ]
-    },
-    {
-     "bookmaker": "unibet_se",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Baltimore Ravens",
-       "price": 4.5
-      },
-      {
-       "name": "Jacksonville Jaguars",
-       "price": 1.24
-      }
-     ]
-    },
-    {
-     "bookmaker": "pmu_fr",
-     "last_update": "2026-11-02T16:04:41Z",
-     "outcomes": [
-      {
-       "name": "Baltimore Ravens",
-       "price": 3.85
-      },
-      {
-       "name": "Jacksonville Jaguars",
-       "price": 1.11
-      }
-     ]
-    },
-    {
-     "bookmaker": "williamhill",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Baltimore Ravens",
-       "price": 4.2
-      },
-      {
-       "name": "Jacksonville Jaguars",
-       "price": 1.22
-      }
-     ]
-    },
-    {
-     "bookmaker": "sport888",
-     "last_update": "2026-11-02T16:05:07Z",
-     "outcomes": [
-      {
-       "name": "Baltimore Ravens",
-       "price": 4.2
-      },
-      {
-       "name": "Jacksonville Jaguars",
-       "price": 1.22
-      }
-     ]
-    },
-    {
-     "bookmaker": "mybookieag",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Baltimore Ravens",
-       "price": 4.2
-      },
-      {
-       "name": "Jacksonville Jaguars",
-       "price": 1.23
-      }
-     ]
-    },
-    {
-     "bookmaker": "codere_it",
-     "last_update": "2026-11-02T16:04:40Z",
-     "outcomes": [
-      {
-       "name": "Baltimore Ravens",
-       "price": 4.1
-      },
-      {
-       "name": "Jacksonville Jaguars",
-       "price": 1.22
-      }
-     ]
-    },
-    {
-     "bookmaker": "coolbet",
-     "last_update": "2026-11-02T16:05:08Z",
-     "outcomes": [
-      {
-       "name": "Baltimore Ravens",
-       "price": 4.4
-      },
-      {
-       "name": "Jacksonville Jaguars",
-       "price": 1.23
-      }
-     ]
-    },
-    {
-     "bookmaker": "betanysports",
-     "last_update": "2026-11-02T16:05:36Z",
-     "outcomes": [
-      {
-       "name": "Baltimore Ravens",
-       "price": 4.3
-      },
-      {
-       "name": "Jacksonville Jaguars",
-       "price": 1.24
-      }
-     ]
-    },
-    {
-     "bookmaker": "tipico_de",
-     "last_update": "2026-11-02T16:05:37Z",
-     "outcomes": [
-      {
-       "name": "Baltimore Ravens",
-       "price": 4.4
-      },
-      {
-       "name": "Jacksonville Jaguars",
-       "price": 1.2
-      }
-     ]
-    },
-    {
-     "bookmaker": "marathonbet",
-     "last_update": "2026-11-02T16:05:39Z",
-     "outcomes": [
-      {
-       "name": "Baltimore Ravens",
-       "price": 3.96
-      },
-      {
-       "name": "Jacksonville Jaguars",
-       "price": 1.24
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "sport": "americanfootball_nfl",
-   "commence_time": "2026-11-08T14:30:00Z",
-   "home_team": "Atlanta Falcons",
-   "away_team": "Cincinnati Bengals",
-   "bookmakers": [
-    {
-     "bookmaker": "nordicbet",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Atlanta Falcons",
-       "price": 2.43
-      },
-      {
-       "name": "Cincinnati Bengals",
-       "price": 1.56
-      }
-     ]
-    },
-    {
-     "bookmaker": "betclic_fr",
-     "last_update": "2026-11-02T16:05:20Z",
-     "outcomes": [
-      {
-       "name": "Atlanta Falcons",
-       "price": 2.35
-      },
-      {
-       "name": "Cincinnati Bengals",
-       "price": 1.55
-      }
-     ]
-    },
-    {
-     "bookmaker": "williamhill",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Atlanta Falcons",
-       "price": 2.5
-      },
-      {
-       "name": "Cincinnati Bengals",
-       "price": 1.53
-      }
-     ]
-    },
-    {
-     "bookmaker": "mybookieag",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Atlanta Falcons",
-       "price": 2.41
-      },
-      {
-       "name": "Cincinnati Bengals",
-       "price": 1.57
-      }
-     ]
-    },
-    {
-     "bookmaker": "gtbets",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Atlanta Falcons",
-       "price": 2.4
-      },
-      {
-       "name": "Cincinnati Bengals",
-       "price": 1.61
-      }
-     ]
-    },
-    {
-     "bookmaker": "betonlineag",
-     "last_update": "2026-11-02T16:05:07Z",
-     "outcomes": [
-      {
-       "name": "Atlanta Falcons",
-       "price": 2.43
-      },
-      {
-       "name": "Cincinnati Bengals",
-       "price": 1.61
-      }
-     ]
-    },
-    {
-     "bookmaker": "leovegas_se",
-     "last_update": "2026-11-02T16:04:40Z",
-     "outcomes": [
-      {
-       "name": "Atlanta Falcons",
-       "price": 2.43
-      },
-      {
-       "name": "Cincinnati Bengals",
-       "price": 1.56
-      }
-     ]
-    },
-    {
-     "bookmaker": "unibet_se",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Atlanta Falcons",
-       "price": 2.43
-      },
-      {
-       "name": "Cincinnati Bengals",
-       "price": 1.56
-      }
-     ]
-    },
-    {
-     "bookmaker": "pmu_fr",
-     "last_update": "2026-11-02T16:04:41Z",
-     "outcomes": [
-      {
-       "name": "Atlanta Falcons",
-       "price": 2.2
-      },
-      {
-       "name": "Cincinnati Bengals",
-       "price": 1.41
-      }
-     ]
-    },
-    {
-     "bookmaker": "unibet_nl",
-     "last_update": "2026-11-02T16:05:35Z",
-     "outcomes": [
-      {
-       "name": "Atlanta Falcons",
-       "price": 2.43
-      },
-      {
-       "name": "Cincinnati Bengals",
-       "price": 1.56
-      }
-     ]
-    },
-    {
-     "bookmaker": "codere_it",
-     "last_update": "2026-11-02T16:04:40Z",
-     "outcomes": [
-      {
-       "name": "Atlanta Falcons",
-       "price": 2.38
-      },
-      {
-       "name": "Cincinnati Bengals",
-       "price": 1.56
-      }
-     ]
-    },
-    {
-     "bookmaker": "matchbook",
-     "last_update": "2026-11-02T16:05:36Z",
-     "outcomes": [
-      {
-       "name": "Atlanta Falcons",
-       "price": 2.4
-      },
-      {
-       "name": "Cincinnati Bengals",
-       "price": 1.6
-      }
-     ]
-    },
-    {
-     "bookmaker": "pinnacle",
-     "last_update": "2026-11-02T16:05:33Z",
-     "outcomes": [
-      {
-       "name": "Atlanta Falcons",
-       "price": 2.42
-      },
-      {
-       "name": "Cincinnati Bengals",
-       "price": 1.61
-      }
-     ]
-    },
-    {
-     "bookmaker": "marathonbet",
-     "last_update": "2026-11-02T16:05:39Z",
-     "outcomes": [
-      {
-       "name": "Atlanta Falcons",
-       "price": 2.18
-      },
-      {
-       "name": "Cincinnati Bengals",
-       "price": 1.67
-      }
-     ]
-    },
-    {
-     "bookmaker": "coolbet",
-     "last_update": "2026-11-02T16:05:08Z",
-     "outcomes": [
-      {
-       "name": "Atlanta Falcons",
-       "price": 2.48
-      },
-      {
-       "name": "Cincinnati Bengals",
-       "price": 1.57
-      }
-     ]
-    },
-    {
-     "bookmaker": "betanysports",
-     "last_update": "2026-11-02T16:05:36Z",
-     "outcomes": [
-      {
-       "name": "Atlanta Falcons",
-       "price": 2.5
-      },
-      {
-       "name": "Cincinnati Bengals",
-       "price": 1.59
-      }
-     ]
-    },
-    {
-     "bookmaker": "tipico_de",
-     "last_update": "2026-11-02T16:05:37Z",
-     "outcomes": [
-      {
-       "name": "Atlanta Falcons",
-       "price": 2.4
-      },
-      {
-       "name": "Cincinnati Bengals",
-       "price": 1.55
-      }
-     ]
-    },
-    {
-     "bookmaker": "sport888",
-     "last_update": "2026-11-02T16:05:07Z",
-     "outcomes": [
-      {
-       "name": "Atlanta Falcons",
-       "price": 2.5
-      },
-      {
-       "name": "Cincinnati Bengals",
-       "price": 1.53
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "sport": "americanfootball_nfl",
-   "commence_time": "2026-11-08T18:00:00Z",
-   "home_team": "Carolina Panthers",
-   "away_team": "Denver Broncos",
-   "bookmakers": [
-    {
-     "bookmaker": "nordicbet",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Carolina Panthers",
-       "price": 2.22
-      },
-      {
-       "name": "Denver Broncos",
-       "price": 1.66
-      }
-     ]
-    },
-    {
-     "bookmaker": "unibet_fr",
-     "last_update": "2026-11-02T16:04:40Z",
-     "outcomes": [
-      {
-       "name": "Carolina Panthers",
-       "price": 2.05
-      },
-      {
-       "name": "Denver Broncos",
-       "price": 1.58
-      }
-     ]
-    },
-    {
-     "bookmaker": "betclic_fr",
-     "last_update": "2026-11-02T16:05:20Z",
-     "outcomes": [
-      {
-       "name": "Carolina Panthers",
-       "price": 2.15
-      },
-      {
-       "name": "Denver Broncos",
-       "price": 1.65
-      }
-     ]
-    },
-    {
-     "bookmaker": "gtbets",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Carolina Panthers",
-       "price": 2.3
-      },
-      {
-       "name": "Denver Broncos",
-       "price": 1.67
-      }
-     ]
-    },
-    {
-     "bookmaker": "betonlineag",
-     "last_update": "2026-11-02T16:05:07Z",
-     "outcomes": [
-      {
-       "name": "Carolina Panthers",
-       "price": 2.29
-      },
-      {
-       "name": "Denver Broncos",
-       "price": 1.67
-      }
-     ]
-    },
-    {
-     "bookmaker": "unibet_se",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Carolina Panthers",
-       "price": 2.28
-      },
-      {
-       "name": "Denver Broncos",
-       "price": 1.64
-      }
-     ]
-    },
-    {
-     "bookmaker": "pmu_fr",
-     "last_update": "2026-11-02T16:04:41Z",
-     "outcomes": [
-      {
-       "name": "Carolina Panthers",
-       "price": 1.96
-      },
-      {
-       "name": "Denver Broncos",
-       "price": 1.53
-      }
-     ]
-    },
-    {
-     "bookmaker": "unibet_nl",
-     "last_update": "2026-11-02T16:05:35Z",
-     "outcomes": [
-      {
-       "name": "Carolina Panthers",
-       "price": 2.28
-      },
-      {
-       "name": "Denver Broncos",
-       "price": 1.64
-      }
-     ]
-    },
-    {
-     "bookmaker": "leovegas_se",
-     "last_update": "2026-11-02T16:04:40Z",
-     "outcomes": [
-      {
-       "name": "Carolina Panthers",
-       "price": 2.28
-      },
-      {
-       "name": "Denver Broncos",
-       "price": 1.64
-      }
-     ]
-    },
-    {
-     "bookmaker": "sport888",
-     "last_update": "2026-11-02T16:05:07Z",
-     "outcomes": [
-      {
-       "name": "Carolina Panthers",
-       "price": 2.2
-      },
-      {
-       "name": "Denver Broncos",
-       "price": 1.67
-      }
-     ]
-    },
-    {
-     "bookmaker": "williamhill",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Carolina Panthers",
-       "price": 2.2
-      },
-      {
-       "name": "Denver Broncos",
-       "price": 1.67
-      }
-     ]
-    },
-    {
-     "bookmaker": "mybookieag",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Carolina Panthers",
-       "price": 2.22
-      },
-      {
-       "name": "Denver Broncos",
-       "price": 1.67
-      }
-     ]
-    },
-    {
-     "bookmaker": "codere_it",
-     "last_update": "2026-11-02T16:04:40Z",
-     "outcomes": [
-      {
-       "name": "Carolina Panthers",
-       "price": 2.2
-      },
-      {
-       "name": "Denver Broncos",
-       "price": 1.65
-      }
-     ]
-    },
-    {
-     "bookmaker": "coolbet",
-     "last_update": "2026-11-02T16:05:08Z",
-     "outcomes": [
-      {
-       "name": "Carolina Panthers",
-       "price": 2.25
-      },
-      {
-       "name": "Denver Broncos",
-       "price": 1.68
-      }
-     ]
-    },
-    {
-     "bookmaker": "betanysports",
-     "last_update": "2026-11-02T16:05:36Z",
-     "outcomes": [
-      {
-       "name": "Carolina Panthers",
-       "price": 2.3
-      },
-      {
-       "name": "Denver Broncos",
-       "price": 1.67
-      }
-     ]
-    },
-    {
-     "bookmaker": "tipico_de",
-     "last_update": "2026-11-02T16:05:37Z",
-     "outcomes": [
-      {
-       "name": "Carolina Panthers",
-       "price": 2.2
-      },
-      {
-       "name": "Denver Broncos",
-       "price": 1.65
-      }
-     ]
-    },
-    {
-     "bookmaker": "marathonbet",
-     "last_update": "2026-11-02T16:05:39Z",
-     "outcomes": [
-      {
-       "name": "Carolina Panthers",
-       "price": 2.1
-      },
-      {
-       "name": "Denver Broncos",
-       "price": 1.72
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "sport": "americanfootball_nfl",
-   "commence_time": "2026-11-08T18:00:00Z",
-   "home_team": "New Orleans Saints",
-   "away_team": "Cleveland Browns",
-   "bookmakers": [
-    {
-     "bookmaker": "nordicbet",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Cleveland Browns",
-       "price": 2.2
-      },
-      {
-       "name": "New Orleans Saints",
-       "price": 1.67
-      }
-     ]
-    },
-    {
-     "bookmaker": "betclic_fr",
-     "last_update": "2026-11-02T16:05:20Z",
-     "outcomes": [
-      {
-       "name": "Cleveland Browns",
-       "price": 2.15
-      },
-      {
-       "name": "New Orleans Saints",
-       "price": 1.65
-      }
-     ]
-    },
-    {
-     "bookmaker": "gtbets",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Cleveland Browns",
-       "price": 2.2
-      },
-      {
-       "name": "New Orleans Saints",
-       "price": 1.71
-      }
-     ]
-    },
-    {
-     "bookmaker": "betonlineag",
-     "last_update": "2026-11-02T16:05:07Z",
-     "outcomes": [
-      {
-       "name": "Cleveland Browns",
-       "price": 2.23
-      },
-      {
-       "name": "New Orleans Saints",
-       "price": 1.7
-      }
-     ]
-    },
-    {
-     "bookmaker": "leovegas_se",
-     "last_update": "2026-11-02T16:04:40Z",
-     "outcomes": [
-      {
-       "name": "Cleveland Browns",
-       "price": 2.23
-      },
-      {
-       "name": "New Orleans Saints",
-       "price": 1.67
-      }
-     ]
-    },
-    {
-     "bookmaker": "pmu_fr",
-     "last_update": "2026-11-02T16:04:41Z",
-     "outcomes": [
-      {
-       "name": "Cleveland Browns",
-       "price": 2.0
-      },
-      {
-       "name": "New Orleans Saints",
-       "price": 1.5
-      }
-     ]
-    },
-    {
-     "bookmaker": "unibet_se",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Cleveland Browns",
-       "price": 2.23
-      },
-      {
-       "name": "New Orleans Saints",
-       "price": 1.67
-      }
-     ]
-    },
-    {
-     "bookmaker": "unibet_nl",
-     "last_update": "2026-11-02T16:05:35Z",
-     "outcomes": [
-      {
-       "name": "Cleveland Browns",
-       "price": 2.23
-      },
-      {
-       "name": "New Orleans Saints",
-       "price": 1.67
-      }
-     ]
-    },
-    {
-     "bookmaker": "sport888",
-     "last_update": "2026-11-02T16:05:07Z",
-     "outcomes": [
-      {
-       "name": "Cleveland Browns",
-       "price": 2.15
-      },
-      {
-       "name": "New Orleans Saints",
-       "price": 1.7
-      }
-     ]
-    },
-    {
-     "bookmaker": "williamhill",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Cleveland Browns",
-       "price": 2.15
-      },
-      {
-       "name": "New Orleans Saints",
-       "price": 1.7
-      }
-     ]
-    },
-    {
-     "bookmaker": "mybookieag",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Cleveland Browns",
-       "price": 2.23
-      },
-      {
-       "name": "New Orleans Saints",
-       "price": 1.66
-      }
-     ]
-    },
-    {
-     "bookmaker": "codere_it",
-     "last_update": "2026-11-02T16:04:40Z",
-     "outcomes": [
-      {
-       "name": "Cleveland Browns",
-       "price": 2.2
-      },
-      {
-       "name": "New Orleans Saints",
-       "price": 1.65
-      }
-     ]
-    },
-    {
-     "bookmaker": "pinnacle",
-     "last_update": "2026-11-02T16:05:33Z",
-     "outcomes": [
-      {
-       "name": "Cleveland Browns",
-       "price": 2.21
-      },
-      {
-       "name": "New Orleans Saints",
-       "price": 1.71
-      }
-     ]
-    },
-    {
-     "bookmaker": "marathonbet",
-     "last_update": "2026-11-02T16:05:39Z",
-     "outcomes": [
-      {
-       "name": "Cleveland Browns",
-       "price": 2.05
-      },
-      {
-       "name": "New Orleans Saints",
-       "price": 1.75
-      }
-     ]
-    },
-    {
-     "bookmaker": "coolbet",
-     "last_update": "2026-11-02T16:05:08Z",
-     "outcomes": [
-      {
-       "name": "Cleveland Browns",
-       "price": 2.25
-      },
-      {
-       "name": "New Orleans Saints",
-       "price": 1.68
-      }
-     ]
-    },
-    {
-     "bookmaker": "betanysports",
-     "last_update": "2026-11-02T16:05:36Z",
-     "outcomes": [
-      {
-       "name": "Cleveland Browns",
-       "price": 2.3
-      },
-      {
-       "name": "New Orleans Saints",
-       "price": 1.67
-      }
-     ]
-    },
-    {
-     "bookmaker": "tipico_de",
-     "last_update": "2026-11-02T16:05:37Z",
-     "outcomes": [
-      {
-       "name": "Cleveland Browns",
-       "price": 2.2
-      },
-      {
-       "name": "New Orleans Saints",
-       "price": 1.65
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "sport": "americanfootball_nfl",
-   "commence_time": "2026-11-08T18:00:00Z",
-   "home_team": "Indianapolis Colts",
-   "away_team": "Dallas Cowboys",
-   "bookmakers": [
-    {
-     "bookmaker": "nordicbet",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Dallas Cowboys",
-       "price": 1.38
-      },
-      {
-       "name": "Indianapolis Colts",
-       "price": 3.05
-      }
-     ]
-    },
-    {
-     "bookmaker": "betclic_fr",
-     "last_update": "2026-11-02T16:05:20Z",
-     "outcomes": [
-      {
-       "name": "Dallas Cowboys",
-       "price": 1.38
-      },
-      {
-       "name": "Indianapolis Colts",
-       "price": 2.9
-      }
-     ]
-    },
-    {
-     "bookmaker": "gtbets",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Dallas Cowboys",
-       "price": 1.38
-      },
-      {
-       "name": "Indianapolis Colts",
-       "price": 3.1
-      }
-     ]
-    },
-    {
-     "bookmaker": "betonlineag",
-     "last_update": "2026-11-02T16:05:07Z",
-     "outcomes": [
-      {
-       "name": "Dallas Cowboys",
-       "price": 1.41
-      },
-      {
-       "name": "Indianapolis Colts",
-       "price": 3.03
-      }
-     ]
-    },
-    {
-     "bookmaker": "unibet_nl",
-     "last_update": "2026-11-02T16:05:35Z",
-     "outcomes": [
-      {
-       "name": "Dallas Cowboys",
-       "price": 1.35
-      },
-      {
-       "name": "Indianapolis Colts",
-       "price": 3.2
-      }
-     ]
-    },
-    {
-     "bookmaker": "leovegas_se",
-     "last_update": "2026-11-02T16:04:40Z",
-     "outcomes": [
-      {
-       "name": "Dallas Cowboys",
-       "price": 1.35
-      },
-      {
-       "name": "Indianapolis Colts",
-       "price": 3.2
-      }
-     ]
-    },
-    {
-     "bookmaker": "unibet_se",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Dallas Cowboys",
-       "price": 1.35
-      },
-      {
-       "name": "Indianapolis Colts",
-       "price": 3.2
-      }
-     ]
-    },
-    {
-     "bookmaker": "pmu_fr",
-     "last_update": "2026-11-02T16:04:41Z",
-     "outcomes": [
-      {
-       "name": "Dallas Cowboys",
-       "price": 1.22
-      },
-      {
-       "name": "Indianapolis Colts",
-       "price": 2.9
-      }
-     ]
-    },
-    {
-     "bookmaker": "sport888",
-     "last_update": "2026-11-02T16:05:07Z",
-     "outcomes": [
-      {
-       "name": "Dallas Cowboys",
-       "price": 1.36
-      },
-      {
-       "name": "Indianapolis Colts",
-       "price": 3.1
-      }
-     ]
-    },
-    {
-     "bookmaker": "williamhill",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Dallas Cowboys",
-       "price": 1.36
-      },
-      {
-       "name": "Indianapolis Colts",
-       "price": 3.1
-      }
-     ]
-    },
-    {
-     "bookmaker": "mybookieag",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Dallas Cowboys",
-       "price": 1.4
-      },
-      {
-       "name": "Indianapolis Colts",
-       "price": 2.97
-      }
-     ]
-    },
-    {
-     "bookmaker": "codere_it",
-     "last_update": "2026-11-02T16:04:40Z",
-     "outcomes": [
-      {
-       "name": "Dallas Cowboys",
-       "price": 1.39
-      },
-      {
-       "name": "Indianapolis Colts",
-       "price": 2.95
-      }
-     ]
-    },
-    {
-     "bookmaker": "pinnacle",
-     "last_update": "2026-11-02T16:05:33Z",
-     "outcomes": [
-      {
-       "name": "Dallas Cowboys",
-       "price": 1.42
-      },
-      {
-       "name": "Indianapolis Colts",
-       "price": 3.01
-      }
-     ]
-    },
-    {
-     "bookmaker": "matchbook",
-     "last_update": "2026-11-02T16:05:36Z",
-     "outcomes": [
-      {
-       "name": "Dallas Cowboys",
-       "price": 1.4
-      },
-      {
-       "name": "Indianapolis Colts",
-       "price": 2.98
-      }
-     ]
-    },
-    {
-     "bookmaker": "marathonbet",
-     "last_update": "2026-11-02T16:05:39Z",
-     "outcomes": [
-      {
-       "name": "Dallas Cowboys",
-       "price": 1.44
-      },
-      {
-       "name": "Indianapolis Colts",
-       "price": 2.73
-      }
-     ]
-    },
-    {
-     "bookmaker": "coolbet",
-     "last_update": "2026-11-02T16:05:08Z",
-     "outcomes": [
-      {
-       "name": "Dallas Cowboys",
-       "price": 1.38
-      },
-      {
-       "name": "Indianapolis Colts",
-       "price": 3.15
-      }
-     ]
-    },
-    {
-     "bookmaker": "betanysports",
-     "last_update": "2026-11-02T16:05:36Z",
-     "outcomes": [
-      {
-       "name": "Dallas Cowboys",
-       "price": 1.37
-      },
-      {
-       "name": "Indianapolis Colts",
-       "price": 3.25
-      }
-     ]
-    },
-    {
-     "bookmaker": "tipico_de",
-     "last_update": "2026-11-02T16:05:37Z",
-     "outcomes": [
-      {
-       "name": "Dallas Cowboys",
-       "price": 1.4
-      },
-      {
-       "name": "Indianapolis Colts",
-       "price": 2.9
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "sport": "americanfootball_nfl",
-   "commence_time": "2026-11-08T18:00:00Z",
-   "home_team": "Miami Dolphins",
-   "away_team": "Detroit Lions",
-   "bookmakers": [
-    {
-     "bookmaker": "nordicbet",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Detroit Lions",
-       "price": 1.29
-      },
-      {
-       "name": "Miami Dolphins",
-       "price": 3.6
-      }
-     ]
-    },
-    {
-     "bookmaker": "betclic_fr",
-     "last_update": "2026-11-02T16:05:20Z",
-     "outcomes": [
-      {
-       "name": "Detroit Lions",
-       "price": 1.3
-      },
-      {
-       "name": "Miami Dolphins",
-       "price": 3.4
-      }
-     ]
-    },
-    {
-     "bookmaker": "gtbets",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Detroit Lions",
-       "price": 1.29
-      },
-      {
-       "name": "Miami Dolphins",
-       "price": 3.7
-      }
-     ]
-    },
-    {
-     "bookmaker": "betonlineag",
-     "last_update": "2026-11-02T16:05:07Z",
-     "outcomes": [
-      {
-       "name": "Detroit Lions",
-       "price": 1.31
-      },
-      {
-       "name": "Miami Dolphins",
-       "price": 3.6
-      }
-     ]
-    },
-    {
-     "bookmaker": "unibet_nl",
-     "last_update": "2026-11-02T16:05:35Z",
-     "outcomes": [
-      {
-       "name": "Detroit Lions",
-       "price": 1.27
-      },
-      {
-       "name": "Miami Dolphins",
-       "price": 3.8
-      }
-     ]
-    },
-    {
-     "bookmaker": "leovegas_se",
-     "last_update": "2026-11-02T16:04:40Z",
-     "outcomes": [
-      {
-       "name": "Detroit Lions",
-       "price": 1.27
-      },
-      {
-       "name": "Miami Dolphins",
-       "price": 3.8
-      }
-     ]
-    },
-    {
-     "bookmaker": "pmu_fr",
-     "last_update": "2026-11-02T16:04:41Z",
-     "outcomes": [
-      {
-       "name": "Detroit Lions",
-       "price": 1.16
-      },
-      {
-       "name": "Miami Dolphins",
-       "price": 3.3
-      }
-     ]
-    },
-    {
-     "bookmaker": "unibet_se",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Detroit Lions",
-       "price": 1.27
-      },
-      {
-       "name": "Miami Dolphins",
-       "price": 3.8
-      }
-     ]
-    },
-    {
-     "bookmaker": "sport888",
-     "last_update": "2026-11-02T16:05:07Z",
-     "outcomes": [
-      {
-       "name": "Detroit Lions",
-       "price": 1.3
-      },
-      {
-       "name": "Miami Dolphins",
-       "price": 3.5
-      }
-     ]
-    },
-    {
-     "bookmaker": "williamhill",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Detroit Lions",
-       "price": 1.3
-      },
-      {
-       "name": "Miami Dolphins",
-       "price": 3.5
-      }
-     ]
-    },
-    {
-     "bookmaker": "mybookieag",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Detroit Lions",
-       "price": 1.3
-      },
-      {
-       "name": "Miami Dolphins",
-       "price": 3.59
-      }
-     ]
-    },
-    {
-     "bookmaker": "codere_it",
-     "last_update": "2026-11-02T16:04:40Z",
-     "outcomes": [
-      {
-       "name": "Detroit Lions",
-       "price": 1.3
-      },
-      {
-       "name": "Miami Dolphins",
-       "price": 3.45
-      }
-     ]
-    },
-    {
-     "bookmaker": "matchbook",
-     "last_update": "2026-11-02T16:05:36Z",
-     "outcomes": [
-      {
-       "name": "Detroit Lions",
-       "price": 1.3
-      },
-      {
-       "name": "Miami Dolphins",
-       "price": 3.55
-      }
-     ]
-    },
-    {
-     "bookmaker": "pinnacle",
-     "last_update": "2026-11-02T16:05:33Z",
-     "outcomes": [
-      {
-       "name": "Detroit Lions",
-       "price": 1.31
-      },
-      {
-       "name": "Miami Dolphins",
-       "price": 3.59
-      }
-     ]
-    },
-    {
-     "bookmaker": "marathonbet",
-     "last_update": "2026-11-02T16:05:39Z",
-     "outcomes": [
-      {
-       "name": "Detroit Lions",
-       "price": 1.29
-      },
-      {
-       "name": "Miami Dolphins",
-       "price": 3.56
-      }
-     ]
-    },
-    {
-     "bookmaker": "coolbet",
-     "last_update": "2026-11-02T16:05:08Z",
-     "outcomes": [
-      {
-       "name": "Detroit Lions",
-       "price": 1.3
-      },
-      {
-       "name": "Miami Dolphins",
-       "price": 3.7
-      }
-     ]
-    },
-    {
-     "bookmaker": "betanysports",
-     "last_update": "2026-11-02T16:05:36Z",
-     "outcomes": [
-      {
-       "name": "Detroit Lions",
-       "price": 1.3
-      },
-      {
-       "name": "Miami Dolphins",
-       "price": 3.6
-      }
-     ]
-    },
-    {
-     "bookmaker": "tipico_de",
-     "last_update": "2026-11-02T16:05:37Z",
-     "outcomes": [
-      {
-       "name": "Detroit Lions",
-       "price": 1.3
-      },
-      {
-       "name": "Miami Dolphins",
-       "price": 3.4
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "sport": "americanfootball_nfl",
-   "commence_time": "2026-11-08T18:00:00Z",
-   "home_team": "Kansas City Chiefs",
-   "away_team": "New York Jets",
-   "bookmakers": [
-    {
-     "bookmaker": "nordicbet",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Kansas City Chiefs",
-       "price": 1.2
-      },
-      {
-       "name": "New York Jets",
-       "price": 4.53
-      }
-     ]
-    },
-    {
-     "bookmaker": "betclic_fr",
-     "last_update": "2026-11-02T16:05:20Z",
-     "outcomes": [
-      {
-       "name": "Kansas City Chiefs",
-       "price": 1.18
-      },
-      {
-       "name": "New York Jets",
-       "price": 4.5
-      }
-     ]
-    },
-    {
-     "bookmaker": "gtbets",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Kansas City Chiefs",
-       "price": 1.2
-      },
-      {
-       "name": "New York Jets",
-       "price": 4.8
-      }
-     ]
-    },
-    {
-     "bookmaker": "betonlineag",
-     "last_update": "2026-11-02T16:05:07Z",
-     "outcomes": [
-      {
-       "name": "Kansas City Chiefs",
-       "price": 1.22
-      },
-      {
-       "name": "New York Jets",
-       "price": 4.54
-      }
-     ]
-    },
-    {
-     "bookmaker": "leovegas_se",
-     "last_update": "2026-11-02T16:04:40Z",
-     "outcomes": [
-      {
-       "name": "Kansas City Chiefs",
-       "price": 1.2
-      },
-      {
-       "name": "New York Jets",
-       "price": 4.75
-      }
-     ]
-    },
-    {
-     "bookmaker": "unibet_se",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Kansas City Chiefs",
-       "price": 1.2
-      },
-      {
-       "name": "New York Jets",
-       "price": 4.75
-      }
-     ]
-    },
-    {
-     "bookmaker": "pmu_fr",
-     "last_update": "2026-11-02T16:04:41Z",
-     "outcomes": [
-      {
-       "name": "Kansas City Chiefs",
-       "price": 1.1
-      },
-      {
-       "name": "New York Jets",
-       "price": 4.0
-      }
-     ]
-    },
-    {
-     "bookmaker": "unibet_nl",
-     "last_update": "2026-11-02T16:05:35Z",
-     "outcomes": [
-      {
-       "name": "Kansas City Chiefs",
-       "price": 1.2
-      },
-      {
-       "name": "New York Jets",
-       "price": 4.75
-      }
-     ]
-    },
-    {
-     "bookmaker": "sport888",
-     "last_update": "2026-11-02T16:05:07Z",
-     "outcomes": [
-      {
-       "name": "Kansas City Chiefs",
-       "price": 1.18
-      },
-      {
-       "name": "New York Jets",
-       "price": 4.8
-      }
-     ]
-    },
-    {
-     "bookmaker": "mybookieag",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Kansas City Chiefs",
-       "price": 1.19
-      },
-      {
-       "name": "New York Jets",
-       "price": 4.8
-      }
-     ]
-    },
-    {
-     "bookmaker": "codere_it",
-     "last_update": "2026-11-02T16:04:40Z",
-     "outcomes": [
-      {
-       "name": "Kansas City Chiefs",
-       "price": 1.18
-      },
-      {
-       "name": "New York Jets",
-       "price": 4.7
-      }
-     ]
-    },
-    {
-     "bookmaker": "williamhill",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Kansas City Chiefs",
-       "price": 1.18
-      },
-      {
-       "name": "New York Jets",
-       "price": 4.8
-      }
-     ]
-    },
-    {
-     "bookmaker": "matchbook",
-     "last_update": "2026-11-02T16:05:36Z",
-     "outcomes": [
-      {
-       "name": "Kansas City Chiefs",
-       "price": 1.23
-      },
-      {
-       "name": "New York Jets",
-       "price": 4.6
-      }
-     ]
-    },
-    {
-     "bookmaker": "pinnacle",
-     "last_update": "2026-11-02T16:05:33Z",
-     "outcomes": [
-      {
-       "name": "Kansas City Chiefs",
-       "price": 1.22
-      },
-      {
-       "name": "New York Jets",
-       "price": 4.47
-      }
-     ]
-    },
-    {
-     "bookmaker": "marathonbet",
-     "last_update": "2026-11-02T16:05:39Z",
-     "outcomes": [
-      {
-       "name": "Kansas City Chiefs",
-       "price": 1.18
-      },
-      {
-       "name": "New York Jets",
-       "price": 4.75
-      }
-     ]
-    },
-    {
-     "bookmaker": "coolbet",
-     "last_update": "2026-11-02T16:05:08Z",
-     "outcomes": [
-      {
-       "name": "Kansas City Chiefs",
-       "price": 1.2
-      },
-      {
-       "name": "New York Jets",
-       "price": 4.8
-      }
-     ]
-    },
-    {
-     "bookmaker": "betanysports",
-     "last_update": "2026-11-02T16:05:36Z",
-     "outcomes": [
-      {
-       "name": "Kansas City Chiefs",
-       "price": 1.2
-      },
-      {
-       "name": "New York Jets",
-       "price": 4.75
-      }
-     ]
-    },
-    {
-     "bookmaker": "tipico_de",
-     "last_update": "2026-11-02T16:05:37Z",
-     "outcomes": [
-      {
-       "name": "Kansas City Chiefs",
-       "price": 1.17
-      },
-      {
-       "name": "New York Jets",
-       "price": 4.8
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "sport": "americanfootball_nfl",
-   "commence_time": "2026-11-08T18:00:00Z",
-   "home_team": "Washington Commanders",
-   "away_team": "Los Angeles Rams",
-   "bookmakers": [
-    {
-     "bookmaker": "unibet_fr",
-     "last_update": "2026-11-02T16:04:40Z",
-     "outcomes": [
-      {
-       "name": "Los Angeles Rams",
-       "price": 1.35
-      },
-      {
-       "name": "Washington Commanders",
-       "price": 2.65
-      }
-     ]
-    },
-    {
-     "bookmaker": "betclic_fr",
-     "last_update": "2026-11-02T16:05:20Z",
-     "outcomes": [
-      {
-       "name": "Los Angeles Rams",
-       "price": 1.4
-      },
-      {
-       "name": "Washington Commanders",
-       "price": 2.85
-      }
-     ]
-    },
-    {
-     "bookmaker": "gtbets",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Los Angeles Rams",
-       "price": 1.4
-      },
-      {
-       "name": "Washington Commanders",
-       "price": 3.0
-      }
-     ]
-    },
-    {
-     "bookmaker": "nordicbet",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Los Angeles Rams",
-       "price": 1.41
-      },
-      {
-       "name": "Washington Commanders",
-       "price": 2.91
-      }
-     ]
-    },
-    {
-     "bookmaker": "betonlineag",
-     "last_update": "2026-11-02T16:05:07Z",
-     "outcomes": [
-      {
-       "name": "Los Angeles Rams",
-       "price": 1.4
-      },
-      {
-       "name": "Washington Commanders",
-       "price": 3.07
-      }
-     ]
-    },
-    {
-     "bookmaker": "leovegas_se",
-     "last_update": "2026-11-02T16:04:40Z",
-     "outcomes": [
-      {
-       "name": "Los Angeles Rams",
-       "price": 1.4
-      },
-      {
-       "name": "Washington Commanders",
-       "price": 3.0
-      }
-     ]
-    },
-    {
-     "bookmaker": "pmu_fr",
-     "last_update": "2026-11-02T16:04:41Z",
-     "outcomes": [
-      {
-       "name": "Los Angeles Rams",
-       "price": 1.29
-      },
-      {
-       "name": "Washington Commanders",
-       "price": 2.55
-      }
-     ]
-    },
-    {
-     "bookmaker": "unibet_se",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Los Angeles Rams",
-       "price": 1.4
-      },
-      {
-       "name": "Washington Commanders",
-       "price": 3.0
-      }
-     ]
-    },
-    {
-     "bookmaker": "unibet_nl",
-     "last_update": "2026-11-02T16:05:35Z",
-     "outcomes": [
-      {
-       "name": "Los Angeles Rams",
-       "price": 1.4
-      },
-      {
-       "name": "Washington Commanders",
-       "price": 3.0
-      }
-     ]
-    },
-    {
-     "bookmaker": "sport888",
-     "last_update": "2026-11-02T16:05:07Z",
-     "outcomes": [
-      {
-       "name": "Los Angeles Rams",
-       "price": 1.4
-      },
-      {
-       "name": "Washington Commanders",
-       "price": 2.9
-      }
-     ]
-    },
-    {
-     "bookmaker": "williamhill",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Los Angeles Rams",
-       "price": 1.4
-      },
-      {
-       "name": "Washington Commanders",
-       "price": 2.9
-      }
-     ]
-    },
-    {
-     "bookmaker": "mybookieag",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Los Angeles Rams",
-       "price": 1.41
-      },
-      {
-       "name": "Washington Commanders",
-       "price": 2.92
-      }
-     ]
-    },
-    {
-     "bookmaker": "codere_it",
-     "last_update": "2026-11-02T16:04:40Z",
-     "outcomes": [
-      {
-       "name": "Los Angeles Rams",
-       "price": 1.4
-      },
-      {
-       "name": "Washington Commanders",
-       "price": 2.9
-      }
-     ]
-    },
-    {
-     "bookmaker": "tipico_de",
-     "last_update": "2026-11-02T16:05:37Z",
-     "outcomes": [
-      {
-       "name": "Los Angeles Rams",
-       "price": 1.4
-      },
-      {
-       "name": "Washington Commanders",
-       "price": 2.9
-      }
-     ]
-    },
-    {
-     "bookmaker": "marathonbet",
-     "last_update": "2026-11-02T16:05:39Z",
-     "outcomes": [
-      {
-       "name": "Los Angeles Rams",
-       "price": 1.44
-      },
-      {
-       "name": "Washington Commanders",
-       "price": 2.75
-      }
-     ]
-    },
-    {
-     "bookmaker": "coolbet",
-     "last_update": "2026-11-02T16:05:08Z",
-     "outcomes": [
-      {
-       "name": "Los Angeles Rams",
-       "price": 1.42
-      },
-      {
-       "name": "Washington Commanders",
-       "price": 2.98
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "sport": "americanfootball_nfl",
-   "commence_time": "2026-11-08T18:00:00Z",
-   "home_team": "Philadelphia Eagles",
-   "away_team": "New York Giants",
-   "bookmakers": [
-    {
-     "bookmaker": "unibet_fr",
-     "last_update": "2026-11-02T16:04:40Z",
-     "outcomes": [
-      {
-       "name": "New York Giants",
-       "price": 1.51
-      },
-      {
-       "name": "Philadelphia Eagles",
-       "price": 2.2
-      }
-     ]
-    },
-    {
-     "bookmaker": "betclic_fr",
-     "last_update": "2026-11-02T16:05:20Z",
-     "outcomes": [
-      {
-       "name": "New York Giants",
-       "price": 1.58
-      },
-      {
-       "name": "Philadelphia Eagles",
-       "price": 2.3
-      }
-     ]
-    },
-    {
-     "bookmaker": "gtbets",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "New York Giants",
-       "price": 1.61
-      },
-      {
-       "name": "Philadelphia Eagles",
-       "price": 2.4
-      }
-     ]
-    },
-    {
-     "bookmaker": "betonlineag",
-     "last_update": "2026-11-02T16:05:07Z",
-     "outcomes": [
-      {
-       "name": "New York Giants",
-       "price": 1.61
-      },
-      {
-       "name": "Philadelphia Eagles",
-       "price": 2.45
-      }
-     ]
-    },
-    {
-     "bookmaker": "nordicbet",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "New York Giants",
-       "price": 1.59
-      },
-      {
-       "name": "Philadelphia Eagles",
-       "price": 2.36
-      }
-     ]
-    },
-    {
-     "bookmaker": "leovegas_se",
-     "last_update": "2026-11-02T16:04:40Z",
-     "outcomes": [
-      {
-       "name": "New York Giants",
-       "price": 1.64
-      },
-      {
-       "name": "Philadelphia Eagles",
-       "price": 2.28
-      }
-     ]
-    },
-    {
-     "bookmaker": "pmu_fr",
-     "last_update": "2026-11-02T16:04:41Z",
-     "outcomes": [
-      {
-       "name": "New York Giants",
-       "price": 1.48
-      },
-      {
-       "name": "Philadelphia Eagles",
-       "price": 2.04
-      }
-     ]
-    },
-    {
-     "bookmaker": "unibet_se",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "New York Giants",
-       "price": 1.64
-      },
-      {
-       "name": "Philadelphia Eagles",
-       "price": 2.28
-      }
-     ]
-    },
-    {
-     "bookmaker": "unibet_nl",
-     "last_update": "2026-11-02T16:05:35Z",
-     "outcomes": [
-      {
-       "name": "New York Giants",
-       "price": 1.64
-      },
-      {
-       "name": "Philadelphia Eagles",
-       "price": 2.28
-      }
-     ]
-    },
-    {
-     "bookmaker": "sport888",
-     "last_update": "2026-11-02T16:05:07Z",
-     "outcomes": [
-      {
-       "name": "New York Giants",
-       "price": 1.61
-      },
-      {
-       "name": "Philadelphia Eagles",
-       "price": 2.3
-      }
-     ]
-    },
-    {
-     "bookmaker": "mybookieag",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "New York Giants",
-       "price": 1.59
-      },
-      {
-       "name": "Philadelphia Eagles",
-       "price": 2.37
-      }
-     ]
-    },
-    {
-     "bookmaker": "codere_it",
-     "last_update": "2026-11-02T16:04:40Z",
-     "outcomes": [
-      {
-       "name": "New York Giants",
-       "price": 1.58
-      },
-      {
-       "name": "Philadelphia Eagles",
-       "price": 2.34
-      }
-     ]
-    },
-    {
-     "bookmaker": "williamhill",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "New York Giants",
-       "price": 1.62
-      },
-      {
-       "name": "Philadelphia Eagles",
-       "price": 2.3
-      }
-     ]
-    },
-    {
-     "bookmaker": "tipico_de",
-     "last_update": "2026-11-02T16:05:37Z",
-     "outcomes": [
-      {
-       "name": "New York Giants",
-       "price": 1.6
-      },
-      {
-       "name": "Philadelphia Eagles",
-       "price": 2.3
-      }
-     ]
-    },
-    {
-     "bookmaker": "marathonbet",
-     "last_update": "2026-11-02T16:05:39Z",
-     "outcomes": [
-      {
-       "name": "New York Giants",
-       "price": 1.61
-      },
-      {
-       "name": "Philadelphia Eagles",
-       "price": 2.29
-      }
-     ]
-    },
-    {
-     "bookmaker": "coolbet",
-     "last_update": "2026-11-02T16:05:08Z",
-     "outcomes": [
-      {
-       "name": "New York Giants",
-       "price": 1.61
-      },
-      {
-       "name": "Philadelphia Eagles",
-       "price": 2.4
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "sport": "americanfootball_nfl",
-   "commence_time": "2026-11-08T21:05:00Z",
-   "home_team": "Los Angeles Chargers",
-   "away_team": "Houston Texans",
-   "bookmakers": [
-    {
-     "bookmaker": "unibet_fr",
-     "last_update": "2026-11-02T16:04:40Z",
-     "outcomes": [
-      {
-       "name": "Houston Texans",
-       "price": 1.39
-      },
-      {
-       "name": "Los Angeles Chargers",
-       "price": 2.5
-      }
-     ]
-    },
-    {
-     "bookmaker": "betclic_fr",
-     "last_update": "2026-11-02T16:05:20Z",
-     "outcomes": [
-      {
-       "name": "Houston Texans",
-       "price": 1.42
-      },
-      {
-       "name": "Los Angeles Chargers",
-       "price": 2.7
-      }
-     ]
-    },
-    {
-     "bookmaker": "gtbets",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Houston Texans",
-       "price": 1.45
-      },
-      {
-       "name": "Los Angeles Chargers",
-       "price": 2.8
-      }
-     ]
-    },
-    {
-     "bookmaker": "betonlineag",
-     "last_update": "2026-11-02T16:05:07Z",
-     "outcomes": [
-      {
-       "name": "Houston Texans",
-       "price": 1.48
-      },
-      {
-       "name": "Los Angeles Chargers",
-       "price": 2.8
-      }
-     ]
-    },
-    {
-     "bookmaker": "pmu_fr",
-     "last_update": "2026-11-02T16:04:41Z",
-     "outcomes": [
-      {
-       "name": "Houston Texans",
-       "price": 1.32
-      },
-      {
-       "name": "Los Angeles Chargers",
-       "price": 2.48
-      }
-     ]
-    },
-    {
-     "bookmaker": "unibet_se",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Houston Texans",
-       "price": 1.41
-      },
-      {
-       "name": "Los Angeles Chargers",
-       "price": 2.9
-      }
-     ]
-    },
-    {
-     "bookmaker": "unibet_nl",
-     "last_update": "2026-11-02T16:05:35Z",
-     "outcomes": [
-      {
-       "name": "Houston Texans",
-       "price": 1.41
-      },
-      {
-       "name": "Los Angeles Chargers",
-       "price": 2.9
-      }
-     ]
-    },
-    {
-     "bookmaker": "leovegas_se",
-     "last_update": "2026-11-02T16:04:40Z",
-     "outcomes": [
-      {
-       "name": "Houston Texans",
-       "price": 1.45
-      },
-      {
-       "name": "Los Angeles Chargers",
-       "price": 2.75
-      }
-     ]
-    },
-    {
-     "bookmaker": "sport888",
-     "last_update": "2026-11-02T16:05:07Z",
-     "outcomes": [
-      {
-       "name": "Houston Texans",
-       "price": 1.44
-      },
-      {
-       "name": "Los Angeles Chargers",
-       "price": 2.75
-      }
-     ]
-    },
-    {
-     "bookmaker": "mybookieag",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Houston Texans",
-       "price": 1.44
-      },
-      {
-       "name": "Los Angeles Chargers",
-       "price": 2.8
-      }
-     ]
-    },
-    {
-     "bookmaker": "codere_it",
-     "last_update": "2026-11-02T16:04:40Z",
-     "outcomes": [
-      {
-       "name": "Houston Texans",
-       "price": 1.43
-      },
-      {
-       "name": "Los Angeles Chargers",
-       "price": 2.75
-      }
-     ]
-    },
-    {
-     "bookmaker": "nordicbet",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Houston Texans",
-       "price": 1.44
-      },
-      {
-       "name": "Los Angeles Chargers",
-       "price": 2.8
-      }
-     ]
-    },
-    {
-     "bookmaker": "williamhill",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Houston Texans",
-       "price": 1.4
-      },
-      {
-       "name": "Los Angeles Chargers",
-       "price": 2.9
-      }
-     ]
-    },
-    {
-     "bookmaker": "coolbet",
-     "last_update": "2026-11-02T16:05:08Z",
-     "outcomes": [
-      {
-       "name": "Houston Texans",
-       "price": 1.45
-      },
-      {
-       "name": "Los Angeles Chargers",
-       "price": 2.85
-      }
-     ]
-    },
-    {
-     "bookmaker": "betanysports",
-     "last_update": "2026-11-02T16:05:36Z",
-     "outcomes": [
-      {
-       "name": "Houston Texans",
-       "price": 1.48
-      },
-      {
-       "name": "Los Angeles Chargers",
-       "price": 2.75
-      }
-     ]
-    },
-    {
-     "bookmaker": "tipico_de",
-     "last_update": "2026-11-02T16:05:37Z",
-     "outcomes": [
-      {
-       "name": "Houston Texans",
-       "price": 1.42
-      },
-      {
-       "name": "Los Angeles Chargers",
-       "price": 2.8
-      }
-     ]
-    },
-    {
-     "bookmaker": "marathonbet",
-     "last_update": "2026-11-02T16:05:39Z",
-     "outcomes": [
-      {
-       "name": "Houston Texans",
-       "price": 1.47
-      },
-      {
-       "name": "Los Angeles Chargers",
-       "price": 2.64
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "sport": "americanfootball_nfl",
-   "commence_time": "2026-11-08T21:05:00Z",
-   "home_team": "San Francisco 49ers",
-   "away_team": "Las Vegas Raiders",
-   "bookmakers": [
-    {
-     "bookmaker": "betclic_fr",
-     "last_update": "2026-11-02T16:05:20Z",
-     "outcomes": [
-      {
-       "name": "Las Vegas Raiders",
-       "price": 4.2
-      },
-      {
-       "name": "San Francisco 49ers",
-       "price": 1.2
-      }
-     ]
-    },
-    {
-     "bookmaker": "gtbets",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Las Vegas Raiders",
-       "price": 4.75
-      },
-      {
-       "name": "San Francisco 49ers",
-       "price": 1.2
-      }
-     ]
-    },
-    {
-     "bookmaker": "betonlineag",
-     "last_update": "2026-11-02T16:05:07Z",
-     "outcomes": [
-      {
-       "name": "Las Vegas Raiders",
-       "price": 4.44
-      },
-      {
-       "name": "San Francisco 49ers",
-       "price": 1.23
-      }
-     ]
-    },
-    {
-     "bookmaker": "pmu_fr",
-     "last_update": "2026-11-02T16:04:41Z",
-     "outcomes": [
-      {
-       "name": "Las Vegas Raiders",
-       "price": 4.2
-      },
-      {
-       "name": "San Francisco 49ers",
-       "price": 1.08
-      }
-     ]
-    },
-    {
-     "bookmaker": "unibet_se",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Las Vegas Raiders",
-       "price": 5.05
-      },
-      {
-       "name": "San Francisco 49ers",
-       "price": 1.18
-      }
-     ]
-    },
-    {
-     "bookmaker": "unibet_nl",
-     "last_update": "2026-11-02T16:05:35Z",
-     "outcomes": [
-      {
-       "name": "Las Vegas Raiders",
-       "price": 5.05
-      },
-      {
-       "name": "San Francisco 49ers",
-       "price": 1.18
-      }
-     ]
-    },
-    {
-     "bookmaker": "leovegas_se",
-     "last_update": "2026-11-02T16:04:40Z",
-     "outcomes": [
-      {
-       "name": "Las Vegas Raiders",
-       "price": 5.05
-      },
-      {
-       "name": "San Francisco 49ers",
-       "price": 1.18
-      }
-     ]
-    },
-    {
-     "bookmaker": "sport888",
-     "last_update": "2026-11-02T16:05:07Z",
-     "outcomes": [
-      {
-       "name": "Las Vegas Raiders",
-       "price": 4.5
-      },
-      {
-       "name": "San Francisco 49ers",
-       "price": 1.2
-      }
-     ]
-    },
-    {
-     "bookmaker": "mybookieag",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Las Vegas Raiders",
-       "price": 4.56
-      },
-      {
-       "name": "San Francisco 49ers",
-       "price": 1.21
-      }
-     ]
-    },
-    {
-     "bookmaker": "codere_it",
-     "last_update": "2026-11-02T16:04:40Z",
-     "outcomes": [
-      {
-       "name": "Las Vegas Raiders",
-       "price": 4.3
-      },
-      {
-       "name": "San Francisco 49ers",
-       "price": 1.21
-      }
-     ]
-    },
-    {
-     "bookmaker": "williamhill",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Las Vegas Raiders",
-       "price": 4.5
-      },
-      {
-       "name": "San Francisco 49ers",
-       "price": 1.2
-      }
-     ]
-    },
-    {
-     "bookmaker": "nordicbet",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Las Vegas Raiders",
-       "price": 4.53
-      },
-      {
-       "name": "San Francisco 49ers",
-       "price": 1.2
-      }
-     ]
-    },
-    {
-     "bookmaker": "matchbook",
-     "last_update": "2026-11-02T16:05:36Z",
-     "outcomes": [
-      {
-       "name": "Las Vegas Raiders",
-       "price": 4.3
-      },
-      {
-       "name": "San Francisco 49ers",
-       "price": 1.27
-      }
-     ]
-    },
-    {
-     "bookmaker": "pinnacle",
-     "last_update": "2026-11-02T16:05:33Z",
-     "outcomes": [
-      {
-       "name": "Las Vegas Raiders",
-       "price": 4.4
-      },
-      {
-       "name": "San Francisco 49ers",
-       "price": 1.23
-      }
-     ]
-    },
-    {
-     "bookmaker": "marathonbet",
-     "last_update": "2026-11-02T16:05:39Z",
-     "outcomes": [
-      {
-       "name": "Las Vegas Raiders",
-       "price": 4.3
-      },
-      {
-       "name": "San Francisco 49ers",
-       "price": 1.21
-      }
-     ]
-    },
-    {
-     "bookmaker": "coolbet",
-     "last_update": "2026-11-02T16:05:08Z",
-     "outcomes": [
-      {
-       "name": "Las Vegas Raiders",
-       "price": 4.7
-      },
-      {
-       "name": "San Francisco 49ers",
-       "price": 1.21
-      }
-     ]
-    },
-    {
-     "bookmaker": "betanysports",
-     "last_update": "2026-11-02T16:05:36Z",
-     "outcomes": [
-      {
-       "name": "Las Vegas Raiders",
-       "price": 4.85
-      },
-      {
-       "name": "San Francisco 49ers",
-       "price": 1.21
-      }
-     ]
-    },
-    {
-     "bookmaker": "tipico_de",
-     "last_update": "2026-11-02T16:05:37Z",
-     "outcomes": [
-      {
-       "name": "Las Vegas Raiders",
-       "price": 4.1
-      },
-      {
-       "name": "San Francisco 49ers",
-       "price": 1.22
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "sport": "americanfootball_nfl",
-   "commence_time": "2026-11-08T21:25:00Z",
-   "home_team": "Seattle Seahawks",
-   "away_team": "Arizona Cardinals",
-   "bookmakers": [
-    {
-     "bookmaker": "betclic_fr",
-     "last_update": "2026-11-02T16:05:20Z",
-     "outcomes": [
-      {
-       "name": "Arizona Cardinals",
-       "price": 5.5
-      },
-      {
-       "name": "Seattle Seahawks",
-       "price": 1.12
-      }
-     ]
-    },
-    {
-     "bookmaker": "gtbets",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Arizona Cardinals",
-       "price": 6.15
-      },
-      {
-       "name": "Seattle Seahawks",
-       "price": 1.14
-      }
-     ]
-    },
-    {
-     "bookmaker": "leovegas_se",
-     "last_update": "2026-11-02T16:04:40Z",
-     "outcomes": [
-      {
-       "name": "Arizona Cardinals",
-       "price": 6.25
-      },
-      {
-       "name": "Seattle Seahawks",
-       "price": 1.13
-      }
-     ]
-    },
-    {
-     "bookmaker": "unibet_se",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Arizona Cardinals",
-       "price": 6.25
-      },
-      {
-       "name": "Seattle Seahawks",
-       "price": 1.13
-      }
-     ]
-    },
-    {
-     "bookmaker": "pmu_fr",
-     "last_update": "2026-11-02T16:04:41Z",
-     "outcomes": [
-      {
-       "name": "Arizona Cardinals",
-       "price": 5.0
-      },
-      {
-       "name": "Seattle Seahawks",
-       "price": 1.04
-      }
-     ]
-    },
-    {
-     "bookmaker": "unibet_nl",
-     "last_update": "2026-11-02T16:05:35Z",
-     "outcomes": [
-      {
-       "name": "Arizona Cardinals",
-       "price": 6.25
-      },
-      {
-       "name": "Seattle Seahawks",
-       "price": 1.13
-      }
-     ]
-    },
-    {
-     "bookmaker": "sport888",
-     "last_update": "2026-11-02T16:05:07Z",
-     "outcomes": [
-      {
-       "name": "Arizona Cardinals",
-       "price": 6.0
-      },
-      {
-       "name": "Seattle Seahawks",
-       "price": 1.12
-      }
-     ]
-    },
-    {
-     "bookmaker": "mybookieag",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Arizona Cardinals",
-       "price": 6.0
-      },
-      {
-       "name": "Seattle Seahawks",
-       "price": 1.13
-      }
-     ]
-    },
-    {
-     "bookmaker": "codere_it",
-     "last_update": "2026-11-02T16:04:40Z",
-     "outcomes": [
-      {
-       "name": "Arizona Cardinals",
-       "price": 5.8
-      },
-      {
-       "name": "Seattle Seahawks",
-       "price": 1.13
-      }
-     ]
-    },
-    {
-     "bookmaker": "williamhill",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Arizona Cardinals",
-       "price": 6.0
-      },
-      {
-       "name": "Seattle Seahawks",
-       "price": 1.12
-      }
-     ]
-    },
-    {
-     "bookmaker": "nordicbet",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Arizona Cardinals",
-       "price": 6.0
-      },
-      {
-       "name": "Seattle Seahawks",
-       "price": 1.13
-      }
-     ]
-    },
-    {
-     "bookmaker": "betanysports",
-     "last_update": "2026-11-02T16:05:36Z",
-     "outcomes": [
-      {
-       "name": "Arizona Cardinals",
-       "price": 6.0
-      },
-      {
-       "name": "Seattle Seahawks",
-       "price": 1.14
-      }
-     ]
-    },
-    {
-     "bookmaker": "tipico_de",
-     "last_update": "2026-11-02T16:05:37Z",
-     "outcomes": [
-      {
-       "name": "Arizona Cardinals",
-       "price": 6.0
-      },
-      {
-       "name": "Seattle Seahawks",
-       "price": 1.12
-      }
-     ]
-    },
-    {
-     "bookmaker": "marathonbet",
-     "last_update": "2026-11-02T16:05:39Z",
-     "outcomes": [
-      {
-       "name": "Arizona Cardinals",
-       "price": 5.5
-      },
-      {
-       "name": "Seattle Seahawks",
-       "price": 1.14
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "sport": "americanfootball_nfl",
-   "commence_time": "2026-11-08T21:25:00Z",
-   "home_team": "New England Patriots",
-   "away_team": "Green Bay Packers",
-   "bookmakers": [
-    {
-     "bookmaker": "unibet_fr",
-     "last_update": "2026-11-02T16:04:40Z",
-     "outcomes": [
-      {
-       "name": "Green Bay Packers",
-       "price": 1.97
-      },
-      {
-       "name": "New England Patriots",
-       "price": 1.63
-      }
-     ]
-    },
-    {
-     "bookmaker": "betclic_fr",
-     "last_update": "2026-11-02T16:05:20Z",
-     "outcomes": [
-      {
-       "name": "Green Bay Packers",
-       "price": 2.1
-      },
-      {
-       "name": "New England Patriots",
-       "price": 1.7
-      }
-     ]
-    },
-    {
-     "bookmaker": "gtbets",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Green Bay Packers",
-       "price": 2.3
-      },
-      {
-       "name": "New England Patriots",
-       "price": 1.67
-      }
-     ]
-    },
-    {
-     "bookmaker": "betonlineag",
-     "last_update": "2026-11-02T16:05:07Z",
-     "outcomes": [
-      {
-       "name": "Green Bay Packers",
-       "price": 2.32
-      },
-      {
-       "name": "New England Patriots",
-       "price": 1.66
-      }
-     ]
-    },
-    {
-     "bookmaker": "unibet_nl",
-     "last_update": "2026-11-02T16:05:35Z",
-     "outcomes": [
-      {
-       "name": "Green Bay Packers",
-       "price": 2.33
-      },
-      {
-       "name": "New England Patriots",
-       "price": 1.62
-      }
-     ]
-    },
-    {
-     "bookmaker": "leovegas_se",
-     "last_update": "2026-11-02T16:04:40Z",
-     "outcomes": [
-      {
-       "name": "Green Bay Packers",
-       "price": 2.33
-      },
-      {
-       "name": "New England Patriots",
-       "price": 1.62
-      }
-     ]
-    },
-    {
-     "bookmaker": "unibet_se",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Green Bay Packers",
-       "price": 2.33
-      },
-      {
-       "name": "New England Patriots",
-       "price": 1.62
-      }
-     ]
-    },
-    {
-     "bookmaker": "pmu_fr",
-     "last_update": "2026-11-02T16:04:41Z",
-     "outcomes": [
-      {
-       "name": "Green Bay Packers",
-       "price": 2.02
-      },
-      {
-       "name": "New England Patriots",
-       "price": 1.5
-      }
-     ]
-    },
-    {
-     "bookmaker": "sport888",
-     "last_update": "2026-11-02T16:05:07Z",
-     "outcomes": [
-      {
-       "name": "Green Bay Packers",
-       "price": 2.15
-      },
-      {
-       "name": "New England Patriots",
-       "price": 1.7
-      }
-     ]
-    },
-    {
-     "bookmaker": "mybookieag",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Green Bay Packers",
-       "price": 2.26
-      },
-      {
-       "name": "New England Patriots",
-       "price": 1.65
-      }
-     ]
-    },
-    {
-     "bookmaker": "codere_it",
-     "last_update": "2026-11-02T16:04:40Z",
-     "outcomes": [
-      {
-       "name": "Green Bay Packers",
-       "price": 2.1
-      },
-      {
-       "name": "New England Patriots",
-       "price": 1.71
-      }
-     ]
-    },
-    {
-     "bookmaker": "nordicbet",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Green Bay Packers",
-       "price": 2.24
-      },
-      {
-       "name": "New England Patriots",
-       "price": 1.65
-      }
-     ]
-    },
-    {
-     "bookmaker": "williamhill",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Green Bay Packers",
-       "price": 2.15
-      },
-      {
-       "name": "New England Patriots",
-       "price": 1.7
-      }
-     ]
-    },
-    {
-     "bookmaker": "matchbook",
-     "last_update": "2026-11-02T16:05:36Z",
-     "outcomes": [
-      {
-       "name": "Green Bay Packers",
-       "price": 2.26
-      },
-      {
-       "name": "New England Patriots",
-       "price": 1.61
-      }
-     ]
-    },
-    {
-     "bookmaker": "pinnacle",
-     "last_update": "2026-11-02T16:03:06Z",
-     "outcomes": [
-      {
-       "name": "Green Bay Packers",
-       "price": 2.3
-      },
-      {
-       "name": "New England Patriots",
-       "price": 1.67
-      }
-     ]
-    },
-    {
-     "bookmaker": "marathonbet",
-     "last_update": "2026-11-02T16:05:39Z",
-     "outcomes": [
-      {
-       "name": "Green Bay Packers",
-       "price": 2.05
-      },
-      {
-       "name": "New England Patriots",
-       "price": 1.75
-      }
-     ]
-    },
-    {
-     "bookmaker": "coolbet",
-     "last_update": "2026-11-02T16:05:08Z",
-     "outcomes": [
-      {
-       "name": "Green Bay Packers",
-       "price": 2.25
-      },
-      {
-       "name": "New England Patriots",
-       "price": 1.68
-      }
-     ]
-    },
-    {
-     "bookmaker": "betanysports",
-     "last_update": "2026-11-02T16:05:36Z",
-     "outcomes": [
-      {
-       "name": "Green Bay Packers",
-       "price": 2.25
-      },
-      {
-       "name": "New England Patriots",
-       "price": 1.69
-      }
-     ]
-    },
-    {
-     "bookmaker": "tipico_de",
-     "last_update": "2026-11-02T16:05:37Z",
-     "outcomes": [
-      {
-       "name": "Green Bay Packers",
-       "price": 2.1
-      },
-      {
-       "name": "New England Patriots",
-       "price": 1.7
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "sport": "americanfootball_nfl",
-   "commence_time": "2026-11-09T01:20:00Z",
-   "home_team": "Chicago Bears",
-   "away_team": "Tampa Bay Buccaneers",
-   "bookmakers": [
-    {
-     "bookmaker": "unibet_fr",
-     "last_update": "2026-11-02T16:04:40Z",
-     "outcomes": [
-      {
-       "name": "Chicago Bears",
-       "price": 1.35
-      },
-      {
-       "name": "Tampa Bay Buccaneers",
-       "price": 2.65
-      }
-     ]
-    },
-    {
-     "bookmaker": "betclic_fr",
-     "last_update": "2026-11-02T16:05:20Z",
-     "outcomes": [
-      {
-       "name": "Chicago Bears",
-       "price": 1.38
-      },
-      {
-       "name": "Tampa Bay Buccaneers",
-       "price": 2.85
-      }
-     ]
-    },
-    {
-     "bookmaker": "gtbets",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Chicago Bears",
-       "price": 1.37
-      },
-      {
-       "name": "Tampa Bay Buccaneers",
-       "price": 3.2
-      }
-     ]
-    },
-    {
-     "bookmaker": "leovegas_se",
-     "last_update": "2026-11-02T16:04:40Z",
-     "outcomes": [
-      {
-       "name": "Chicago Bears",
-       "price": 1.33
-      },
-      {
-       "name": "Tampa Bay Buccaneers",
-       "price": 3.4
-      }
-     ]
-    },
-    {
-     "bookmaker": "unibet_se",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Chicago Bears",
-       "price": 1.33
-      },
-      {
-       "name": "Tampa Bay Buccaneers",
-       "price": 3.4
-      }
-     ]
-    },
-    {
-     "bookmaker": "pmu_fr",
-     "last_update": "2026-11-02T16:04:41Z",
-     "outcomes": [
-      {
-       "name": "Chicago Bears",
-       "price": 1.21
-      },
-      {
-       "name": "Tampa Bay Buccaneers",
-       "price": 3.0
-      }
-     ]
-    },
-    {
-     "bookmaker": "unibet_nl",
-     "last_update": "2026-11-02T16:05:35Z",
-     "outcomes": [
-      {
-       "name": "Chicago Bears",
-       "price": 1.33
-      },
-      {
-       "name": "Tampa Bay Buccaneers",
-       "price": 3.4
-      }
-     ]
-    },
-    {
-     "bookmaker": "sport888",
-     "last_update": "2026-11-02T16:05:07Z",
-     "outcomes": [
-      {
-       "name": "Chicago Bears",
-       "price": 1.36
-      },
-      {
-       "name": "Tampa Bay Buccaneers",
-       "price": 3.1
-      }
-     ]
-    },
-    {
-     "bookmaker": "mybookieag",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Chicago Bears",
-       "price": 1.39
-      },
-      {
-       "name": "Tampa Bay Buccaneers",
-       "price": 3.04
-      }
-     ]
-    },
-    {
-     "bookmaker": "nordicbet",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Chicago Bears",
-       "price": 1.38
-      },
-      {
-       "name": "Tampa Bay Buccaneers",
-       "price": 3.05
-      }
-     ]
-    },
-    {
-     "bookmaker": "williamhill",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Chicago Bears",
-       "price": 1.36
-      },
-      {
-       "name": "Tampa Bay Buccaneers",
-       "price": 3.1
-      }
-     ]
-    },
-    {
-     "bookmaker": "codere_it",
-     "last_update": "2026-11-02T16:04:40Z",
-     "outcomes": [
-      {
-       "name": "Chicago Bears",
-       "price": 1.4
-      },
-      {
-       "name": "Tampa Bay Buccaneers",
-       "price": 2.9
-      }
-     ]
-    },
-    {
-     "bookmaker": "betanysports",
-     "last_update": "2026-11-02T16:05:36Z",
-     "outcomes": [
-      {
-       "name": "Chicago Bears",
-       "price": 1.36
-      },
-      {
-       "name": "Tampa Bay Buccaneers",
-       "price": 3.3
-      }
-     ]
-    },
-    {
-     "bookmaker": "tipico_de",
-     "last_update": "2026-11-02T16:05:37Z",
-     "outcomes": [
-      {
-       "name": "Chicago Bears",
-       "price": 1.4
-      },
-      {
-       "name": "Tampa Bay Buccaneers",
-       "price": 2.9
-      }
-     ]
-    },
-    {
-     "bookmaker": "marathonbet",
-     "last_update": "2026-11-02T16:05:39Z",
-     "outcomes": [
-      {
-       "name": "Chicago Bears",
-       "price": 1.43
-      },
-      {
-       "name": "Tampa Bay Buccaneers",
-       "price": 2.78
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "sport": "americanfootball_nfl",
-   "commence_time": "2026-11-10T01:15:00Z",
-   "home_team": "Minnesota Vikings",
-   "away_team": "Buffalo Bills",
-   "bookmakers": [
-    {
-     "bookmaker": "nordicbet",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Buffalo Bills",
-       "price": 1.64
-      },
-      {
-       "name": "Minnesota Vikings",
-       "price": 2.25
-      }
-     ]
-    },
-    {
-     "bookmaker": "betclic_fr",
-     "last_update": "2026-11-02T16:05:20Z",
-     "outcomes": [
-      {
-       "name": "Buffalo Bills",
-       "price": 1.62
-      },
-      {
-       "name": "Minnesota Vikings",
-       "price": 2.2
-      }
-     ]
-    },
-    {
-     "bookmaker": "gtbets",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Buffalo Bills",
-       "price": 1.67
-      },
-      {
-       "name": "Minnesota Vikings",
-       "price": 2.3
-      }
-     ]
-    },
-    {
-     "bookmaker": "betonlineag",
-     "last_update": "2026-11-02T16:05:07Z",
-     "outcomes": [
-      {
-       "name": "Buffalo Bills",
-       "price": 1.65
-      },
-      {
-       "name": "Minnesota Vikings",
-       "price": 2.35
-      }
-     ]
-    },
-    {
-     "bookmaker": "unibet_se",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Buffalo Bills",
-       "price": 1.6
-      },
-      {
-       "name": "Minnesota Vikings",
-       "price": 2.38
-      }
-     ]
-    },
-    {
-     "bookmaker": "pmu_fr",
-     "last_update": "2026-11-02T16:04:41Z",
-     "outcomes": [
-      {
-       "name": "Buffalo Bills",
-       "price": 1.48
-      },
-      {
-       "name": "Minnesota Vikings",
-       "price": 2.05
-      }
-     ]
-    },
-    {
-     "bookmaker": "unibet_nl",
-     "last_update": "2026-11-02T16:05:35Z",
-     "outcomes": [
-      {
-       "name": "Buffalo Bills",
-       "price": 1.6
-      },
-      {
-       "name": "Minnesota Vikings",
-       "price": 2.38
-      }
-     ]
-    },
-    {
-     "bookmaker": "leovegas_se",
-     "last_update": "2026-11-02T16:04:40Z",
-     "outcomes": [
-      {
-       "name": "Buffalo Bills",
-       "price": 1.6
-      },
-      {
-       "name": "Minnesota Vikings",
-       "price": 2.38
-      }
-     ]
-    },
-    {
-     "bookmaker": "sport888",
-     "last_update": "2026-11-02T16:05:07Z",
-     "outcomes": [
-      {
-       "name": "Buffalo Bills",
-       "price": 1.67
-      },
-      {
-       "name": "Minnesota Vikings",
-       "price": 2.2
-      }
-     ]
-    },
-    {
-     "bookmaker": "williamhill",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Buffalo Bills",
-       "price": 1.67
-      },
-      {
-       "name": "Minnesota Vikings",
-       "price": 2.2
-      }
-     ]
-    },
-    {
-     "bookmaker": "mybookieag",
-     "last_update": "2026-11-02T16:05:34Z",
-     "outcomes": [
-      {
-       "name": "Buffalo Bills",
-       "price": 1.65
-      },
-      {
-       "name": "Minnesota Vikings",
-       "price": 2.25
-      }
-     ]
-    },
-    {
-     "bookmaker": "pinnacle",
-     "last_update": "2026-11-02T16:05:33Z",
-     "outcomes": [
-      {
-       "name": "Buffalo Bills",
-       "price": 1.62
-      },
-      {
-       "name": "Minnesota Vikings",
-       "price": 2.39
-      }
-     ]
-    },
-    {
-     "bookmaker": "marathonbet",
-     "last_update": "2026-11-02T16:05:39Z",
-     "outcomes": [
-      {
-       "name": "Buffalo Bills",
-       "price": 1.73
-      },
-      {
-       "name": "Minnesota Vikings",
-       "price": 2.09
-      }
-     ]
-    },
-    {
-     "bookmaker": "coolbet",
-     "last_update": "2026-11-02T16:05:08Z",
-     "outcomes": [
-      {
-       "name": "Buffalo Bills",
-       "price": 1.65
-      },
-      {
-       "name": "Minnesota Vikings",
-       "price": 2.3
-      }
-     ]
-    },
-    {
-     "bookmaker": "betanysports",
-     "last_update": "2026-11-02T16:05:36Z",
-     "outcomes": [
-      {
-       "name": "Buffalo Bills",
-       "price": 1.69
-      },
-      {
-       "name": "Minnesota Vikings",
-       "price": 2.25
-      }
-     ]
-    },
-    {
-     "bookmaker": "tipico_de",
-     "last_update": "2026-11-02T16:05:37Z",
-     "outcomes": [
-      {
-       "name": "Buffalo Bills",
-       "price": 1.65
-      },
-      {
-       "name": "Minnesota Vikings",
-       "price": 2.2
-      }
-     ]
-    }
-   ]
-  }
- ],
+ "bookmaker_odds": [],
  "errors": [],
  "notes": [
   "Preise in dieser Datei stammen aus Gamma und koennen veraltet sein (updatedAt pruefen). Massgeblich ist das Orderbuch in books.json.",
-  "ESPORTS: the-odds-api deckt CS2, LoL, Dota2 und Valorant NICHT ab (geprueft 23.09.2026). Fuer die 0 Esports-Maerkte hier gibt es also keine unabhaengige Vergleichsquote. Ein p-Dach dafuer nur aus verbundenen Polymarket-Maerkten herleiten (Serie gegen einzelne Maps, Weg B1) -- sonst kein Tipp.",
-  "Kontingent: 1 Sportarten x 1 Region(en) x 1 Markt/Maerkte = 1 Credits je Lauf, zwei Laeufe taeglich.",
-  "Quoten sind Rohwerte. Die Normalisierung (q_i = 1/Quote_i, p_i = q_i/Summe q) macht der Brief -- und muss pruefen, ob die Buecher wirklich unabhaengig sind: 1xBet, Melbet, 22bet, Megapari, Paripesa und 20Bet gehoeren zusammen und zaehlen als EINE Quelle."
+  "ESPORTS: the-odds-api deckt CS2, LoL, Dota2 und Valorant NICHT ab (geprueft 23.09.2026). Fuer die 2 Esports-Maerkte hier gibt es also keine unabhaengige Vergleichsquote. Ein p-Dach dafuer nur aus verbundenen Polymarket-Maerkten herleiten (Serie gegen einzelne Maps, Weg B1) -- sonst kein Tipp.",
+  "Quotenabruf uebersprungen: laeuft nur zu den UTC-Stunden [10, 16], damit das Gratis-Kontingent reicht."
  ],
- "n_markets": 2,
- "n_esport_markets": 0,
- "odds_sports_queried": [
-  "americanfootball_nfl"
- ],
- "quota_remaining": "499",
- "quota_used": "1"
+ "n_markets": 27,
+ "n_esport_markets": 2
 }
